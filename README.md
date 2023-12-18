@@ -35,7 +35,7 @@ This course contributes to the following Program Learning Outcomes:
 1. [Introduction to Object-oriented Concepts](#introduction-to-object-oriented-concepts)
 2. [Introduction to Classes and Objects](#introduction-to-classes-and-objects)
 3. [Enumerated Type, Wrapper Class and Java Package](#enumerated-type-wrapper-class-and-java-package)
-4. [Sorting](#sorting)
+4. [Arrays](#arrays)
 5. [Searching](#searching)
 6. [Linked Lists](#linked-lists)
 7. [Stack](#stack)
@@ -68,10 +68,14 @@ This course contributes to the following Program Learning Outcomes:
 - Wrapper classes
 - Packages and import Statements
   
-### Sorting
+### Arrays
 
-- Simple Sort: Bubble Sort, Selection Sort, Insertion Sort, and Sorting Analysis
-- Advanced Sort: Merge Sort and Quick Sort
+- Defining one-dimensional array
+- Passing arrays as arguments to methods
+- Returning arrays from methods
+- String arrays
+- Arrays of objects
+- Defining two-dimensional array
 
 ### Searching
 
