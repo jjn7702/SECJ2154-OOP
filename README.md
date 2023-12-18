@@ -36,7 +36,7 @@ This course contributes to the following Program Learning Outcomes:
 2. [Introduction to Classes and Objects](#introduction-to-classes-and-objects)
 3. [Enumerated Type, Wrapper Class and Java Package](#enumerated-type-wrapper-class-and-java-package)
 4. [Arrays](#arrays)
-5. [Searching](#searching)
+5. [Vectors and Collections](#vectors-and-collections)
 6. [Linked Lists](#linked-lists)
 7. [Stack](#stack)
 8. [Queue](#queue)
@@ -77,10 +77,10 @@ This course contributes to the following Program Learning Outcomes:
 - Arrays of objects
 - Defining two-dimensional array
 
-### Searching
+### Vectors and Collections
 
-- Sequential search
-- Binary search
+- ArrayList
+- Vector
 
 ### Linked Lists
 
