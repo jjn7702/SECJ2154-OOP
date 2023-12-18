@@ -82,33 +82,32 @@ This course contributes to the following Program Learning Outcomes:
 - ArrayList
 - Vector
 
-### Linked Lists
+### Class Relationships
 
-- Pointer Concepts
-- Introduction to Linked lists
-- Linked lists operations
-- Types of Linked List
-- Linked List Implementations: Declaring Nodes and Linked Lists class, Insert Node, Delete Node, Find Node, and Print Node
+- Association
+- Aggregation
+- Composition
 
-### Stack
+### Inheritance
 
-- Introduction to Stack
-- Stack Operations: push() and pop()
-- Stack implementations: Stack Array and Stack Linked List
-- Stack Applications: Infix, Postfix and Prefix
+- Introduction to inheritance
+- Protected members
+- The object class
+- Calling the superclass constructor
+- Chains of inheritance
+- Overriding superclass methods
 
-### Queue
+### Polymorphism
 
-- Introduction to Queue
-- Queue Implementations: Array Implementation (Linear and Circular) and Linked List Implementation (Linear and Circular Queue)
+- Introduction to polymorphism
+- Abstract classes and abstract methods
+- Interface and implements
 
-### Tree
+### Exception Handling
 
-- Introduction to Tree
-- Terms related to Tree concepts
-- Binary Search Tree
-- Binary Search Tree Implementations: Declaring Tree node, Tree class, Create Node, Insert Node, Delete Node, Search Node
-- Tree Traversals
+- Introduction to exceptions
+- Checked vs unchecked exceptions
+- Throwing exceptions
 
 ## Evaluation 📊
 
