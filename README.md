@@ -55,9 +55,11 @@ This course contributes to the following Program Learning Outcomes:
 
 ### Introduction to Classes and Objects
 
-- Abstract Data Type Concepts
-- C++ Revision: C++ Class, Pass objects to functions, class as return value for functions, Array of class, and pointer to class
-- Advanced File Operations: File Operations, Passing File Stream Objects to Functions, Member Functions for Reading and Writing Files, Binary Files, and Random-Access Files
+- Instance Fields, Accessor and Mutator Methods
+- Constructors
+- UML class diagram
+- Static Class Members
+- Passing and returning Objects to/from Methods
 
 ### Recursive and Algorithm Efficiency
 
