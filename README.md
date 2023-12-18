@@ -37,10 +37,10 @@ This course contributes to the following Program Learning Outcomes:
 3. [Enumerated Type, Wrapper Class and Java Package](#enumerated-type-wrapper-class-and-java-package)
 4. [Arrays](#arrays)
 5. [Vectors and Collections](#vectors-and-collections)
-6. [Linked Lists](#linked-lists)
-7. [Stack](#stack)
-8. [Queue](#queue)
-9. [Tree](#tree)
+6. [Class Relationships](#class-relationships)
+7. [Inheritance](#inheritance)
+8. [Polymorphism](#polymorphism)
+9. [Exception Handling](#exception-handling)
 
 ## Course Content 📖
 
