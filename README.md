@@ -27,12 +27,12 @@ By the end of this course, students will be able to:
 This course contributes to the following Program Learning Outcomes:
 
 - PLO1: Ability to acquire theory and principles of computer science and equip with social science and personal development knowledge.
-- PLO3: ABILITY TO CREATIVELY SOLVE REAL WORLD COMPUTER NETWORK AND SECURITY PROBLEMS THROUGH COMPUTER SCIENCE PRINCIPLES USING CURRENT TOOLS AND TECHNIQUES..
-- PLO5: Ability to work effectively in a team.
+- PLO3: Ability to creatively solve real world problems through computer science principles using current tools and techniques.
+- PLO5: Ability to think critically and creatively in order to solve problems.
 
 ## Table of Contents 📑
 
-1. [Introduction to Data Structures and Algorithms](#introduction-to-data-structures-and-algorithms)
+1. [Introduction to Object-oriented Concepts](#introduction-to-object-oriented-concepts)
 2. [Abstract Data Type, C++ Revision and Advanced File Operations](#abstract-data-type-c-revision-and-advanced-file-operations)
 3. [Recursive and Algorithm Efficiency](#recursive-and-algorithm-efficiency)
 4. [Sorting](#sorting)
@@ -44,7 +44,7 @@ This course contributes to the following Program Learning Outcomes:
 
 ## Course Content 📖
 
-### Introduction to Data Structures and Algorithms
+### Introduction to Object-oriented Concepts
 
 - Algorithm and Data Structure
 - Types of Data Structure
