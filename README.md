@@ -9,7 +9,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Object Oriented Programming (SECJ2154)
 
-Welcome to the Course on Object Oriented Programming! This course will teach you the concepts of object orientation and object-oriented programming techniques using Java programming language. It provides students with a thorough look at the basic constructs of the Java programming language such as its basic data types and operations. It also emphasizes on the use of standard Java APIs that allow students to develop text-based and GUI applications. It will also provide the programming techniques on exception handling and input/output files. At the end of this course, students should be able to use the basic constructs in object-oriented programming.
+Welcome to the Course on Object Oriented Programming! This course will present the concepts of object orientation and object-oriented programming techniques using Java programming language. It provides students with a thorough look at the basic constructs of the Java programming language such as its basic data types and operations. It also emphasizes on the use of standard Java APIs that allow students to develop text-based and GUI applications. It will also provide the programming techniques on exception handling and input/output files. At the end of this course, students should be able to use the basic constructs in object-oriented programming.
 
 ## Course Overview 📚
 
@@ -19,16 +19,16 @@ Welcome to the Course on Object Oriented Programming! This course will teach you
 ## Course Learning Outcomes (CLO) 🎯
 By the end of this course, students will be able to:
 
-1. Choose the most suitable data structures and analyse the most effective algorithm for solving certain problem.
-2. Apply effectively data structure concepts in programming.
-3. Develop medium scale programs as a group mini project by applying data structure concepts in problem solving.
+1. Apply OOP concepts in problem solving and develop Java applications.
+2. Develop Java applications that leverage the object-oriented features of the Java language such as encapsulation, inheritance and polymorphism in a given time frame.
+3. Work in a team to develop a medium to complex program as a group mini project using Java programming language.
 
 ## Program Learning Outcomes (PLO) 🌟
 This course contributes to the following Program Learning Outcomes:
 
 - PLO1: Ability to acquire theory and principles of computer science and equip with social science and personal development knowledge.
-- PLO2: Ability to design and construct computer programs using standard approaches.
-- PLO7: Ability to work effectively in a team.
+- PLO3: Ability to design and construct computer programs using standard approaches.
+- PLO5: Ability to work effectively in a team.
 
 ## Table of Contents 📑
 
