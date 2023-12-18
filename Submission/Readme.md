@@ -41,7 +41,7 @@ Option: ____
 You must place your file in the submission folder. Within the `submission` folder, create a folder called your  `group_name`. Suggested folder structure for the DSA tasks:
 
 ```
-📁Submission/sec01/group_name
+📁Submission/sec01_perdana/group_name
 ├── 📄readme.md
 └── 📁files
     ├── 📁images
@@ -59,23 +59,24 @@ Inside the `group_name` folder, there is directory named `files`. Inside the `fi
 
 In summary, this folder structure appears to be organizing a GitHub repository by dividing it into separate sections for different classes. Each task has its own directory, including the md file, along with subdirectories for related files, such as images and source codes.
 
-### Section 02
+### Section 01 (Perdana)
 
 | No | Name | Project |
 | --- | --- | :---: |
 | _0_ |[Sample](../Submission/sec04/sample/ass1/readme.md) | <a href="../Submission/sec04/sample/ass1/readme.md" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
-| 1 | Group 1 | <a href="group1" ><img src="../Images/project-management.png" width="24px" height="24px" ></a> |
-| 2 | Group 2 | <a href="group2" ><img src="../Images/project-management.png" width="24px" height="24px" ></a> |
-| 3 | Group 3 | <a href="group3" ><img src="../Images/project-management.png" width="24px" height="24px" ></a> |
+| 1 | Group 1 | <a href="group1" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
+| 2 | Group 2 | <a href="group2" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
+| 3 | Group 3 | <a href="group3" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
 
-### Section 04
+### Section 01 (Space)
 
 | No | Name | Project |
 | --- | --- | :---: |
 | _0_ |[Sample](../Submission/sec04/sample/ass1/readme.md) | <a href="../Submission/sec04/sample/ass1/readme.md" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
-| 1 | Group 1 | <a href="group1" ><img src="../Images/project-management.png" width="24px" height="24px" ></a> |
-| 2 | Group 2 | <a href="group2" ><img src="../Images/project-management.png" width="24px" height="24px" ></a> |
-| 3 | Group 3 | <a href="group3" ><img src="../Images/project-management.png" width="24px" height="24px" ></a> |
+| 1 | Group 1 | <a href="group1" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
+| 2 | Group 2 | <a href="group2" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
+| 3 | Group 3 | <a href="group3" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
+
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.
