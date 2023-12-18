@@ -33,7 +33,7 @@ This course contributes to the following Program Learning Outcomes:
 ## Table of Contents 📑
 
 1. [Introduction to Object-oriented Concepts](#introduction-to-object-oriented-concepts)
-2. [Abstract Data Type, C++ Revision and Advanced File Operations](#abstract-data-type-c-revision-and-advanced-file-operations)
+2. [Introduction to Classes and Objects](#introduction-to-classes-and-objects)
 3. [Recursive and Algorithm Efficiency](#recursive-and-algorithm-efficiency)
 4. [Sorting](#sorting)
 5. [Searching](#searching)
@@ -46,11 +46,14 @@ This course contributes to the following Program Learning Outcomes:
 
 ### Introduction to Object-oriented Concepts
 
-- Algorithm and Data Structure
-- Types of Data Structure
-- Programming Principle
+- Object oriented definition
+- Object oriented concept
+- Classes in Java
+- Java Basics
+- Creating Java Programs
+- Java Variables and data types
 
-### Abstract Data Type, C++ Revision and Advanced File Operations
+### Introduction to Classes and Objects
 
 - Abstract Data Type Concepts
 - C++ Revision: C++ Class, Pass objects to functions, class as return value for functions, Array of class, and pointer to class
