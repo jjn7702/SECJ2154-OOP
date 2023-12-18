@@ -27,7 +27,7 @@ By the end of this course, students will be able to:
 This course contributes to the following Program Learning Outcomes:
 
 - PLO1: Ability to acquire theory and principles of computer science and equip with social science and personal development knowledge.
-- PLO3: Ability to design and construct computer programs using standard approaches.
+- PLO3: ABILITY TO CREATIVELY SOLVE REAL WORLD COMPUTER NETWORK AND SECURITY PROBLEMS THROUGH COMPUTER SCIENCE PRINCIPLES USING CURRENT TOOLS AND TECHNIQUES..
 - PLO5: Ability to work effectively in a team.
 
 ## Table of Contents 📑
