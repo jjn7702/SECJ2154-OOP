@@ -13,9 +13,6 @@ _Don't forget to hit the :star: if you like this repo._
 
 In this course, each student is required to complete one [project](#project). Each group is tasked with proposing or selecting a system based on the predefined theme or from a list of proposed systems. Following that, you will be expected to apply data structure concepts to your proposed system, which will act as your case study.
 
-<a id="project"></a>
-## Project 📌
-
 - Each group must implement **sorting and searching algorithms** in the proposed system (case study).
 - Data structure concepts and algorithms must be correctly implemented using the **C++ programming language**.
 - Determine the relevant classes/ structs associated with the proposed system. Each class/ struct must contain **at least five attributes (data)**.
