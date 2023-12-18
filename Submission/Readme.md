@@ -65,19 +65,19 @@ In summary, this folder structure appears to be organizing a GitHub repository b
 
 | No | Name | Project |
 | --- | --- | :---: |
-| _0_ |[Sample](../Submission/sec04/sample/ass1/readme.md) | <a href="../Submission/sec04/sample/ass1/readme.md" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="Sample" ><img src="../images/inventory.png" width="24px" height="24px" ></a> | <a href="Sample" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
-| 7 | Group 7 | <a href="group7" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/inventory.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
-| 8 | Group 8 | <a href="group8" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/inventory.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
-| 9 | Group 9 | <a href="group9" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/inventory.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
+| _0_ |[Sample](../Submission/sec04/sample/ass1/readme.md) | <a href="../Submission/sec04/sample/ass1/readme.md" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> |
+| 1 | Group 1 | <a href="group1" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
+| 2 | Group 2 | <a href="group2" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
+| 3 | Group 3 | <a href="group3" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
 
 ### Section 04
 
-| No | Name | Assignment 1 | Assignment 2 | Project |
-| --- | --- | :---: | :---: | :---: |
-| _0_ |[Sample](../Submission/sec04/sample/ass1/readme.md) | <a href="../Submission/sec04/sample/ass1/readme.md" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="Sample" ><img src="../images/inventory.png" width="24px" height="24px" ></a> | <a href="Sample" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
-| 7 | Group 7 | <a href="group7" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/inventory.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
-| 8 | Group 8 | <a href="group8" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/inventory.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
-| 9 | Group 9 | <a href="group9" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/inventory.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
+| No | Name | Project |
+| --- | --- | :---: |
+| _0_ |[Sample](../Submission/sec04/sample/ass1/readme.md) | <a href="../Submission/sec04/sample/ass1/readme.md" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> |
+| 1 | Group 1 | <a href="group1" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
+| 2 | Group 2 | <a href="group2" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
+| 3 | Group 3 | <a href="group3" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.
