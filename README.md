@@ -34,7 +34,7 @@ This course contributes to the following Program Learning Outcomes:
 
 1. [Introduction to Object-oriented Concepts](#introduction-to-object-oriented-concepts)
 2. [Introduction to Classes and Objects](#introduction-to-classes-and-objects)
-3. [Recursive and Algorithm Efficiency](#recursive-and-algorithm-efficiency)
+3. [Enumerated Type, Wrapper Class and Java Package](#enumerated-type-wrapper-class-and-java-package)
 4. [Sorting](#sorting)
 5. [Searching](#searching)
 6. [Linked Lists](#linked-lists)
@@ -49,24 +49,25 @@ This course contributes to the following Program Learning Outcomes:
 - Object oriented definition
 - Object oriented concept
 - Classes in Java
-- Java Basics
-- Creating Java Programs
-- Java Variables and data types
+- Java basics
+- Creating Java programs
+- Java variables and data types
 
 ### Introduction to Classes and Objects
 
-- Instance Fields, Accessor and Mutator Methods
+- Instance fields, accessor and mutator methods
 - Constructors
 - UML class diagram
-- Static Class Members
-- Passing and returning Objects to/from Methods
+- Static class members
+- Passing and returning Objects to/from methods
 
-### Recursive and Algorithm Efficiency
+### Enumerated Type, Wrapper Class and Java Package
 
-- Recursive Principle and Design
-- Tracing Recursive Algorithms
-- Algorithm Efficiency: Analysis order of magnitude, Big O notation
-
+- Enumerated types
+- Garbage collection
+- Wrapper classes
+- Packages and import Statements
+  
 ### Sorting
 
 - Simple Sort: Bubble Sort, Selection Sort, Insertion Sort, and Sorting Analysis
