@@ -111,10 +111,9 @@ This course contributes to the following Program Learning Outcomes:
 
 ## Evaluation 📊
 
-- [Assignments](./Submission)(2): 10%
-- Lab Exercises(4): 10%
-- Quizzes(2): 10%
-- [Project](./Submission): 10%
+- Lab Exercises(5): 15%
+- Quizzes(3): 10%
+- [Project](./Submission): 15%
 - Test1(Theory): 15%
 - Test2(Practical): 15%
 - Final Exam: 30%
