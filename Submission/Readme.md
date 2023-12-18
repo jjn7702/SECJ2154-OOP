@@ -46,8 +46,6 @@ You must place your file in the submission folder. Within the `submission` folde
 └── 📁files
     ├── 📁images
     └── 📁source-code
-        ├── 📁images
-        └── 📁source-code
 
 ```
 The folder structure you provided appears to be organized in a hierarchical manner. Here's a description of each component:
