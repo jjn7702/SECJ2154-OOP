@@ -24,7 +24,7 @@ The Chronic Disease Management System is designed to address the effective manag
 
 ## Findings 📊
 
-- Source Code
+- [Source Code](../sample/source_code/PatientSystem.java)
 - Input Files
 - Report
 - Slide
