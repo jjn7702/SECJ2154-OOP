@@ -1,3 +1,4 @@
+//This is only example of the Java code
 import java.util.*;
 
 class PatientSystem {
