@@ -17,9 +17,9 @@ The Chronic Disease Management System is designed to address the effective manag
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| Ahmad bin Rashid   | ABC123        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Images/boy_4537038.png" width=80px, height=80px>     |
-| Lee Mei Ling       | DEF456        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Images/girl_4537097.png" width=80px, height=80px>         |
-| Rakesh Kumar       | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Images/boy_4537022.png" width=80px, height=80px>         |
+| Ahmad bin Rashid   | ABC123        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../images/boy_4537038.png" width=80px, height=80px>     |
+| Lee Mei Ling       | DEF456        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../images/girl_4537097.png" width=80px, height=80px>         |
+| Rakesh Kumar       | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../images/boy_4537022.png" width=80px, height=80px>         |
 
 
 ## Findings 📊
