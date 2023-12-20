@@ -29,7 +29,7 @@ The Chronic Disease Management System is designed to address the effective manag
 - Project
 
 ## Contribution 🛠️
-Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/Submission/issues) for any improvements, suggestions or errors in the content.
+Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.
 
 [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fjjn7702&labelColor=%23697689&countColor=%23555555&style=plastic)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fjjn7702)
 ![](https://hit.yhype.me/github/profile?user_id=81284918)
