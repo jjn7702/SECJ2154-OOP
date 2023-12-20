@@ -63,6 +63,12 @@ In summary, this folder structure appears to be organizing a GitHub repository b
 | 1 | Group 1 | <a href="group1" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
 | 2 | Group 2 | <a href="group2" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
 | 3 | Group 3 | <a href="group3" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
+| 4 | Group 4 | <a href="group4" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
+| 5 | Group 5 | <a href="group5" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
+| 6 | Group 6 | <a href="group6" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
+| 7 | Group 7 | <a href="group7" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
+| 8 | Group 8 | <a href="group8" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
+| 9 | Group 9 | <a href="group9" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
 
 ### Section 01 (Space)
 
