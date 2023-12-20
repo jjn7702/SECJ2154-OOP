@@ -19,7 +19,7 @@ In this course, each student is required to complete one [project](#project). Ea
     - Association: both composition and aggregation
     - Inheritance and Polymorphism
     - Exception handling
-  _Note: The more concepts you use, the more marks you will receive._
+_Note: The more concepts you use, the more marks you will receive._
 
 - Write a comprehensive report (documentation) that includes an objective, a purpose of the system is created, an analysis and design (provide a flow chart to show the proposed system's work flow and UML class diagrams to show all of the objects involved in the system and their relationships), explain the use of OO concepts in the system and highlight the OO concept used in the source code, and User manual, provide a sample of inputs and outputs for each task.
 
