@@ -11,31 +11,22 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Project 📚 
 
-In this course, each student is required to complete one [project](#project). Each group is tasked with proposing or selecting a system based on the predefined theme or from a list of proposed systems. Following that, you will be expected to apply data structure concepts to your proposed system, which will act as your case study.
+In this course, each student is required to complete one [project](#project). Each group is tasked with selecting a system from a list of topics/ case studies. Following that, you will be expected to apply object roriented (OO) concepts to your chosen topics.
 
-- Each group must implement **sorting and searching algorithms** in the proposed system (case study).
-- Data structure concepts and algorithms must be correctly implemented using the **C++ programming language**.
-- Determine the relevant classes/ structs associated with the proposed system. Each class/ struct must contain **at least five attributes (data)**.
-- Perform sorting and searching on the array of objects/ structs. You have the freedom to select appropriate sorting and searching methods and algorithms.
-- Your program should give users a variety of options for sorting and searching. For example:
-```cpp
-<<< Sorting Process >>>
-[1] By name
-[2] By age
-[3] By IC number
-Option: ____
-```
-- **_Notes:_**
-    - _Sort and search based on certain criteria/ keys._
-    - _Your program should provide an easy-to-use menu._
-    - _Use an input file to get data for your program._ 
+- Each student (group member) must create at least one module (or one of the main functions of your proposed system), with that module/function containing at least TWO classes. This means that if you have four members, your group project must have at least eight classes.
+- It must implement the following concepts:
+    - Encapsulation and data hiding
+    - Association: both composition and aggregation
+    - Inheritance and Polymorphism
+    - Exception handling
+  _Note: The more concepts you use, the more marks you will receive._
 
-- Write a comprehensive report (documentation) that includes an objective, a synopsis, a design (class design presented in a class diagram and/or algorithm design illustrated in pseudocode or a flow chart), and a description of how to implement data structure operations: sorting and searching.
+- Write a comprehensive report (documentation) that includes an objective, a purpose of the system is created, an analysis and design (provide a flow chart to show the proposed system's work flow and UML class diagrams to show all of the objects involved in the system and their relationships), explain the use of OO concepts in the system and highlight the OO concept used in the source code, and User manual, provide a sample of inputs and outputs for each task.
 
 ## Submission📥
 
 ### Folder Structure
-You must place your file in the submission folder. Within the `submission` folder, create a folder called your  `group_name`. Suggested folder structure for the DSA tasks:
+You must place your file in the submission folder. Within the `submission` folder, create a folder called your  `group_name`. Suggested folder structure for the project:
 
 ```
 📁Submission/sec01_perdana/group_name
