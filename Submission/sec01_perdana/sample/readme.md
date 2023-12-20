@@ -24,9 +24,10 @@ The Chronic Disease Management System is designed to address the effective manag
 
 ## Findings 📊
 
-- Assignment 1
-- Assignment 2
-- Project
+- Source Code
+- Input Files
+- Report
+- Slide
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.
