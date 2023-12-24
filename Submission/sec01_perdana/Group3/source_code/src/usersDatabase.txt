@@ -1,0 +1,4 @@
+admin123 admin admin123 user1D@example.com Ali_Shafie 1
+user2D 1 1 user2D@example.com Abu_Bakar 2
+user3D userID3D pass3D user3D@example.com William_Liew 2
+supplier123 sup ok user7D@example.com Paeterson_Sdn.Bhd 3
