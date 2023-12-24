@@ -1,0 +1,10 @@
+B001 The_Great_Gatsby Scott_Fitzgerald 1 50
+B002 To_Kill_a_Mockingbird Harper_Lee 2 30
+B003 1984 George_Orwell 2 25
+B004 The_Catcher_in_the_Rye J.D.Salinger 5 40
+B005 Pride_and_Prejudice Jane_Austen 3 35
+B006 The_Hobbit J.R.R.Tolkien 2 20
+B007 The_Da_Vinci Dan_Brown 2 45
+B008 The_Harry_Potter_Series J.K.Rowling 1 60
+B009 The_Lord_of_the_Rings Will_Smith 4 15
+B010 THE_NIGHTMARE2.0 Paulo_Coelho 4 55
