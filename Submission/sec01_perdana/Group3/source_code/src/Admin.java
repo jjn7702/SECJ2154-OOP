@@ -5,6 +5,7 @@ import java.util.*;
 class Admin extends User {
     private Vector<Customer> customers;
     private static Vector<Book> books;
+
     public Admin(String id, String name ,String pw, String mail, int roleID, String fName, String lName){
         super(id, name, pw, mail, roleID,fName,lName);
         customers = new Vector<Customer>();
@@ -18,25 +19,21 @@ class Admin extends User {
         c.viewAllCustomers(customers);
     }
 
-    // public void viewAllBooks(Book b,int roleID) throws FileNotFoundException{ //New function sar, double check nanti :)
-    //     books = b.getBooksfromFile();
-    //     b.viewAllBooks(roleID);
-    // }
-
-    public void manageBookOperation(Book b, int option, int roleID) throws IOException{
-        books = b.getBooksfromFile();
+    //double check with Dr whether what i did is correct in terms of association here.
+    public static void manageBookOperation(Book b, int option, int roleID) throws IOException{ 
+        books = b.getBooksfromFile(); //always get books from file for real-time update.
         switch (option) {
             case 1:
-                b.addBooksIntoFile(books);
+                b.addBooksIntoFile(books);//this method is in book class
                 break;
             case 2:
-                b.removeBookFromFile(books); //stopped here, sarveish, kasi continue from here if u feel anything u bole improve.
+                b.removeBookFromFile(books);
                 break;
             case 3:
-                b.updateBookMenu(1);
+                b.updateBookMenu(books,roleID);
                 break;
             case 4:
-                b.viewAllBooks(roleID); //to view book catalogue.
+                b.viewAllBooks(books,roleID); 
                 break;
             default:
                 break;

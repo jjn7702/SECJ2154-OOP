@@ -3,8 +3,12 @@ import java.util.*;
 
 public class InventorySystem {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        //Testing with association - Sar
+        Admin ad = new Admin();
         
+        //creating a temporary Book object to be used as a connection for association.
+        Admin.manageBookOperation(new Book(),4,1);
     }
 
     public static void header(){

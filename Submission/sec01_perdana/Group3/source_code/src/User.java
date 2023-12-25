@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-class User {
+class User extends Menu{
     protected String userID;
     protected String userName;
     protected String password;
@@ -117,5 +117,5 @@ class User {
 
      protected int viewMenu(){
         return 0;
-     } //Polymorphism done
+     } //Polymorphism done using abstraction.
 }

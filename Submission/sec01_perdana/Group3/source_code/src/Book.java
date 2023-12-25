@@ -82,7 +82,7 @@ class Book{
 
     public Vector<Book> getBooksfromFile() throws FileNotFoundException {
         Vector<Book> books = new Vector<Book>();
-        Scanner sc = new Scanner(new File("booksDatabase.txt"));
+        Scanner sc = new Scanner(new File("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt"));
         
         while(sc.hasNext()){
             String bookId = sc.next();
@@ -150,9 +150,9 @@ class Book{
         bk.add(c);
     }
 
-    public void viewAllBooks(int role) throws FileNotFoundException{ //based on role as Customer no need to see stock quantity what.
-        Vector<Book> books = new Vector<Book>();
-        books = getBooksfromFile(); // double check with sarveish as we might use association here.
+    public void viewAllBooks(Vector<Book> books,int role) throws FileNotFoundException{ //based on role as Customer no need to see stock quantity what.
+        // Vector<Book> books = new Vector<Book>();
+        // books = getBooksfromFile(); // double check with sarveish as we might use association here.
         System.out.print("╔════════╦══════════════════════════════╦══════════════════════════════╦══════════════════════╦════════════════════════╗\n");
         System.out.print("║Book ID ║            Title             ║         Main Author          ║         Genre        ║    Stock Available     ║\n");
         System.out.print("╠════════╬══════════════════════════════╬══════════════════════════════╬══════════════════════╬════════════════════════╣\n");
@@ -165,15 +165,15 @@ class Book{
         scan.nextLine();
     }
 
-    public void updateBookMenu(int role) throws IOException{
-        Vector<Book> books = new Vector<Book>();
-        books = getBooksfromFile(); // double check with sarveish as we might use association here.
+    public void updateBookMenu(Vector<Book> books, int role) throws IOException{
+        // Vector<Book> books = new Vector<Book>();
+        // books = getBooksfromFile(); // double check with sarveish as we might use association here.
         Scanner scan = new Scanner(System.in);
         int option, newOption;
         do {
             System.out.print("\033[H\033[2J");  
             System.out.flush();
-            viewAllBooks(role);
+            viewAllBooks(books,role);
             System.out.println("\n\n");
             System.out.println("╔═══════════════════════════════╗");
             System.out.println("║          Update Book          ║");
@@ -219,12 +219,12 @@ class Book{
             case 1:
                 System.out.println("Enter new book title : ");
                 String newVal = scan.nextLine();
-                Boolean val = editBookDetails(option, id, newVal);
+                Boolean val = editBookDetails(books,option, id, newVal);
                 break;
             case 2:
                 System.out.println("Enter new book author : ");
                 newVal = scan.nextLine();
-                val = editBookDetails(option, id, newVal);
+                val = editBookDetails(books,option, id, newVal);
                 break;
             case 3:
                 do{
@@ -235,12 +235,12 @@ class Book{
                         System.out.println("Invalid option entered. Please enter a number between 1 and 5. Try Again :)");
                     }
                 }while(newOption <1 && newOption>5);
-                 val = editBookDetails(option, id, newVal);
+                 val = editBookDetails(books,option, id, newVal);
                 break;
             case 4:
                 System.out.println("Enter new book stock Quantity : ");
                 newVal = scan.nextLine();
-                val = editBookDetails(option, id, newVal);
+                val = editBookDetails(books,option, id, newVal);
                 break;
             case 5:
                 break;
@@ -250,9 +250,10 @@ class Book{
     }
 
     public void removeBookFromFile(Vector<Book> bk2) throws IOException{
-        Vector<Book> books = new Vector<Book>();
-        books = getBooksfromFile(); // double check with sarveish as we might use association here.
-        viewAllBooks(1);
+        //Sar : wei yang, we can do this by using bk2 param in my opinion..need to check whether our style of association possible ke tak with lect.
+        // Vector<Book> books = new Vector<Book>();
+        // books = getBooksfromFile(); // double check with sarveish as we might use association here.
+        viewAllBooks(bk2,1);
         String bookId = "";
         int index =0;
         Scanner scan = new Scanner(System.in);
@@ -261,7 +262,7 @@ class Book{
         bookId = scan.nextLine();
         boolean validation  = false;
 
-        for (Book bk : books) {
+        for (Book bk : bk2) {
             if (bk.getBookID().equals(bookId)) {
                 validation = true;
                 break;
@@ -272,7 +273,7 @@ class Book{
                 System.out.println("Book ID not exists in our database. Please Try Again!");
                 System.out.print("\nEnter Book ID : ");
                 bookId = scan.nextLine();
-                for (Book bk : books) {
+                for (Book bk : bk2) {
                     if (bk.getBookID().equals(bookId)) {
                         validation = true;
                         break;
@@ -280,7 +281,7 @@ class Book{
                 }   
         }
         PrintWriter outputFile = new PrintWriter(new FileWriter("booksDatabase.txt"),false);
-        for(Book book:books){
+        for(Book book:bk2){
             if(book.getBookID().equals(bookId)){
                 break;
             }else{
@@ -292,9 +293,9 @@ class Book{
         outputFile.close();
     }
 
-    public Boolean editBookDetails(int category, String id, String value) throws IOException{
-        Vector<Book> books = new Vector<Book>();
-        books = getBooksfromFile(); // double check with sarveish as we might use association here.
+    public Boolean editBookDetails(Vector<Book> books,int category, String id, String value) throws IOException{
+        // Vector<Book> books = new Vector<Book>();
+        // books = getBooksfromFile(); // double check with sarveish as we might use association here.
         value = value.replaceAll(" ", "_");
         for(Book book:books){
             if(book.getBookID().equals(id)){
