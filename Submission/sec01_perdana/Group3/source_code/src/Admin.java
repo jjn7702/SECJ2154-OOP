@@ -6,10 +6,10 @@ class Admin extends User {
     private Vector<Customer> customers;
     private static Vector<Book> books;
 
-    public Admin(String id, String name ,String pw, String mail, int roleID, String fName, String lName){
+    public Admin(String id, String name ,String pw, String mail, int roleID, String fName, String lName, Vector<Book> bks){
         super(id, name, pw, mail, roleID,fName,lName);
-        customers = new Vector<Customer>();
-        books = new Vector<Book>(); //double check with sarveish.
+        customers = new Vector<Customer>(); //association as one operation is performed.
+        books = bks; //aggregation as many operations is getting performed.
     }
 
     public Admin(){}
@@ -21,7 +21,6 @@ class Admin extends User {
 
     //double check with Dr whether what i did is correct in terms of association here.
     public static void manageBookOperation(Book b, int option, int roleID) throws IOException{ 
-        books = b.getBooksfromFile(); //always get books from file for real-time update.
         switch (option) {
             case 1:
                 b.addBooksIntoFile(books);//this method is in book class
