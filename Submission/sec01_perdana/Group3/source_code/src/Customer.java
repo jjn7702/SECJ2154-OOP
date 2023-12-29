@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Customer extends User {
+public class Customer extends User  {
     private Vector<Book> bookList;
     //private static Vector<OrderManagement> orders;
 
@@ -80,12 +80,8 @@ public class Customer extends User {
             System.out.print("\n\n Enter the option (1-4) : ");
             option = sc.nextInt();
 
-            if(option < 1 || option > 4){
-                System.out.println("Invalid option entered. Please enter a number between 1 and 4. Try Again :)");
             if(option < 1 || option > 5){
                 System.out.println("Invalid option entered. Please enter a number between 1 and 5. Try Again :)");
-            }else if(option == 1){
-                
             }
 
         }while(option < 1 || option > 5);
@@ -129,44 +125,108 @@ public class Customer extends User {
         System.out.print("Press Enter to continue...");
         Scanner scan = new Scanner(System.in);
         scan.nextLine();
-        scan.close();
     }
 
-    public Boolean updateCustomerAcc(int category, String id, String value) throws IOException{
-        Vector<Customer> customers = new Vector<Customer>();
-        customers = getCustomersfromFile();
-        for(Customer c : customers){
-            if(c.getUserID().equals(id)){
-                switch (category) {
-                    case 1:
-                        c.setUserName(value);
-                        break;
-                    case 2:
-                        c.setPassword(value);
-                    case 3:
-                        c.setEmail(value);
-                
-                    default:
-                        return false;
-                }
-            }
-        }
+        public static void displayCustomer(User u){
+            System.out.println("+-----------------+---------------------+---------------------+---------------------+");
+            System.out.println("|  Customer ID    |    Username         |     Full Name       |        Email        |");
+            System.out.println("+-----------------+---------------------+---------------------+---------------------+");
+        
+            System.out.printf("| %-15s | %-19s | %-19s | %-19s |%n", u.getUserID(), u.getUserName(), u.getName().getfName() + " " + u.getName().getlName(), u.getEmail());
+        
+            System.out.println("+-----------------+---------------------+---------------------+---------------------+");
+        
+    }
 
-        if(customers !=null){
-            FileWriter file = new FileWriter("userDatabase.txt",false);
-            for (Customer c : customers) {
-                String line = String.format("%s %s %s %s %d%n",
-                        c.getUserID(), c.getUserName(), c.getPassword(), c.getEmail(), 2);
-                file.write(line);
+    public static void updateCustomerAcc(User currUser) throws IOException{
+        Scanner scan = new Scanner(System.in);
+        int option;
+        String newValue = "";
+        do {
+            System.out.print("\033[H\033[2J");  
+            System.out.flush();
+            displayCustomer(currUser);
+            System.out.println("\n\n");
+            System.out.println("╔═══════════════════════════════╗");
+            System.out.println("║          Manage Account       ║");
+            System.out.println("╠═══════════════════════════════╣");
+            System.out.println("║ 1. Update Username            ║");
+            System.out.println("║ 2. Update Password            ║");
+            System.out.println("║ 3. Update Email               ║");
+            System.out.println("║ 4. Update Name                ║");
+            System.out.println("║ 5. Back                       ║");
+            System.out.println("╚═══════════════════════════════╝");
+            System.out.print("\nEnter your option (1-5): ");
+            option = scan.nextInt();
+
+            if(option < 1 || option >5){
+                System.out.println("Invalid option entered. Please enter a number between 1 and 5. Try Again :)");
+            }
+        } while (option < 1 || option >5);
+        scan.nextLine();
+
+        switch (option) {
+            case 1:
+                System.out.print("\nEnter new username : ");
+                newValue = scan.nextLine();
+                currUser.setUserName(newValue);
+                break;
+            case 2:
+                System.out.print("\nEnter new password: ");
+                newValue= scan.nextLine();
+
+                System.out.print("\nRe-enter your password: ");
+                String confirmPassword = scan.nextLine();
+
+
+                while (newValue.equals(confirmPassword) == false) {
+                    System.out.println("Passwords do not match. Please re-enter your password.");
+                    System.out.print("\nEnter a password: ");
+                    newValue = scan.nextLine();
+
+                    System.out.print("\nRe-enter your password: ");
+                    confirmPassword = scan.nextLine();
+                }
+                currUser.setPassword(newValue);
+                break;
+            case 3:
+                System.out.print("\nEnter new email : ");
+                newValue = scan.nextLine();
+                currUser.setEmail(newValue);
+                break;
+            case 4:
+                System.out.print("\nEnter new first name : ");
+                newValue = scan.nextLine();
+                currUser.getName().setfName(newValue);
+                System.out.print("\nEnter new last name : ");
+                newValue= scan.nextLine();
+                currUser.getName().setlName(newValue);
+                break;
+            
+            case 5:
+                return;
+        
+            default:
+                break;
+        }
+        Vector<User> us = new Vector<User>();
+        us = User.readAllUsers();
+        FileWriter file = new FileWriter("userDatabase.txt",false);
+        for (User c : us) {
+                String fullName = c.getName().getfName()+"_"+c.getName().getlName();
+                if(c.getUserID().equals(currUser.getUserID())){
+                    String username = currUser.getUserName().replaceAll(" ", "");
+                    String em = currUser.getEmail().replaceAll(" ", "");
+                    fullName = currUser.getName().getfName()+"_"+currUser.getName().getlName();
+                    String line = String.format("%s %s %s %s %s %d%n", currUser.getUserID(), username, currUser.getPassword(), em,fullName, 2);
+                    file.write(line);
+                }else{
+                    String line = String.format("%s %s %s %s %d%n", c.getUserID(), c.getUserName(), c.getPassword(), c.getEmail(),fullName, c.getUserRole());
+                    file.write(line);
+                }
+
             }
             file.close();
-        }
-
-        return true;
+        System.out.println("Updated Successfully :)");
     }
-
-    public void  displayBooks(Book b,int roleID) throws FileNotFoundException{
-        b.viewAllBooks(b.getBooksfromFile(), roleID);
-    }
-
 }
