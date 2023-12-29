@@ -38,12 +38,10 @@ class SignUp {
   } 
 
   public void display() { 
-        System.out.println("\nEMAIL: " + email); 
-        System.out.println("\nWhat Is Your Gender: " + gender);
-        System.out.println("\nGive Your Home Address: " + add);
-        System.out.println("\nUSERNAME: " + username); 
-        System.out.println("\nPASSWORD: " + password);
-        System.out.println("\nGive Your Phone Number: " + phone);
-    } 
-
-  
+    System.out.println("\nEMAIL: " + email); 
+    System.out.println("\nWhat Is Your Gender: " + gender);
+    System.out.println("\nGive Your Home Address: " + add);
+    System.out.println("\nUSERNAME: " + username); 
+    System.out.println("\nPASSWORD: " + password);
+    System.out.println("\nGive Your Phone Number: " + phone);
+  } 
