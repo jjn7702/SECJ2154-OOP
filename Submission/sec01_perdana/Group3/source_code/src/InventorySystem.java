@@ -10,6 +10,11 @@ public class InventorySystem {
         
         //creating a temporary Book object to be used as a connection for association.
         Admin.manageBookOperation(new Book(),4,1);
+        //ad.viewMenu();
+
+        //create temporary customer
+        // Customer customer = new Customer();
+        // customer.viewMenu();
     }
 
     public static void header(){

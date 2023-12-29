@@ -65,6 +65,17 @@ class Admin extends User {
 
             if(option < 1 || option > 7){
                 System.out.println("Invalid option entered. Please enter a number between 1 and 7. Try Again :)");
+            }else if(option == 1){
+
+            }else if(option == 2){
+                OrderManagement orders = new OrderManagement();
+                System.out.println("Enter");
+            }else if(option == 3){
+
+            }else if(option == 4){
+
+            }else if(option == 5){
+
             }
 
         }while(option < 1 || option > 7);
