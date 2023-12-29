@@ -5,15 +5,15 @@ import users.qualification.*;
 public class Applicant{
     private String name, email, phone, gender;
     private Address address;
-    private Qualification qualification;
+    private Qualification qualify;
 
-    public Applicant(String name, String email, String phone, Address add, String gender, Qualification qualify){
+    public Applicant(String name, String email, String phone, Address add, String gender, String major, String university, double cgpa){
         this.name = name;
         this.email = email;
         this.phone = phone;
         address = add;
         this.gender = gender;
-        qualification = qualify;
+        qualify = new Qualification(major,university,cgpa);
     }
 
     public String getName(){
@@ -37,7 +37,7 @@ public class Applicant{
     }
 
     public Qualification getQualification(){
-        return qualification;
+        return qualify;
     }
 
     public void display(){}
