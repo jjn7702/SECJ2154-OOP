@@ -1,13 +1,13 @@
 class SignUp {
   
   private String email, gender, username, password;
-  private Address add;
+  private Address address;
   private int phone;
 
   public SignUp (String email, String gender, String username, String password, Address add, int phone) {
     this.email = email;
     this.gender = gender;
-    Address = add;
+    address = add;
     this.username = username;
     this.password = password;
     this.phone = phone;
@@ -21,7 +21,7 @@ class SignUp {
     return gender;
   }
 
-  public Address getAdd(){
+  public Address getAddress(){
     return add;
   } 
 
