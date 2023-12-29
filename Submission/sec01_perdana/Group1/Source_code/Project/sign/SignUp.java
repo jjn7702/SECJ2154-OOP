@@ -22,7 +22,6 @@ class SignUp {
     return password;
   }
 
-  public String getContact_number(){
+  public int getContact_number(){
     return contact;
-  }
-    
+  } 
