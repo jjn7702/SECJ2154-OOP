@@ -15,4 +15,7 @@ class SignIn {
     return password;
   } 
 
-  public void display() {}
+  public void display() {
+    System.out.println("\nUSERNAME: " + username); 
+    System.out.println("\nPASSWORD: " + password);
+    } 
