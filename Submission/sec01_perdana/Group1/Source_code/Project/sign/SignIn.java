@@ -19,3 +19,4 @@ class SignIn {
     System.out.println("\nUSERNAME: " + username); 
     System.out.println("\nPASSWORD: " + password);
     } 
+}
