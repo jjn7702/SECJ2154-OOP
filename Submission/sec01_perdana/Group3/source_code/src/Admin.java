@@ -5,6 +5,8 @@ import java.util.*;
 class Admin extends User {
     private Vector<Customer> customers;
     private static Vector<Book> books;
+    //private static Vector<OrderManagement> order;
+    //private Report report;
 
     public Admin(String id, String name ,String pw, String mail, int roleID, String fName, String lName, Vector<Book> bks){
         super(id, name, pw, mail, roleID,fName,lName);
@@ -50,23 +52,30 @@ class Admin extends User {
             System.out.println("║           Admin Menu          ║");
             System.out.println("╠═══════════════════════════════╣");
             System.out.println("║ 1. View Books Catalog         ║");
-            System.out.println("║ 2. Manage Orders              ║");
-            System.out.println("║ 3. Manage Book                ║");
-            System.out.println("║ 4. Generate Report            ║");
-            System.out.println("║ 5. View All Customers         ║");
-            System.out.println("║ 6. Exit                       ║");
+            System.out.println("║ 2. Order Book                 ║");
+            System.out.println("║ 3. View Customer Orders       ║");
+            System.out.println("║ 4. Manage Book                ║");
+            System.out.println("║ 5. Generate Report            ║");
+            System.out.println("║ 6. View All Customers         ║");
+            System.out.println("║ 7. Exit                       ║");
             System.out.println("╚═══════════════════════════════╝");
 
-            System.out.print("\n\n Enter the option (1-6) : ");
+            System.out.print("\n\n Enter the option (1-7) : ");
             option = sc.nextInt();
 
-            if(option < 1 || option > 6){
+            if(option < 1 || option > 7){
                 System.out.println("Invalid option entered. Please enter a number between 1 and 7. Try Again :)");
             }
 
-        }while(option < 1 || option > 6);
+        }while(option < 1 || option > 7);
         return option;
     }
 
+
+    //public void generateSalesReport(Report r){}
+
+    //public void orderBooks(Vector<OrderManagement>){}
+
+    //public void viewAllCustOrders()
 
 }

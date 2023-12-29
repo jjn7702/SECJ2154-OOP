@@ -2,6 +2,9 @@ import java.io.*;
 import java.util.*;
 
 public class Customer extends User {
+    private Vector<Book> bookList;
+    //private static Vector<OrderManagement> orders;
+
     public Customer(){}
 
     public Customer(String id, String name ,String pw, String mail, int roleID, String fName, String lName){
@@ -70,19 +73,18 @@ public class Customer extends User {
             System.out.println("╠═══════════════════════════════╣");
             System.out.println("║ 1. View Books Catalog         ║");
             System.out.println("║ 2. Order Books                ║");
-            System.out.println("║ 3. Check Order History        ║");
-            System.out.println("║ 4. Manage Account             ║");
-            System.out.println("║ 5. Exit                       ║");
+            System.out.println("║ 3. Manage Account             ║");
+            System.out.println("║ 4. Exit                       ║");
             System.out.println("╚═══════════════════════════════╝");
 
-            System.out.print("\n\n Enter the option (1-5) : ");
+            System.out.print("\n\n Enter the option (1-4) : ");
             option = sc.nextInt();
 
-            if(option < 1 || option > 5){
-                System.out.println("Invalid option entered. Please enter a number between 1 and 5. Try Again :)");
+            if(option < 1 || option > 4){
+                System.out.println("Invalid option entered. Please enter a number between 1 and 4. Try Again :)");
             }
 
-        }while(option < 1 || option > 5);
+        }while(option < 1 || option > 4);
         return option;
     }
 
@@ -157,4 +159,9 @@ public class Customer extends User {
 
         return true;
     }
+
+    public void  displayBooks(Book b,int roleID) throws FileNotFoundException{
+        b.viewAllBooks(b.getBooksfromFile(), roleID);
+    }
+
 }

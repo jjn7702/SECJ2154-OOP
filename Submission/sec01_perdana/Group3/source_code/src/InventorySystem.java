@@ -5,7 +5,8 @@ public class InventorySystem {
 
     public static void main(String[] args) throws IOException {
         //Testing with association - Sar
-        Admin ad = new Admin();
+        Book b = new Book(); //create a dummy or temporary Book object, to send vector value into Admin or user u trying to create.
+        Admin ad = new Admin("s","s","s","s",1,"","",b.getBooksfromFile());
         
         //creating a temporary Book object to be used as a connection for association.
         Admin.manageBookOperation(new Book(),4,1);

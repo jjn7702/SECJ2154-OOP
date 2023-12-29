@@ -3,6 +3,8 @@ import java.util.*;
 
 
 class BookSupplier extends User{
+    //private static Vector<OrderManagement> order;
+
     public BookSupplier(String id, String name ,String pw, String mail, int roleID,String fName,String lName){
         super(id, name, pw, mail, roleID,fName,lName);
     }
