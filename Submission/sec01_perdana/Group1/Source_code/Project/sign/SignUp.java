@@ -36,3 +36,5 @@ class SignUp {
   public int getPhone(){
     return phone;
   } 
+
+  public void display(){}
