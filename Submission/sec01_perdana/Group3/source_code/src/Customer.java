@@ -80,9 +80,13 @@ public class Customer extends User {
 
             if(option < 1 || option > 5){
                 System.out.println("Invalid option entered. Please enter a number between 1 and 5. Try Again :)");
+            }else if(option == 1){
+                
             }
 
         }while(option < 1 || option > 5);
+
+        sc.close();
         return option;
     }
 
@@ -123,6 +127,7 @@ public class Customer extends User {
         System.out.print("Press Enter to continue...");
         Scanner scan = new Scanner(System.in);
         scan.nextLine();
+        scan.close();
     }
 
     public Boolean updateCustomerAcc(int category, String id, String value) throws IOException{
