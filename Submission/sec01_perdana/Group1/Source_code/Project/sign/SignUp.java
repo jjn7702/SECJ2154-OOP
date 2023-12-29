@@ -45,3 +45,4 @@ class SignUp {
     System.out.println("\nPASSWORD: " + password);
     System.out.println("\nGive Your Phone Number: " + phone);
   } 
+}
