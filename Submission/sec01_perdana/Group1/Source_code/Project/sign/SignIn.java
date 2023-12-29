@@ -14,3 +14,5 @@ class SignIn {
   public String getPassword() {
     return password;
   } 
+
+  public void display() {}
