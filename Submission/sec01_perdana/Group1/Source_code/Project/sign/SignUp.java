@@ -1,8 +1,9 @@
-class SignUp{
+class SignUp {
+  
   private String email, username, password;
   private int contact_number;
 
-  public SignUp (String email, String username, String password, int contact_number){
+  public SignUp (String email, String username, String password, int contact_number) {
     this.email = email;
     this.username = username;
     this.password = password;
