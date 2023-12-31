@@ -9,15 +9,17 @@ import java.time.LocalDate;// to get latest date
 
 public class OrderManagement {
     private String orderID;
-    private Vector<Book> bookInfo;
+    private Vector<Book> bookList;
+    private Book bookInfo;
     private String orderStatus;
     private double totalAmount;
     private User user;
     private String orderDate;
     // private Report report;
-    private Vector<Integer> bookQuantity; //tmb
+    // private Vector<Integer> bookQuantity; //tmb
 
-    public OrderManagement(String orderID, Vector<Book> bookInfo, String orderStatus, User user, double totalAmount, String orderDate, Vector<Integer> quantity){
+    //OrderMangement order = new OrderManagement(orderId, book,user, orderStatus, orderDate);
+    public OrderManagement(String orderID, Book bookInfo, User user, double totalAmount, String orderStatus, String orderDate){
         this.orderID = orderID;
         this.bookInfo = bookInfo;
         this.orderStatus = orderStatus;
@@ -25,35 +27,42 @@ public class OrderManagement {
         this.totalAmount = totalAmount;
         this.orderDate = orderDate;
         // this.report = report;
-        bookQuantity = quantity;
     }
     
     public OrderManagement(){
         this.orderID = "";
-        this.bookInfo = new Vector<Book>();
         this.orderStatus = "";
         this.user = new User();
         this.totalAmount = 0.0;
         this.orderDate = "";
         // this.report = new Report();
-        bookQuantity = new Vector<Integer>();
     }
     // TAN MUST UPDATE THIS
-    public Vector<Book> getOrderFromFile() throws FileNotFoundException {
-        Vector<Book> books = new Vector<Book>();
-        Scanner sc = new Scanner(new File("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt"));
-        
+    public Vector<OrderManagement> getOrderFromFile() throws FileNotFoundException {
+        Vector<OrderManagement> orders = new Vector<OrderManagement>();
+        Scanner sc = new Scanner(new File("ordersDatabase.txt")); //need to change path when export to github
         while(sc.hasNext()){
+            String orderId = sc.next();
+            double totalAmount = sc.nextDouble();
             String bookId = sc.next();
             String title = sc.next();
             String mainAuthor = sc.next();
             int genre = sc.nextInt();
             int quantityInStock = sc.nextInt();
             double price = sc.nextDouble();
+            String userID = sc.next();
+            int userRole = sc.nextInt();
+            String orderStatus = sc.next();
+            String orderDate = sc.next();
             Book book = new Book(bookId, title, mainAuthor, genre, quantityInStock,price);
-            books.add(book);
+            User user = new User(userID,"userName", "password","mail", userRole,"fname","lname");
+            OrderManagement order = new OrderManagement(orderId, book,user,totalAmount, orderStatus, orderDate);
+            // User user = new User( String id, String names ,String pw, String mail, int roleID,String fName, String lName){
+            // OrderManagement(String orderID, Vector<Book> bookList, String orderStatus, User user, double totalAmount, String orderDate, Vector<Integer> quantity)
+            // OrderManagement order = new OrderManagement(orderId, book, orderStatus, title, mainAuthor, genre, quantityInStock, price, userID, userRole, orderStatus, orderDate)
+            orders.add(order);
         }
-        return books; 
+        return orders; 
     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void addOrderIntoFile(Book bk, User user) throws IOException{
@@ -68,7 +77,10 @@ public class OrderManagement {
         PrintWriter outputFile = new PrintWriter(new FileWriter("ordersDatabase.txt",true));
         // String title = c.getTitle().replaceAll(" ", "_");
         // String author = c.getMainAuthor().replaceAll(" ", "_");
-        outputFile.write("OR001"+" "+getTotalAmount()+" "+bk.getBookID()+ " "+bk.getTitle()+ " "+bk.getMainAuthor()+ " "+bk.getGenre()+ " "+bk.getQuantityInStock()+" "+bk.getBookPrice()+" "+user.getUserID()+" "+user.getUserRole()+" "+"Pending"+" "+currentDate+"\n");
+        outputFile.write("OR001"+" "+getTotalAmount()+" "+
+        bk.getBookID()+ " "+bk.getTitle()+ " "+bk.getMainAuthor()+ " "+bk.getGenre()+ " "+bk.getQuantityInStock()+" "+bk.getBookPrice()+" "+
+        user.getUserID()+" "+user.getUserRole()+" "+
+        "Pending"+" "+currentDate+"\n");
         // outputFile.write(c.getBookID()+ " "+title+ " "+author+ " "+c.getGenre()+ " "+c.getQuantityInStock()+" "+c.getBookPrice()+"\n");
         outputFile.close();
         // bk.add(c);
@@ -89,12 +101,13 @@ public class OrderManagement {
                     System.out.println("This is the book you want to order: "+ b.getTitle() + " " + b.getBookPrice() + " " + b.getQuantityInStock());
                     System.out.println("Total Amount: " + getTotalAmount());
                     this.addOrderIntoFile(b, realUser);
-                    // bookInfo.add(b);
+                    // bookList.add(b);
                     // bookQuantity.add(quantity);
                     // totalAmount += b.getBookPrice()*quantity;
                 }
                 // System.out.println(b.getBookID() + " " + b.getTitle() + " " + b.getBookPrice() + " " + b.getQuantityInStock());
             }
+            
 
         }else if(realUser.getUserRole()== 2){
             
@@ -134,24 +147,24 @@ public class OrderManagement {
         this.totalAmount = totalAmount;
     }
 
-    public void generateInvoice(){ //order object need to be sent here to show the order stuff 
-        System.out.println("===============================================");
-        System.out.println("             KEDAI BUKU KAMAL");
-        System.out.println("===============================================");
-        System.out.println("Address:      " + "No 12, Jalan Sri Sabah 25, Taman University, 41200 Klang, Selangor");
-        System.out.println("Phone Number: " + "03-9973628777");
-        System.out.println("-----------------------------------------------");
+    // public void generateInvoice(){ //order object need to be sent here to show the order stuff 
+    //     System.out.println("===============================================");
+    //     System.out.println("             KEDAI BUKU KAMAL");
+    //     System.out.println("===============================================");
+    //     System.out.println("Address:      " + "No 12, Jalan Sri Sabah 25, Taman University, 41200 Klang, Selangor");
+    //     System.out.println("Phone Number: " + "03-9973628777");
+    //     System.out.println("-----------------------------------------------");
 
-        System.out.printf("%-20s | %-8s | %-10s\n", "Book Name", "Quantity", "Price");
-        System.out.println("-----------------------------------------------");
-            for(int i:bookQuantity){
-                 System.out.printf("%-20s | %-8d | $%-10.2f\n",bookInfo.get(bookInfo.size()-1).getTitle(),i,bookInfo.get(bookInfo.size()-1).getBookPrice()*i);
-            }
-            System.out.println("-----------------------------------------------");
-            System.out.printf("%-29s $%.2f\n", "Total Amount to Pay (RM):", getTotalAmount());
-            System.out.println("==============================================="); 
-        //Create new method or continue to add into order file sini.
-    }
+    //     System.out.printf("%-20s | %-8s | %-10s\n", "Book Name", "Quantity", "Price");
+    //     System.out.println("-----------------------------------------------");
+    //         for(int i:bookQuantity){
+    //              System.out.printf("%-20s | %-8d | $%-10.2f\n",bookList.get(bookList.size()-1).getTitle(),i,bookList.get(bookList.size()-1).getBookPrice()*i);
+    //         }
+    //         System.out.println("-----------------------------------------------");
+    //         System.out.printf("%-29s $%.2f\n", "Total Amount to Pay (RM):", getTotalAmount());
+    //         System.out.println("==============================================="); 
+    //     //Create new method or continue to add into order file sini.
+    // }
 
     // public void calculateTotalAmount(){
 
@@ -161,8 +174,8 @@ public class OrderManagement {
         return user;
     }
 
-    public Vector<Book> getBookInfo(){
-        return bookInfo;
+    public Vector<Book> getbookList(){
+        return bookList;
         
     }
 
