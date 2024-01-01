@@ -8,12 +8,12 @@ import java.time.temporal.ChronoUnit;
 
 public class HotelBookingSystemApp {
     private Scanner scanner;
-    public List<BookingInfo> bookings = new ArrayList<>();
+    private List<BookingInfo> bookings;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     public HotelBookingSystemApp() {
         this.scanner = new Scanner(System.in);
-        //this.bookings = new ArrayList<>();
+        this.bookings = new ArrayList<>();
     }
 
     private void displayMainMenu() {
@@ -194,7 +194,7 @@ public class HotelBookingSystemApp {
     }
 
     private void displayBookingInfo(BookingInfo bookingInfo) {
-        System.out.println("----- Booking Information - " + bookingInfo.getGuest().getName() + "-----");
+        System.out.println("\n----- Booking Information Guest: " + bookingInfo.getGuest().getName() + " -----");
         System.out.println("Room Number: " + bookingInfo.getBookedRoom().getRoomNumber());
         System.out.println("Guest: " + bookingInfo.getGuest().getName());
         System.out.println("Check-in Date: " + formatDate(bookingInfo.getCheckInDate()));
@@ -223,10 +223,10 @@ public class HotelBookingSystemApp {
             }
         
         } else {
-            System.out.println("--------All Booking Information--------");
+            System.out.println("-----All Booking Information-----");
             for (BookingInfo booking : bookings) {
                 booking.displayBookingInfo();
-                System.out.println("------------------------------");     
+                System.out.println("-------------------------------");     
             }
 
             System.out.print("Do you want to continue? (1 - Yes / 0 - No) : ");
