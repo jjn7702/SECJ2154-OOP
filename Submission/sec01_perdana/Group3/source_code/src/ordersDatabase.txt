@@ -1,1 +1,7 @@
-ID1 B001 The_Great_Gatsby Scott_Fitzgerald 1 50 No admin123 admin admin123 user1D@example.com Ali_Shafie 1 123 32.00 orderDate
+OR01 1709.7 B002 To_Kill_a_Mockingbird Harper_Lee 2 10 20 13.9 admin123 1 Pending 2023-12-31
+OR02 189.0 B008 The_Harry_Potter_Series J.K.Rowling 1 10 50 18.9 admin123 1 Approved 2024-01-01
+OR03 397.09999999999997 B007 The_Da_Vinci Dan_Brown 2 10 45 20.9 admin123 1 Pending 2024-01-01
+OR04 538.1999999999999 B003 1984 George_Orwell 2 10 20 29.9 admin123 1 Pending 2024-01-01
+OR05 406.29999999999995 B001 The_Great_Gatsby Scott_Fitzgerald 1 10 10 23.9 user2D 2 Completed 2024-01-01
+OR06 222.4 B002 To_Kill_a_Mockingbird Harper_Lee 2 10 20 13.9 user2D 2 Completed 2024-01-01
+OR07 448.5 B003 1984 George_Orwell 2 10 20 29.9 user2D 2 Completed 2024-01-01

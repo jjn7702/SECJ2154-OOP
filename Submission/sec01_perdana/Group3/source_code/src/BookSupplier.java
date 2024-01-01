@@ -1,4 +1,5 @@
 import java.io.*;
+import java.time.LocalDate;
 import java.util.*;
 
 
@@ -48,6 +49,79 @@ class BookSupplier extends User{
 
         }while(option < 1 || option > 4);
         return option;
+    }
+
+    public void updateOrderStatus(Vector<OrderManagement> orderList, User realUser) throws IOException{
+        this.orderList = orderList;
+        OrderManagement orderApproval = new OrderManagement();
+        // Vector<OrderManagement> orders = new Vector<OrderManagement>();
+        // orders = orderApproval.getOrderFromFile(realUser.getUserRole());
+        LocalDate UpdateAt = LocalDate.now();
+
+        Book books = new Book();
+        Vector<Book> bkList = new Vector<Book>();
+        bkList = books.getBooksfromFile();
+        //declare initial value
+        String bookId ="";
+        int quantityOrder = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the book ID to edit : ");
+        String orderId = sc.nextLine();
+        System.out.print("Approve [1] or Reject [2] Press 1 if Approve and 2 if Reject:");
+        int optionApproval = sc.nextInt();
+        if(optionApproval == 1){
+            for(OrderManagement order : orderList){
+                if(order.getOrderID().equals(orderId)){
+                    order.setOrderStatus("Approved");
+                    bookId = order.getBookInfo().getBookID();
+                    quantityOrder = order.getQuantityOrder();
+                    System.out.println("Order Approved Successfully");
+                }
+            }
+        }else if(optionApproval == 2){
+            for(OrderManagement order : orderList){
+                if(order.getOrderID().equals(orderId)){
+                    order.setOrderStatus("Rejected");
+                    System.out.println("Order Rejected Successfully");
+                }
+            }
+        }
+        FileWriter file = new FileWriter("booksDatabase.txt",false);
+        FileWriter fileOrders = new FileWriter("ordersDatabase.txt",false);
+        for(Book bks : bkList){
+            if(bks.getBookID().equals(bookId)){
+                file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+(bks.getQuantityInStock()+quantityOrder)+" "+bks.getBookPrice()+"\n");
+            }else{
+                file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+bks.getQuantityInStock()+" "+bks.getBookPrice()+"\n");
+            }
+        }
+        int i =1;
+        for (OrderManagement order : orderList) {
+            // if(order.getOrderID().equals(orderId) && order.getOrderStatus().equals("Approved")){
+            //     file.write(order.getBookInfo().getBookID()+ " "+
+            //     order.getBookInfo().getTitle()+ " "+order.getBookInfo().getMainAuthor()+ " "+
+            //     order.getBookInfo().getGenre()+ " "+(order.getBookInfo().getQuantityInStock()+
+            //     order.getQuantityOrder())+" "+order.getBookInfo().getBookPrice()+"\n");
+            
+            // }else{
+            //     file.write(order.getBookInfo().getBookID()+ " "+
+            //     order.getBookInfo().getTitle()+ " "+order.getBookInfo().getMainAuthor()+ " "+
+            //     order.getBookInfo().getGenre()+ " "+order.getBookInfo().getQuantityInStock()+" "+
+            //     order.getBookInfo().getBookPrice()+"\n");
+            // }
+            //data for ordersDatabase.txt
+            fileOrders.write("OR0"+i+" "+order.getTotalAmount()+" "+
+            order.getBookInfo().getBookID()+ " "+order.getBookInfo().getTitle()+ " "+order.getBookInfo().getMainAuthor()+ " "+order.getBookInfo().getGenre()+ " "+quantityOrder+" "+order.getBookInfo().getQuantityInStock()+" "+order.getBookInfo().getBookPrice()+" "+
+            order.getUser().getUserID()+" "+order.getUser().getUserRole()+" "+
+            order.getOrderStatus()+" "+order.getOrderDate()+"\n");
+            i++;
+            // file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+(bks.getQuantityInStock()-quantityOrder)+" "+bks.getBookPrice()+"\n");
+        }
+        fileOrders.close();
+        file.close();
+        for(OrderManagement order : orderList){
+            System.out.println(order.getOrderID()+" "+order.getOrderStatus());
+        }
     }
 
     public static void manageAccount(User currUser) throws IOException{
