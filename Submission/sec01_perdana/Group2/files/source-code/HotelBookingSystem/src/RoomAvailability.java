@@ -1,5 +1,3 @@
-package HotelBookingSystem;
-
 public class RoomAvailability {
     private AvailabilityStatus availabilityStatus;
 

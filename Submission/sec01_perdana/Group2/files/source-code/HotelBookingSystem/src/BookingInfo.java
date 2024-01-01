@@ -1,5 +1,3 @@
-package HotelBookingSystem;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
