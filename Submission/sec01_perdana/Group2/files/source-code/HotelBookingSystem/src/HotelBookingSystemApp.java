@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -7,45 +8,12 @@ import java.time.temporal.ChronoUnit;
 
 public class HotelBookingSystemApp {
     private Scanner scanner;
-    private List<BookingInfo> bookings;
+    public List<BookingInfo> bookings = new ArrayList<>();
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     public HotelBookingSystemApp() {
         this.scanner = new Scanner(System.in);
-        this.bookings = new ArrayList<>();
-    }
-
-    public void run(){
-        int choice = 0;
-        do {
-            displayMainMenu();
-            choice = getUserChoice();
-
-            switch (choice) {
-                case 1:
-                    // Make a booking
-                    handleBooking();
-                    break;
-                case 2:
-                    // Display booking information
-                    displayBookingInformation();
-                    break;
-                case 3:
-                    // Edit booking
-                    editBooking();
-                    break;
-                case 4:
-                    // Delete booking
-                    deleteBooking();
-                    break;
-                case 5:
-                    // Exit the program
-                    System.out.println("Exiting the program. Thank you!");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        } while (choice != 5);
+        //this.bookings = new ArrayList<>();
     }
 
     private void displayMainMenu() {
@@ -54,7 +22,8 @@ public class HotelBookingSystemApp {
         System.out.println("2. Display Booking Information");
         System.out.println("3. Edit Booking");
         System.out.println("4. Delete Booking");
-        System.out.println("5. Exit");
+        System.out.println("5. Generate Report");
+        System.out.println("6. Exit");
         System.out.print("Enter your choice: ");
     }
 
@@ -63,7 +32,7 @@ public class HotelBookingSystemApp {
         Date checkInDate, checkOutDate;
         double totalAmount;
 
-        System.out.println("\n----- Make a Booking -----");
+        System.out.println("----- Make New Booking -----");
         System.out.print("\nChoose a room type \n(1 for Standard, 2 for Deluxe): ");
         
         int roomTypeChoice = getUserChoice();
@@ -116,6 +85,7 @@ public class HotelBookingSystemApp {
                 paymentMethod = "Cash";
         }
 
+        
         System.out.println("Select payment status:");
         System.out.println("1. Paid");
         System.out.println("2. Pending");
@@ -141,9 +111,38 @@ public class HotelBookingSystemApp {
         BookingInfo bookingInfo = new BookingInfo(selectedRoom, guest, checkInDate, checkOutDate, payment);
 
         System.out.println("Booking successful!");
-        displayBookingInfo(bookingInfo);
+        
+        System.out.print("Do you want to view the booking details? (1 - Yes/ 0 - No) : ");
+        int viewBookingDetails = scanner.nextInt();
 
-        bookings.add(bookingInfo);
+        if (viewBookingDetails == 1){
+            displayBookingInfo(bookingInfo);
+
+            bookings.add(bookingInfo);
+        
+            System.out.print("\nDo you want to continue? (1 - Yes / 0 - No) : ");
+            int continuee = scanner.nextInt();
+            
+            if (continuee == 1){
+                System.out.print("\033[H\033[2J");  //Clear Screen
+                System.out.flush();  
+            } else {
+                System.exit(0);
+            }
+        } else{
+            bookings.add(bookingInfo);
+ 
+            System.out.print("\nDo you want to continue? (1 - Yes / 0 - No) : ");
+            int continuee = scanner.nextInt();
+            
+            if (continuee == 1){
+                System.out.print("\033[H\033[2J");  //Clear Screen
+                System.out.flush();  
+            } else {
+                System.exit(0);
+            }
+        }
+           
     }
 
     private Room createRoomByType(int roomTypeChoice) {
@@ -189,17 +188,15 @@ public class HotelBookingSystemApp {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             return dateFormat.parse(dateString);
         } catch (ParseException e) {
-            System.out.println("Invalid date format. Using the current date.");
-            return new Date();
+            System.out.print("Invalid date format. Please try again : ");
+            return parseDate(scanner.next());
         }
     }
 
     private void displayBookingInfo(BookingInfo bookingInfo) {
-        System.out.println("\n----- Booking Information -----");
+        System.out.println("----- Booking Information - " + bookingInfo.getGuest().getName() + "-----");
         System.out.println("Room Number: " + bookingInfo.getBookedRoom().getRoomNumber());
         System.out.println("Guest: " + bookingInfo.getGuest().getName());
-        System.out.println("Contact Number: " + bookingInfo.getGuest().getContactNumber());
-        System.out.println("Email: " + bookingInfo.getGuest().getEmail());
         System.out.println("Check-in Date: " + formatDate(bookingInfo.getCheckInDate()));
         System.out.println("Check-out Date: " + formatDate(bookingInfo.getCheckOutDate()));
         System.out.println("Number of Days: " + calculateNumberOfDays(bookingInfo.getCheckInDate(), bookingInfo.getCheckOutDate()));
@@ -211,14 +208,33 @@ public class HotelBookingSystemApp {
     }
 
     private void displayBookingInformation() {
-        System.out.println("\n----- All Booking Information -----");
-        if (bookings != null) {
+        
+        if (bookings.isEmpty()) {
+            System.out.println("\nNo bookings found. Please make a booking first.");
+            
+            System.out.print("\nDo you want to continue? (1 - Yes / 0 - No) : ");
+            int continuee = scanner.nextInt();
+            
+            if (continuee == 1){
+                System.out.print("\033[H\033[2J");  //Clear Screen
+                System.out.flush();  
+            } else {
+                System.exit(0);
+            }
+        
+        } else {
+            System.out.println("--------All Booking Information--------");
             for (BookingInfo booking : bookings) {
                 booking.displayBookingInfo();
-                System.out.println("----------------------");
+                System.out.println("------------------------------");     
             }
-        } else {
-            System.out.println("No bookings found. Please make a booking first.");
+
+            System.out.print("Do you want to continue? (1 - Yes / 0 - No) : ");
+            int continuee = scanner.nextInt();
+
+            if (continuee == 0){
+                System.exit(0);
+            }
         }
     }
 
@@ -375,7 +391,54 @@ public class HotelBookingSystemApp {
         return null;  // Booking not found
     }
     
-    public static void main(String[] args) {
+    public void run() throws IOException{
+        int choice = 0;
+        do {
+            displayMainMenu();
+            choice = getUserChoice();
+
+            switch (choice) {
+                case 1:
+                    // Make a booking
+                    System.out.print("\033[H\033[2J");  //Clear Screen
+                    System.out.flush();
+                    handleBooking(); 
+                    break;
+                case 2:
+                    // Display booking information
+                    System.out.print("\033[H\033[2J");  //Clear Screen
+                    System.out.flush();
+                    displayBookingInformation();
+                    break;
+                case 3:
+                    // Edit booking
+                    System.out.print("\033[H\033[2J");  //Clear Screen
+                    System.out.flush();
+                    editBooking();
+                    break;
+                case 4:
+                    // Delete booking
+                    System.out.print("\033[H\033[2J");  //Clear Screen
+                    System.out.flush();
+                    deleteBooking();
+                    break;
+                case 5:
+                    // Generate report
+                    System.out.print("\033[H\033[2J");  //Clear Screen
+                    System.out.flush();
+                    Report report = new Report(bookings);
+                    report.generateReport(bookings);
+                    break;
+                case 6:
+                    // Exit the program
+                    System.out.println("Exiting the program. Thank you!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (choice != 6);
+    }
+    public static void main(String[] args) throws IOException {
         HotelBookingSystemApp hotelApp = new HotelBookingSystemApp();
         hotelApp.run();
     }
