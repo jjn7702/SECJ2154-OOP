@@ -45,27 +45,31 @@ public class OrderManagement {
     // TAN MUST UPDATE THIS
     public Vector<OrderManagement> getOrderFromFile(int role) throws FileNotFoundException {
         Vector<OrderManagement> orders = new Vector<OrderManagement>();
+        Vector<Book> books = new Vector<Book>();
         Scanner sc = new Scanner(new File("ordersDatabase.txt")); //need to change path when export to github
-        
         while(sc.hasNext()){
 
             String orderId = sc.next();
             double totalAmount = sc.nextDouble();
             String bookId = sc.next();
-            String title = sc.next();
-            String mainAuthor = sc.next();
-            int genre = sc.nextInt();
             int quantityOrder = sc.nextInt();
-            int quantityInStock = sc.nextInt();
-            double price = sc.nextDouble();
+            // double price = sc.nextDouble();
             String userID = sc.next();
             int userRole = sc.nextInt();
             String orderStatus = sc.next();
             String orderDate = sc.next();
             
-            Book book = new Book(bookId, title, mainAuthor, genre, quantityInStock,price);
-            User users = new User(userID,"userName", "password","mail", userRole,"fname","lname");
-                OrderManagement order = new OrderManagement(orderId, book,users,totalAmount, orderStatus, orderDate, quantityInStock, quantityOrder);
+
+            Book bookSelected = new Book();
+            books = bookSelected.getBooksfromFile();
+            for(Book b:books){
+                if(b.getBookID().equals(bookId)){
+                    bookInfo = b;
+                }
+            }
+            // System.out.println(bookInfo.getTitle()+ " " + bookInfo.getMainAuthor()+ " " + bookInfo.getGenre()+ " " + bookInfo.getQuantityInStock()+ " " + bookInfo.getBookPrice());
+                User users = new User(userID,"userName", "password","mail", userRole,"fname","lname");
+                OrderManagement order = new OrderManagement(orderId, bookInfo,users,totalAmount, orderStatus, orderDate, quantityInStock, quantityOrder);
                 orders.add(order);
             // if(role.equals(3) && orderStatus == "Pending"){
             // if(role == 3&& orderStatus.equals("Pending")){
@@ -92,29 +96,53 @@ public class OrderManagement {
         return orders; 
         }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public void viewAllOrders(Vector<OrderManagement> orders,int role) throws FileNotFoundException{ //based on role as Customer no need to see stock quantity what.
+    // public void generateInvoice(){ //order object need to be sent here to show the order stuff 
+    //     System.out.println("===============================================");
+    //     System.out.println("             KEDAI BUKU KAMAL");
+    //     System.out.println("===============================================");
+    //     System.out.println("Address:      " + "No 12, Jalan Sri Sabah 25, Taman University, 41200 Klang, Selangor");
+    //     System.out.println("Phone Number: " + "03-9973628777");
+    //     System.out.println("-----------------------------------------------");
+
+    //     System.out.printf("%-20s | %-8s | %-10s\n", "Book Name", "Quantity", "Price");
+    //     System.out.println("-----------------------------------------------");
+    //         for(int i:bookQuantity){
+    //             System.out.printf("%-20s | %-8d | $%-10.2f\n",bookInfo.get(bookInfo.size()-1).getTitle(),i,bookInfo.get(bookInfo.size()-1).getBookPrice()*i);
+    //         }
+    //         System.out.println("-----------------------------------------------");
+    //         System.out.printf("%-29s $%.2f\n", "Total Amount to Pay (RM):", getTotalAmount());
+    //         System.out.println("==============================================="); 
+    //     //Create new method or continue to add into order file sini.
+    // }
+
+    public void viewAllOrders(Vector<OrderManagement> orders,int role,String sortBy) throws FileNotFoundException{ //based on role as Customer no need to see stock quantity what.
         // Vector<Book> books = new Vector<Book>();
         // books = getBooksfromFile(); // double check with sarveish as we might use association here.
-        System.out.print("╔════════╦══════════════════════════════╦══════════════════════════════╦══════════════════════╦════════════════════════╗\n");
+        System.out.print(
+            "╔═════════╦════════════╦══════════════════════════════╦══════════════════════════╦═══════════════╦═════════════════╦═════════════════╦══════════╦════════════════╦════════════╗\n");
         if(role == 1){
-            System.out.print("║Order ID ║            Title             ║         Main Author          ║         Genre        ║       Stock Quantity        ║       Price (RM)        ║\n");
+            System.out.print(
+            "║Order ID ║  Book Id   ║             Title            ║        Main Author       ║     Genre     ║  Order Quantity ║      UserId     ║  Status  ║  TotalAmount   ║ OrderDate  ║\n");
 
         }else{
-            System.out.print("║Order ID ║            Title             ║         Main Author          ║         Genre        ║    Price (RM)      ║\n");
+            System.out.print(
+            "║Order ID ║  Book Id   ║             Title            ║        Main Author       ║     Genre     ║  Order Quantity ║      UserId     ║  Status  ║  TotalAmount   ║ OrderDate  ║\n");
         }
-        System.out.print("╠════════╬══════════════════════════════╬══════════════════════════════╬══════════════════════╬════════════════════════╣\n");
+        System.out.print(
+            "╠═════════╬════════════╬══════════════════════════════╬══════════════════════════╬═══════════════╬═════════════════╬═════════════════╬══════════╬════════════════╬════════════╣\n");
         // System.out.println("inside view all orders");
         for(OrderManagement ord:orders){
-            ord.displayOrder(role);
+            ord.displayOrder(role,sortBy);
             // System.out.println(ord.getUser().getUserID());
         }
-        System.out.print("╚════════╩══════════════════════════════╩══════════════════════════════╩══════════════════════╩════════════════════════╝\n");
+        System.out.print(
+            "╚═════════╩════════════╩══════════════════════════════╩══════════════════════════╩═══════════════╩═════════════════╩═════════════════╩══════════╩════════════════╩════════════╝\n");
         System.out.print("Press Enter to continue...");
         Scanner scan = new Scanner(System.in);
         scan.nextLine();
     }
 
-    public void displayOrder(int role){ //Testing since need to check with Sarveish.
+    public void displayOrder(int role,String sortBy){ //Testing since need to check with Sarveish.
         String genreStr ="";
         switch (bookInfo.getGenre()) {
             case 1:
@@ -136,21 +164,37 @@ public class OrderManagement {
                 break;
         }
 
-        if (role == 1 && getOrderStatus().equals("Completed")) {
-             System.out.printf("║%-8s║%-8s║%-30s║%-30s║%-22s║%-18d║%-18d║%-18s║%-18s║%-18.2f║%-18s║%n",getOrderID(), bookInfo.getBookID(), 
-            bookInfo.getTitle(),bookInfo.getMainAuthor(), genreStr,getQuantityOrder(), bookInfo.getQuantityInStock(),user.getUserID()
-            ,getOrderStatus(),getTotalAmount(),getOrderDate());
+        if (role == 1) {
+            if(sortBy.equals("Customer")){
+                if(getOrderStatus().equals("Completed")){
+                    System.out.printf("║%-9s║%-12s║%-30s║%-26s║%-15s║%-17d║%-17s║%-10s║RM%-14.2f║%-12s║%n",getOrderID(), bookInfo.getBookID(), 
+                    bookInfo.getTitle(),bookInfo.getMainAuthor(), genreStr,getQuantityOrder(),user.getUserID()
+                    ,getOrderStatus(),getTotalAmount(),getOrderDate());
+                }
+            }else if(sortBy.equals("Supplier")){
+                
+                if(getOrderStatus().equals("Pending") || getOrderStatus().equals("Approved") || getOrderStatus().equals("Rejected")){
+                    
+                    System.out.printf("║%-9s║%-12s║%-30s║%-26s║%-15s║%-17d║%-17s║%-10s║RM%-14.2f║%-12s║%n",getOrderID(), bookInfo.getBookID(), 
+                    bookInfo.getTitle(),bookInfo.getMainAuthor(), genreStr,getQuantityOrder(),user.getUserID()
+                    ,getOrderStatus(),getTotalAmount(),getOrderDate());
+                }
+            }else if(sortBy.equals("All")){
+    
+                System.out.printf("║%-9s║%-12s║%-30s║%-26s║%-15s║%-17d║%-17s║%-10s║RM%-14.2f║%-12s║%n",getOrderID(), bookInfo.getBookID(), 
+                bookInfo.getTitle(),bookInfo.getMainAuthor(), genreStr,getQuantityOrder(),user.getUserID()
+                ,getOrderStatus(),getTotalAmount(),getOrderDate());
+            }
         }else if(role == 3 && getOrderStatus().equals("Pending")){
-            System.out.printf("║%-8s║%-8s║%-30s║%-30s║%-22s║%-18d║%-18d║%-18s║%-18s║%-18.2f║%-18s║%n",getOrderID(), bookInfo.getBookID(), 
-            bookInfo.getTitle(),bookInfo.getMainAuthor(), genreStr,getQuantityOrder(), bookInfo.getQuantityInStock(),user.getUserID()
+            System.out.printf("║%-9s║%-12s║%-30s║%-26s║%-15s║%-17d║%-17s║%-10s║RM%-14.2f║%-12s║%n",getOrderID(), bookInfo.getBookID(), 
+            bookInfo.getTitle(),bookInfo.getMainAuthor(), genreStr,getQuantityOrder(),user.getUserID()
             ,getOrderStatus(),getTotalAmount(),getOrderDate());
         }
     }
 
-    public void addOrderIntoFile(Book bk, User user, int quantityOrder) throws IOException{
+    public void addOrderIntoFile(Book bk, User user, int quantityOrder,int n) throws IOException{
         Scanner scan = new Scanner(System.in);
-        System.out.println("inside add order");
-        LocalDate currentDate = LocalDate.now();
+        LocalDate UpdateAt = LocalDate.now();
         // Generate a random UUID
         UUID randomUUID = UUID.randomUUID();
         
@@ -160,10 +204,8 @@ public class OrderManagement {
         bkList = books.getBooksfromFile();
         if(user.getUserRole() == 1){ 
             
-        outputFile.write("OR001"+" "+getTotalAmount()+" "+
-        bk.getBookID()+ " "+bk.getTitle()+ " "+bk.getMainAuthor()+ " "+bk.getGenre()+ " "+quantityOrder+" "+bk.getQuantityInStock()+" "+bk.getBookPrice()+" "+
-        user.getUserID()+" "+user.getUserRole()+" "+
-        "Pending"+" "+currentDate+"\n");
+        outputFile.write("OR0"+n+" "+getTotalAmount()+" "+
+        bk.getBookID()+ " "+quantityOrder+" "+user.getUserID()+" "+user.getUserRole()+" "+"Pending"+" "+UpdateAt+"\n");
 
         }else if(user.getUserRole() == 2){
             //Add data into order file
@@ -178,10 +220,8 @@ public class OrderManagement {
                 // file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+(bks.getQuantityInStock()-quantityOrder)+" "+bks.getBookPrice()+"\n");
             }
         file.close();
-            outputFile.write("OR001"+" "+getTotalAmount()+" "+
-        bk.getBookID()+ " "+bk.getTitle()+ " "+bk.getMainAuthor()+ " "+bk.getGenre()+ " "+quantityOrder+" "+bk.getQuantityInStock()+" "+bk.getBookPrice()+" "+
-        user.getUserID()+" "+user.getUserRole()+" "+
-        "Completed"+" "+currentDate+"\n");
+            outputFile.write("OR0"+n+" "+getTotalAmount()+" "+
+        bk.getBookID()+ " "+quantityOrder+" "+user.getUserID()+" "+user.getUserRole()+" "+"Completed"+" "+UpdateAt+"\n");
         }       
         outputFile.close();
         // bk.add(c);
@@ -189,18 +229,17 @@ public class OrderManagement {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void orderBook(String bookId, int quantityOrder, User realUser) throws IOException{
+    public void orderBook(String bookId, int quantityOrder, User realUser, int n) throws IOException{
             Vector<Book> bkList = new Vector<Book>();
             Book book = new Book();
             // book.getBooksfromFile();
             bkList = book.getBooksfromFile();
-            System.out.println("username: " + realUser.getUserName()+ " " + realUser.getUserRole());
             for(Book b:bkList){
                 if(b.getBookID().equals(bookId)){
                     this.setTotalAmount(b.getBookPrice()*quantityOrder);
-                    System.out.println("This is the book you want to order: "+ b.getTitle() + " " + b.getBookPrice() + " " + b.getQuantityInStock());
                     System.out.println("Total Amount: " + getTotalAmount());
-                    this.addOrderIntoFile(b, realUser,quantityOrder);
+                    System.out.println("Purchase Successfully......");
+                    this.addOrderIntoFile(b, realUser,quantityOrder, n);
                     // bookList.add(b);
                     // bookQuantity.add(quantity);
                     // totalAmount += b.getBookPrice()*quantity;
@@ -246,29 +285,6 @@ public class OrderManagement {
         this.totalAmount = totalAmount;
     }
 
-    // public void generateInvoice(){ //order object need to be sent here to show the order stuff 
-    //     System.out.println("===============================================");
-    //     System.out.println("             KEDAI BUKU KAMAL");
-    //     System.out.println("===============================================");
-    //     System.out.println("Address:      " + "No 12, Jalan Sri Sabah 25, Taman University, 41200 Klang, Selangor");
-    //     System.out.println("Phone Number: " + "03-9973628777");
-    //     System.out.println("-----------------------------------------------");
-
-    //     System.out.printf("%-20s | %-8s | %-10s\n", "Book Name", "Quantity", "Price");
-    //     System.out.println("-----------------------------------------------");
-    //         for(int i:bookQuantity){
-    //              System.out.printf("%-20s | %-8d | $%-10.2f\n",bookList.get(bookList.size()-1).getTitle(),i,bookList.get(bookList.size()-1).getBookPrice()*i);
-    //         }
-    //         System.out.println("-----------------------------------------------");
-    //         System.out.printf("%-29s $%.2f\n", "Total Amount to Pay (RM):", getTotalAmount());
-    //         System.out.println("==============================================="); 
-    //     //Create new method or continue to add into order file sini.
-    // }
-
-    // public void calculateTotalAmount(){
-
-    // }
-
     public User getUser(){
         return user;
     }
@@ -276,6 +292,10 @@ public class OrderManagement {
     public Vector<Book> getbookList(){
         return bookList;
         
+    }
+
+    public Book getBookInfo(){
+        return bookInfo;
     }
 
     public static void getAllCustomerOrder(){

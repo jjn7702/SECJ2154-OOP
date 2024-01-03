@@ -65,9 +65,9 @@ class BookSupplier extends User{
         String bookId ="";
         int quantityOrder = 0;
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the book ID to edit : ");
+        System.out.print(" **Enter book ID to edit** : ");
         String orderId = sc.nextLine();
-        System.out.print("Approve [1] or Reject [2] Press 1 if Approve and 2 if Reject:");
+        System.out.print("**Approve [1] or Reject [2]**\nEnter Num :");
         int optionApproval = sc.nextInt();
         if(optionApproval == 1){
             for(OrderManagement order : orderList){
@@ -75,6 +75,11 @@ class BookSupplier extends User{
                     order.setOrderStatus("Approved");
                     bookId = order.getBookInfo().getBookID();
                     quantityOrder = order.getQuantityOrder();
+                    for(Book bks : bkList){
+                        if(bks.getBookID().equals(bookId)){
+                            bks.setQuantityInStock(bks.getQuantityInStock()+quantityOrder);
+                        }
+                    }
                     System.out.println("Order Approved Successfully");
                 }
             }
@@ -82,6 +87,7 @@ class BookSupplier extends User{
             for(OrderManagement order : orderList){
                 if(order.getOrderID().equals(orderId)){
                     order.setOrderStatus("Rejected");
+                    bookId = order.getBookInfo().getBookID();
                     System.out.println("Order Rejected Successfully");
                 }
             }
@@ -90,32 +96,17 @@ class BookSupplier extends User{
         FileWriter fileOrders = new FileWriter("ordersDatabase.txt",false);
         for(Book bks : bkList){
             if(bks.getBookID().equals(bookId)){
-                file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+(bks.getQuantityInStock()+quantityOrder)+" "+bks.getBookPrice()+"\n");
+                file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+bks.getQuantityInStock()+" "+bks.getBookPrice()+"\n");
             }else{
                 file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+bks.getQuantityInStock()+" "+bks.getBookPrice()+"\n");
             }
         }
         int i =1;
         for (OrderManagement order : orderList) {
-            // if(order.getOrderID().equals(orderId) && order.getOrderStatus().equals("Approved")){
-            //     file.write(order.getBookInfo().getBookID()+ " "+
-            //     order.getBookInfo().getTitle()+ " "+order.getBookInfo().getMainAuthor()+ " "+
-            //     order.getBookInfo().getGenre()+ " "+(order.getBookInfo().getQuantityInStock()+
-            //     order.getQuantityOrder())+" "+order.getBookInfo().getBookPrice()+"\n");
-            
-            // }else{
-            //     file.write(order.getBookInfo().getBookID()+ " "+
-            //     order.getBookInfo().getTitle()+ " "+order.getBookInfo().getMainAuthor()+ " "+
-            //     order.getBookInfo().getGenre()+ " "+order.getBookInfo().getQuantityInStock()+" "+
-            //     order.getBookInfo().getBookPrice()+"\n");
-            // }
-            //data for ordersDatabase.txt
             fileOrders.write("OR0"+i+" "+order.getTotalAmount()+" "+
-            order.getBookInfo().getBookID()+ " "+order.getBookInfo().getTitle()+ " "+order.getBookInfo().getMainAuthor()+ " "+order.getBookInfo().getGenre()+ " "+quantityOrder+" "+order.getBookInfo().getQuantityInStock()+" "+order.getBookInfo().getBookPrice()+" "+
-            order.getUser().getUserID()+" "+order.getUser().getUserRole()+" "+
+            order.getBookInfo().getBookID()+ " "+order.getQuantityOrder()+" "+order.getUser().getUserID()+" "+order.getUser().getUserRole()+" "+
             order.getOrderStatus()+" "+order.getOrderDate()+"\n");
             i++;
-            // file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+(bks.getQuantityInStock()-quantityOrder)+" "+bks.getBookPrice()+"\n");
         }
         fileOrders.close();
         file.close();
