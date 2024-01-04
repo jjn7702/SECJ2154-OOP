@@ -10,6 +10,8 @@ import java.time.LocalDate;// to get latest date
 public class OrderManagement {
     private String orderID;
     private Vector<Book> bookList;
+    private Vector<Book> bookCart;
+    private Vector<OrderManagement> CustOrderCart;
     private Book bookInfo;
     private String orderStatus;
     private double totalAmount;
@@ -17,10 +19,7 @@ public class OrderManagement {
     private String orderDate;
     private int quantityOrder;
     private int quantityInStock;
-    // private Report report;
-    // private Vector<Integer> bookQuantity; //tmb
 
-    //OrderMangement order = new OrderManagement(orderId, book,user, orderStatus, orderDate);
     public OrderManagement(String orderID, Book bookInfo, User user, double totalAmount, String orderStatus, String orderDate, int quantityInStock
     , int quantityOrder){
         this.orderID = orderID;
@@ -31,7 +30,6 @@ public class OrderManagement {
         this.orderDate = orderDate;
         this.quantityInStock = quantityInStock;
         this.quantityOrder = quantityOrder;
-        // this.report = report;
     }
     
     public OrderManagement(){
@@ -40,6 +38,8 @@ public class OrderManagement {
         this.user = new User();
         this.totalAmount = 0.0;
         this.orderDate = "";
+        bookCart = new Vector<Book>();
+        CustOrderCart = new Vector<OrderManagement>();
         // this.report = new Report();
     }
     // TAN MUST UPDATE THIS
@@ -71,49 +71,74 @@ public class OrderManagement {
                 User users = new User(userID,"userName", "password","mail", userRole,"fname","lname");
                 OrderManagement order = new OrderManagement(orderId, bookInfo,users,totalAmount, orderStatus, orderDate, quantityInStock, quantityOrder);
                 orders.add(order);
-            // if(role.equals(3) && orderStatus == "Pending"){
-            // if(role == 3&& orderStatus.equals("Pending")){
-            //     Book book = new Book(bookId, title, mainAuthor, genre, quantityInStock,price);
-            //     User users = new User(userID,"userName", "password","mail", userRole,"fname","lname");
-            //     OrderManagement order = new OrderManagement(orderId, book,users,totalAmount, orderStatus, orderDate);
-            //     orders.add(order);
-            // }else if (role == 2 && orderStatus.equals("Completed")){
-            //     Book book = new Book(bookId, title, mainAuthor, genre, quantityInStock,price);
-            //     User users = new User(userID,"userName", "password","mail", userRole,"fname","lname");
-            //     OrderManagement order = new OrderManagement(orderId, book,users,totalAmount, orderStatus, orderDate);
-            //     orders.add(order);
-            // }else if (role == 1 && userRole == 2){
-            //     Book book = new Book(bookId, title, mainAuthor, genre, quantityInStock,price);
-            //     User users = new User(userID,"userName", "password","mail", userRole,"fname","lname");
-            //     OrderManagement order = new OrderManagement(orderId, book,users,totalAmount, orderStatus, orderDate);
-            //     orders.add(order);
-            // }
+                
         }
-            
-            // User user = new User( String id, String names ,String pw, String mail, int roleID,String fName, String lName){
-            // OrderManagement(String orderID, Vector<Book> bookList, String orderStatus, User user, double totalAmount, String orderDate, Vector<Integer> quantity)
-            // OrderManagement order = new OrderManagement(orderId, book, orderStatus, title, mainAuthor, genre, quantityInStock, price, userID, userRole, orderStatus, orderDate)
         return orders; 
         }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // public void generateInvoice(){ //order object need to be sent here to show the order stuff 
-    //     System.out.println("===============================================");
-    //     System.out.println("             KEDAI BUKU KAMAL");
-    //     System.out.println("===============================================");
-    //     System.out.println("Address:      " + "No 12, Jalan Sri Sabah 25, Taman University, 41200 Klang, Selangor");
-    //     System.out.println("Phone Number: " + "03-9973628777");
-    //     System.out.println("-----------------------------------------------");
-
-    //     System.out.printf("%-20s | %-8s | %-10s\n", "Book Name", "Quantity", "Price");
-    //     System.out.println("-----------------------------------------------");
-    //         for(int i:bookQuantity){
-    //             System.out.printf("%-20s | %-8d | $%-10.2f\n",bookInfo.get(bookInfo.size()-1).getTitle(),i,bookInfo.get(bookInfo.size()-1).getBookPrice()*i);
-    //         }
-    //         System.out.println("-----------------------------------------------");
-    //         System.out.printf("%-29s $%.2f\n", "Total Amount to Pay (RM):", getTotalAmount());
-    //         System.out.println("==============================================="); 
-    //     //Create new method or continue to add into order file sini.
-    // }
+        public void generateInvoice() throws FileNotFoundException {
+            System.out.println(
+                "========================================================================================");
+            System.out.println(
+                "                                     KEDAI BUKU KAMAL                        ");
+            System.out.println(
+                "========================================================================================");
+            System.out.println(
+                "Address:      " + "No 12, Jalan Sri Sabah 25, Taman University, 41200 Klang, Selangor");
+            System.out.println(
+                "Phone Number: " + "03-9973628777");
+            System.out.println(
+                "----------------------------------------------------------------------------------------");
+            System.out.printf(
+                "%-40s | %-28s | %-30s\n", "Book Name", "Quantity", "Price");
+            System.out.println(
+                "----------------------------------------------------------------------------------------");
+        
+            double totalAmount = 0;
+        
+            Vector<String> bookTitles = new Vector<String>();
+            Vector<Integer> bookQuantities = new Vector<Integer>();
+        
+            for (OrderManagement order : CustOrderCart) {
+                Book book = order.getBookInfo();
+                String title = book.getTitle().replaceAll("_", " ");
+                int quantity = order.getQuantityOrder();
+        
+                int index = bookTitles.indexOf(title);
+                if (index == -1) { //adding books in order to avoid duplicate book title to be shown in invoice.
+                    bookTitles.add(title);
+                    bookQuantities.add(quantity);
+                } else {
+                    bookQuantities.set(index, bookQuantities.get(index) + quantity);
+                }
+            }
+        
+            for (int i = 0; i < bookTitles.size(); i++) {
+                String t = bookTitles.get(i);
+                int quantity = bookQuantities.get(i);
+        
+                Book book =  new Book();
+                Vector<Book> books = new Vector<Book>();
+                Book bk = new Book();
+            
+                books = bk.getBooksfromFile();
+            
+                for (Book b : books) { //double checking with title
+                    if (b.getTitle().replaceAll("_", " ").toUpperCase().equals(t.replaceAll("_", " ").toUpperCase())) {
+                        book = b;
+                        break;
+                    }
+                }
+                if (book != null) {
+                    double price = book.getBookPrice();
+                    System.out.printf("%-20s | %-8d | RM%-10.2f\n", t, quantity, price * quantity);
+                    totalAmount += price * quantity;
+                }
+            }
+        
+            System.out.println("-----------------------------------------------");
+            System.out.printf("%-29s RM%.2f\n", "Total Amount to Pay (RM):", totalAmount);
+            System.out.println("===============================================");
+        }
 
     public void viewAllOrders(Vector<OrderManagement> orders,int role,String sortBy) throws FileNotFoundException{ //based on role as Customer no need to see stock quantity what.
         // Vector<Book> books = new Vector<Book>();
@@ -222,7 +247,10 @@ public class OrderManagement {
         file.close();
             outputFile.write("OR0"+n+" "+getTotalAmount()+" "+
         bk.getBookID()+ " "+quantityOrder+" "+user.getUserID()+" "+user.getUserRole()+" "+"Completed"+" "+UpdateAt+"\n");
-        }       
+
+        OrderManagement order = new OrderManagement("OR0"+n, bk, user, getTotalAmount(), "Completed", UpdateAt.toString(), bk.getQuantityInStock(), quantityOrder);
+        CustOrderCart.add(order);
+    }       
         outputFile.close();
         // bk.add(c);
     }
@@ -237,15 +265,55 @@ public class OrderManagement {
             for(Book b:bkList){
                 if(b.getBookID().equals(bookId)){
                     this.setTotalAmount(b.getBookPrice()*quantityOrder);
-                    System.out.println("Total Amount: " + getTotalAmount());
-                    System.out.println("Purchase Successfully......");
+                    if(realUser.getUserRole() == 1){
+                        System.out.println("Total Amount: " + getTotalAmount());
+                        System.out.println("Order Successfully, Please wait Supplier to Approve the order......");
+                    }else{
+                         System.out.println("Total Amount: " + getTotalAmount());
+                        System.out.println("Purchase Successfully......");
+                    }
                     this.addOrderIntoFile(b, realUser,quantityOrder, n);
+                    this.getCustOrderCart();
+                    bookCart.add(b);
                     // bookList.add(b);
                     // bookQuantity.add(quantity);
                     // totalAmount += b.getBookPrice()*quantity;
                 }
                 // System.out.println(b.getBookID() + " " + b.getTitle() + " " + b.getBookPrice() + " " + b.getQuantityInStock());
             }
+    }
+
+    public boolean validation(String bookId, int bookQuantity, int roleId) throws FileNotFoundException{
+        Vector<Book> bkList = new Vector<Book>();
+        Book book = new Book();
+        Boolean check = false;
+        bkList = book.getBooksfromFile();
+            
+            try {
+                for (Book b : bkList) {
+                    if (b.getBookID().equals(bookId)) {
+                        check = true;
+                        break;  // Exit the loop if the book is found
+                    }
+                }
+
+                if (!check) {
+                    System.out.println("Sorry, the book id you entered is not found.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println(e.getMessage());
+            }
+            for(Book b:bkList){
+                if(b.getBookID().equals(bookId)){
+                    if(b.getQuantityInStock() >= bookQuantity){
+                        check = true;
+                    }else{
+                        System.out.println("Sorry, the quantity you order is more than the quantity in stock.");
+                        check = false;
+                    }
+                }
+            }
+        return check;
     }
 
     public String getOrderID(){
@@ -294,6 +362,15 @@ public class OrderManagement {
         
     }
 
+    public Vector<Book> getBookCart(){
+        return bookCart;
+        
+    }
+
+    public Vector<OrderManagement> getCustOrderCart(){
+        return CustOrderCart;
+        
+    }
     public Book getBookInfo(){
         return bookInfo;
     }
