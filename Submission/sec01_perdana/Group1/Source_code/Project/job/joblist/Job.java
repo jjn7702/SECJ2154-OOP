@@ -1,4 +1,4 @@
-package Project.job.joblist;
+package job.joblist;
 
 import java.util.*;
 import java.io.*;
