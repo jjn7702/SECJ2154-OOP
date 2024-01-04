@@ -1,1 +1,8 @@
+Manager
+RM 5000
 
+Kitchen Crew
+RM 1800
+
+Web Developer
+RM 3500
