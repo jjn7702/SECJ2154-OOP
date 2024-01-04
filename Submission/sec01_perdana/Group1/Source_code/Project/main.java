@@ -1,4 +1,4 @@
-import job.joblist.*;
+import job.joblist.Job.*;
 import java.util.*;
 
 class main {
