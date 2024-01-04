@@ -3,7 +3,7 @@ import java.util.*;
 
 class main {
   public static void main (String[] args){
-    String fileName = job.txt;
+    String fileName = "job/joblist/job.txt";
     List<Job> jobs = JobReader.readJob(fileName);
     
     System.out.println("JOB PORTAL");
