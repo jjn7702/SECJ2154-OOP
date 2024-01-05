@@ -1,10 +1,11 @@
+//Wei Yang
 import java.io.*;
 import java.time.LocalDate;
 import java.util.*;
 
 
 class BookSupplier extends User{
-    //private static Vector<OrderManagement> order;
+    private Vector<OrderManagement> orderList;
 
     public BookSupplier(String id, String name ,String pw, String mail, int roleID,String fName,String lName){
         super(id, name, pw, mail, roleID,fName,lName);
@@ -15,13 +16,13 @@ class BookSupplier extends User{
 
 
     public static void displaySupplier(User u){
-        System.out.println("+-----------------+---------------------+---------------------+---------------------+");
-        System.out.println("|  Supplier ID    |    Username         |     Full Name       |        Email        |");
-        System.out.println("+-----------------+---------------------+---------------------+---------------------+");
+        System.out.println("╔═════════════════╦═════════════════════╦═════════════════════╦═════════════════════╗");
+        System.out.println("║  Supplier ID    ║    Username         ║     Full Name       ║        Email        ║");
+        System.out.println("╚═════════════════╬═════════════════════╬═════════════════════╬═════════════════════╬");
     
-        System.out.printf("| %-15s | %-19s | %-19s | %-19s |%n", u.getUserID(), u.getUserName(), u.getName().getfName() + " " + u.getName().getlName(), u.getEmail());
+        System.out.printf("║ %-15s ║ %-19s ║ %-19s ║ %-19s ║%n", u.getUserID(), u.getUserName(), u.getName().getfName() + " " + u.getName().getlName(), u.getEmail());
     
-        System.out.println("+-----------------+---------------------+---------------------+---------------------+");
+        System.out.println("╚═════════════════╩═════════════════════╩═════════════════════╩═════════════════════╝");
     
 }
     @Override
@@ -29,22 +30,28 @@ class BookSupplier extends User{
         System.out.print("\033[H\033[2J");  
         System.out.flush();
         Scanner sc = new Scanner(System.in);
-        int option;
+        int option = 0;
         do{
             System.out.println("╔═══════════════════════════════╗");
             System.out.println("║          Supplier Menu        ║");
             System.out.println("╠═══════════════════════════════╣");
-            System.out.println("║ 1. View All Orders            ║");
-            System.out.println("║ 2. Order Approval             ║");
+            System.out.println("║ 1. View all Orders            ║");
+            System.out.println("║ 1. Manage Orders              ║");
             System.out.println("║ 3. Manage Account             ║");
             System.out.println("║ 4. Exit                       ║");
             System.out.println("╚═══════════════════════════════╝");
 
             System.out.print("\n\n Enter the option (1-4) : ");
-            option = sc.nextInt();
-
-            if(option < 1 || option > 4){
-                System.out.println("Invalid option entered. Please enter a number between 1 and 4. Try Again :)");
+            try {
+                option = sc.nextInt();
+                if(option < 1 || option > 4){
+                    System.out.println("Invalid option entered. Please enter a number between 1 and 4. Try Again :)");
+                }             
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid option entered. Please Enter an appropriate number.\nPress any key to continue...");
+                sc.nextLine();
+                sc.nextLine();
+                option = 10; 
             }
 
         }while(option < 1 || option > 4);
@@ -54,8 +61,6 @@ class BookSupplier extends User{
     public void updateOrderStatus(Vector<OrderManagement> orderList, User realUser) throws IOException{
         this.orderList = orderList;
         OrderManagement orderApproval = new OrderManagement();
-        // Vector<OrderManagement> orders = new Vector<OrderManagement>();
-        // orders = orderApproval.getOrderFromFile(realUser.getUserRole());
         LocalDate UpdateAt = LocalDate.now();
 
         Book books = new Book();
@@ -117,7 +122,7 @@ class BookSupplier extends User{
 
     public static void manageAccount(User currUser) throws IOException{
         Scanner scan = new Scanner(System.in);
-        int option;
+        int option =0;
         String newValue = "";
         do {
             System.out.print("\033[H\033[2J");  
@@ -134,10 +139,17 @@ class BookSupplier extends User{
             System.out.println("║ 5. Back                       ║");
             System.out.println("╚═══════════════════════════════╝");
             System.out.print("\nEnter your option (1-5): ");
-            option = scan.nextInt();
+            try {
+                option = scan.nextInt();
 
-            if(option < 1 || option >5){
-                System.out.println("Invalid option entered. Please enter a number between 1 and 5. Try Again :)");
+                if(option < 1 || option >5){
+                    System.out.println("Invalid option entered. Please enter a number between 1 and 5. Try Again :)");
+                }                
+            } catch (Exception e) {
+                System.out.println("Invalid option entered. Please Enter an appropriate number.\nPress any key to continue...");
+                scan.nextLine();
+                scan.nextLine();
+                option = 10; 
             }
         } while (option < 1 || option >5);
         scan.nextLine();
@@ -198,7 +210,7 @@ class BookSupplier extends User{
                     String line = String.format("%s %s %s %s %s %d%n", currUser.getUserID(), username, currUser.getPassword(), em,fullName, 3);
                     file.write(line);
                 }else{
-                    String line = String.format("%s %s %s %s %d%n", c.getUserID(), c.getUserName(), c.getPassword(), c.getEmail(),fullName, c.getUserRole());
+                    String line = String.format("%s %s %s %s %s %d%n", c.getUserID(), c.getUserName(), c.getPassword(), c.getEmail(),fullName, c.getUserRole());
                     file.write(line);
                 }
 
