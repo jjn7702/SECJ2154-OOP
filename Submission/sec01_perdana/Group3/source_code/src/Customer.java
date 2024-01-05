@@ -44,7 +44,6 @@ public class Customer extends User  {
         System.out.print("Re-enter your password: ");
         String confirmPassword = sc.nextLine();
 
-        //Input_Validation
         while (pw.equals(confirmPassword) == false) {
             System.out.println("Passwords do not match. Please re-enter your password.");
             System.out.print("Enter a password: ");
@@ -58,7 +57,6 @@ public class Customer extends User  {
         Customer c = new Customer(userID, username, pw, email, 2,nameFirst,nameLast);
         addCustomersIntoFile(c);
         sc.close();
-
     }
    
     @Override
@@ -78,13 +76,19 @@ public class Customer extends User  {
             System.out.println("╚═══════════════════════════════╝");
 
             System.out.print("\n\n Enter the option (1-4) : ");
-            option = sc.nextInt();
-
-            if(option < 1 || option > 5){
-                System.out.println("Invalid option entered. Please enter a number between 1 and 5. Try Again :)");
+            try{
+                option = sc.nextInt();
+                if(option < 1 || option > 4){
+                    System.out.println("Invalid option entered. Please enter a number between 1 and 4. Try Again :)");
+                }
+            }catch(Exception e){
+                System.out.println("Invalid option entered. Please Enter an appropriate number.\nPress any key to continue...");
+                sc.nextLine();
+                sc.nextLine();
+                option = 10;
             }
 
-        }while(option < 1 || option > 5);
+        }while(option < 1 || option > 4);
         return option;
     }
 
@@ -101,25 +105,24 @@ public class Customer extends User  {
     }
 
     public static void addCustomersIntoFile(Customer c) throws IOException{
-        PrintWriter outputFile = new PrintWriter(new FileWriter("userDatabase.txt",true));
+        PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt",true)); //based on codespace github file structure hierachy
         String fullName =  c.getName().getfName()+"_"+c.getName().getlName();
         outputFile.write(c.getUserID()+ " "+c.getUserName()+ " "+c.getPassword()+ " "+c.getEmail()+ " "+fullName+" "+2+"\n");
         outputFile.close();
-        // customers.add(c);
 
         System.out.println("Your username : "+c.getUserName()+"\nYour Password: "+c.getPassword());
     }
 
     public void viewAllCustomers(Vector<Customer> customers) throws FileNotFoundException {
-       System.out.println("+-----------------+---------------------+---------------------+---------------------+");
-       System.out.println("|  Customer ID    |    Username         |     Full Name       |        Email        |");
-       System.out.println("+-----------------+---------------------+---------------------+---------------------+");
+        System.out.println("╔═════════════════╦═════════════════════╦═════════════════════╦═════════════════════╗");
+        System.out.println("║  Customer ID    ║    Username         ║     Full Name       ║        Email        ║");
+        System.out.println("╠═════════════════╬═════════════════════╬═════════════════════╬═════════════════════╣");
         
         for (Customer u : customers) {
-            System.out.printf("| %-15s | %-19s | %-19s | %-19s |%n", u.getUserID(), u.getUserName(), u.getName().getfName() + " " + u.getName().getlName(), u.getEmail());
+            System.out.printf("║ %-15s ║ %-19s ║ %-19s ║ %-19s ║%n", u.getUserID(), u.getUserName(), u.getName().getfName() + " " + u.getName().getlName(), u.getEmail());
         }
         
-       System.out.println("+-----------------+---------------------+---------------------+---------------------+");
+        System.out.println("╚═════════════════╩═════════════════════╩═════════════════════╩═════════════════════╝");
         
 
         System.out.print("Press Enter to continue...");
@@ -128,13 +131,13 @@ public class Customer extends User  {
     }
 
         public static void displayCustomer(User u){
-            System.out.println("+-----------------+---------------------+---------------------+---------------------+");
-            System.out.println("|  Customer ID    |    Username         |     Full Name       |        Email        |");
-            System.out.println("+-----------------+---------------------+---------------------+---------------------+");
+            System.out.println("╔═════════════════╦═════════════════════╦═════════════════════╦═════════════════════╗");
+            System.out.println("║  Customer ID    ║    Username         ║     Full Name       ║        Email        ║");
+            System.out.println("╠═════════════════╬═════════════════════╬═════════════════════╬═════════════════════╣");
         
-            System.out.printf("| %-15s | %-19s | %-19s | %-19s |%n", u.getUserID(), u.getUserName(), u.getName().getfName() + " " + u.getName().getlName(), u.getEmail());
-        
-            System.out.println("+-----------------+---------------------+---------------------+---------------------+");
+            System.out.printf("║ %-15s ║ %-19s ║ %-19s ║ %-19s ║%n", u.getUserID(), u.getUserName(), u.getName().getfName() + " " + u.getName().getlName(), u.getEmail());
+    
+            System.out.println("╚═════════════════╩═════════════════════╩═════════════════════╩═════════════════════╝");
         
     }
 
@@ -157,10 +160,19 @@ public class Customer extends User  {
             System.out.println("║ 5. Back                       ║");
             System.out.println("╚═══════════════════════════════╝");
             System.out.print("\nEnter your option (1-5): ");
-            option = scan.nextInt();
-
-            if(option < 1 || option >5){
-                System.out.println("Invalid option entered. Please enter a number between 1 and 5. Try Again :)");
+            try {
+                option = scan.nextInt();   
+                if(option < 1 || option >5){
+                    System.out.println("Invalid option entered. Please enter a number between 1 and 5. Try Again :)");
+                    System.out.print("Press any key to continue..");
+                    scan.nextLine();
+                    scan.nextLine();
+                }             
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid option entered. Please Enter an appropriate number.\nPress any key to continue...");
+                scan.nextLine();
+                scan.nextLine();
+                option = 10;                
             }
         } while (option < 1 || option >5);
         scan.nextLine();
@@ -213,17 +225,17 @@ public class Customer extends User  {
         us = User.readAllUsers();
         FileWriter file = new FileWriter("userDatabase.txt",false);
         for (User c : us) {
-                String fullName = c.getName().getfName()+"_"+c.getName().getlName();
-                if(c.getUserID().equals(currUser.getUserID())){
-                    String username = currUser.getUserName().replaceAll(" ", "");
-                    String em = currUser.getEmail().replaceAll(" ", "");
-                    fullName = currUser.getName().getfName()+"_"+currUser.getName().getlName();
-                    String line = String.format("%s %s %s %s %s %d%n", currUser.getUserID(), username, currUser.getPassword(), em,fullName, 2);
-                    file.write(line);
-                }else{
-                    String line = String.format("%s %s %s %s %d%n", c.getUserID(), c.getUserName(), c.getPassword(), c.getEmail(),fullName, c.getUserRole());
-                    file.write(line);
-                }
+            String fullName = c.getName().getfName()+"_"+c.getName().getlName();
+            if(c.getUserID().equals(currUser.getUserID())){
+                String username = currUser.getUserName().replaceAll(" ", "");
+                String em = currUser.getEmail().replaceAll(" ", "");
+                fullName = currUser.getName().getfName()+"_"+currUser.getName().getlName();
+                String line = String.format("%s %s %s %s %s %d%n", currUser.getUserID(), username, currUser.getPassword(), em,fullName, 2);
+                file.write(line);
+            }else{
+                String line = String.format("%s %s %s %s %s %d%n", c.getUserID(), c.getUserName(), c.getPassword(), c.getEmail(),fullName, c.getUserRole());
+                file.write(line);
+            }
 
             }
             file.close();
