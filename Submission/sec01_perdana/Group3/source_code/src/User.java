@@ -15,7 +15,7 @@ class User extends Menu{
         password = pw;
         email = mail;
         userRole = roleID;
-        name = new Name(fName,lName); //composition
+        name = new Name(fName,lName); //composition done
     }
 
     public User(){}
@@ -117,5 +117,5 @@ class User extends Menu{
 
      protected int viewMenu(){
         return 0;
-     } //Polymorphism
+     } //Polymorphism done using abstraction.
 }

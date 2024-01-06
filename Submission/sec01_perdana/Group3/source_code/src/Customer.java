@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Customer extends User  {
     private Vector<Book> bookList;
-    //private static Vector<OrderManagement> orders;
+    private Vector<OrderManagement> order = new Vector<OrderManagement>();
 
     public Customer(){}
 
@@ -15,14 +15,16 @@ public class Customer extends User  {
         Vector<Customer> cust = new Vector<Customer>();
         cust = getCustomersfromFile();
         Scanner sc = new Scanner(System.in);
-
-        System.out.print("\n\nEnter your username (No spaces in-between): ");
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();
+        InventorySystem.header();
+        System.out.print("\n\nEnter your username : ");
         String username = sc.nextLine();
 
         for(Customer c:cust){
             while (c.getUserName().equals(username)) {
                 System.out.println("Username already exists. Please choose a different username.");
-                System.out.print("\nEnter a new username (No spaces in-between): ");
+                System.out.print("\nEnter a new username : ");
                 username = sc.nextLine();
             }
         }
@@ -60,12 +62,13 @@ public class Customer extends User  {
     }
    
     @Override
-    protected int viewMenu(){ //Polymorphism
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();
+    protected int viewMenu(){ 
         Scanner sc = new Scanner(System.in);
-        int option;
+        int option = 0;
         do{
+            System.out.print("\033[H\033[2J");  
+            System.out.flush();
+            InventorySystem.header();
             System.out.println("╔═══════════════════════════════╗");
             System.out.println("║          Customer Menu        ║");
             System.out.println("╠═══════════════════════════════╣");
@@ -92,7 +95,6 @@ public class Customer extends User  {
         return option;
     }
 
-    //Trying something new to work with Aggregation
     public static Vector<Customer> getCustomersfromFile() throws FileNotFoundException {
         Vector<Customer> customers = new Vector<Customer>();
         Vector<User> users = User.readFromUserFile(2);
@@ -105,49 +107,52 @@ public class Customer extends User  {
     }
 
     public static void addCustomersIntoFile(Customer c) throws IOException{
-        PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt",true)); //based on codespace github file structure hierachy
+        PrintWriter outputFile = new PrintWriter(new FileWriter("userDatabase.txt",true));
         String fullName =  c.getName().getfName()+"_"+c.getName().getlName();
         outputFile.write(c.getUserID()+ " "+c.getUserName()+ " "+c.getPassword()+ " "+c.getEmail()+ " "+fullName+" "+2+"\n");
         outputFile.close();
 
-        System.out.println("Your username : "+c.getUserName()+"\nYour Password: "+c.getPassword());
+        System.out.println("\nYour username : "+c.getUserName()+"\nYour Password: "+c.getPassword());
     }
 
     public void viewAllCustomers(Vector<Customer> customers) throws FileNotFoundException {
-        System.out.println("╔═════════════════╦═════════════════════╦═════════════════════╦═════════════════════╗");
-        System.out.println("║  Customer ID    ║    Username         ║     Full Name       ║        Email        ║");
-        System.out.println("╠═════════════════╬═════════════════════╬═════════════════════╬═════════════════════╣");
-        
-        for (Customer u : customers) {
-            System.out.printf("║ %-15s ║ %-19s ║ %-19s ║ %-19s ║%n", u.getUserID(), u.getUserName(), u.getName().getfName() + " " + u.getName().getlName(), u.getEmail());
-        }
-        
-        System.out.println("╚═════════════════╩═════════════════════╩═════════════════════╩═════════════════════╝");
-        
-
-        System.out.print("Press Enter to continue...");
-        Scanner scan = new Scanner(System.in);
-        scan.nextLine();
-    }
-
-        public static void displayCustomer(User u){
+        if(customers.size() == 0){
+            System.out.println("No customers in the database.");
+        }else{
             System.out.println("╔═════════════════╦═════════════════════╦═════════════════════╦═════════════════════╗");
             System.out.println("║  Customer ID    ║    Username         ║     Full Name       ║        Email        ║");
             System.out.println("╠═════════════════╬═════════════════════╬═════════════════════╬═════════════════════╣");
-        
-            System.out.printf("║ %-15s ║ %-19s ║ %-19s ║ %-19s ║%n", u.getUserID(), u.getUserName(), u.getName().getfName() + " " + u.getName().getlName(), u.getEmail());
-    
+            
+            for (Customer u : customers) {
+                System.out.printf("║ %-15s ║ %-19s ║ %-19s ║ %-19s ║%n", u.getUserID(), u.getUserName(), u.getName().getfName() + " " + u.getName().getlName(), u.getEmail());
+            }
+            
             System.out.println("╚═════════════════╩═════════════════════╩═════════════════════╩═════════════════════╝");
-        
-    }
+        }
+         System.out.print("Press Enter to continue...");
+         Scanner scan = new Scanner(System.in);
+         scan.nextLine();
+     }
+
+     public static void displayCustomer(User u){
+        System.out.println("╔═════════════════╦═════════════════════╦═════════════════════╦═════════════════════╗");
+        System.out.println("║  Customer ID    ║    Username         ║     Full Name       ║        Email        ║");
+        System.out.println("╠═════════════════╬═════════════════════╬═════════════════════╬═════════════════════╣");
+    
+        System.out.printf("║ %-15s ║ %-19s ║ %-19s ║ %-19s ║%n", u.getUserID(), u.getUserName(), u.getName().getfName() + " " + u.getName().getlName(), u.getEmail());
+    
+        System.out.println("╚═════════════════╩═════════════════════╩═════════════════════╩═════════════════════╝");
+    
+}
 
     public static void updateCustomerAcc(User currUser) throws IOException{
         Scanner scan = new Scanner(System.in);
-        int option;
+        int option=0;
         String newValue = "";
         do {
             System.out.print("\033[H\033[2J");  
             System.out.flush();
+            InventorySystem.header();
             displayCustomer(currUser);
             System.out.println("\n\n");
             System.out.println("╔═══════════════════════════════╗");
@@ -174,6 +179,7 @@ public class Customer extends User  {
                 scan.nextLine();
                 option = 10;                
             }
+
         } while (option < 1 || option >5);
         scan.nextLine();
 
@@ -225,20 +231,30 @@ public class Customer extends User  {
         us = User.readAllUsers();
         FileWriter file = new FileWriter("userDatabase.txt",false);
         for (User c : us) {
-            String fullName = c.getName().getfName()+"_"+c.getName().getlName();
-            if(c.getUserID().equals(currUser.getUserID())){
-                String username = currUser.getUserName().replaceAll(" ", "");
-                String em = currUser.getEmail().replaceAll(" ", "");
-                fullName = currUser.getName().getfName()+"_"+currUser.getName().getlName();
-                String line = String.format("%s %s %s %s %s %d%n", currUser.getUserID(), username, currUser.getPassword(), em,fullName, 2);
-                file.write(line);
-            }else{
-                String line = String.format("%s %s %s %s %s %d%n", c.getUserID(), c.getUserName(), c.getPassword(), c.getEmail(),fullName, c.getUserRole());
-                file.write(line);
-            }
+                String fullName = c.getName().getfName()+"_"+c.getName().getlName();
+                if(c.getUserID().equals(currUser.getUserID())){
+                    String username = currUser.getUserName().replaceAll(" ", "");
+                    String em = currUser.getEmail().replaceAll(" ", "");
+                    fullName = currUser.getName().getfName()+"_"+currUser.getName().getlName();
+                    String line = String.format("%s %s %s %s %s %d%n", currUser.getUserID(), username, currUser.getPassword(), em,fullName, 2);
+                    file.write(line);
+                }else{
+                    String line = String.format("%s %s %s %s %s %d%n", c.getUserID(), c.getUserName(), c.getPassword(), c.getEmail(),fullName, c.getUserRole());
+                    file.write(line);
+                }
 
             }
             file.close();
         System.out.println("Updated Successfully :)");
     }
+
+    public void orderNewBooks(OrderManagement o){
+        order.add(o);
+    }  
+
+    public  void displayBooks(Vector<Book>b,int role) throws FileNotFoundException{
+        bookList = b;
+        bookList.get(0).viewAllBooks(bookList,2);
+    }
 }
+

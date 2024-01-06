@@ -1,10 +1,10 @@
-//B.Sarveish
 import java.io.*;
 import java.util.*;
 
 class Admin extends User {
     private Vector<Customer> customers;
     private static Vector<Book> books;
+    private static Vector<OrderManagement> orderList = new Vector<OrderManagement>();
     private Report report;
 
     public Admin(String id, String name ,String pw, String mail, int roleID, String fName, String lName, Vector<Book> bks){
@@ -16,6 +16,9 @@ class Admin extends User {
     public Admin(){}
 
     public void viewAllCustomers(Customer c) throws FileNotFoundException{
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();
+        InventorySystem.header();
         customers = c.getCustomersfromFile();
         c.viewAllCustomers(customers);
     }
@@ -49,11 +52,12 @@ class Admin extends User {
 
     @Override
     protected int viewMenu(){
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();
         Scanner sc = new Scanner(System.in);
         int option = 0;
         do{
+            System.out.print("\033[H\033[2J");  
+            System.out.flush();
+            InventorySystem.header();
             System.out.println("╔═══════════════════════════════╗");
             System.out.println("║           Admin Menu          ║");
             System.out.println("╠═══════════════════════════════╣");
@@ -73,6 +77,8 @@ class Admin extends User {
                 option = sc.nextInt();
                 if(option < 1 || option > 9){
                     System.out.println("Invalid option entered. Please enter a number between 1 and 9. Try Again :)");
+                    sc.nextLine();
+                    sc.nextLine();
 
                 }
             } catch (InputMismatchException e) {
@@ -84,6 +90,15 @@ class Admin extends User {
 
         }while(option < 1 || option > 9);
         return option;
+    }
+
+    public void generateSalesReport(Report r) throws FileNotFoundException{
+        report = r;
+        report.generateReport(1);
+    }
+
+    public void orderBooks(OrderManagement o) {
+        orderList.add(o);
     }
 
 
