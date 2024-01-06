@@ -19,7 +19,7 @@ The Inventory Management System is designed ......
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 | TAN CHEE SEN  | ABC123        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/test.jpg" width=90px, height=80px>     |
 | B.SARVEISH      | B23CS0016        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/Sarveish.jpg" width=80px, height=80px>         |
-| CHONG WEI YANG      | A23CS50277        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/WeiYang.jpg" width=80px, height=80px>         |
+| CHONG WEI YANG      | A23CS5027       | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/WeiYang.jpg" width=80px, height=80px>         |
 | William      | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/WilliamLew.jpg" width=80px, height=80px>         |
 
 ## Findings 📊
