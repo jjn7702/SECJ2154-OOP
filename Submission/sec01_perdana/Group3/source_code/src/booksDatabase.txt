@@ -6,4 +6,3 @@ B005 Pride_and_Prejudice Jane_Austen 3 35 13.9
 B006 The_Hobbit J.R.R.Tolkien 2 20 23.6
 B007 The_Da_Vinci Dan_Brown 2 45 20.9
 B008 The_Harry_Potter_Series J.K.Rowling 1 58 18.9
-B0011 Upin_&_Ipin Mohammad_Radzi 4 19 13.9

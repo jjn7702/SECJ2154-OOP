@@ -16,3 +16,4 @@ OR020 89.7 B003 3 WeiYangCust 2 Completed 2024-01-05
 OR018 47.8 B001 2 WeiYangCust 2 Completed 2024-01-05
 OR018 89.7 B003 3 WeiYangCust 2 Completed 2024-01-05
 OR020 23.9 B001 1 admin123 1 Pending 2024-01-06
+OR019 18.9 B008 1 admin123 1 Pending 2024-01-06

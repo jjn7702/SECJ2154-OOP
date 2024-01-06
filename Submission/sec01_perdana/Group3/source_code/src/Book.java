@@ -90,7 +90,7 @@ class Book{
 
     public  Vector<Book> getBooksfromFile() throws FileNotFoundException {
         Vector<Book> books = new Vector<Book>();
-        Scanner sc = new Scanner(new File("booksDatabase.txt"));
+        Scanner sc = new Scanner(new File("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt"));
         
         while(sc.hasNext()){
             String bookId = sc.next();
@@ -184,7 +184,7 @@ class Book{
 
 
         Book c = new Book(id.toUpperCase(), ttl, mainAuthor, genreOption, quantityInStock,bookPrice);
-        PrintWriter outputFile = new PrintWriter(new FileWriter("booksDatabase.txt",true));
+        PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt",true));
         String title = c.getTitle().replaceAll(" ", "_");
         String author = c.getMainAuthor().replaceAll(" ", "_");
         outputFile.write(c.getBookID()+ " "+title+ " "+author+ " "+c.getGenre()+ " "+c.getQuantityInStock()+" "+c.getBookPrice()+"\n");
@@ -400,7 +400,7 @@ class Book{
                         }
                     }   
             }
-            PrintWriter outputFile = new PrintWriter(new FileWriter("booksDatabase.txt"),false);
+            PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt"),false);
             for(Book book:bk2){
                 if(book.getBookID().equals(bookId.toUpperCase())){
                     break;
@@ -445,7 +445,7 @@ class Book{
 
         }
         if(books !=null){
-            FileWriter file = new FileWriter("booksDatabase.txt",false);
+            FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt",false);
             for (Book bk : books) {
                 file.write(bk.getBookID().toUpperCase()+ " "+bk.getTitle()+ " "+bk.getMainAuthor()+ " "+bk.getGenre()+ " "+bk.getQuantityInStock()+" "+bk.getBookPrice()+"\n");
             }

@@ -107,7 +107,7 @@ public class Customer extends User  {
     }
 
     public static void addCustomersIntoFile(Customer c) throws IOException{
-        PrintWriter outputFile = new PrintWriter(new FileWriter("userDatabase.txt",true));
+        PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt",true));
         String fullName =  c.getName().getfName()+"_"+c.getName().getlName();
         outputFile.write(c.getUserID()+ " "+c.getUserName()+ " "+c.getPassword()+ " "+c.getEmail()+ " "+fullName+" "+2+"\n");
         outputFile.close();
@@ -229,7 +229,7 @@ public class Customer extends User  {
         }
         Vector<User> us = new Vector<User>();
         us = User.readAllUsers();
-        FileWriter file = new FileWriter("userDatabase.txt",false);
+        FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt",false);
         for (User c : us) {
                 String fullName = c.getName().getfName()+"_"+c.getName().getlName();
                 if(c.getUserID().equals(currUser.getUserID())){

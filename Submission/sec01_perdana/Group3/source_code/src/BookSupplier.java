@@ -97,8 +97,8 @@ class BookSupplier extends User{
                 }
             }
         }
-        FileWriter file = new FileWriter("booksDatabase.txt",false);
-        FileWriter fileOrders = new FileWriter("ordersDatabase.txt",false);
+        FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt",false);
+        FileWriter fileOrders = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/ordersDatabase.txt",false);
         for(Book bks : bkList){
             if(bks.getBookID().equals(bookId)){
                 file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+bks.getQuantityInStock()+" "+bks.getBookPrice()+"\n");
@@ -200,7 +200,7 @@ class BookSupplier extends User{
         }
         Vector<User> us = new Vector<User>();
         us = User.readAllUsers();
-        FileWriter file = new FileWriter("userDatabase.txt",false);
+        FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt",false);
         for (User c : us) {
                 String fullName = c.getName().getfName()+"_"+c.getName().getlName();
                 if(c.getUserID().equals(currUser.getUserID())){

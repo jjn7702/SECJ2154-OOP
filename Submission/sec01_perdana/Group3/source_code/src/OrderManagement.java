@@ -35,9 +35,9 @@ public class OrderManagement {
         this.totalAmount = 0.0;
         this.orderDate = "";
         bookCart = new Vector<Book>();
-        CustOrderCart = new Vector<OrderManagement>();
+        custOrderCart = new Vector<OrderManagement>();
+        // this.report = new Report();
     }
-    // TAN MUST UPDATE THIS
     public Vector<OrderManagement> getOrderFromFile(int role) throws FileNotFoundException {
         Vector<OrderManagement> orders = new Vector<OrderManagement>();
         Vector<Book> books = new Vector<Book>();
@@ -48,6 +48,7 @@ public class OrderManagement {
             double totalAmount = sc.nextDouble();
             String bookId = sc.next();
             int quantityOrder = sc.nextInt();
+            // double price = sc.nextDouble();
             String userID = sc.next();
             int userRole = sc.nextInt();
             String orderStatus = sc.next();
@@ -64,11 +65,11 @@ public class OrderManagement {
              //System.out.println(bookInfo.getTitle()+ " " + bookInfo.getMainAuthor()+ " " + bookInfo.getGenre()+ " " + bookInfo.getQuantityInStock()+ " " + bookInfo.getBookPrice());
                 User users = new User(userID,"userName", "password","mail", userRole,"fname","lname");
                 OrderManagement order = new OrderManagement(orderId, bookInfo,users,totalAmount, orderStatus, orderDate, quantityInStock, quantityOrder);
-                orders.add(order);         
+                orders.add(order);
+                
         }
         return orders; 
         }
-
         public void generateInvoice() throws FileNotFoundException {
             System.out.println(
                 "╔══════════════════════════════════════════════════════════════════════════════════════╗");
@@ -134,152 +135,153 @@ public class OrderManagement {
             System.out.println("╚══════════════════════════════════════════════════════════════════════════════════════╝");
         }
 
-        public void viewAllOrders(Vector<OrderManagement> orders,int role,String sortBy) throws FileNotFoundException{
-            System.out.print("\033[H\033[2J");  
-            System.out.flush();
-            InventorySystem.header();
-            Boolean isPending = false;
-            if(role ==3){
-                for(OrderManagement order : orders){
-                    if(order.getOrderStatus().equals("Pending")){
-                        isPending = true;
-                        break;
-                    }
-                }
-                if(isPending == true){
-                    System.out.print(
-                        "╔═══════╦══════╦══════════════════════════════╦══════════════════╦═══════════╦═════════╦═════════════╦══════════╦════════════╦═══════════╗\n");
-                        System.out.print(
-                            "║OrderID║BookID║             Title            ║    Main Author   ║   Genre   ║Order Qty║   UserId    ║  Status  ║TotalAmount ║ OrderDate ║\n");
-            
-                    System.out.print(
-                        "╠═══════╬══════╬══════════════════════════════╬══════════════════╬═══════════╬═════════╬═════════════╬══════════╬════════════╬═══════════╣\n");
-                    for(OrderManagement ord:orders){
-                        ord.displayOrder(role,sortBy);
-                    }
-                    System.out.print(
-                        "╚═══════╩══════╩══════════════════════════════╩══════════════════╩═══════════╩═════════╩═════════════╩══════════╩════════════╩═══════════╝\n");
-                    System.out.print("Press Enter to continue...");
-                    return;
-                }else{
-                    System.out.print("No orders to provide approval status. Please wait for new admin orders.");
-                    System.out.print("\nPress Enter to continue...");
-                    Scanner scan = new Scanner(System.in);
-                    scan.nextLine();
-                    return;
+    public void viewAllOrders(Vector<OrderManagement> orders,int role,String sortBy) throws FileNotFoundException{
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();
+        InventorySystem.header();
+        Boolean isPending = false;
+        if(role ==3){
+            for(OrderManagement order : orders){
+                if(order.getOrderStatus().equals("Pending")){
+                    isPending = true;
+                    break;
                 }
             }
-            System.out.print(
-                "╔═══════╦══════╦══════════════════════════════╦══════════════════╦═══════════╦═════════╦═════════════╦══════════╦════════════╦═══════════╗\n");
-            if(role == 1){
-            System.out.print(
-                "║OrderID║BookID║             Title            ║    Main Author   ║   Genre   ║Order Qty║   UserId    ║  Status  ║TotalAmount ║ OrderDate ║\n");
-    
-            }else{
-            System.out.print(
-                "║OrderID║BookID║             Title            ║    Main Author   ║   Genre   ║Order Qty║   UserId    ║  Status  ║TotalAmount ║ OrderDate ║\n");
-            }
-            System.out.print(
-                "╠═══════╬══════╬══════════════════════════════╬══════════════════╬═══════════╬═════════╬═════════════╬══════════╬════════════╬═══════════╣\n");
-            for(OrderManagement ord:orders){
-                ord.displayOrder(role,sortBy);
-            }
-            System.out.print(
-                "╚═══════╩══════╩══════════════════════════════╩══════════════════╩═══════════╩═════════╩═════════════╩══════════╩════════════╩═══════════╝\n");
-            System.out.print("Press Enter to continue...");
-            Scanner scan = new Scanner(System.in);
-            scan.nextLine();
-        }
-
-        public void displayOrder(int role,String sortBy){ //Testing since need to check with Sarveish.
-            String genreStr ="";
-            switch (bookInfo.getGenre()) {
-                case 1:
-                    genreStr = "Romance";
-                    break;
-                case 2:
-                    genreStr = "Mystery";
-                    break;
-                case 3:
-                    genreStr = "Fantasy";
-                    break;
-                case 4:
-                    genreStr = "Comedy";
-                    break;
-                case 5:
-                    genreStr = "Thriller";
-                    break;
-                default:
-                    break;
-            }
-            String title = bookInfo.getTitle().replaceAll("_", " ");
-            String author = bookInfo.getMainAuthor().replaceAll("_", " ");
-            if (role == 1) {
-    
-                if(sortBy.equals("Customer")){
-                    if(getOrderStatus().equals("Completed")){
-                        System.out.printf("║%-7s║%-6s║%-30s║%-18s║%-11s║%-9d║%-13s║%-10s║RM%-10.2f║%-11s║%n",getOrderID(), bookInfo.getBookID(), 
-                        title,author, genreStr,getQuantityOrder(),user.getUserID()
-                        ,getOrderStatus(),getTotalAmount(),getOrderDate());
-                    }
-                }else if(sortBy.equals("Supplier")){
-                    
-                    if(getOrderStatus().equals("Pending") || getOrderStatus().equals("Approved") || getOrderStatus().equals("Rejected")){
-                        
-                        System.out.printf("║%-7s║%-6s║%-30s║%-18s║%-11s║%-9d║%-13s║%-10s║RM%-10.2f║%-11s║%n",getOrderID(), bookInfo.getBookID(), 
-                        title,author, genreStr,getQuantityOrder(),user.getUserID()
-                        ,getOrderStatus(),getTotalAmount(),getOrderDate());
-                    }
-                }else if(sortBy.equals("All")){
+            if(isPending == true){
+                System.out.print(
+                    "╔═══════╦══════╦══════════════════════════════╦══════════════════╦═══════════╦═════════╦═════════════╦══════════╦════════════╦═══════════╗\n");
+                    System.out.print(
+                        "║OrderID║BookID║             Title            ║    Main Author   ║   Genre   ║Order Qty║   UserId    ║  Status  ║TotalAmount ║ OrderDate ║\n");
         
+                System.out.print(
+                    "╠═══════╬══════╬══════════════════════════════╬══════════════════╬═══════════╬═════════╬═════════════╬══════════╬════════════╬═══════════╣\n");
+                for(OrderManagement ord:orders){
+                    ord.displayOrder(role,sortBy);
+                }
+                System.out.print(
+                    "╚═══════╩══════╩══════════════════════════════╩══════════════════╩═══════════╩═════════╩═════════════╩══════════╩════════════╩═══════════╝\n");
+                System.out.print("Press Enter to continue...");
+                return;
+            }else{
+                System.out.print("No orders to provide approval status. Please wait for new admin orders.");
+                System.out.print("\nPress Enter to continue...");
+                Scanner scan = new Scanner(System.in);
+                scan.nextLine();
+                return;
+            }
+        }
+        System.out.print(
+            "╔═══════╦══════╦══════════════════════════════╦══════════════════╦═══════════╦═════════╦═════════════╦══════════╦════════════╦═══════════╗\n");
+        if(role == 1){
+        System.out.print(
+            "║OrderID║BookID║             Title            ║    Main Author   ║   Genre   ║Order Qty║   UserId    ║  Status  ║TotalAmount ║ OrderDate ║\n");
+
+        }else{
+        System.out.print(
+            "║OrderID║BookID║             Title            ║    Main Author   ║   Genre   ║Order Qty║   UserId    ║  Status  ║TotalAmount ║ OrderDate ║\n");
+        }
+        System.out.print(
+            "╠═══════╬══════╬══════════════════════════════╬══════════════════╬═══════════╬═════════╬═════════════╬══════════╬════════════╬═══════════╣\n");
+        for(OrderManagement ord:orders){
+            ord.displayOrder(role,sortBy);
+        }
+        System.out.print(
+            "╚═══════╩══════╩══════════════════════════════╩══════════════════╩═══════════╩═════════╩═════════════╩══════════╩════════════╩═══════════╝\n");
+        System.out.print("Press Enter to continue...");
+        Scanner scan = new Scanner(System.in);
+        scan.nextLine();
+    }
+
+    public void displayOrder(int role,String sortBy){ //Testing since need to check with Sarveish.
+        String genreStr ="";
+        switch (bookInfo.getGenre()) {
+            case 1:
+                genreStr = "Romance";
+                break;
+            case 2:
+                genreStr = "Mystery";
+                break;
+            case 3:
+                genreStr = "Fantasy";
+                break;
+            case 4:
+                genreStr = "Comedy";
+                break;
+            case 5:
+                genreStr = "Thriller";
+                break;
+            default:
+                break;
+        }
+        String title = bookInfo.getTitle().replaceAll("_", " ");
+        String author = bookInfo.getMainAuthor().replaceAll("_", " ");
+        if (role == 1) {
+
+            if(sortBy.equals("Customer")){
+                if(getOrderStatus().equals("Completed")){
                     System.out.printf("║%-7s║%-6s║%-30s║%-18s║%-11s║%-9d║%-13s║%-10s║RM%-10.2f║%-11s║%n",getOrderID(), bookInfo.getBookID(), 
                     title,author, genreStr,getQuantityOrder(),user.getUserID()
                     ,getOrderStatus(),getTotalAmount(),getOrderDate());
                 }
-            }else if(role == 3 && getOrderStatus().equals("Pending")){
+            }else if(sortBy.equals("Supplier")){
+                
+                if(getOrderStatus().equals("Pending") || getOrderStatus().equals("Approved") || getOrderStatus().equals("Rejected")){
+                    
+                    System.out.printf("║%-7s║%-6s║%-30s║%-18s║%-11s║%-9d║%-13s║%-10s║RM%-10.2f║%-11s║%n",getOrderID(), bookInfo.getBookID(), 
+                    title,author, genreStr,getQuantityOrder(),user.getUserID()
+                    ,getOrderStatus(),getTotalAmount(),getOrderDate());
+                }
+            }else if(sortBy.equals("All")){
+    
                 System.out.printf("║%-7s║%-6s║%-30s║%-18s║%-11s║%-9d║%-13s║%-10s║RM%-10.2f║%-11s║%n",getOrderID(), bookInfo.getBookID(), 
                 title,author, genreStr,getQuantityOrder(),user.getUserID()
                 ,getOrderStatus(),getTotalAmount(),getOrderDate());
             }
+        }else if(role == 3 && getOrderStatus().equals("Pending")){
+            System.out.printf("║%-7s║%-6s║%-30s║%-18s║%-11s║%-9d║%-13s║%-10s║RM%-10.2f║%-11s║%n",getOrderID(), bookInfo.getBookID(), 
+            title,author, genreStr,getQuantityOrder(),user.getUserID()
+            ,getOrderStatus(),getTotalAmount(),getOrderDate());
         }
+    }
 
-        public void addOrderIntoFile(Book bk, User user, int quantityOrder,int n) throws IOException{
-                Scanner scan = new Scanner(System.in);
-                LocalDate UpdateAt = LocalDate.now();
-                // Generate a random UUID
-                UUID randomUUID = UUID.randomUUID();
-                
-                PrintWriter outputFile = new PrintWriter(new FileWriter("ordersDatabase.txt",true));
-                Book books = new Book();
-                Vector<Book> bkList = new Vector<Book>();
-                bkList = books.getBooksfromFile();
-                if(user.getUserRole() == 1){ 
-                    
-                outputFile.write("OR0"+n+" "+getTotalAmount()+" "+
-                bk.getBookID()+ " "+quantityOrder+" "+user.getUserID()+" "+user.getUserRole()+" "+"Pending"+" "+UpdateAt+"\n");
+    public void addOrderIntoFile(Book bk, User user, int quantityOrder,int n) throws IOException{
+        Scanner scan = new Scanner(System.in);
+        LocalDate UpdateAt = LocalDate.now();
+        // Generate a random UUID
+        UUID randomUUID = UUID.randomUUID();
         
-                }else if(user.getUserRole() == 2){
-                    FileWriter file = new FileWriter("booksDatabase.txt",false);
-                    for (Book bks : bkList) {
-                        if(bks.getBookID().equals(bk.getBookID())){
-                            file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+(bks.getQuantityInStock()-quantityOrder)+" "+bks.getBookPrice()+"\n");
-                        }else{
-                            file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+bks.getQuantityInStock()+" "+bks.getBookPrice()+"\n");
-                        }
-                    }
-                file.close();
-                    outputFile.write("OR0"+n+" "+Math.round(getTotalAmount() * 10) / 10.0+" "+
-                bk.getBookID()+ " "+quantityOrder+" "+user.getUserID()+" "+user.getUserRole()+" "+"Completed"+" "+UpdateAt+"\n");
-        
-                OrderManagement order = new OrderManagement("OR0"+n, bk, user, Math.round(getTotalAmount() * 10) / 10.0, "Completed", UpdateAt.toString(), bk.getQuantityInStock(), quantityOrder);
-                custOrderCart.add(order);
-            }       
-                outputFile.close();
-        }
+        PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/ordersDatabase.txt",true));
+        Book books = new Book();
+        Vector<Book> bkList = new Vector<Book>();
+        bkList = books.getBooksfromFile();
+        if(user.getUserRole() == 1){ 
+            
+        outputFile.write("OR0"+n+" "+getTotalAmount()+" "+
+        bk.getBookID()+ " "+quantityOrder+" "+user.getUserID()+" "+user.getUserRole()+" "+"Pending"+" "+UpdateAt+"\n");
 
-        public void orderBook(String bookId, int quantityOrder, User realUser, int n) throws IOException{
+        }else if(user.getUserRole() == 2){
+            FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt",false);
+            for (Book bks : bkList) {
+                if(bks.getBookID().equals(bk.getBookID())){
+                    file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+(bks.getQuantityInStock()-quantityOrder)+" "+bks.getBookPrice()+"\n");
+                }else{
+                    file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+bks.getQuantityInStock()+" "+bks.getBookPrice()+"\n");
+                }
+            }
+        file.close();
+            outputFile.write("OR0"+n+" "+Math.round(getTotalAmount() * 10) / 10.0+" "+
+        bk.getBookID()+ " "+quantityOrder+" "+user.getUserID()+" "+user.getUserRole()+" "+"Completed"+" "+UpdateAt+"\n");
+
+        OrderManagement order = new OrderManagement("OR0"+n, bk, user, Math.round(getTotalAmount() * 10) / 10.0, "Completed", UpdateAt.toString(), bk.getQuantityInStock(), quantityOrder);
+        custOrderCart.add(order);
+    }       
+        outputFile.close();
+    }
+
+    public void orderBook(String bookId, int quantityOrder, User realUser, int n) throws IOException{
             Vector<Book> bkList = new Vector<Book>();
             Book book = new Book();
+            // book.getBooksfromFile();
             bkList = book.getBooksfromFile();
             for(Book b:bkList){
                 if(b.getBookID().equals(bookId)){
@@ -296,7 +298,6 @@ public class OrderManagement {
                 }
             }
     }
-
 
     public boolean validation(String bookId, int bookQuantity, int roleId) throws FileNotFoundException{
         Vector<Book> bkList = new Vector<Book>();

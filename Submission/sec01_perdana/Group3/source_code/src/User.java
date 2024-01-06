@@ -67,7 +67,7 @@ class User extends Menu{
 
     public static Vector<User> readAllUsers() throws FileNotFoundException{
         Vector<User> cust = new Vector<User>();
-        Scanner sc = new Scanner(new File("userDatabase.txt"));
+        Scanner sc = new Scanner(new File("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt"));
         
         while(sc.hasNext()){
             String id = sc.next();
@@ -89,7 +89,7 @@ class User extends Menu{
 
     public static Vector<User> readFromUserFile(int userRoleID) throws FileNotFoundException{
         Vector<User> cust = new Vector<User>();
-        Scanner sc = new Scanner(new File("userDatabase.txt"));
+        Scanner sc = new Scanner(new File("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt"));
         
         while(sc.hasNext()){
             String id = sc.next();
