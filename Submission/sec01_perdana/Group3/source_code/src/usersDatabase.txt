@@ -1,6 +1,6 @@
 admin123 admin admin123 user1D@example.com Ali_Shafie 1
 abu123Cust abu123 bakar12 abu@example.com Abu_Bakar 2
 liewCust liew wilLiew123 liew@example.com William_Liew 2
-supplier123 Jaya jaya22 SJaya@example.com SriJaya_Sdn.Bhd 3
+supplier123 Jaya12 jaya22 SJaya@example.com SriJaya_Sdn.Bhd 3
 sarCust sar sarbeast123 sar@example.com Sarveish_Bala 2
-WeiYangCust WeiY Ywei Ywei@example.com Yang_Wei 2
+WeiYangCust weiwei Ywei Ywei@example.com Yang_Wei 2

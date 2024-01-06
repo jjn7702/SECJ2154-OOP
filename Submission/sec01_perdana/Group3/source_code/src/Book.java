@@ -9,6 +9,7 @@ class Book{
     private int quantityInStock;
     private double bookPrice;
 
+
     public Book(){}
 
     public Book(String id, String titleBook, String author, int genreCat, int stock,double price){

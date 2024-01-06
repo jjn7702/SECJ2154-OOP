@@ -242,7 +242,8 @@ public class InventorySystem {
 
                                 orders = orderApproval.getOrderFromFile(realUser.getUserRole());
                                 if(orders.size() == 0){
-                                    System.out.println("No orders to provide approval status.");
+                                    System.out.print("No orders to provide approval status.\nPress any key to continue..");
+                                    scan.nextLine();
                                 }else{
                                     orderApproval.viewAllOrders(orders,realUser.getUserRole(),"");
                                     supplier.updateOrderStatus(orders,realUser);
