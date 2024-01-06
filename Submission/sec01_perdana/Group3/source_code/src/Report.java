@@ -1,4 +1,4 @@
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.*;
 
 public class Report {
@@ -14,15 +14,24 @@ public class Report {
     }
 
     public void generateReport(int roleID) throws FileNotFoundException{
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();
+        InventorySystem.header();
         Scanner sc = new Scanner(System.in);
+        OrderManagement orders = new OrderManagement();
+        orderList = orders.getOrderFromFile(roleID);
+        if(orderList.size() == 0){
+            System.out.println("No Order Found.\nPress any key to continue..");
+            return;
+        }
         System.out.println(
             "╔═══════════════════════════════════════════════════════╗");
         System.out.println(
-            "║           REPORT KEDAI BUKU KAMAL                     ║");
+            "║               REPORT KEDAI BUKU KAMAL                 ║");
         System.out.println(
             "╠═══════════════════════════════════════════════════════╣");
         System.out.println(
-            "║          TOP 10 BOOKS SOLD                            ║");
+            "║                  TOP 10 BOOKS SOLD                    ║");
         System.out.println(
             "║-------------------------------------------------------║");
         System.out.printf(
@@ -36,11 +45,7 @@ public class Report {
         Vector<String> bookId = new Vector<String>();
         Vector<String> bookTitles = new Vector<String>();
         Vector<Integer> bookQuantities = new Vector<Integer>();
-        Vector<String> sortId = new Vector<String>();
-        Vector<Integer> sortQuantity = new Vector<Integer>();
-        Vector<String> sortBook = new Vector<String>();
-        OrderManagement orders = new OrderManagement();
-        orderList = orders.getOrderFromFile(roleID);
+
         
         String status = "";
         int j= 0;
@@ -49,77 +54,73 @@ public class Report {
             String title = book.getTitle().replaceAll("_", " ");
             int quantity = order.getQuantityOrder();
             String id = book.getBookID();
+            String st = order.getOrderStatus();
             
             int index = bookTitles.indexOf(title);
             int min = 0;
             if(order.getOrderStatus().equals("Approved")){
                 totalAmountOrder += order.getTotalAmount();
-                // System.out.println("Order id"+order.getOrderID()+"Total Ammount" + order.getTotalAmount());
             }else if(order.getOrderStatus().equals("Completed")){
                 totalAmount += order.getTotalAmount();
             }
-            if (index == -1) { //adding books in order to avoid duplicate book title to be shown in invoice.
-                bookId.add(id);
-                bookTitles.add(title);
-                bookQuantities.add(quantity);
+            if (index == -1) {
+                if(st.equals("Rejected") || st.equals("Pending")){
+
+                }else{
+                    bookId.add(id);
+                    bookTitles.add(title);
+                    bookQuantities.add(quantity);
+                }
+
             } else {
-                bookQuantities.set(index, bookQuantities.get(index) + quantity);
+                if(st.equals("Rejected") || st.equals("Pending")){
+
+                }else{
+                    bookQuantities.set(index, bookQuantities.get(index) + quantity);
+                }
+
             }
         }
-        // int min = 0;
-        //  for (int i = 0; i < bookTitles.size(); i++) {
-        //     if(bookQuantities.get(i) > min){
-        //         min = bookQuantities.get(i);
-        //         sortBook.add(min);
-        //     }
-        // }
-
-            // Collections.sort(bookQuantities,Collections.reverseOrder());
-        double min =0;
-        for (int i = 0; i < bookTitles.size(); i++) {
-            if (bookQuantities.get(i) > min) {
-                min = bookQuantities.get(i);
-                sortId.add(bookId.get(i));
-                sortQuantity.add(bookQuantities.get(i));
-                sortBook.add(bookTitles.get(i));
-            } else {
-                sortId.insertElementAt(bookId.get(i),i-1);
-                sortQuantity.insertElementAt(bookQuantities.get(i),i-1);
-                sortBook.insertElementAt(bookTitles.get(i),i-1);
+        for (int i = 0; i < bookQuantities.size() - 1; i++) {
+            for (int k = i + 1; k < bookQuantities.size(); k++) {
+                if (bookQuantities.get(i) < bookQuantities.get(k)) {
+                    int tempQuantity = bookQuantities.get(i);
+                    bookQuantities.set(i, bookQuantities.get(k));
+                    bookQuantities.set(k, tempQuantity);
+        
+                    String tempTitle = bookTitles.get(i);
+                    bookTitles.set(i, bookTitles.get(k));
+                    bookTitles.set(k, tempTitle);
+        
+                    String tempId = bookId.get(i);
+                    bookId.set(i, bookId.get(k));
+                    bookId.set(k, tempId);
+                }
             }
         }
-        // String temp1 = "";
-        int temp2 = bookQuantities.get(bookQuantities.size()-1); //2nd last element
-        sortQuantity.remove(bookQuantities.size()-2);
-        sortQuantity.add(0,temp2);
-
-        String temp3 = bookTitles.get(bookTitles.size()-1); //2nd last element
-        sortBook.remove(bookTitles.size()-2);
-        sortBook.add(0,temp3);
-
-        String temp4 = bookId.get(bookId.size()-1); //2nd last element
-        sortId.remove(bookId.size()-2);
-        sortId.add(0,temp4);
-
-        // System.out.println("Bookquantity"+sortQuantity);
-        for (int i = bookTitles.size() - 1; i >= 0; i--) {
-            String id = sortId.get(i);
-            String t = sortBook.get(i);
-            int quantity = sortQuantity.get(i);
-            Book book =  new Book();
+        
+        // Display the top 10 books
+        int n = Math.min(bookQuantities.size(), 10);
+        System.out.println("║-------------------------------------------------------║");
+        for (int i = 0; i < n; i++) {
+            String id = bookId.get(i);
+            String t = bookTitles.get(i);
+            int quantity = bookQuantities.get(i);
+        
+            Book book = new Book();
             Vector<Book> books = new Vector<Book>();
             Book bk = new Book();
             
             books = bk.getBooksfromFile();
         
-            for (Book b : books) { //double checking with title
-                if (b.getTitle().replaceAll("_", " ").toUpperCase().equals(t.replaceAll("_", " ").toUpperCase())) {
+            for (Book b : books) { // double checking with title
+                if (b.getTitle().replaceAll("_", " ").equalsIgnoreCase(t.replaceAll("_", " "))) {
                     book = b;
                     break;
                 }
             }
             if (book != null) {
-                System.out.printf("║%-8s | %-31s | %-10d║\n", id, t,quantity);
+                System.out.printf("║%-8s | %-31s | %-10d║\n", id, t, quantity);
             }
         }
         if(totalAmount > totalAmountOrder){
@@ -131,11 +132,13 @@ public class Report {
         System.out.println("║-------------------------------------------------------║");
         System.out.printf("║%-31sRM%.2f%16s\n", "Total Amount Gained  (RM):", totalAmount,"║");
         System.out.println("║-------------------------------------------------------║");
-        System.out.printf("║%-31sRM%.2f%15s\n", "Total Amount Ordered (RM):", totalAmountOrder,"║");
+        System.out.printf("║%-31sRM%.2f%17s\n", "Total Amount Ordered (RM):", totalAmountOrder,"║");
         System.out.println("║-------------------------------------------------------║");
-        System.out.printf("║%25s%5s%26s\n", "Status:", status,"║");
-        System.out.printf("║%25sRM%2.2f%20s\n", "Total "+ status+": ", totalProfit,"║");
+        System.out.printf("║%25s%5s%25s\n", "Status:", status,"║");
+        System.out.printf("║%25sRM%2.2f%22s\n", "Total "+ status+": ", totalProfit,"║");
         System.out.println("╚═══════════════════════════════════════════════════════╝");
+        System.out.print("Press any key to continue...");
         sc.nextLine();
     }
+
 }
