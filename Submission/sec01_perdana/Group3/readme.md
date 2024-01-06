@@ -18,7 +18,7 @@ The Inventory Management System is designed ......
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 | TAN CHEE SEN  | ABC123        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/test.jpg" width=90px, height=80px>     |
-| SARVISH      | DEF456        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/Sarveish.jpg" width=80px, height=80px>         |
+| B.SARVEISH      | B23CS0016        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/Sarveish.jpg" width=80px, height=80px>         |
 | CHONG WEI YANG      | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/WeiYang.jpg" width=80px, height=80px>         |
 | William      | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/WilliamLew.jpg" width=80px, height=80px>         |
 
