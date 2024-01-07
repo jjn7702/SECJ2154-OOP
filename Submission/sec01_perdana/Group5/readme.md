@@ -19,7 +19,7 @@ The Chronic Disease Management System is designed to address the effective manag
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 | MUHAMMAD ERFAN SYABIL BIN ESA   | B23CS0055        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>     |
 | AMIRUL HANI BIN SYAFRIZON       | DEF456        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>         |
-| SARANYA A/P JAYARAMA REDDY       | B22EC3013        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../C:/Users/Bakery/Documents/SEMESTER 2/OOP NOTES/PROJECT/Saranya.jpg" width=80px, height=80px>         |
+| SARANYA A/P JAYARAMA REDDY       | B22EC3013        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group 5/images/Saranya.jpg" width=80px, height=80px>         |
 | ISWARY A/P SHANMUGAM       | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/girl_4537097.png" width=80px, height=80px>         |
 
 
