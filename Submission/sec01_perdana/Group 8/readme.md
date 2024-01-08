@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-The Chronic Disease Management System is designed to address the effective management and monitoring of chronic diseases for patients. This system aims to provide healthcare professionals with tools to streamline patient information, treatment plans, and progress tracking, ultimately improving patient outcomes and quality of care.
+System Description - ( 8.01.24)
 
 ## Prepared by 🧑‍💻
 
