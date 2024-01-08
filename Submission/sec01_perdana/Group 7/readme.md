@@ -19,7 +19,7 @@ The Chronic Disease Management System is designed to address the effective manag
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 | Muhammd Aiman Haiqal   | B23CS0050        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Aiman Haiqal Salehuddin"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>     |
 | Aidiel Irhan       | B23CS0021        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>         |
-| Muhammad Arif       | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
+| Muhammad Arif       | B23CS0051        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
 | Taneshwar       | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
 
 
