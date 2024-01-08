@@ -7,7 +7,7 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Chronic Disease Management System
+# Library Management System 
 
 ## Description 📝
 
