@@ -373,7 +373,9 @@ class Book{
 
     public void removeBookFromFile(Vector<Book> bk2) throws IOException{
         Scanner scan = new Scanner(System.in);
-
+        Vector<OrderManagement> orderList = new Vector<OrderManagement>();
+        OrderManagement orders = new OrderManagement();
+        orderList = orders.getOrderFromFile(3);
         if(bk2.size() != 0){
             viewAllBooks(bk2,1);
             String bookId = "";
@@ -402,6 +404,7 @@ class Book{
                     }   
             }
             PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt"),false);
+            PrintWriter outputOrderFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/ordersDatabase.txt"),false);
             for(Book book:bk2){
                 if(book.getBookID().equals(bookId.toUpperCase())){
                     break;
@@ -411,7 +414,17 @@ class Book{
                 index++;
             }
             bk2.remove(index);
+
+            for(OrderManagement order: orderList){
+                if(order.getBookInfo().getBookID() != bookId){
+                    outputOrderFile.write(order.getOrderID()+" "+Math.round(order.getTotalAmount() * 10) / 10.0+" "+
+                    order.getBookInfo().getBookID()+ " "+order.getQuantityOrder()+" "+order.getUser().getUserID()+" "+
+                    order.getUser().getUserRole()+" "+order.getOrderStatus()+" "+order.getOrderDate()+"\n");
+                }
+            }
+
             outputFile.close();
+            outputOrderFile.close();
         }else{
             System.out.println("No books in the database.\nPress any key to continue..");
             scan.nextLine();
