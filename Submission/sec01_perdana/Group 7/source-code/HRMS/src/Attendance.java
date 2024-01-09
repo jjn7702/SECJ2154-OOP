@@ -4,7 +4,7 @@ class Attendance {
     private Employee employee;
     private String date;
     private double hoursWorked;
-    private final double REGULARHOURS =  8.0;
+    private final double REGULARHOURS = 9.0;
 
     public Attendance(int aID, Employee employee, String dt, double hW){
         this.attendanceID = aID;

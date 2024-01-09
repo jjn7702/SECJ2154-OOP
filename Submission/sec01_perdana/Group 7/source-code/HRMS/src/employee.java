@@ -6,13 +6,13 @@ class Employee{
     private String gender;
     private String contactInfo;
 
-    public Employee(int empID, String fn, String ln, String DOB, String gr, String cI) {
+    public Employee(int empID, String fn, String ln, String DOB, String gr, String CI) {
         this.employeeID = empID;
         this.firstName = fn;
         this.lastName = ln;
         this.dateOfBirth = DOB;
         this.gender = gr;
-        this.contactInfo = cI;
+        this.contactInfo = CI;
     }
 
     public int getEmployeeID() {

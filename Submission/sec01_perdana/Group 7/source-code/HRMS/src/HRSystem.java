@@ -42,9 +42,9 @@ class HRSystem {
         try {
             // Approve the leave if valid, reject otherwise
             if (leave.validateLeaveRequest()) {
-                System.out.println("Leave request approved.");
+                System.out.println("Leave request approved");
             } else {
-                System.out.println("Leave request rejected.");
+                System.out.println("Leave request rejected");
             }
         } catch (Exception e) {
             System.out.println("An error occurred while processing the leave request: " + e.getMessage());
