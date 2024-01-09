@@ -12,4 +12,10 @@ class Leave {
         this.endDate = endDate;
         this.reason = reason;
     }
+
+    public boolean validateLeaveRequest() {
+        // Assuming a simple validation: Leave is valid if the start date is before the
+        // end date
+        return startDate.compareTo(endDate) <= 0;
+    }
 }
