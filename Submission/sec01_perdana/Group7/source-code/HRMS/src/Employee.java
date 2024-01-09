@@ -7,12 +7,12 @@ class Employee{
     private String contactInfo;
 
     public Employee(int empID, String fn, String ln, String DOB, String gr, String CI) {
-        this.employeeID = empID;
-        this.firstName = fn;
-        this.lastName = ln;
-        this.dateOfBirth = DOB;
-        this.gender = gr;
-        this.contactInfo = CI;
+        this.employeeID = employeeID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.contactInfo = contactInfo;
     }
 
     public int getEmployeeID() {
@@ -27,13 +27,41 @@ class Employee{
         return lastName;
     }
 
-    // Encapsulation and data hiding
-    public void setFirstName(String fn) {
-        this.firstName = fn;
+    public String getDateOFBirth() {
+        return dateOfBirth;
     }
 
-    public void setLastName(String ln) {
-        this.lastName = ln;
+    public String getGender() {
+        return gender;
+    }
+
+    public String getContactInfo() {
+        return contactInfo;
+    }
+
+    // Encapsulation and data hiding
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setDateOFBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
     }
 
     public void displayEmployeeInfo() {
