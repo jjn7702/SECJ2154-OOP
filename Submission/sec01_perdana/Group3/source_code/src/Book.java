@@ -91,18 +91,25 @@ class Book{
 
     public  Vector<Book> getBooksfromFile() throws FileNotFoundException {
         Vector<Book> books = new Vector<Book>();
-        Scanner sc = new Scanner(new File("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt"));
-        
-        while(sc.hasNext()){
-            String bookId = sc.next();
-            String title = sc.next();
-            String mainAuthor = sc.next();
-            int genre = sc.nextInt();
-            int quantityInStock = sc.nextInt();
-            double bookPrice = sc.nextDouble();
-            Book book = new Book(bookId, title, mainAuthor, genre, quantityInStock,bookPrice);
-            books.add(book);
+        try {
+            Scanner sc = new Scanner(new File("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt"));
+            
+            while(sc.hasNext()){
+                String bookId = sc.next();
+                String title = sc.next();
+                String mainAuthor = sc.next();
+                int genre = sc.nextInt();
+                int quantityInStock = sc.nextInt();
+                double bookPrice = sc.nextDouble();
+                Book book = new Book(bookId, title, mainAuthor, genre, quantityInStock,bookPrice);
+                books.add(book);
+            }            
+        } catch (Exception e) {
+            System.out.println("An error occured during file operation..Please try again later\nPress any key to continue..");
+            Scanner scn = new Scanner(System.in);
+            scn.nextLine();
         }
+
         return books; 
     }
 
@@ -185,12 +192,17 @@ class Book{
 
 
         Book c = new Book(id.toUpperCase(), ttl, mainAuthor, genreOption, quantityInStock,bookPrice);
-        PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt",true));
-        String title = c.getTitle().replaceAll(" ", "_");
-        String author = c.getMainAuthor().replaceAll(" ", "_");
-        outputFile.write(c.getBookID()+ " "+title+ " "+author+ " "+c.getGenre()+ " "+c.getQuantityInStock()+" "+c.getBookPrice()+"\n");
-        outputFile.close();
-        bk.add(c);
+        try {
+            PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt",true));
+            String title = c.getTitle().replaceAll(" ", "_");
+            String author = c.getMainAuthor().replaceAll(" ", "_");
+            outputFile.write(c.getBookID()+ " "+title+ " "+author+ " "+c.getGenre()+ " "+c.getQuantityInStock()+" "+c.getBookPrice()+"\n");
+            outputFile.close();
+            bk.add(c);
+        } catch (Exception e) {
+            System.out.print("An error is occured during the file operation. The book is not added..Please Try again later..\nPress Any Key to continue..");
+            scan.nextLine();
+        }
     }
 
     public void viewAllBooks(Vector<Book> books,int role) throws FileNotFoundException{
@@ -198,7 +210,7 @@ class Book{
         System.out.flush();
         InventorySystem.header();
         if(books.size() == 0){
-            System.out.println("No books in the database.");
+            System.out.println("\nNo books in the database.");
         }else{
             if(role == 1){
                 System.out.print(
@@ -365,7 +377,7 @@ class Book{
                         break;
             }
         }else{
-            System.out.println("No books in the database.\nPress any key to continue..");
+            System.out.print("\nNo books in the database.\nPress any key to continue..");
             scan.nextLine();
         }
         
@@ -403,30 +415,36 @@ class Book{
                         }
                     }   
             }
-            PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt"),false);
-            PrintWriter outputOrderFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/ordersDatabase.txt"),false);
-            for(Book book:bk2){
-                if(book.getBookID().equals(bookId.toUpperCase())){
-                    break;
-                }else{
-                    outputFile.write(book.getBookID().toUpperCase()+ " "+book.getTitle()+ " "+book.getMainAuthor()+ " "+book.getGenre()+ " "+book.getQuantityInStock()+" "+book.getBookPrice()+"\n");
+            try {
+                PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt"),false);
+                PrintWriter outputOrderFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/ordersDatabase.txt"),false);
+                for(Book book:bk2){
+                    if(book.getBookID().equals(bookId.toUpperCase())){
+                        break;
+                    }else{
+                        outputFile.write(book.getBookID().toUpperCase()+ " "+book.getTitle()+ " "+book.getMainAuthor()+ " "+book.getGenre()+ " "+book.getQuantityInStock()+" "+book.getBookPrice()+"\n");
+                    }
+                    index++;
                 }
-                index++;
-            }
-            bk2.remove(index);
+                bk2.remove(index);
 
-            for(OrderManagement order: orderList){
-                if(order.getBookInfo().getBookID() != bookId){
-                    outputOrderFile.write(order.getOrderID()+" "+Math.round(order.getTotalAmount() * 10) / 10.0+" "+
-                    order.getBookInfo().getBookID()+ " "+order.getQuantityOrder()+" "+order.getUser().getUserID()+" "+
-                    order.getUser().getUserRole()+" "+order.getOrderStatus()+" "+order.getOrderDate()+"\n");
+                for(OrderManagement order: orderList){
+                    if(order.getBookInfo().getBookID() != bookId){
+                        outputOrderFile.write(order.getOrderID()+" "+Math.round(order.getTotalAmount() * 10) / 10.0+" "+
+                        order.getBookInfo().getBookID()+ " "+order.getQuantityOrder()+" "+order.getUser().getUserID()+" "+
+                        order.getUser().getUserRole()+" "+order.getOrderStatus()+" "+order.getOrderDate()+"\n");
+                    }
                 }
+
+                outputFile.close();
+                outputOrderFile.close();                
+            } catch (Exception e) {
+                System.out.print("An error is occured during the file operation. The book is not removed..Please Try again later..\nPress Any Key to continue..");
+                scan.nextLine();
             }
 
-            outputFile.close();
-            outputOrderFile.close();
         }else{
-            System.out.println("No books in the database.\nPress any key to continue..");
+            System.out.print("\nNo books in the database.\nPress any key to continue..");
             scan.nextLine();
         }
 
@@ -459,11 +477,18 @@ class Book{
 
         }
         if(books !=null){
-            FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt",false);
-            for (Book bk : books) {
-                file.write(bk.getBookID().toUpperCase()+ " "+bk.getTitle()+ " "+bk.getMainAuthor()+ " "+bk.getGenre()+ " "+bk.getQuantityInStock()+" "+bk.getBookPrice()+"\n");
+            try {
+                FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt",false);
+                for (Book bk : books) {
+                    file.write(bk.getBookID().toUpperCase()+ " "+bk.getTitle()+ " "+bk.getMainAuthor()+ " "+bk.getGenre()+ " "+bk.getQuantityInStock()+" "+bk.getBookPrice()+"\n");
+                }
+                file.close();    
+            } catch (Exception e) {
+                System.out.print("An error is occured during the file operation. The book is not removed..Please Try again later..\nPress Any Key to continue..");
+                Scanner scan = new Scanner(System.in);
+                scan.nextLine();
             }
-            file.close();
+
         }
         return true;
     }

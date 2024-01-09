@@ -129,27 +129,34 @@ class BookSupplier extends User{
                     }
                 }
             }
-            FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt",false);
-            FileWriter fileOrders = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/ordersDatabase.txt",false);
-            for(Book bks : bkList){
-                if(bks.getBookID().equals(bookId)){
-                    file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+bks.getQuantityInStock()+" "+bks.getBookPrice()+"\n");
-                }else{
-                    file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+bks.getQuantityInStock()+" "+bks.getBookPrice()+"\n");
+            try {
+                FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt",false);
+                FileWriter fileOrders = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/ordersDatabase.txt",false);
+                for(Book bks : bkList){
+                    if(bks.getBookID().equals(bookId)){
+                        file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+bks.getQuantityInStock()+" "+bks.getBookPrice()+"\n");
+                    }else{
+                        file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+bks.getQuantityInStock()+" "+bks.getBookPrice()+"\n");
+                    }
                 }
+                int i =1;
+                for (OrderManagement order : orderList) {
+                    fileOrders.write("OR0"+i+" "+order.getTotalAmount()+" "+
+                    order.getBookInfo().getBookID()+ " "+order.getQuantityOrder()+" "+order.getUser().getUserID()+" "+order.getUser().getUserRole()+" "+
+                    order.getOrderStatus()+" "+order.getOrderDate()+"\n");
+                    i++;
+                }
+                fileOrders.close();
+                file.close();
+                for(OrderManagement order : orderList){
+                    System.out.println(order.getOrderID()+" "+order.getOrderStatus());
+                }                
+            } catch (Exception e) {
+                System.out.print("An error is occured during file operation..Please try again..\nPress Any Key to Continue..");
+                Scanner scan = new Scanner(System.in);
+                scan.nextLine();
             }
-            int i =1;
-            for (OrderManagement order : orderList) {
-                fileOrders.write("OR0"+i+" "+order.getTotalAmount()+" "+
-                order.getBookInfo().getBookID()+ " "+order.getQuantityOrder()+" "+order.getUser().getUserID()+" "+order.getUser().getUserRole()+" "+
-                order.getOrderStatus()+" "+order.getOrderDate()+"\n");
-                i++;
-            }
-            fileOrders.close();
-            file.close();
-            for(OrderManagement order : orderList){
-                System.out.println(order.getOrderID()+" "+order.getOrderStatus());
-            }
+
         }else{
             return;
         }
@@ -238,22 +245,28 @@ class BookSupplier extends User{
         }
         Vector<User> us = new Vector<User>();
         us = User.readAllUsers();
-        FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt",false);
-        for (User c : us) {
-                String fullName = c.getName().getfName()+"_"+c.getName().getlName();
-                if(c.getUserID().equals(currUser.getUserID())){
-                    String username = currUser.getUserName().replaceAll(" ", "");
-                    String em = currUser.getEmail().replaceAll(" ", "");
-                    fullName = currUser.getName().getfName()+"_"+currUser.getName().getlName();
-                    String line = String.format("%s %s %s %s %s %d%n", currUser.getUserID(), username, currUser.getPassword(), em,fullName, 3);
-                    file.write(line);
-                }else{
-                    String line = String.format("%s %s %s %s %s %d%n", c.getUserID(), c.getUserName(), c.getPassword(), c.getEmail(),fullName, c.getUserRole());
-                    file.write(line);
-                }
+        try {
+            FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt",false);
+            for (User c : us) {
+                    String fullName = c.getName().getfName()+"_"+c.getName().getlName();
+                    if(c.getUserID().equals(currUser.getUserID())){
+                        String username = currUser.getUserName().replaceAll(" ", "");
+                        String em = currUser.getEmail().replaceAll(" ", "");
+                        fullName = currUser.getName().getfName()+"_"+currUser.getName().getlName();
+                        String line = String.format("%s %s %s %s %s %d%n", currUser.getUserID(), username, currUser.getPassword(), em,fullName, 3);
+                        file.write(line);
+                    }else{
+                        String line = String.format("%s %s %s %s %s %d%n", c.getUserID(), c.getUserName(), c.getPassword(), c.getEmail(),fullName, c.getUserRole());
+                        file.write(line);
+                    }
 
+                }
+                file.close();
+            System.out.println("Updated Successfully :)");            
+        } catch (Exception e) {
+                System.out.print("An error is occured during file operation..Please try again..\nPress Any Key to Continue..");
+                scan.nextLine();
             }
-            file.close();
-        System.out.println("Updated Successfully :)");
+
     };
 }

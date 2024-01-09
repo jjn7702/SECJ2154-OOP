@@ -107,17 +107,24 @@ public class Customer extends User  {
     }
 
     public static void addCustomersIntoFile(Customer c) throws IOException{
-        PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt",true));
-        String fullName =  c.getName().getfName()+"_"+c.getName().getlName();
-        outputFile.write(c.getUserID()+ " "+c.getUserName()+ " "+c.getPassword()+ " "+c.getEmail()+ " "+fullName+" "+2+"\n");
-        outputFile.close();
+        try {
+            PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt",true));
+            String fullName =  c.getName().getfName()+"_"+c.getName().getlName();
+            outputFile.write(c.getUserID()+ " "+c.getUserName()+ " "+c.getPassword()+ " "+c.getEmail()+ " "+fullName+" "+2+"\n");
+            outputFile.close();
 
-        System.out.println("\nYour username : "+c.getUserName()+"\nYour Password: "+c.getPassword());
+            System.out.println("\nYour username : "+c.getUserName()+"\nYour Password: "+c.getPassword());            
+        } catch (Exception e) {
+            System.out.print("An error is occured during file operation..Please try again..\nPress Any Key to Continue..");
+            Scanner scan = new Scanner(System.in);
+            scan.nextLine();
+        }
+   
     }
 
     public void viewAllCustomers(Vector<Customer> customers) throws FileNotFoundException {
         if(customers.size() == 0){
-            System.out.println("No customers in the database.");
+            System.out.println("\nNo customers in the database.");
         }else{
             System.out.println("╔═════════════════╦═════════════════════╦═════════════════════╦═════════════════════╗");
             System.out.println("║  Customer ID    ║    Username         ║     Full Name       ║        Email        ║");
@@ -229,23 +236,29 @@ public class Customer extends User  {
         }
         Vector<User> us = new Vector<User>();
         us = User.readAllUsers();
-        FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt",false);
-        for (User c : us) {
-                String fullName = c.getName().getfName()+"_"+c.getName().getlName();
-                if(c.getUserID().equals(currUser.getUserID())){
-                    String username = currUser.getUserName().replaceAll(" ", "");
-                    String em = currUser.getEmail().replaceAll(" ", "");
-                    fullName = currUser.getName().getfName()+"_"+currUser.getName().getlName();
-                    String line = String.format("%s %s %s %s %s %d%n", currUser.getUserID(), username, currUser.getPassword(), em,fullName, 2);
-                    file.write(line);
-                }else{
-                    String line = String.format("%s %s %s %s %s %d%n", c.getUserID(), c.getUserName(), c.getPassword(), c.getEmail(),fullName, c.getUserRole());
-                    file.write(line);
-                }
+        try {
+            FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt",false);
+                for (User c : us) {
+                        String fullName = c.getName().getfName()+"_"+c.getName().getlName();
+                        if(c.getUserID().equals(currUser.getUserID())){
+                            String username = currUser.getUserName().replaceAll(" ", "");
+                            String em = currUser.getEmail().replaceAll(" ", "");
+                            fullName = currUser.getName().getfName()+"_"+currUser.getName().getlName();
+                            String line = String.format("%s %s %s %s %s %d%n", currUser.getUserID(), username, currUser.getPassword(), em,fullName, 2);
+                            file.write(line);
+                        }else{
+                            String line = String.format("%s %s %s %s %s %d%n", c.getUserID(), c.getUserName(), c.getPassword(), c.getEmail(),fullName, c.getUserRole());
+                            file.write(line);
+                        }
 
-            }
-            file.close();
-        System.out.println("Updated Successfully :)");
+                    }
+                    file.close();
+                System.out.println("Updated Successfully :)");            
+        } catch (Exception e) {
+            System.out.print("An error is occured during file operation..Please try again..\nPress Any Key to Continue..");
+            scan.nextLine();
+        }
+ 
     }
 
     public void orderNewBooks(OrderManagement o){

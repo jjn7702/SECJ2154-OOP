@@ -21,7 +21,7 @@ public class Report {
         OrderManagement orders = new OrderManagement();
         orderList = orders.getOrderFromFile(roleID);
         if(orderList.size() == 0){
-            System.out.println("No Order Found.\nPress any key to continue..");
+            System.out.println("\nNo Order Found.\nPress any key to continue..");
             return;
         }
         System.out.println(

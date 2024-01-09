@@ -67,21 +67,28 @@ class User extends Menu{
 
     public static Vector<User> readAllUsers() throws FileNotFoundException{
         Vector<User> cust = new Vector<User>();
-        Scanner sc = new Scanner(new File("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt"));
-        
-        while(sc.hasNext()){
-            String id = sc.next();
-            String name = sc.next();
-            String pw = sc.next();
-            String mail = sc.next();
-            String fullName = sc.next();
-            int roleID = sc.nextInt();
-            String[] ary = fullName.split("_");
-            String fName = ary[0];
-            String lName = ary[1];
-            User tempUser = new User(id, name, pw, mail, roleID,fName,lName);
-            cust.add(tempUser);
+        try {
+            Scanner sc = new Scanner(new File("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt"));
+            
+            while(sc.hasNext()){
+                String id = sc.next();
+                String name = sc.next();
+                String pw = sc.next();
+                String mail = sc.next();
+                String fullName = sc.next();
+                int roleID = sc.nextInt();
+                String[] ary = fullName.split("_");
+                String fName = ary[0];
+                String lName = ary[1];
+                User tempUser = new User(id, name, pw, mail, roleID,fName,lName);
+                cust.add(tempUser);
+            }            
+        } catch (Exception e) {
+            System.out.print("An error is occured during the file operation..Please Try again later..\nPress Any Key to continue..");
+            Scanner scan = new Scanner(System.in);
+            scan.nextLine();
         }
+
         
         return cust;
 
@@ -89,27 +96,34 @@ class User extends Menu{
 
     public static Vector<User> readFromUserFile(int userRoleID) throws FileNotFoundException{
         Vector<User> cust = new Vector<User>();
-        Scanner sc = new Scanner(new File("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt"));
-        
-        while(sc.hasNext()){
-            String id = sc.next();
-            String name = sc.next();
-            String pw = sc.next();
-            String mail = sc.next();
-            String fullName = sc.next();
-            int roleID = sc.nextInt();
+        try {
+            Scanner sc = new Scanner(new File("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt"));
+                
+                while(sc.hasNext()){
+                    String id = sc.next();
+                    String name = sc.next();
+                    String pw = sc.next();
+                    String mail = sc.next();
+                    String fullName = sc.next();
+                    int roleID = sc.nextInt();
 
-            if(roleID == userRoleID){
-                String[] ary = fullName.split("_");
-                String fName = ary[0];
-                String lName = ary[1];
-                User temp = new User(id, name, pw, mail, roleID,fName,lName);
-                cust.add(temp);
-            }
+                    if(roleID == userRoleID){
+                        String[] ary = fullName.split("_");
+                        String fName = ary[0];
+                        String lName = ary[1];
+                        User temp = new User(id, name, pw, mail, roleID,fName,lName);
+                        cust.add(temp);
+                    }
+                }
+
+                sc.nextLine();
+                sc.close();            
+        } catch (Exception e) {
+            System.out.print("An error is occured during the file operation..Please Try again later..\nPress Any Key to continue..");
+            Scanner scan = new Scanner(System.in);
+            scan.nextLine();
         }
-
-        sc.nextLine();
-        sc.close();
+    
         
         return cust;
 

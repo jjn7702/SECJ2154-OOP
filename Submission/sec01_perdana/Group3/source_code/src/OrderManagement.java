@@ -41,33 +41,40 @@ public class OrderManagement {
     public Vector<OrderManagement> getOrderFromFile(int role) throws FileNotFoundException {
         Vector<OrderManagement> orders = new Vector<OrderManagement>();
         Vector<Book> books = new Vector<Book>();
-        Scanner sc = new Scanner(new File("Submission/sec01_perdana/Group3/source_code/src/ordersDatabase.txt")); //need to change path when export to github
-        while(sc.hasNext()){
+        try {
+            Scanner sc = new Scanner(new File("Submission/sec01_perdana/Group3/source_code/src/ordersDatabase.txt")); //need to change path when export to github
+            while(sc.hasNext()){
 
-            String orderId = sc.next();
-            double totalAmount = sc.nextDouble();
-            String bookId = sc.next();
-            int quantityOrder = sc.nextInt();
-            // double price = sc.nextDouble();
-            String userID = sc.next();
-            int userRole = sc.nextInt();
-            String orderStatus = sc.next();
-            String orderDate = sc.next();
-            
-
-            Book bookSelected = new Book();
-            books = bookSelected.getBooksfromFile();
-            for(Book b:books){
-                if(b.getBookID().equals(bookId.toUpperCase())){
-                    bookInfo = b;
-                }
-            }
-             //System.out.println(bookInfo.getTitle()+ " " + bookInfo.getMainAuthor()+ " " + bookInfo.getGenre()+ " " + bookInfo.getQuantityInStock()+ " " + bookInfo.getBookPrice());
-                User users = new User(userID,"userName", "password","mail", userRole,"fname","lname");
-                OrderManagement order = new OrderManagement(orderId, bookInfo,users,totalAmount, orderStatus, orderDate, quantityInStock, quantityOrder);
-                orders.add(order);
+                String orderId = sc.next();
+                double totalAmount = sc.nextDouble();
+                String bookId = sc.next();
+                int quantityOrder = sc.nextInt();
+                // double price = sc.nextDouble();
+                String userID = sc.next();
+                int userRole = sc.nextInt();
+                String orderStatus = sc.next();
+                String orderDate = sc.next();
                 
+
+                Book bookSelected = new Book();
+                books = bookSelected.getBooksfromFile();
+                for(Book b:books){
+                    if(b.getBookID().equals(bookId.toUpperCase())){
+                        bookInfo = b;
+                    }
+                }
+                //System.out.println(bookInfo.getTitle()+ " " + bookInfo.getMainAuthor()+ " " + bookInfo.getGenre()+ " " + bookInfo.getQuantityInStock()+ " " + bookInfo.getBookPrice());
+                    User users = new User(userID,"userName", "password","mail", userRole,"fname","lname");
+                    OrderManagement order = new OrderManagement(orderId, bookInfo,users,totalAmount, orderStatus, orderDate, quantityInStock, quantityOrder);
+                    orders.add(order);
+                    
+            }            
+        } catch (Exception e) {
+            System.out.print("An error is occured during the file operation..Please Try again later..\nPress Any Key to continue..");
+            Scanner scan = new Scanner(System.in);
+            scan.nextLine();
         }
+
         return orders; 
         }
         public void generateInvoice() throws FileNotFoundException {
@@ -249,33 +256,38 @@ public class OrderManagement {
         LocalDate UpdateAt = LocalDate.now();
         // Generate a random UUID
         UUID randomUUID = UUID.randomUUID();
-        
-        PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/ordersDatabase.txt",true));
-        Book books = new Book();
-        Vector<Book> bkList = new Vector<Book>();
-        bkList = books.getBooksfromFile();
-        if(user.getUserRole() == 1){ 
-            
-        outputFile.write("OR0"+n+" "+getTotalAmount()+" "+
-        bk.getBookID()+ " "+quantityOrder+" "+user.getUserID()+" "+user.getUserRole()+" "+"Pending"+" "+UpdateAt+"\n");
+        try {
+                PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/ordersDatabase.txt",true));
+                Book books = new Book();
+                Vector<Book> bkList = new Vector<Book>();
+                bkList = books.getBooksfromFile();
+                if(user.getUserRole() == 1){ 
+                    
+                outputFile.write("OR0"+n+" "+getTotalAmount()+" "+
+                bk.getBookID()+ " "+quantityOrder+" "+user.getUserID()+" "+user.getUserRole()+" "+"Pending"+" "+UpdateAt+"\n");
 
-        }else if(user.getUserRole() == 2){
-            FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt",false);
-            for (Book bks : bkList) {
-                if(bks.getBookID().equals(bk.getBookID())){
-                    file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+(bks.getQuantityInStock()-quantityOrder)+" "+bks.getBookPrice()+"\n");
-                }else{
-                    file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+bks.getQuantityInStock()+" "+bks.getBookPrice()+"\n");
-                }
-            }
-        file.close();
-            outputFile.write("OR0"+n+" "+Math.round(getTotalAmount() * 10) / 10.0+" "+
-        bk.getBookID()+ " "+quantityOrder+" "+user.getUserID()+" "+user.getUserRole()+" "+"Completed"+" "+UpdateAt+"\n");
+                }else if(user.getUserRole() == 2){
+                    FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt",false);
+                    for (Book bks : bkList) {
+                        if(bks.getBookID().equals(bk.getBookID())){
+                            file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+(bks.getQuantityInStock()-quantityOrder)+" "+bks.getBookPrice()+"\n");
+                        }else{
+                            file.write(bks.getBookID()+ " "+bks.getTitle()+ " "+bks.getMainAuthor()+ " "+bks.getGenre()+ " "+bks.getQuantityInStock()+" "+bks.getBookPrice()+"\n");
+                        }
+                    }
+                file.close();
+                    outputFile.write("OR0"+n+" "+Math.round(getTotalAmount() * 10) / 10.0+" "+
+                bk.getBookID()+ " "+quantityOrder+" "+user.getUserID()+" "+user.getUserRole()+" "+"Completed"+" "+UpdateAt+"\n");
 
-        OrderManagement order = new OrderManagement("OR0"+n, bk, user, Math.round(getTotalAmount() * 10) / 10.0, "Completed", UpdateAt.toString(), bk.getQuantityInStock(), quantityOrder);
-        custOrderCart.add(order);
-    }       
-        outputFile.close();
+                OrderManagement order = new OrderManagement("OR0"+n, bk, user, Math.round(getTotalAmount() * 10) / 10.0, "Completed", UpdateAt.toString(), bk.getQuantityInStock(), quantityOrder);
+                custOrderCart.add(order);
+            }       
+                outputFile.close();            
+        } catch (Exception e) {
+            System.out.print("An error is occured during the file operation. The order is not added..Please Try again later..\nPress Any Key to continue..");
+            scan.nextLine();
+        }
+
     }
 
     public void orderBook(String bookId, int quantityOrder, User realUser, int n) throws IOException{
