@@ -7,25 +7,24 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Chronic Disease Management System
+# Human Resource Management System
 
 ## Description 📝
 
-The Chronic Disease Management System is designed to address the effective management and monitoring of chronic diseases for patients. This system aims to provide healthcare professionals with tools to streamline patient information, treatment plans, and progress tracking, ultimately improving patient outcomes and quality of care.
+The Human Resources Management System described in the provided Java code is designed to facilitate the organizational management of employees and related processes. It includes classes representing employees, HR managers, departments, positions, salaries, attendance records, and leave requests. The system allows for the addition and removal of employees, management of departments by HR managers, assignment of positions to employees, and processing of leave requests. Overall, it serves as a foundation for handling key HR functions within an organization, emphasizing employee information management, hierarchical relationships, and task assignments.
 
 ## Prepared by 🧑‍💻
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| Muhammad Aiman Haiqal   | B23CS0050        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Aiman Haiqal Salehuddin"><img src="..\Submission\sec01_perdana\Group7\images\mnqarlz.jpg" width=80px, height=80px>     |
+| Muhammad Aiman Haiqal   | B23CS0050        | <a title="Aiman Haiqal Salehuddin"><img src="..\Submission\sec01_perdana\Group7\images\mnqarlz.jpg" width=80px, height=80px>     |
 | Aidiel Irhan       | DEF456        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/girl_4537097.png" width=80px, height=80px>         |
 | Muhammad Arif       | B23CS0051        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
 | Rakesh Kumar       | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
 
-
 ## Findings 📊
 
-- [Source Code](../sample/source_code/PatientSystem.java)
+- [Source Code](..\Submission\sec01_perdana\Group7\source-code)
 - Input Files
 - Report
 - Slide
