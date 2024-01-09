@@ -9,4 +9,9 @@ class Position {
         this.responsibilities = responsibilities;
     }
 
+    public void displayPositionInfo() {
+        System.out.println("Position ID: " + positionID);
+        System.out.println("Title: " + title);
+        System.out.println("Responsibilities: " + responsibilities);
+    }
 }
