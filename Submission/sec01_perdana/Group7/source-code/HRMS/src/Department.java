@@ -22,8 +22,7 @@ class Department {
     public void displayDepartmentInfo() {
         System.out.println("Department ID: " + departmentID);
         System.out.println("Department Name: " + departmentName);
-        System.out.println(
-                "Manager: " + manager.getEmployee().getFirstName() + " " + manager.getEmployee().getLastName());
+        System.out.println("Manager: " + manager.getEmployee().getFirstName() + " " + manager.getEmployee().getLastName());
         System.out.println("Number of Staff Members: " + staffMembers.size());
     }
 }
