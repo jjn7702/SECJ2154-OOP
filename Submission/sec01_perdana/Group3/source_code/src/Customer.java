@@ -47,7 +47,7 @@ public class Customer extends User  {
         String confirmPassword = sc.nextLine();
 
         while (pw.equals(confirmPassword) == false) {
-            System.out.println("Passwords do not match. Please re-enter your password.");
+            System.out.println("Passwords doesn't match. Please re-enter your password.");
             System.out.print("Enter a password: ");
             pw = sc.nextLine();
 
@@ -55,7 +55,7 @@ public class Customer extends User  {
             confirmPassword = sc.nextLine();
         }
 
-        String userID = username+"Cust"; //creating a fixed userID with username that they created first.
+        String userID = username+"Cust";
         Customer c = new Customer(userID, username, pw, email, 2,nameFirst,nameLast);
         addCustomersIntoFile(c);
         sc.close();
@@ -253,7 +253,7 @@ public class Customer extends User  {
 
                     }
                     file.close();
-                System.out.println("Updated Successfully :)");            
+                System.out.println("Updated Successfully.");            
         } catch (Exception e) {
             System.out.print("An error is occured during file operation..Please try again..\nPress Any Key to Continue..");
             scan.nextLine();
