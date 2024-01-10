@@ -243,11 +243,11 @@ class BookSupplier extends User{
             default:
                 break;
         }
-        Vector<User> us = new Vector<User>();
-        us = User.readAllUsers();
+        Vector<User> users = new Vector<User>();
+        users = User.readAllUsers();
         try {
             FileWriter file = new FileWriter("Submission/sec01_perdana/Group3/source_code/src/usersDatabase.txt",false);
-            for (User c : us) {
+            for (User c : users) {
                     String fullName = c.getName().getfName()+"_"+c.getName().getlName();
                     if(c.getUserID().equals(currUser.getUserID())){
                         String username = currUser.getUserName().replaceAll(" ", "");
