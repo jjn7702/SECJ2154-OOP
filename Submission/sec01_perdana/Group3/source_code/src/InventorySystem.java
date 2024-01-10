@@ -15,11 +15,18 @@ public class InventorySystem {
 
             System.out.println("\n\nRoles :\n\t1. Admin\n\t2. Customer\n\t3. Supplier");
             System.out.print("Enter your role (1-3) : ");
-            choice = scan.nextInt();
-            if(choice<1 || choice > 3){
-                System.out.println("Invalid option entered. Please Try Again! Press any key to continue...");
+            try{
+                choice = scan.nextInt();
+                if(choice<1 || choice > 3){
+                    System.out.println("Invalid option entered. Please Try Again! Press any key to continue...");
+                    scan.nextLine();
+                    scan.nextLine();
+                }   
+            }catch(InputMismatchException e){
+                System.out.println("Invalid option entered. Please Enter an appropriate number.\nPress any key to continue...");
                 scan.nextLine();
                 scan.nextLine();
+                choice = 4;
             }
         }while(choice<1 || choice > 3);
         System.out.print("\033[H\033[2J");  
@@ -27,18 +34,17 @@ public class InventorySystem {
         header();
         if (choice == 1 || choice == 3) {
             if (choice == 1) {
-                do {
+                do{
                     scan.nextLine();
                     System.out.print("\n\nEnter username : ");
                     String uName = scan.nextLine();
-                    System.out.print("\nEnter password : ");
-                    String pw = scan.nextLine();
+                    char[] passwordArray = System.console().readPassword("Enter your password: ");
+                    String pw = new String(passwordArray);
                     user = User.login(uName, pw, choice);
-                    if (user == null) {
-                        System.out.println(
-                                "Invalid Credentials Entered. Please Try Again!");
+                    if(user == null){
+                        System.out.println("Invalid Credentials Entered. Please Try Again!");
                     }
-                } while (user == null);
+                }while(user == null);
                 Book b = new Book();
                 User realUser = new Admin(
                         user.getUserID(),
@@ -50,8 +56,7 @@ public class InventorySystem {
                         user.getName().getlName(),
                         b.getBooksfromFile());
 
-                if (realUser.getUserRole() == 1) { // admin
-                    // BookManager bkm = new BookManager();
+                if (realUser.getUserRole() == 1) {
                     do {
                         scan.nextLine();
                         userOption = realUser.viewMenu();
@@ -81,10 +86,7 @@ public class InventorySystem {
                                             System.out.println("Please enter a non-negative number.");
                                         }
                                     } catch (java.util.InputMismatchException e) {
-                                        System.out.println(
-                                                "Invalid input. Please enter a valid integer."); // Consume the invalid
-                                                                                                 // input to avoid an
-                                                                                                 // infinite loop
+                                        System.out.println( "Invalid input. Please enter a valid integer.");
                                         scan.nextLine();
                                         orderQuantity = -1;
                                     }
@@ -93,16 +95,28 @@ public class InventorySystem {
                                 OrderManagement order1 = new OrderManagement();
                                 boolean checkAdmin = false;
                                 String bookID = "";
-                                int Bookquantity = 0;
+                                int bookquantity = 0;
                                 for (int i = 0; i < orderQuantity; i++) {
                                     do {
                                         System.out.print("Enter the book ID to order : ");
                                         bookID = scan.nextLine();
                                         System.out.print("Enter book quantity : ");
-                                        Bookquantity = scan.nextInt();
+                                        try {
+                                            bookquantity = scan.nextInt();
+                                            if(bookquantity <= 0){
+                                                System.out.println("Invalid book quantity entered. Please Try Again :)");
+                                            }else{
+                                                checkAdmin = order1.validation(bookID, bookquantity, realUser.getUserRole());
+                                            }
+                                        } catch (InputMismatchException e) {
+                                            System.out.println("Invalid option entered. Please Enter an appropriate number.\nPress any key to continue...");
+                                            scan.nextLine();
+                                            scan.nextLine();
+                                            bookquantity = -10; 
+                                        }
                                         checkAdmin = order1.validation(
                                                 bookID,
-                                                Bookquantity,
+                                                bookquantity,
                                                 realUser.getUserRole());
                                         scan.nextLine();
                                     } while (checkAdmin == false);
@@ -116,7 +130,7 @@ public class InventorySystem {
                                     // scan.nextLine();
                                     // }while(checking == false);
                                     // OrderManagement order = new OrderManagement();
-                                    order1.orderBook(bookID, Bookquantity, realUser, n);
+                                    order1.orderBook(bookID, bookquantity, realUser, n);
                                     // OrderManagement.orderBook(()bookID, quantity , roleId);
                                     n++;
                                     scan.nextLine();
@@ -180,7 +194,6 @@ public class InventorySystem {
                                 break;
                         }
                     } while (userOption != 9);
-                    // if else/ case.
                 }
             }
         }
@@ -213,7 +226,7 @@ public class InventorySystem {
         if(option == 4){
             return 9;
         }else{
-            Book bk = new Book(); //creating a book with empty constructor and dont hold any value to send as param in admin's method.
+            Book bk = new Book();
             Admin.manageBookOperation(bk, option, roleID);
             return option;
         }
