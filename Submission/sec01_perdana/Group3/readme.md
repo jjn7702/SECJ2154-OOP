@@ -11,16 +11,18 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-The Inventory Management System is designed ......
+The Kamal BookStore Inventory Management System is a single platform that is transforming the way admin, suppliers and customers work with book inventories. This approach simplifies work for administrators like Mr. Kamal, minimising the need for additional staff members and enabling concentrated efforts on maintaining of correct data.
+ 
+Consumers gain from an easy-to-use interface, a smooth shopping experience, and simple transaction completion, while book suppliers efficiently handle orders through quick approvals or rejections. This system, in short, revolutionizes bookshop efficiency, saving time and resources for enhanced profitability :)
 
 ## Prepared by 🧑‍💻....Group3
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| TAN CHEE SEN  | ABC123        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/test.jpg" width=90px, height=80px>     |
+| TAN CHEE SEN  | B23CS0072        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/test.jpg" width=90px, height=80px>     |
 | B.SARVEISH      | B23CS0016        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/Sarveish.jpg" width=80px, height=80px>         |
 | CHONG WEI YANG      | A23CS5027       | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/WeiYang.jpg" width=80px, height=80px>         |
-| William      | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/WilliamLew.jpg" width=80px, height=80px>         |
+| LIEW YONG ZHENG      | A23CS5008        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group3/images/WilliamLew.jpg" width=80px, height=80px>         |
 
 ## Findings 📊
 
