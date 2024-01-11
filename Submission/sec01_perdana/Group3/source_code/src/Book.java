@@ -429,7 +429,9 @@ class Book{
                 bk2.remove(index);
 
                 for(OrderManagement order: orderList){
-                    if(order.getBookInfo().getBookID() != bookId){
+                    if(order.getBookInfo().getBookID().equals(bookId)){
+                        break;
+                    }else{
                         outputOrderFile.write(order.getOrderID()+" "+Math.round(order.getTotalAmount() * 10) / 10.0+" "+
                         order.getBookInfo().getBookID()+ " "+order.getQuantityOrder()+" "+order.getUser().getUserID()+" "+
                         order.getUser().getUserRole()+" "+order.getOrderStatus()+" "+order.getOrderDate()+"\n");
