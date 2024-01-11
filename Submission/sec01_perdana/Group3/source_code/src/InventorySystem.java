@@ -6,6 +6,14 @@ public class InventorySystem {
         Scanner scan = new Scanner(System.in);
         int choice =0, userOption=0;
         User user = new User();
+        Console console = System.console();
+
+        if (console == null) {
+            System.out.println("Console not available");
+            System.exit(1);
+        }
+
+
         do{
             System.out.print("\033[H\033[2J");  
             System.out.flush();
@@ -37,8 +45,9 @@ public class InventorySystem {
                 scan.nextLine();
                 System.out.print("\n\nEnter username : ");
                 String uName = scan.nextLine();
-                System.out.print("\nEnter password : ");
-                String pw = scan.nextLine();
+                // System.out.print("\nEnter password : ");
+                char[] passwordArray = System.console().readPassword("Enter your password: ");
+                String pw = new String(passwordArray);
                 user = User.login(uName, pw, choice);
                 if(user == null){
                     System.out.println("Invalid Credentials Entered. Please Try Again!");
@@ -46,7 +55,9 @@ public class InventorySystem {
             }while(user == null);
             Book b = new Book();
             User realUser = new Admin(user.getUserID(), user.getUserName(),user.getPassword(),user.getEmail(), user.getUserRole(), user.getName().getfName(), user.getName().getlName(),b.getBooksfromFile());
-
+            System.out.print("Successfully Login :)\nPress any key to continue..");
+            scan.nextLine();
+            scan.nextLine();
             if(realUser.getUserRole() == 1){ //admin
                 do {
                     System.out.print("\033[H\033[2J");  
@@ -206,8 +217,8 @@ public class InventorySystem {
                 scan.nextLine();
                 System.out.print("\n\nEnter username : ");
                 String uName = scan.nextLine();
-                System.out.print("\nEnter password : ");
-                String pw = scan.nextLine();
+                char[] passwordArray = System.console().readPassword("Enter your password: ");
+                String pw = new String(passwordArray);
                 user = User.login(uName, pw, choice);
                 if(user == null){
                     System.out.println("Invalid Credentials Entered. Please Try Again!");
@@ -242,8 +253,7 @@ public class InventorySystem {
 
                                 orders = orderApproval.getOrderFromFile(realUser.getUserRole());
                                 if(orders.size() == 0){
-                                    System.out.print("No orders to provide approval status.\nPress any key to continue..");
-                                    scan.nextLine();
+                                    System.out.println("No orders to provide approval status.");
                                 }else{
                                     orderApproval.viewAllOrders(orders,realUser.getUserRole(),"");
                                     supplier.updateOrderStatus(orders,realUser);
@@ -286,8 +296,8 @@ public class InventorySystem {
                     scan.nextLine();
                     System.out.print("\n\nEnter username : ");
                     String uName = scan.nextLine();
-                    System.out.print("\nEnter password : ");
-                    String pw = scan.nextLine();
+                    char[] passwordArray = System.console().readPassword("Enter your password: ");
+                    String pw = new String(passwordArray);
                     user = User.login(uName, pw, 2);
                     if(user == null){
                         System.out.println("Invalid Credentials Entered. Please Try Again!");
@@ -442,6 +452,8 @@ scan.close();
         System.out.println("║                                         ║");
         System.out.println("╚═════════════════════════════════════════╝");
 }
+
+
 
     
 }
