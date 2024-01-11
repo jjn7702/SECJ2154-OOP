@@ -427,19 +427,18 @@ class Book{
                         updatedBookV.add(book);
                 }
             }
-                //bk2.remove(index);
                 bk2 = updatedBookV;
                 outputFile.close();
-
+            Vector<OrderManagement> updatedOrderV =  new Vector<OrderManagement>();
                 for(OrderManagement order: orderList){
-                    if(order.getBookInfo().getBookID().equals(bookId)){
-                        break;
-                    }else{
+                    if(!order.getBookInfo().getBookID().equals(bookId.toUpperCase())){
                         outputOrderFile.write(order.getOrderID()+" "+Math.round(order.getTotalAmount() * 10) / 10.0+" "+
                         order.getBookInfo().getBookID()+ " "+order.getQuantityOrder()+" "+order.getUser().getUserID()+" "+
                         order.getUser().getUserRole()+" "+order.getOrderStatus()+" "+order.getOrderDate()+"\n");
+                        updatedOrderV.add(order);
                     }
                 }
+                orderList = updatedOrderV;
                 outputOrderFile.close();                
             } catch (Exception e) {
                 System.out.print("An error is occured during the file operation. The book is not removed..Please Try again later..\nPress Any Key to continue..");
