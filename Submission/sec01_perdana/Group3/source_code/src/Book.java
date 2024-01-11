@@ -418,15 +418,18 @@ class Book{
             try {
                 PrintWriter outputFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/booksDatabase.txt"),false);
                 PrintWriter outputOrderFile = new PrintWriter(new FileWriter("Submission/sec01_perdana/Group3/source_code/src/ordersDatabase.txt"),false);
+                Vector<Book> updatedBookV = new Vector<Book>();
                 for(Book book:bk2){
-                    if(book.getBookID().equals(bookId.toUpperCase())){
-                        break;
-                    }else{
-                        outputFile.write(book.getBookID().toUpperCase()+ " "+book.getTitle()+ " "+book.getMainAuthor()+ " "+book.getGenre()+ " "+book.getQuantityInStock()+" "+book.getBookPrice()+"\n");
-                    }
-                    index++;
+                    if (!book.getBookID().equals(bookId.toUpperCase())) {
+                        outputFile.write(book.getBookID().toUpperCase() + " " + book.getTitle() + " " +
+                        book.getMainAuthor() + " " + book.getGenre() + " " +
+                        book.getQuantityInStock() + " " + book.getBookPrice() + "\n");
+                        updatedBookV.add(book);
                 }
-                bk2.remove(index);
+            }
+                //bk2.remove(index);
+                bk2 = updatedBookV;
+                outputFile.close();
 
                 for(OrderManagement order: orderList){
                     if(order.getBookInfo().getBookID().equals(bookId)){
@@ -437,8 +440,6 @@ class Book{
                         order.getUser().getUserRole()+" "+order.getOrderStatus()+" "+order.getOrderDate()+"\n");
                     }
                 }
-
-                outputFile.close();
                 outputOrderFile.close();                
             } catch (Exception e) {
                 System.out.print("An error is occured during the file operation. The book is not removed..Please Try again later..\nPress Any Key to continue..");
