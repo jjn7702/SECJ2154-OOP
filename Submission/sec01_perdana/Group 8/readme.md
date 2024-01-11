@@ -17,9 +17,10 @@ System Description - ( 8.01.24)
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| Ahmad bin Rashid   | ABC123        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>     |
-| Lee Mei Ling       | DEF456        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/girl_4537097.png" width=80px, height=80px>         |
-| Rakesh Kumar       | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
+| AINA NURAIN BINTI MOHD AROFF          | B23CS0022        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>     |
+| ANUSHKA ROSHNI SIVAKUMAR              | B23CS0026        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/girl_4537097.png" width=80px, height=80px>         |
+| DANESH MUTHU KRISNAN                  | B23CS00          | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
+| MUHAMAD AFIQ IRFAN BIN MOHAMAD IZAM   | B23CS00        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>     |
 
 
 ## Findings 📊
