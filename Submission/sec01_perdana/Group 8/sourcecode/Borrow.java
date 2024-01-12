@@ -35,4 +35,16 @@ public class Borrow{
     public void setBookStatus(String bookStatus){
         this.bookStatus = bookStatus;
     }
+
+    public void setBorrowDate(Date borrowDate){
+        this.borrowDate = borrowDate;
+    }
+
+    public void generateReport(){
+
+    }
+
+    public void getAllMemberBorrowList(){
+        
+    }
 }
