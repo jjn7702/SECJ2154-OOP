@@ -63,7 +63,7 @@ public class Users extends Menu{
     }
 
     public static Users login(String userName, String password, int roleID) throws FileNotFoundException{
-        Vector <Users> users = new Vector<USers>();
+        Vector <Users> users = new Vector<Users>();
         users = readFromUserFile(roleID);
 
 
