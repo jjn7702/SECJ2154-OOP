@@ -21,7 +21,7 @@ class HRSystem {
 
     private HRManager findFirstHRManager() {
         for (HRManager manager : hrManagers) {
-            return manager; // Returns the first HRManager found
+            return manager; 
         }
         return null;
     }
@@ -54,7 +54,6 @@ class HRSystem {
     public void processLeaveRequest(Leave leave) {
         // Exception handling
         try {
-            // Assuming a simple leave processing logic: Approve the leave if valid, reject otherwise
             if (leave.validateLeaveRequest()) {
                 System.out.println("Leave request approved.");
             } else {
