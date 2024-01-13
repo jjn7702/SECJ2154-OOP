@@ -6,9 +6,9 @@ class Department {
     private HRManager manager;
     private ArrayList<Staff> staffMembers;
 
-    public Department(int departmentID, String departmentName, HRManager manager) {
-        this.departmentID = departmentID;
-        this.departmentName = departmentName;
+    public Department(int dID, String dName, HRManager manager) {
+        this.departmentID = dID;
+        this.departmentName = dName;
         this.manager = manager;
         this.staffMembers = new ArrayList<>();
     }

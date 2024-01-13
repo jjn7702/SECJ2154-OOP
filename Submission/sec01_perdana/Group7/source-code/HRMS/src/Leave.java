@@ -5,16 +5,15 @@ class Leave {
     private String endDate;
     private String reason;
 
-    public Leave(int leaveID, Employee employee, String startDate, String endDate, String reason) {
-        this.leaveID = leaveID;
+    public Leave(int lID, Employee employee, String sDate, String eDate, String rn) {
+        this.leaveID = lID;
         this.employee = employee;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.reason = reason;
+        this.startDate = sDate;
+        this.endDate = eDate;
+        this.reason = rn;
     }
 
     public boolean validateLeaveRequest() {
-        // Assuming a simple validation: Leave is valid if the start date is before the end date
         return startDate.compareTo(endDate) <= 0;
     }
 

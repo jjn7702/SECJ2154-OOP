@@ -45,7 +45,7 @@ public class HRManagementSystem {
     private static void addEmployee() {
         System.out.print("Enter employee ID: ");
         int employeeID = input.nextInt();
-        input.nextLine(); // Consume the newline character
+        input.nextLine(); 
 
         System.out.print("Enter first name: ");
         String firstName = input.nextLine();

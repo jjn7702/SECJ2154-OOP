@@ -4,11 +4,11 @@ class Attendance {
     private String date;
     private double hoursWorked;
 
-    public Attendance(int attendanceID, Employee employee, String date, double hoursWorked) {
-        this.attendanceID = attendanceID;
+    public Attendance(int aid, Employee employee, String dt, double hw) {
+        this.attendanceID = aid;
         this.employee = employee;
-        this.date = date;
-        this.hoursWorked = hoursWorked;
+        this.date = dt;
+        this.hoursWorked = hw;
     }
 
     public double calculateOvertime() {

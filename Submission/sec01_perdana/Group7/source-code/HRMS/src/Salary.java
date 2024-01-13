@@ -1,8 +1,8 @@
 class Salary {
-    public int salaryID;
-    public double amount;
-    public double deductions;
-    public double bonuses;
+    private int salaryID;
+    private double amount;
+    private double deductions;
+    private double bonuses;
 
     public Salary(int salaryID, double amount, double deductions, double bonuses) {
         this.salaryID = salaryID;
@@ -13,5 +13,9 @@ class Salary {
 
     public double calculateNetSalary() {
         return amount - deductions + bonuses;
+    }
+
+    public int getSalaryID() {
+        return salaryID;
     }
 }

@@ -3,10 +3,10 @@ class Position {
     private String title;
     private String responsibilities;
 
-    public Position(int positionID, String title, String responsibilities) {
-        this.positionID = positionID;
-        this.title = title;
-        this.responsibilities = responsibilities;
+    public Position(int pID, String t, String respons) {
+        this.positionID = pID;
+        this.title = t;
+        this.responsibilities = respons;
     }
 
     public void displayPositionInfo() {
@@ -21,5 +21,9 @@ class Position {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getResponsibilities(){
+        return responsibilities;
     }
 }

@@ -1,4 +1,4 @@
-class Employee{
+class Employee {
     private int employeeID;
     private String firstName;
     private String lastName;
@@ -6,13 +6,13 @@ class Employee{
     private String gender;
     private String contactInfo;
 
-    public Employee(int empID, String fn, String ln, String DOB, String gr, String CI) {
-        this.employeeID = employeeID;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.contactInfo = contactInfo;
+    public Employee(int empID, String fn, String ln, String dob, String gr, String ci) {
+        this.employeeID = empID;
+        this.firstName = fn;
+        this.lastName = ln;
+        this.dateOfBirth = dob;
+        this.gender = gr;
+        this.contactInfo = ci;
     }
 
     public int getEmployeeID() {
@@ -27,41 +27,16 @@ class Employee{
         return lastName;
     }
 
-    public String getDateOFBirth() {
+    public String getDateOfBirth(){
         return dateOfBirth;
     }
 
-    public String getGender() {
+    public String getGender(){
         return gender;
     }
 
-    public String getContactInfo() {
+    public String getContactInfo(){
         return contactInfo;
-    }
-
-    // Encapsulation and data hiding
-    public void setEmployeeID(int employeeID) {
-        this.employeeID = employeeID;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setDateOFBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setContactInfo(String contactInfo) {
-        this.contactInfo = contactInfo;
     }
 
     public void displayEmployeeInfo() {

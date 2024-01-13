@@ -21,7 +21,7 @@ class HRSystem {
 
     private HRManager findFirstHRManager() {
         for (HRManager manager : hrManagers) {
-            return manager;
+            return manager; // Returns the first HRManager found
         }
         return null;
     }
@@ -43,7 +43,9 @@ class HRSystem {
 
     // Association: Aggregation
     public void assignPosition(Employee employee, Position position) {
+        // Assuming a simple position assignment logic: Set the position for the employee
         System.out.println("Position assigned to employee.");
+        // Update the employee's position attribute
         if (employee instanceof Staff) {
             ((Staff) employee).setPosition(position);
         }
@@ -52,6 +54,7 @@ class HRSystem {
     public void processLeaveRequest(Leave leave) {
         // Exception handling
         try {
+            // Assuming a simple leave processing logic: Approve the leave if valid, reject otherwise
             if (leave.validateLeaveRequest()) {
                 System.out.println("Leave request approved.");
             } else {
