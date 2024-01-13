@@ -1,8 +1,10 @@
+import java.util.*;
+
 class Department {
     private int departmentID;
     private String departmentName;
     private HRManager manager;
-    private List<Staff> staffMembers;
+    private ArrayList<Staff> staffMembers;
 
     public Department(int departmentID, String departmentName, HRManager manager) {
         this.departmentID = departmentID;
@@ -25,4 +27,14 @@ class Department {
         System.out.println("Manager: " + manager.getEmployee().getFirstName() + " " + manager.getEmployee().getLastName());
         System.out.println("Number of Staff Members: " + staffMembers.size());
     }
+
+    public int getDepartmentID() {
+        return departmentID;
+    }
+
+    public String getDepartmentName(){
+        return departmentName;
+    }
+
+
 }
