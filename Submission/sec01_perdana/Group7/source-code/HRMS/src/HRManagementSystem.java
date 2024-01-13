@@ -45,24 +45,28 @@ public class HRManagementSystem {
     private static void addEmployee() {
         System.out.print("Enter employee ID: ");
         int employeeID = input.nextInt();
+        String firstName,lastName,dateOfBirth,gender,contactInfo,email;
         input.nextLine(); 
 
         System.out.print("Enter first name: ");
-        String firstName = input.nextLine();
+        firstName = input.nextLine();
 
         System.out.print("Enter last name: ");
-        String lastName = input.nextLine();
+        lastName = input.nextLine();
 
         System.out.print("Enter date of birth: ");
-        String dateOfBirth = input.nextLine();
+        dateOfBirth = input.nextLine();
 
         System.out.print("Enter gender: ");
-        String gender = input.nextLine();
+        gender = input.nextLine();
 
         System.out.print("Enter contact info: ");
-        String contactInfo = input.nextLine();
+        contactInfo = input.nextLine();
 
-        Employee newEmployee = new Employee(employeeID, firstName, lastName, dateOfBirth, gender, contactInfo);
+        System.out.print("Enter email: ");
+        email = input.nextLine();
+
+        Employee newEmployee = new Employee(employeeID, firstName, lastName, dateOfBirth, gender, contactInfo, email);
         hrSystem.addEmployee(newEmployee);
         System.out.println("Employee added to the system.");
     }

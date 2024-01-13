@@ -1,8 +1,8 @@
 class Staff extends Employee {
     private Position position;
 
-    public Staff(int employeeID, String firstName, String lastName, String dateOfBirth, String gender, String contactInfo, Position position) {
-        super(employeeID, firstName, lastName, dateOfBirth, gender, contactInfo);
+    public Staff(int employeeID, String firstName, String lastName, String dateOfBirth, String gender, String contactInfo, String email, Position position) {
+        super(employeeID, firstName, lastName, dateOfBirth, gender, contactInfo,email);
         this.position = position;
     }
 
