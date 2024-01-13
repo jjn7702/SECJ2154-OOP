@@ -14,4 +14,12 @@ class Position {
         System.out.println("Title: " + title);
         System.out.println("Responsibilities: " + responsibilities);
     }
+
+    public int getPositionID() {
+        return positionID;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 }
