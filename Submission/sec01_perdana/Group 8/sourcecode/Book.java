@@ -8,9 +8,11 @@ public class Book {
     private int genre;
     private String author;
 
+    //default constructor
     public Book(){
     }
 
+    //constructor
     public Book(String title, String bookID, String ISBN, int quantity, int genre, String author){
         this.title = title;
         this.bookID = bookID;
