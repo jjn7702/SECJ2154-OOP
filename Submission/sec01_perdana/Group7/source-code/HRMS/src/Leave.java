@@ -14,8 +14,35 @@ class Leave {
     }
 
     public boolean validateLeaveRequest() {
-        // Assuming a simple validation: Leave is valid if the start date is before the
-        // end date
+        // Assuming a simple validation: Leave is valid if the start date is before the end date
         return startDate.compareTo(endDate) <= 0;
+    }
+
+    public int getLeaveID() {
+        return leaveID;
+    }
+
+    public Employee getEmployee(){
+        return employee;
+    }
+
+    public String getStartDate(){
+        return startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public String getEmployeeFirstName() {
+        return employee.getFirstName();
+    }
+
+    public String getEmployeeLastName() {
+        return employee.getLastName();
     }
 }
