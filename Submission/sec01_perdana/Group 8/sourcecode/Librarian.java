@@ -1,16 +1,17 @@
 import java.util.*;
 
-class Librarian {
+class Librarian extends Users {
     Vector <Member> member = new Vector<Member>();
     Vector <Borrow> borrow = new Vector<Borrow>();
     private Report report;
 
     public Librarian(String userID, String userName, String password, int userRole , String fName, String lName, Vector<Book> Book){
-        this.userID = userID;
-        this.userName = userName;
-        this.password = password;
-        this.userRole = userRole;
-        name = new Name(fName,lName); 
+        super(userID,userName,password,userRole,fName,lName);
+        member = new Vector<Member>();
+        borrow = new Vectro<Member>();
+        book = Book;
+        
+        
         
     }
 
