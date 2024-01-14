@@ -20,7 +20,7 @@ The Car Rental System is designed to address ...
 | MUHAMMAD ERFAN SYABIL BIN ESA   | B23CS0055        | <img src="../Group5/images/erfan.png" width=80px, height=80px>     |
 | AMIRUL HANI BIN SYAFRIZON       | B23CS0025        | <img src="../Group5/images/igg copyy.jpg" width=80px, height=80px>         |
 | SARANYA A/P JAYARAMA REDDY       | B22EC3013        | <img src="../Group5/images/Saranya.jpg" width=80px, height=80px>         |
-| ISWARY A/P SHANMUGAM       | B22EC3004        |<img src="../sample/images/Iswary.jpg" width=80px, height=80px>         |
+| ISWARY A/P SHANMUGAM       | B22EC3004        |<img src="../Group5/images/Iswary.jpg" width=80px, height=80px>         |
 
 
 ## Findings 📊
