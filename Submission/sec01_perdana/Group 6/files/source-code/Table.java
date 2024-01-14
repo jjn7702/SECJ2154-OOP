@@ -10,5 +10,8 @@ class Table {
         return tableNumber;
     }
 
-   
+    public Order getCurrentOrder() {
+        return currentOrder;
+    }
+
 }
