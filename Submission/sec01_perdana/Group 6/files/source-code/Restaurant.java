@@ -13,5 +13,12 @@ class Restaurant {
         menu.addItem(item);
     }
 
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void addTable(Table table) {
+        tables.add(table);
+    }
 
 }
