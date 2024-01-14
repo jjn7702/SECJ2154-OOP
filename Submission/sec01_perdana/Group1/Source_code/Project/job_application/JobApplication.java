@@ -12,4 +12,16 @@ public class JobApplication {
         this.job = job;
         this.status = status;
     }
+
+        public JobSeeker getApplicant(){
+        return applicant;
+    }
+
+    public JobPosting getJob(){
+        return job;
+    }
+
+    public String getStatus(){
+        return status;
+    }
 }
