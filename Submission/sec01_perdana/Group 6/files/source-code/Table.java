@@ -14,4 +14,11 @@ class Table {
         return currentOrder;
     }
 
+    public void placeOrder(Order order) {
+        currentOrder = order;
+    }
+
+    public void clearTable() {
+        currentOrder = null;
+    }
 }
