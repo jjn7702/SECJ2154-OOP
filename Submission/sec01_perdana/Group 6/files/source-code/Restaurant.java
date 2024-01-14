@@ -21,4 +21,7 @@ class Restaurant {
         tables.add(table);
     }
 
+    public List<Table> getTables() {
+        return new ArrayList<>(tables);
+    }
 }
