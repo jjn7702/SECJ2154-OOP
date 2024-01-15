@@ -3,23 +3,49 @@
 public class Rental {
     private Customer customer;
     private Rentable rentable;
-    private int days;
     private Appointment appointment;
     private Location pickupLocation;
+    private Location returnLocation;
+    private int rentalDays;
 
-    public Rental(Customer customer, Rentable rentable, int days, Appointment appointment, Location pickupLocation){
+    public Rental(Customer customer, Rentable rentable, Appointment appointment, Location pickupLocation, Location returnLocation, int rentalDays){
         this.customer = customer;
         this.rentable = rentable;
-        this.days = days;
         this.appointment = appointment;
         this.pickupLocation = pickupLocation;
+        this.returnLocation = returnLocation;
+        this.rentalDays = rentalDays;
     }
 
      public double calculateRentalCost(){
-         return rentable.getRentalRate() * days;
+         return rentable.getRentalRate() * rentalDays;
+     }
+
+     public Customer getCustomer() {
+         return customer;
+     }
+
+     public Rentable getRentable() {
+         return rentable;
+     }
+
+     public Appointment getAppointment() {
+         return appointment;
+     }
+
+     public Location getPLocation(){
+         return pickupLocation;
+     }
+
+     public Location getRLocation(){
+         return returnLocation;
+     }
+
+     public int getRentalDays(){
+         return rentalDays;
      }
 
      public String toString(){
-         return customer + " rented " + rentable + " for " + days + " days. Total cost: RM " + calculateRentalCost() + "\n" + appointment + "\n" + pickupLocation;
+         return customer + " rented " + rentable + " for " + rentalDays + " days. Total cost: RM " + calculateRentalCost() + "\n" + appointment + "\n" + pickupLocation;
      }
 }
