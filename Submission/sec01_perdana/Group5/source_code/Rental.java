@@ -1,4 +1,5 @@
 //SARANYA A/P JAYARAMA REDDY (B22EC3013)
+
 public class Rental {
     private Customer customer;
     private Rentable rentable;
