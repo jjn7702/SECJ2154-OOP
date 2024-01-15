@@ -1,40 +1,79 @@
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+
 
 public class RestaurantManagementSystem {
+
     public static void main(String[] args) {
         try {
             Restaurant restaurant = new Restaurant();
             Scanner scanner = new Scanner(System.in);
 
-            System.out.println("================================================================");
-            System.out.println("\t\tWelcome to our Restaurant");
-            System.out.println("================================================================");
+            boolean exit = false;
 
-            System.out.println("1. Place an Order");
-            System.out.println("2. Make a Reservation");
-            System.out.println("3. Exit");
-            System.out.print("Choose an option (1, 2, or 3): ");
+            FoodItem item1 = new FoodItem("Burger", 8.99);
+            FoodItem item2 = new FoodItem("Pizza", 12.99);
+            FoodItem item3 = new FoodItem("Spaghetti Carbonara", 15.20);
+            SpecialMenuItem item4 = new SpecialMenuItem("Fried Rice", 8, "No onions");
+            FoodItem item5 = new FoodItem("Steak", 27.89);
+            FoodItem item6 = new FoodItem("Mushroom Soup", 5);
+            FoodItem item7 = new FoodItem("Garlic Bread", 3);
 
-            int choice = getValidChoice(scanner, 1, 3);
+            restaurant.addMenuItem(item1);
+            restaurant.addMenuItem(item2);
+            restaurant.addMenuItem(item3);
+            restaurant.addMenuItem(item4);
+            restaurant.addMenuItem(item5);
+            restaurant.addMenuItem(item6);
+            restaurant.addMenuItem(item7);
 
-            switch (choice) {
-                case 1:
-                    placeOrder(restaurant, scanner);
-                    break;
-                case 2:
-                    makeReservation(restaurant, scanner);
-                    break;
-                case 3:
-                    System.out.println("Exiting program. Thank you!");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Exiting program.");
-            }
+            Table table1 = new Table(1);
+            Table table2 = new Table(2);
+            Table table3 = new Table(3);
+            Table table4 = new Table(4);
+            Table table5 = new Table(5);
+
+            restaurant.addTable(table1);
+            restaurant.addTable(table2);
+            restaurant.addTable(table3);
+            restaurant.addTable(table4);
+            restaurant.addTable(table5);
+
+            do {
+                System.out.println("================================================================");
+                System.out.println("||                   Welcome to our Restaurant                ||");
+                System.out.println("================================================================");
+                System.out.println("|| Options:                                                   ||");
+                System.out.println("|| 1. Display All Menu Items                                  ||");
+                System.out.println("|| 2. Place Order                                             ||");
+                System.out.println("|| 3. Make Reservation                                        ||");
+                System.out.println("|| 4. Exit                                                    ||");
+                System.out.println("================================================================");
+                System.out.print("\nEnter your choice (1, 2, 3, or 4): ");
+
+                int choice = scanner.nextInt();
+
+                switch (choice) {
+                    case 1:
+                        displayAllMenuItems(restaurant);
+                        break;
+                    case 2:
+                        handleOrder(restaurant, scanner);
+                        break;
+                    case 3:
+                        handleReservation(restaurant, scanner);
+                        break;
+                    case 4:
+                        exit = true;
+                        System.out.println("Exiting the Restaurant Management System. Thank you!");
+                        break;
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                        break;
+                }
+            } while (!exit);
 
             scanner.close();
         } catch (Exception e) {
@@ -43,32 +82,39 @@ public class RestaurantManagementSystem {
         }
     }
 
-    private static int getValidChoice(Scanner scanner, int min, int max) {
-        while (true) {
-            try {
-                int choice = scanner.nextInt();
-                if (choice >= min && choice <= max) {
-                    return choice;
-                } else {
-                    System.out.print("Invalid input. Please enter a valid choice: ");
-                }
-            } catch (InputMismatchException e) {
-                System.out.print("Invalid input. Please enter a valid choice: ");
-                scanner.next(); // Clear the invalid input
+    private static void displayAllMenuItems(Restaurant restaurant) {
+        Scanner scanner = restaurant.getScanner();
+        int backOption;
+
+        do {
+            System.out.println("======================================");
+            System.out.println("All Menu Items:");
+            List<FoodItem> menuItems = restaurant.getMenu().getItems();
+            for (int i = 0; i < menuItems.size(); i++) {
+                FoodItem menuItem = menuItems.get(i);
+                System.out.printf("%d. %-25s RM%.2f\n", (i + 1), menuItem.getName(), menuItem.getPrice());
             }
-        }
+
+            // Add an option to go back
+            System.out.print("\nPress 0 to go back to the main menu: ");
+            backOption = scanner.nextInt();
+
+            // Consume the newline character left in the buffer
+            scanner.nextLine();
+
+            if (backOption == 0) {
+                System.out.println("Going back to the main menu.");
+            } else {
+                System.out.println("Invalid option. Please enter 0 to go back to the main menu.");
+            }
+        } while (backOption != 0);
     }
 
-    private static void placeOrder(Restaurant restaurant, Scanner scanner) {
-        System.out.println("\nMenu Items:");
-        List<FoodItem> menuItems = restaurant.getMenu().getItems();
-        for (int i = 0; i < menuItems.size(); i++) {
-            FoodItem menuItem = menuItems.get(i);
-            System.out.printf("%d. %-25s RM%.2f\n", (i + 1), menuItem.getName(), menuItem.getPrice());
-        }
+    private static void handleOrder(Restaurant restaurant, Scanner scanner) {
 
-        System.out.print("\nEnter table number (1-5): ");
+        System.out.print("Enter table number (1-5): ");
         int tableNumber = getValidTableNumber(scanner);
+
         Table selectedTable = restaurant.getTables().stream()
                 .filter(table -> table.getTableNumber() == tableNumber)
                 .findFirst()
@@ -76,19 +122,35 @@ public class RestaurantManagementSystem {
 
         if (selectedTable != null) {
             boolean addAnotherOrder = true;
+            double totalOrderPrice = 0.0;
+
+            // Create a copy of the original menu to use for subsequent orders
+            List<FoodItem> originalMenu = new ArrayList<>(restaurant.getMenu().getItems());
+
             while (addAnotherOrder) {
                 Customer customer = new Customer("Ahmad");
                 Order order = new Order(customer);
 
+                if (totalOrderPrice > 0.0) {
+                    System.out.println("\nPrevious Order Total Price: RM" + totalOrderPrice);
+                }
+                System.out.println("================================================================");
+                System.out.println("Menu Items:");
+                for (int i = 0; i < originalMenu.size(); i++) {
+                    FoodItem menuItem = originalMenu.get(i);
+                    System.out.printf("%d. %-25s RM%.2f\n", (i + 1), menuItem.getName(), menuItem.getPrice());
+                }
+
                 System.out.print("\nEnter the item number to order: ");
-                int itemNumber = getValidMenuItemNumber(scanner, restaurant.getMenu().getItems().size());
+                int itemNumber = getValidMenuItemNumber(scanner, originalMenu.size());
                 System.out.print("Enter the quantity: ");
                 int quantity = getValidQuantity(scanner);
 
-                FoodItem selectedFoodItem = restaurant.getMenu().getItems().get(itemNumber - 1);
+                FoodItem selectedFoodItem = originalMenu.get(itemNumber - 1);
                 order.addItem(selectedFoodItem, quantity);
 
                 selectedTable.placeOrder(order);
+                totalOrderPrice += selectedTable.getCurrentOrder().getTotalPrice();
 
                 System.out.println("\nTable " + tableNumber + " Order:");
                 List<FoodItem> tableOrderItems = selectedTable.getCurrentOrder().getItems();
@@ -102,35 +164,51 @@ public class RestaurantManagementSystem {
                     }
                 }
 
-                System.out.printf("Total Price: RM%.2f\n", selectedTable.getCurrentOrder().getTotalPrice());
+                System.out.printf("Total Price: RM%.2f\n", totalOrderPrice);
 
                 System.out.print("\nDo you want to add another order? (yes/no): ");
                 addAnotherOrder = getValidYesNoResponse(scanner);
             }
+
+            // Display receipt when the user decides not to add another order
+            System.out.println("\nThank you for placing your order!");
+            System.out.println("======================================");
+            System.out.println("Receipt for Table " + tableNumber + ":");
+            List<FoodItem> receiptItems = selectedTable.getCurrentOrder().getItems();
+            for (FoodItem receiptItem : receiptItems) {
+                if (receiptItem instanceof SpecialMenuItem) {
+                    SpecialMenuItem specialItem = (SpecialMenuItem) receiptItem;
+                    System.out.printf("%-25s RM%.2f (Special Instruction: %s)\n",
+                            specialItem.getName(), specialItem.getPrice(), specialItem.getSpecialInstruction());
+                } else {
+                    System.out.printf("%-25s RM%.2f\n", receiptItem.getName(), receiptItem.getPrice());
+                }
+            }
+            System.out.printf("Total Price: RM%.2f\n", totalOrderPrice);
         } else {
             System.out.println("\nInvalid table number.");
         }
     }
 
-    private static void makeReservation(Restaurant restaurant, Scanner scanner) {
-        System.out.print("\nEnter the table number for reservation: ");
+    private static void handleReservation(Restaurant restaurant, Scanner scanner) {
+        System.out.print("Enter table number for reservation (1-5): ");
         int reservationTableNumber = getValidTableNumber(scanner);
+
         Table reservationTable = restaurant.getTables().stream()
                 .filter(table -> table.getTableNumber() == reservationTableNumber)
                 .findFirst()
                 .orElse(null);
 
         if (reservationTable != null) {
-            System.out.print("Enter the reservation date and time (yyyy-MM-dd HH:mm): ");
-            String reservationDateTimeString = scanner.next() + " " + scanner.next();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            try {
-                Date reservationDateTime = dateFormat.parse(reservationDateTimeString);
-                if (restaurant.makeReservation(reservationTable, reservationDateTime)) {
-                    System.out.println("Reservation successful!");
-                }
-            } catch (ParseException e) {
-                System.out.println("Invalid date and time format. Please use yyyy-MM-dd HH:mm.");
+            System.out.print("Enter reservation date and time (yyyy-MM-dd HH:mm): ");
+            String dateString = scanner.next();
+            String timeString = scanner.next();
+            LocalDateTime reservationDateTime = LocalDateTime.parse(dateString + " " + timeString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+
+            if (restaurant.makeReservation(reservationTable, reservationDateTime)) {
+                System.out.println("Reservation successful!");
+            } else {
+                System.out.println("Table not available for the specified time.");
             }
         } else {
             System.out.println("Invalid table number for reservation.");
@@ -141,7 +219,7 @@ public class RestaurantManagementSystem {
         while (true) {
             try {
                 return scanner.nextInt();
-            } catch (InputMismatchException e) {
+            } catch (Exception e) {
                 System.out.print("Invalid input. Please enter a valid table number (1-5): ");
                 scanner.next(); // Clear the invalid input
             }
@@ -157,7 +235,7 @@ public class RestaurantManagementSystem {
                 } else {
                     System.out.print("Invalid input. Please enter a valid item number: ");
                 }
-            } catch (InputMismatchException e) {
+            } catch (Exception e) {
                 System.out.print("Invalid input. Please enter a valid item number: ");
                 scanner.next(); // Clear the invalid input
             }
@@ -173,7 +251,7 @@ public class RestaurantManagementSystem {
                 } else {
                     System.out.print("Invalid input. Please enter a valid quantity: ");
                 }
-            } catch (InputMismatchException e) {
+            } catch (Exception e) {
                 System.out.print("Invalid input. Please enter a valid quantity: ");
                 scanner.next(); // Clear the invalid input
             }
@@ -189,7 +267,7 @@ public class RestaurantManagementSystem {
                 } else {
                     System.out.print("Invalid input. Please enter 'yes' or 'no': ");
                 }
-            } catch (InputMismatchException e) {
+            } catch (Exception e) {
                 System.out.print("Invalid input. Please enter 'yes' or 'no': ");
                 scanner.next(); // Clear the invalid input
             }
