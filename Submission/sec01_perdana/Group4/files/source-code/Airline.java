@@ -1,3 +1,5 @@
-public class Airline extends SkyInfo {
-    
+class Airline extends SkyInfo {
+    public Airline(String info) {
+        super(info);
+    }
 }
