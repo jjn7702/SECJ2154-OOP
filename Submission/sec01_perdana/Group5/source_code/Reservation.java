@@ -1,9 +1,19 @@
-class Reservation{
-    private String reservationNumber;
-    private String creationDate;
-    private enum status {Waiting, Pending, Confirmed, Completed, Canceled, None};
-    private String dueDate;
-    private String returnDate;
-    private String pickupLocationName;
-    private String returnLocationName;
+public class Reservation {
+    private Customer customer;
+    private Rentable reservedVehicle;
+    private Location pickupLocation;
+    private Date reservationDate;
+
+    public Reservation(Customer customer, Rentable reservedVehicle, Location pickupLocation, Date reservationDate) {
+        this.customer = customer;
+        this.reservedVehicle = reservedVehicle;
+        this.pickupLocation = pickupLocation;
+        this.reservationDate = reservationDate;
+    }
+
+    public String toString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return customer + " reserved " + reservedVehicle + " at " + sdf.format(reservationDate) + "\n" + locationpickup;
+    }
 }
+
