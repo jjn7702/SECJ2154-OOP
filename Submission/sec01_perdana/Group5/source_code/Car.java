@@ -1,4 +1,7 @@
+//MUHADMMAD ERFAN SYABIL BIN ESA
+//B23CS0055
 // Car.java
+//Superclass
 public abstract class Car implements Rentable {
     protected String make;
     protected String model;
