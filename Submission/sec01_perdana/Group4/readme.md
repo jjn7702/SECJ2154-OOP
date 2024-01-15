@@ -11,16 +11,16 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-The Chronic Disease Management System is designed to address the effective management and monitoring of chronic diseases for patients. This system aims to provide healthcare professionals with tools to streamline patient information, treatment plans, and progress tracking, ultimately improving patient outcomes and quality of care.
+The Airline Reservation System is a sophisticated software application designed to facilitate seamless flight booking and management for both passengers and airline personnel. The system is comprised of several key classes, each playing a crucial role in automating and optimizing various aspects of the reservation process.
 
 ## Prepared by 🧑‍💻
 
 | Name                                      | Matric Number | Photo                                                         |
-| :---------------------------------------- | :-------------: | :------------------------------------------------------------: |
-| MUHAMMAD IZMEER BIN ZULKIFLEE             | B23CS0058        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>     |
-| MUHAMMAD FIRDAUS BIN MOHIDEEN ABDUL CADER | B23CS0056        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/girl_4537097.png" width=80px, height=80px>         |
-| MUHAMMAD DENNISH BIN MOHD AZMI            | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
-| AHMAD AFIF AISY BIN MOHD AZMI             | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
+| :- | :-: | :-: |
+| MUHAMMAD IZMEER BIN ZULKIFLEE             | B23CS0058        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group4/images/Izmeer.png" width=80px, height=80px>     |
+| MUHAMMAD FIRDAUS BIN MOHIDEEN ABDUL CADER | B23CS0056        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group4/images/Firdaus.jpeg" width=80px, height=80px>         |
+| MUHAMMAD DENNISH BIN MOHD AZMI            | B23CSxxxx        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group4/images/Dennish.jpeg" width=80px, height=80px>         |
+| AHMAD AFIF AISY BIN MOHD AZMI             | B23CSxxxx        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group4/images/Aisy.jpeg" width=80px, height=80px>         |
 
 
 ## Findings 📊
