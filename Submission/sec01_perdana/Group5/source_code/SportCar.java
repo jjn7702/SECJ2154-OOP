@@ -1,6 +1,6 @@
 // Sports.java
-class SportsCar extends Car{
-    public SportsCar(String make, String model, int year) {
+class SportCar extends Car{
+    public SportCar(String make, String model, int year) {
         super(make, model, year, 300.0);
     }
 
