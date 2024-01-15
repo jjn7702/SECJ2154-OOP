@@ -1,7 +1,7 @@
 public class Location {
     private String locationPickup;
 
-    public CarRentalLocation(String locationPickup) {
+    public Location(String locationPickup) {
         this.locationPickup = locationPickup;
     }
 

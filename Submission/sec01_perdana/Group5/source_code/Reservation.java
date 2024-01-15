@@ -1,3 +1,6 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Reservation {
     private Customer customer;
     private Rentable reservedVehicle;
@@ -12,7 +15,7 @@ public class Reservation {
     }
 
     public String toString() {
-        SimpleDateFormatReservation DateFormat = new SimpleDateFormatReservation("HH:mm:ss yyyy-MM-dd");
+        SimpleDateFormat DateFormat = new SimpleDateFormat();
         return customer + " will be reserved " + reservedVehicle + " at " + DateFormat.format(reservationDate) + "\n" + locationPickup;
     }
 }

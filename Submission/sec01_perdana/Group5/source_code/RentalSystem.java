@@ -11,8 +11,4 @@ public class RentalSystem {
     public void addRental(Rental rental) {
         rentals.add(rental);
     }
-
-
-    public static void main(String[] args) {
-    }
 }

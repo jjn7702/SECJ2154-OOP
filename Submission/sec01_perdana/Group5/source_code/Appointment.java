@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat;
+
 class Appointment {
     private String CarAppointmentDate;
 
@@ -10,7 +12,7 @@ class Appointment {
     }
   
   public String displayAppointmentInfo() { 
-    SimpleDateFormatCar dateFormatcar = new SimpleDateFormatCar("dd-MM-yyyy HH:mm:ss");
+    SimpleDateFormat dateFormatcar = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
     return "Car Appointment Date: " + dateFormatcar.format(CarAppointmentDate);
   }
       
