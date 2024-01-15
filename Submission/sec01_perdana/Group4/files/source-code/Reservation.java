@@ -1,4 +1,3 @@
-// Reservation class
 class Reservation {
     private List<Ticket> tickets;
 
