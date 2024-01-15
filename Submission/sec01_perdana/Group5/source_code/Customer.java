@@ -15,8 +15,29 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getName(){
+        return name;
+    }
+
+    public String getLicenseNumber(){
+        return licenseNumber;
+    }
+
+    public String getAddress(){
+        return address;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public String getPhoneNumber(){
+        return phoneNumber;
+    }
+
+    /* 
     public String toString() {
         return name + " (License Number: " + licenseNumber + ", Address: " + address + ", Email: " + email + ", Phone Number: " + phoneNumber + ")";
-    }
+    }*/
 }
 

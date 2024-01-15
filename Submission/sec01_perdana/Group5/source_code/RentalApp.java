@@ -29,7 +29,7 @@ public class RentalApp {
                         break;
                     case 2:
                         // Add user details
-                        System.out.print("Enter customer name: ");
+                        System.out.print("\nEnter customer name: ");
                         String name = rentalSystem.getScanner().nextLine();
 
                         System.out.print("Enter customer license number: ");
@@ -44,9 +44,15 @@ public class RentalApp {
                         System.out.print("Enter customer phone number: ");
                         String phoneNumber = rentalSystem.getScanner().nextLine();
 
+                        //add Customer Details
                         customer = new Customer(name, licenseNumber, address, email, phoneNumber);
-                        System.out.println("User details added: " + customer);
                         rentalSystem.addUserDetails(customer);
+                        System.out.println("\nCustomer details added: ");
+                        System.out.println("Name: " + customer.getName());
+                        System.out.println("License Number: " + customer.getLicenseNumber());
+                        System.out.println("Address: " + customer.getAddress());
+                        System.out.println("Email: " + customer.getEmail());
+                        System.out.println("Phone No: " + customer.getPhoneNumber());
                         break;
 
                     case 3:
