@@ -177,26 +177,20 @@ public class JobPortal {
 
                 if (currentUser != null && currentUser instanceof JobSeeker) {
                     jobPortal.displayJobs();
-                    System.out.print("\n\n\t\t\t\t\t\tEnter the title of the job you want to apply for: ");
-                    String jobTitle = scanner.nextLine();
+                    System.out.print("\n\n\t\t\t\t\t\tEnter the number of the job you want to apply for: ");
+                    int jobNumber = scanner.nextInt();
+                    scanner.nextLine();
 
-                    JobPosting selectedJob = null;
-                    for (JobPosting job : jobPortal.jobPostings) {
-                        if (job.getJobTitle().equals(jobTitle)) {
-                            selectedJob = job;
-                            break;
-                        }
-                    }
-
-                    if (selectedJob != null) {
+                    if (jobNumber > 0 && jobNumber <= jobPortal.jobPostings.size()) {
+                        JobPosting selectedJob = jobPortal.jobPostings.get(jobNumber - 1);
                         jobPortal.applyForJob((JobSeeker) currentUser, selectedJob);
                         System.out.println("\n\n\t\t\t\t\t\tJob application submitted successfully!\n");
                     } else {
-                        System.out.println("\n\n\t\t\t\t\t\tJob not found!\n");
+                        System.out.println("\n\n\t\t\t\t\t\tInvalid job number!\n");
                     }
-                } else {
-                    System.out.println("\n\n\t\t\t\t\t\tYou must be logged in as a Job Seeker to apply for a job.");
-                }
+                        } else {
+                            System.out.println("\n\n\t\t\t\t\t\tYou must be logged in as a Job Seeker to apply for a job.");
+                        }
             } else if (mainPageChoice == 2) {
 
                 if (currentUser != null && currentUser instanceof Employer) {
