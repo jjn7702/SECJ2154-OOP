@@ -12,8 +12,8 @@ public class Reservation {
     }
 
     public String toString() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return customer + " reserved " + reservedVehicle + " at " + sdf.format(reservationDate) + "\n" + locationPickup;
+        SimpleDateFormatReservation DateFormat = new SimpleDateFormatReservation("HH:mm:ss yyyy-MM-dd");
+        return customer + " will be reserved " + reservedVehicle + " at " + DateFormat.format(reservationDate) + "\n" + locationPickup;
     }
 }
 
