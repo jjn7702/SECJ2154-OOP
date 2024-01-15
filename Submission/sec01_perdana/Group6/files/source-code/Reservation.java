@@ -1,10 +1,10 @@
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Reservation {
     private Table table;
-    private Date reservationTime;
+    private LocalDateTime reservationTime;
 
-    public Reservation(Table table, Date reservationTime) {
+    public Reservation(Table table, LocalDateTime reservationTime) {
         this.table = table;
         this.reservationTime = reservationTime;
     }
@@ -13,13 +13,11 @@ public class Reservation {
         return table;
     }
 
-    public Date getReservationTime() {
+    public LocalDateTime getReservationTime() {
         return reservationTime;
     }
 
-    public boolean isAvailable(Date otherTime) {
-        // Check if the reservation is available at the specified time
-        // This is a placeholder, you may implement your logic here
-        return reservationTime.equals(otherTime);
+    public boolean isAvailable(LocalDateTime requestedTime) {
+        return reservationTime.isBefore(requestedTime) || reservationTime.isEqual(requestedTime);
     }
 }
