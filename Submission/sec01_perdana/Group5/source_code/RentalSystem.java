@@ -12,7 +12,7 @@ import java.text.*;
 public class RentalSystem {
     private Scanner scanner;
     private SimpleDateFormat dateFormat;
-    private ArrayList<Rental> rental;
+    private List<Rental> rental;
     private List<Customer> customers;
     private boolean userDetailsAdded = false;
     private Vector<Location> pickupLocations;
@@ -68,12 +68,22 @@ public class RentalSystem {
     }
 
         private void initializeLocations() {
-        // Add sample locations, you can modify this as needed
-        pickupLocations.add(new Location("123 Main St", "City1", "State1", "12345"));
-        pickupLocations.add(new Location("456 Elm St", "City2", "State2", "67890"));
+            //Pickup Location
+            pickupLocations.add(new Location("123 BP 11", "Puchong", "Selangor", "47120"));
+            pickupLocations.add(new Location("456 NP 32", "Kulai", "Johor", "81310"));
+            pickupLocations.add(new Location("789 Villa", "Kuantan", "Pahang", "43543"));
+            pickupLocations.add(new Location("102 Elm St", "Gombak", "Kuala Lumpur", "91232"));
+            pickupLocations.add(new Location("879 Oak St", "Ipoh", "Perak", "30000"));
+            pickupLocations.add(new Location("321 Pine St", "Jeli", "Kelanatan", "54321"));
+        
 
-        returnLocations.add(new Location("789 Oak St", "City3", "State3", "98765"));
-        returnLocations.add(new Location("321 Pine St", "City4", "State4", "54321"));
+            //Return Location
+            returnLocations.add(new Location("123 BP 11", "Puchong", "Selangor", "47120"));
+            returnLocations.add(new Location("456 NP 32", "Kulai", "Johor", "81310"));
+            returnLocations.add(new Location("879 Villa", "Kuantan", "Pahang", "43543"));
+            returnLocations.add(new Location("102 Elm St", "Gombak", "Kuala Lumpur", "91232"));
+            returnLocations.add(new Location("879 Oak St", "Ipoh", "Perak", "30000"));
+            returnLocations.add(new Location("321 Pine St", "Jeli", "Kelanatan", "54321"));
     }
 
     public void addPickupLocation(Location location) {
@@ -94,15 +104,19 @@ public class RentalSystem {
 
     public void displayPickupLocations() {
         System.out.println("\n--- Pickup Locations ---");
-        for (int i = 0; i < pickupLocations.size(); i++) {
-            System.out.println((i + 1) + ". " + pickupLocations.get(i));
+        int i = 1;
+        for (Location pickupLocation : pickupLocations) {
+            System.out.println(i + ". " + pickupLocation.getAddress() +  ", " + pickupLocation.getCity() + ", " + pickupLocation.getState() + ", " + pickupLocation.getZipCode());
+            i++;
         }
     }
 
     public void displayReturnLocations() {
         System.out.println("\n--- Return Locations ---");
-        for (int i = 0; i < returnLocations.size(); i++) {
-            System.out.println((i + 1) + ". " + returnLocations.get(i));
+        int i = 1;
+        for (Location returnLocation : returnLocations) {
+            System.out.println(i + ". " + returnLocation.getAddress() +  ", " + returnLocation.getCity() + ", " + returnLocation.getState() + ", " + returnLocation.getZipCode());
+            i++;
         }
     }
     
