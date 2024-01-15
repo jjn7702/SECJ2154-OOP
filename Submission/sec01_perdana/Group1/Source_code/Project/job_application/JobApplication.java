@@ -13,7 +13,7 @@ public class JobApplication {
         this.status = status;
     }
 
-        public JobSeeker getApplicant(){
+    public JobSeeker getApplicant(){
         return applicant;
     }
 
@@ -24,4 +24,5 @@ public class JobApplication {
     public String getStatus(){
         return status;
     }
+
 }
