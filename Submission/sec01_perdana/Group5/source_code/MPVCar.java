@@ -10,4 +10,8 @@ class MPVCar extends Car { //Shows Inheritance
     public double getRentalRate(){
         return 100.0; //Rate per day
     }
+
+    public String toString() {
+        return "MPV: " + getMake() + " " + getModel() + " (" + getYear() + ")";
+    }
 }

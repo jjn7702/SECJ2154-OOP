@@ -11,4 +11,8 @@ class SedanCar extends Car { //Shows Inheritance
     public double getRentalRate(){
         return 80.0; //Rate per day
     }
+
+    public String toString() {
+        return "Sedan: " + getMake() + " " + getModel() + " (" + getYear() + ")";
+    }
 }

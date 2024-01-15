@@ -10,5 +10,9 @@ class CompactCar extends Car{ //Shows Inheritance
     public double getRentalRate(){
         return 50.0; //Rate per day
     }
+
+    public String toString() {
+        return "Compact: " + getMake() + " " + getModel() + " (" + getYear() + ")";
+    }
     
 }

@@ -10,4 +10,8 @@ class SportCar extends Car{ //Shows Inheritance
     public double getRentalRate(){
         return 300.0; //Rate per day
     }
+
+    public String toString() {
+        return "Sports: " + getMake() + " " + getModel() + " (" + getYear() + ")";
+    }
 }

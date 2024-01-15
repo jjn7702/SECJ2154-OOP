@@ -15,7 +15,17 @@ public abstract class Car implements Rentable {
         this.rentalRate = rentalRate;
     }
 
-    public String getAllInfoCar() {
-        return year + " " + make + " " + model;
+    public String getMake(){
+        return make;
     }
+
+    public String getModel(){
+        return model;
+    }
+
+    public int getYear(){
+        return year;
+    }
+
+    public abstract double getRentalRate();
 }
