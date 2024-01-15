@@ -44,8 +44,17 @@ public class RentalSystem {
 
     public void printAllCustomers() {
         System.out.println("\n--- All Customer Information ---");
+        int i = 1;
         for (Customer customer : customers) {
-            System.out.println(customer.toString());
+            System.out.println("\nCustomer " + i);
+            System.out.println("----------------------------");
+            System.out.println("Name: " + customer.getName());
+            System.out.println("License Number: " + customer.getLicenseNumber());
+            System.out.println("Address: " + customer.getAddress());
+            System.out.println("Email: " + customer.getEmail());
+            System.out.println("Phone No: " + customer.getPhoneNumber());
+            System.out.println("----------------------------");
+            i++;
         }
     }
 
