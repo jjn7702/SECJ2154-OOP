@@ -1,4 +1,4 @@
-class VehicleReservation{
+class Reservation{
     private String reservationNumber;
     private String creationDate;
     private enum status {Waiting, Pending, Confirmed, Completed, Canceled, None};
