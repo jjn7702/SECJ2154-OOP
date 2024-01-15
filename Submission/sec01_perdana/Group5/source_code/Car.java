@@ -3,16 +3,22 @@
 // Car.java
 //Superclass
 public abstract class Car implements Rentable {
+    protected String type;
     protected String make;
     protected String model;
     protected int year;
     protected double rentalRate;
 
-    public Car(String make, String model, int year, double rentalRate) {
+    public Car(String type, String make, String model, int year, double rentalRate) {
+        this.type = type;
         this.make = make;
         this.model = model;
         this.year = year;
         this.rentalRate = rentalRate;
+    }
+
+    public String getType(){
+        return type;
     }
 
     public String getMake(){

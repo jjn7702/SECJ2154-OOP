@@ -3,15 +3,15 @@
 //MPVCar.java
 //Subclass to Car
 class MPVCar extends Car { //Shows Inheritance
-    public MPVCar(String make, String model, int year) {
-        super(make, model, year, 100.0);
+    public MPVCar(String type, String make, String model, int year) {
+        super(type, make, model, year, 100.00);
     }
 
     public double getRentalRate(){
-        return 100.0; //Rate per day
+        return 100.00; //Rate per day
     }
 
     public String toString() {
-        return "MPV: " + getMake() + " " + getModel() + " (" + getYear() + ")";
+        return getType() + "\t" + getMake() + "\t" + getModel() + "\t" + " (" + getYear() + ")";
     }
 }

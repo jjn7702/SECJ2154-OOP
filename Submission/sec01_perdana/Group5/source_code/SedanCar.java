@@ -4,15 +4,15 @@
 //Sedan.java
 //Subclass to Car
 class SedanCar extends Car { //Shows Inheritance
-    public SedanCar(String make, String model, int year) {
-        super(make, model, year, 80.0);
+    public SedanCar(String type, String make, String model, int year) {
+        super(type, make, model, year, 80.00);
     }
 
     public double getRentalRate(){
-        return 80.0; //Rate per day
+        return 80.00; //Rate per day
     }
 
     public String toString() {
-        return "Sedan: " + getMake() + " " + getModel() + " (" + getYear() + ")";
+        return getType() + "\t" + getMake() + "\t" + getModel() + "\t" + " (" + getYear() + ")";
     }
 }

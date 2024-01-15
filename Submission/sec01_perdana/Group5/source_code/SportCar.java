@@ -3,15 +3,15 @@
 // Sports.java
 //Subclass to Car
 class SportCar extends Car{ //Shows Inheritance
-    public SportCar(String make, String model, int year) {
-        super(make, model, year, 300.0);
+    public SportCar(String type, String make, String model, int year) {
+        super(type, make, model, year, 300.00);
     }
 
     public double getRentalRate(){
-        return 300.0; //Rate per day
+        return 300.00; //Rate per day
     }
 
     public String toString() {
-        return "Sports: " + getMake() + " " + getModel() + " (" + getYear() + ")";
+        return getType() + "\t" + getMake() + "\t" + getModel() + "\t" + " (" + getYear() + ")";
     }
 }
