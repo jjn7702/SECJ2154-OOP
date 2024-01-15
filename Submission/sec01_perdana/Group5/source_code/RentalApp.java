@@ -11,10 +11,10 @@ public class RentalApp {
             Customer customer = null;
             do {
                 System.out.println("\n--- Car Rental System Menu ---");
-                System.out.println("1. View available vehicles and rental prices");
-                System.out.println("2. Add user details");
+                System.out.println("1. View available car and rental prices");
+                System.out.println("2. Add customer details");
                 System.out.println("3. View all customer details");
-                System.out.println("4. Rent a vehicle");
+                System.out.println("4. Rent a car");
                 System.out.println("5. View rental history");
                 System.out.println("6. Exit");
                 System.out.print("Enter your choice (1-5): ");
