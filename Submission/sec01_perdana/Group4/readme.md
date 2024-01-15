@@ -17,18 +17,18 @@ The Airline Reservation System is a sophisticated software application designed 
 
 | Name                                      | Matric Number | Photo                                                         |
 | :- | :-: | :-: |
-| MUHAMMAD IZMEER BIN ZULKIFLEE             | B23CS0058        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group4/images/Izmeer.png" width=80px, height=80px>     |
-| MUHAMMAD FIRDAUS BIN MOHIDEEN ABDUL CADER | B23CS0056        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group4/images/Firdaus.jpeg" width=80px, height=80px>         |
-| MUHAMMAD DENNISH BIN MOHD AZMI            | B23CSxxxx        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group4/images/Dennish.jpeg" width=80px, height=80px>         |
-| AHMAD AFIF AISY BIN MOHD AZMI             | B23CSxxxx        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Group4/images/Aisy.jpeg" width=80px, height=80px>         |
+| MUHAMMAD IZMEER BIN ZULKIFLEE             | B23CS0058        | <img src="../Group4/files/images/Izmeer.png" width=80px, height=80px>     |
+| MUHAMMAD FIRDAUS BIN MOHIDEEN ABDUL CADER | B23CS0056        | <img src="../Group4/files/images/Firdaus.jpeg" width=80px, height=80px>         |
+| MUHAMMAD DENNISH BIN MOHD AZMI            | B23CS0053        | <img src="../Group4/files/images/Dennish.jpeg" width=80px, height=80px>         |
+| AHMAD AFIF AISY BIN MOHD AZMI             | B23CS0018        | <img src="../Group4/files/images/Aisy.jpeg" width=80px, height=80px>         |
 
 
 ## Findings 📊
 
-- [Source Code](../sample/source_code/PatientSystem.java)
-- Input Files
-- Report
-- Slide
+- [Source Code](../Group4/files/source-code/SkyReserve.java)
+- [Input Files](../Group4/files)
+- [Report](../Group4/files)
+- [Slide](../Group4/files)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.
