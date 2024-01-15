@@ -28,7 +28,7 @@ Consumers gain from an easy-to-use interface, a smooth shopping experience, and 
 
 - [Source Code](../Group3/source_code/src/InventorySystem.java)
 - Input Files
-- [Report](../Group3/source_code/src/OOP Project_GROUP 3 - KEDAI BUKU KAMAL INVENTORY MANAGEMENT SYSTEM.docx)
+- [Report](../Group3/Report_Slide/OOP_Project_GROUP_3_KEDAI_BUKU_KAMAL_INVENTORY_MANAGEMENT_SYSTEM.pdf).
 - Slide
 
 ## Contribution 🛠️
