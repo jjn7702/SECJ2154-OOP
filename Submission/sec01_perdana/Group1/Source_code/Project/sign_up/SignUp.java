@@ -18,12 +18,12 @@ public class SignUp {
     public void registerUser(User user) {
         users.add(user);
         writeUserToFile(user);
-        System.out.println("User registered successfully!");
+        System.out.println("\n\t\t\t\t\t\tUser registered successfully!");
     }
 
     private void writeUserToFile(User user) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("UserList.txt", true))) {
-            writer.newLine();
+            //writer.newLine();
             writer.write(user.getUsername());
             writer.newLine();
             writer.write(user.getPassword());
@@ -40,6 +40,7 @@ public class SignUp {
                 writer.newLine();
             }
 
+            writer.newLine();
             writer.newLine();
         } catch (IOException e) {
             System.out.println("Error writing user to file: " + e.getMessage());
