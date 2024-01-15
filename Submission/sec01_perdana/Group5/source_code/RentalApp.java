@@ -79,6 +79,7 @@ public class RentalApp {
 
                                 Location pickupLocation = rentalSystem.getPickupLocations().get(pickupIndex - 1);
 
+                                //Choose car to rent
                                 rentalSystem.displayAvailableCar();
                                 System.out.print("Enter the vehicle index to reserve (1-4): ");
                                 int carIndex = rentalSystem.getScanner().nextInt();
