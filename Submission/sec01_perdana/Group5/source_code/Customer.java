@@ -34,10 +34,5 @@ public class Customer {
     public String getPhoneNumber(){
         return phoneNumber;
     }
-
-    /* 
-    public String toString() {
-        return name + " (License Number: " + licenseNumber + ", Address: " + address + ", Email: " + email + ", Phone Number: " + phoneNumber + ")";
-    }*/
 }
 

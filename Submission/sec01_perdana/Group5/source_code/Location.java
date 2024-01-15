@@ -27,17 +27,6 @@ public class Location {
     public String getZipCode() {
         return zipCode;
     }
-
-    // Override toString() to provide a meaningful representation of the object
-    @Override
-    public String toString() {
-        return "Location{" +
-                "address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                '}';
-    }
 }
 
 
