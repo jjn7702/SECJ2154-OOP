@@ -16,11 +16,15 @@ public class Order {
         }
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
     public List<FoodItem> getItems() {
-        return new ArrayList<>(items);
+        return items;
     }
 
     public double getTotalPrice() {
-        return items.stream().mapToDouble(FoodItem::getPrice).sum();
+        return items.stream().mapToDouble(MenuItem::getPrice).sum();
     }
 }
