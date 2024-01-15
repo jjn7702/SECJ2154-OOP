@@ -1,4 +1,4 @@
-public class CarRentalLocation {
+public class Location {
     private String locationPickup;
 
     public CarRentalLocation(String locationPickup) {
