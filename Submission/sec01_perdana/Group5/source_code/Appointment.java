@@ -10,8 +10,8 @@ class Appointment {
     }
   
   public String displayAppointmentInfo() { 
-    SimpleDateFormat dateFormatted = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-    return "Car Appointment Date: " + dateFormatted.format(CarAppointmentDate);
+    SimpleDateFormatCar dateFormatcar = new SimpleDateFormatCar("dd-MM-yyyy HH:mm:ss");
+    return "Car Appointment Date: " + dateFormatcar.format(CarAppointmentDate);
   }
       
 }
