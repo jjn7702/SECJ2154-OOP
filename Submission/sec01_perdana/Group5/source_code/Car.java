@@ -15,8 +15,7 @@ public abstract class Car implements Rentable {
         this.rentalRate = rentalRate;
     }
 
-    @Override
-    public String toString() {
+    public String getAllInfoCar() {
         return year + " " + make + " " + model;
     }
 }

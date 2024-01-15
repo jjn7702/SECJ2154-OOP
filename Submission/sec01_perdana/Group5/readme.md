@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-The Car Rental System is designed to address ...
+The goal of the Car Rental System is to streamline the rental process for suppliers and make renting cars simple and convenient for users. It guarantees correct documentation and makes it simple for customers to reserve cars. This technology makes it possible to schedule, reserve, and rent a range of vehicles. Essentially, the goal of the car rental system is to make renting a car easy and accessible for consumers while also assisting rental companies in running efficiently.
 
 ## Prepared by 🧑‍💻
 
