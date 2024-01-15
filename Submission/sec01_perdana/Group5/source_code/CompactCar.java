@@ -3,16 +3,16 @@
 //Compact.java
 //Subclass to Car
 class CompactCar extends Car{ //Shows Inheritance
-    public CompactCar(String make, String model, int year) {
-        super(make, model, year, 50.0);
+    public CompactCar(String type, String make, String model, int year) {
+        super(type, make, model, year, 50.00);
     }
 
     public double getRentalRate(){
-        return 50.0; //Rate per day
+        return 50.00; //Rate per day
     }
 
     public String toString() {
-        return "Compact: " + getMake() + " " + getModel() + " (" + getYear() + ")";
+        return getType() + "\t" + getMake() + "\t" + getModel() + "\t" + " (" + getYear() + ")";
     }
     
 }

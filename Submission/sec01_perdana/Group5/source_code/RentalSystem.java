@@ -51,9 +51,10 @@ public class RentalSystem {
 
     public void displayAvailableCar() {
         System.out.println("\n--- Available Car and Rental Prices ---");
+        System.out.println("\n Type" + "\t\t" + "Make" + "\t" + "Model" + "\t" + "  Year" + "\t" + "Rental Price");
         for (int i = 1; i <= 4; i++) {
             Rentable car = chooseCarTypeByIndex(i);
-            System.out.println(i + ". " + car.toString() + "\t" + "Rental Price: RM" + car.getRentalRate() + " per day");
+            System.out.println(i + ". " + car.toString() + "\t" + "RM" + car.getRentalRate() + " per day");
         }
     }
 
@@ -126,10 +127,10 @@ public class RentalSystem {
         // Choose a vehicle based on index
         // For illustration purposes, return the vehicle from the list
         List<Rentable> availableCar = new ArrayList<>();
-        availableCar.add(new CompactCar("Perodua", "Axia", 2022));
-        availableCar.add(new SportCar("Ford", "Mustang", 2022));
-        availableCar.add(new SedanCar("Proton", "Saga", 2022));
-        availableCar.add(new MPVCar("Honda", "BRV", 2022));
+        availableCar.add(new CompactCar("Compact","Perodua", "Axia", 2022));
+        availableCar.add(new SportCar("Sports", "Ford", "Mustang", 2022));
+        availableCar.add(new SedanCar("Sedan", "Proton", "Saga", 2022));
+        availableCar.add(new MPVCar("MPV\t", "Honda", "BRV", 2022));
 
         if (carIndex >= 1 && carIndex <= availableCar.size()) {
             return availableCar.get(carIndex - 1);
