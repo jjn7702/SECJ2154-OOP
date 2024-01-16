@@ -20,7 +20,7 @@ The Human Resources Management System described in the provided Java code is des
 | Muhammad Aiman Haiqal   | B23CS0050        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Aiman Haiqal Salehuddin"><img src="../Group5/images/mnqarlz.jpg" width=80px, height=80px>     |
 | Aidiel Irhan       | B23CS0021        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
 | Muhammad Arif       | B23CS0051        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
-| Rakesh Kumar       | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
+| Taneshwer A/L Sanggar       | A23CS5052        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
 
 ## Findings 📊
 
