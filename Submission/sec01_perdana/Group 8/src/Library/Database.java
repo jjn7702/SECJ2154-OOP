@@ -15,11 +15,11 @@ public class Database {
     private ArrayList<Borrowing> borrowings = new ArrayList<Borrowing>();
 
 
-    private File usersfile = new File("src/data/Users.txt");
-    private File bookfile = new File("src/data/Books.txt");
-    private File ordersfile = new File("src/data/Orders.txt");
-    private File borrowingsfile = new File("src/data/Borrowings.txt");
-    private File folder = new File("src/data");
+    private File usersfile = new File("Group8/src/data/Users.txt");
+    private File bookfile = new File("Group8/src/data/Books.txt");
+    private File ordersfile = new File("Group8/src/data/Orders.txt");
+    private File borrowingsfile = new File("Group8/src/data/Borrowings.txt");
+    private File folder = new File("Group8/src/data");
 
     public Database(){
         if (!folder.exists()){
