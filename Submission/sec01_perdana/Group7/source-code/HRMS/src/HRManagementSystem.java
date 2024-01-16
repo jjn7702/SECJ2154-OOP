@@ -306,38 +306,38 @@ public class HRManagementSystem {
         System.out.print("Enter employee ID: ");
         int employeeID = scanner.nextInt();
         scanner.nextLine();
-    
+
         System.out.print("Enter first name: ");
         String firstName = scanner.nextLine().toUpperCase();
-    
+
         System.out.print("Enter last name: ");
         String lastName = scanner.nextLine().toUpperCase();
-    
+
         System.out.print("Enter date of birth: ");
         String dateOfBirth = scanner.nextLine().toUpperCase();
-    
+
         System.out.print("Enter gender: ");
         String gender = scanner.nextLine().toUpperCase();
-    
+
         System.out.print("Enter contact info: ");
         String contactInfo = scanner.nextLine();
-    
+
         System.out.print("Enter email: ");
         String email = scanner.nextLine();
-    
+
         Employee newEmployee = new Employee(employeeID, firstName, lastName, dateOfBirth, gender, contactInfo, email);
         hrSystem.addEmployee(newEmployee);
-    
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("employee_data.txt", true));
                 BufferedReader reader = new BufferedReader(new FileReader("employee_data.txt"))) {
-    
+
             if (reader.readLine() == null) {
                 writer.write(String.format("%-10s | %-15s | %-15s | %-15s | %-10s | %-20s | %-20s%n",
                         "ID", "First Name", "Last Name", "Date of Birth", "Gender", "Contact Info", "Email"));
                 writer.write("-".repeat(110));
                 writer.newLine();
             }
-    
+
             writer.write(String.format("%-10s | %-15s | %-15s | %-15s | %-10s | %-20s | %-20s%n",
                     newEmployee.getEmployeeID(), newEmployee.getFirstName(), newEmployee.getLastName(),
                     newEmployee.getDateOfBirth(), newEmployee.getGender(), newEmployee.getContactInfo(),
@@ -346,7 +346,6 @@ public class HRManagementSystem {
             System.out.println("Error logging employee data: " + e.getMessage());
         }
     }
-    
 
     public static void addDepartment() {
         System.out.print("Enter Department ID: ");
