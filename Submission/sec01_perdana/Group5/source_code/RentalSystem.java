@@ -27,6 +27,7 @@ public class RentalSystem {
         pickupLocations = new Vector<>();
         returnLocations = new Vector<>();
         initializeLocations(); // Initialize locations when the system is created
+        initializeCustomers(); // Initialize customers when the system is created
     }
 
     public Scanner getScanner() {
@@ -35,6 +36,14 @@ public class RentalSystem {
 
     public boolean hasUserDetails() {
         return userDetailsAdded;
+    }
+    
+    public void initializeCustomers(){
+        customers.add(new Customer("Erfan Syabil", "021026060451", "Puchong, Selangor", "muhderfan2610@gmail.com", "0198525011"));
+        customers.add(new Customer("Amirul Hani", "020814112378", "Gombak, Kuala Lumpur", "amirulhani02@gmail.com", "0173223121"));
+        customers.add(new Customer("Saranya Jayarama", "010515113278", "Ipoh, Perak", "saranyaJayarama@yahoo.com.my", "0178324320"));
+        customers.add(new Customer("Iswary Aish", "010715442781", "Kuantan, Pahang", "aish@email.com.my", "0132454430"));
+        userDetailsAdded = true;
     }
 
     public void addUserDetails(Customer customer) {
@@ -122,9 +131,25 @@ public class RentalSystem {
     
 
     public void rentVehicle(Customer customer, Rentable rentable, Appointment appointment, Location pickupLocation, Location returnLocation, int rentalDays) {
-        Rental rentals = new Rental(customer, rentable, appointment, pickupLocation, returnLocation, rentalDays);
-        this.rental.add(rentals);
-        System.out.println(rental.toString());
+        Rental rental = new Rental(customer, rentable, appointment, pickupLocation, returnLocation, rentalDays);
+        this.rental.add(rental);
+
+        System.out.println("-------------------------------------------------");
+        System.out.println("\nRental Successful for: " + customer.getName());
+
+        System.out.println("\nName: " + customer.getName());
+        System.out.println("License Number: " + customer.getLicenseNumber());
+        System.out.println("Address: " + customer.getAddress());
+        System.out.println("Email: " + customer.getEmail());
+        System.out.println("Phone Number: " + customer.getPhoneNumber());
+
+        System.out.println("\nCar rented: " + rentable);
+        System.out.println("Pickup date: " + rental.getAppointment().getAppointmentDate());
+        System.out.println("Pickup location: " + rental.getPLocation().toString());
+        System.out.println("Return location: " + rental.getPLocation().toString());
+        System.out.println("Duration: " + rental.getRentalDays() + " day(s)");
+        System.out.printf("\nTotal: RM%.2f", rental.calculateRentalCost());
+        System.out.println("\n-------------------------------------------------");
     }
 
     public List<Rental> getRental() {
