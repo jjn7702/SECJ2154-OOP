@@ -152,10 +152,12 @@ public class RentalSystem {
         System.out.println("\n-------------------------------------------------");
     }
 
+
     public List<Rental> getRental() {
         return rental;
     }
 
+    //to display rental history
     public void displayRentals() {
         System.out.println("\n--- Rental History ---");
         for (Rental rental : rental) {
@@ -183,7 +185,6 @@ public class RentalSystem {
 
     public Rentable chooseCarTypeByIndex(int carIndex) {
         // Choose a vehicle based on index
-        // For illustration purposes, return the vehicle from the list
         List<Rentable> availableCar = new ArrayList<>();
         availableCar.add(new CompactCar("Compact","Perodua", "Axia", 2022));
         availableCar.add(new SportCar("Sports", "Ford", "Mustang", 2022));
@@ -197,6 +198,7 @@ public class RentalSystem {
         }
     }
 
+    //Set appointment using appropriate format of date and time
     public Appointment scheduleAppointment() {
         System.out.print("Enter appointment date (yyyy-MM-dd HH:mm:ss): ");
         String dateString = scanner.nextLine();
@@ -207,18 +209,6 @@ public class RentalSystem {
         } catch (ParseException e) {
             System.out.println("Invalid date format. Defaulting to current date and time.");
             return new Appointment(new Date());
-        }
-    }
-
-    public Date getReservationDate() {
-        System.out.print("Enter reservation date (yyyy-MM-dd HH:mm:ss): ");
-        String dateString = scanner.nextLine();
-
-        try {
-            return dateFormat.parse(dateString);
-        } catch (ParseException e) {
-            System.out.println("Invalid date format. Defaulting to current date and time.");
-            return new Date();
         }
     }
 

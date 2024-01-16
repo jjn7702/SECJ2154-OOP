@@ -8,6 +8,7 @@ public class Appointment {
     public Appointment(Date appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
+    
 
     public Date getAppointmentDate() {
         return appointmentDate;
