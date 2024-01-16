@@ -27,6 +27,10 @@ public class Location {
     public String getZipCode() {
         return zipCode;
     }
+
+    public String toString(){
+        return getAddress() + ", " + getCity() + ", " + getState() + ", " + getZipCode();
+    }
 }
 
 

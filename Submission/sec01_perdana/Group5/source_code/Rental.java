@@ -44,8 +44,4 @@ public class Rental {
      public int getRentalDays(){
          return rentalDays;
      }
-
-     public String toString(){
-         return customer + " rented " + rentable + " for " + rentalDays + " days. Total cost: RM " + calculateRentalCost() + "\n" + appointment + "\n" + pickupLocation;
-     }
 }
