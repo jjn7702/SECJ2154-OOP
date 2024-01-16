@@ -11,21 +11,21 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-The goal of the Hospital Management System is to BYE
+The healthcare sector is important to the society, and efficient administration of healthcare facilities is necessary to guarantee patient safety and enhance the efficiency and effectiveness of the operational processes. From patient registration to inventory management, the Hospital Management System (HMS) is a complete system that automates and optimizes many elements of hospital operations. The goal of this project is to improve the healthcare services by creating a stable and user friendly hospital management system.
 
 ## Prepared by 🧑‍💻
 
 | Name                                     | Matric Number | Photo                                                         |
 | :--------------------------------------- | :-------------: | :------------------------------------------------------------: |
-| IZNURIN FATIHAH BINTI MD FAIZAL          | B23CS0041        | <img src="GROUP 9 - IZNURIN FATIHAH.jpg" width=70px, height=90px>     |
-| NUR AIMI AFIQAH BINTI RAWI               | B23CS0065        | <img src="GROUP 9_ AIMI AFIQAH.jpg" width=65px, height=80px>       |
-| NUR BALQIS BATRISYIA BINTI SAIDIN SYAZLI | B23CS0066      | <img src="GROUP 9 - NUR BALQIS BATRISYIA.jpg" width=80px, height=100px>           |
-| NUR BALQIS BINTI MOHD NASIR              | B22CS0067        |<img src="GROUP9 - NUR BALQIS.jpeg" width=70px, height=80px>         |
+| IZNURIN FATIHAH BINTI MD FAIZAL          | B23CS0041        | <img src="images/GROUP 9 - IZNURIN FATIHAH.jpg" width=70px, height=90px>     |
+| NUR AIMI AFIQAH BINTI RAWI               | B23CS0065        | <img src="images/GROUP 9_AIMI AFIQAH.jpg" width=70px, height=90px>       |
+| NUR BALQIS BATRISYIA BINTI SAIDIN SYAZLI | B23CS0066        | <img src="images/GROUP 9 - NUR BALQIS BATRISYIA.jpg" width=90px, height=100px>           |
+| NUR BALQIS BINTI MOHD NASIR              | B23CS0067        |<img src="images/GROUP9 - NUR BALQIS.jpeg" width=70px, height=90px>         |
 
 
 ## Findings 📊
 
-- [Source Code](../sample/source_code/PatientSystem.java)
+- [Source Code]([../Submission/sec01_perdana/Group9/Source%20code)
 - Input Files
 - Report
 - Slide
