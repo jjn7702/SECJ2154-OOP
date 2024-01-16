@@ -10,17 +10,19 @@ import java.util.Vector;
 import java.text.*;
 
 public class RentalSystem {
+    //variable
     private Scanner scanner;
     private SimpleDateFormat dateFormat;
     private List<Rental> rental;
     private List<Customer> customers;
-    private boolean userDetailsAdded = false;
+    private boolean customerDetailsAdded = false;
     private Vector<Location> pickupLocations;
     private Vector<Location> returnLocations;
 
+    //constructor
     public RentalSystem() {
         scanner = new Scanner(System.in);
-        userDetailsAdded = false;
+        customerDetailsAdded = false;
         customers = new ArrayList<>();  // Initialize the customers list
         rental = new ArrayList<>();
         dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -30,27 +32,32 @@ public class RentalSystem {
         initializeCustomers(); // Initialize customers when the system is created
     }
 
+    //Scanner method for input
     public Scanner getScanner() {
         return scanner;
     }
 
-    public boolean hasUserDetails() {
-        return userDetailsAdded;
+    //Check whether is there customer detail
+    public boolean hasCustomerDetails() {
+        return customerDetailsAdded;
     }
     
+    //Initialize customer 
     public void initializeCustomers(){
         customers.add(new Customer("Erfan Syabil", "021026060451", "Puchong, Selangor", "muhderfan2610@gmail.com", "0198525011"));
         customers.add(new Customer("Amirul Hani", "020814112378", "Gombak, Kuala Lumpur", "amirulhani02@gmail.com", "0173223121"));
         customers.add(new Customer("Saranya Jayarama", "010515113278", "Ipoh, Perak", "saranyaJayarama@yahoo.com.my", "0178324320"));
         customers.add(new Customer("Iswary Aish", "010715442781", "Kuantan, Pahang", "aish@email.com.my", "0132454430"));
-        userDetailsAdded = true;
+        customerDetailsAdded = true;
     }
 
-    public void addUserDetails(Customer customer) {
-        userDetailsAdded = true;
+    //To add user in the Customer List
+    public void addCustomerDetails(Customer customer) {
+        customerDetailsAdded = true;
         customers.add(customer);
     }
 
+    //Display all Customer in the list
     public void printAllCustomers() {
         System.out.println("\n--- All Customer Information ---");
         int i = 1;
@@ -67,6 +74,7 @@ public class RentalSystem {
         }
     }
 
+    //Display all available Car by retrieving the list in chooseCarTypeByIndex() method
     public void displayAvailableCar() {
         System.out.println("\n--- Available Car and Rental Prices ---");
         System.out.println("\n Type" + "\t\t" + "Make" + "\t" + "Model" + "\t" + "  Year" + "\t" + "Rental Price");
@@ -76,41 +84,46 @@ public class RentalSystem {
         }
     }
 
-        private void initializeLocations() {
-            //Pickup Location
-            pickupLocations.add(new Location("123 BP 11", "Puchong", "Selangor", "47120"));
-            pickupLocations.add(new Location("456 NP 32", "Kulai", "Johor", "81310"));
-            pickupLocations.add(new Location("789 Villa", "Kuantan", "Pahang", "43543"));
-            pickupLocations.add(new Location("102 Elm St", "Gombak", "Kuala Lumpur", "91232"));
-            pickupLocations.add(new Location("879 Oak St", "Ipoh", "Perak", "30000"));
-            pickupLocations.add(new Location("321 Pine St", "Jeli", "Kelanatan", "54321"));
-        
+    //Initialize pickup and return location
+    private void initializeLocations() {
+        //Pickup Location
+        pickupLocations.add(new Location("123 BP 11", "Puchong", "Selangor", "47120"));
+        pickupLocations.add(new Location("456 NP 32", "Kulai", "Johor", "81310"));
+        pickupLocations.add(new Location("789 Villa", "Kuantan", "Pahang", "43543"));
+        pickupLocations.add(new Location("102 Elm St", "Gombak", "Kuala Lumpur", "91232"));
+        pickupLocations.add(new Location("879 Oak St", "Ipoh", "Perak", "30000"));
+        pickupLocations.add(new Location("321 Pine St", "Jeli", "Kelanatan", "54321"));
 
-            //Return Location
-            returnLocations.add(new Location("123 BP 11", "Puchong", "Selangor", "47120"));
-            returnLocations.add(new Location("456 NP 32", "Kulai", "Johor", "81310"));
-            returnLocations.add(new Location("879 Villa", "Kuantan", "Pahang", "43543"));
-            returnLocations.add(new Location("102 Elm St", "Gombak", "Kuala Lumpur", "91232"));
-            returnLocations.add(new Location("879 Oak St", "Ipoh", "Perak", "30000"));
-            returnLocations.add(new Location("321 Pine St", "Jeli", "Kelanatan", "54321"));
+        //Return Location
+        returnLocations.add(new Location("123 BP 11", "Puchong", "Selangor", "47120"));
+        returnLocations.add(new Location("456 NP 32", "Kulai", "Johor", "81310"));
+        returnLocations.add(new Location("879 Villa", "Kuantan", "Pahang", "43543"));
+        returnLocations.add(new Location("102 Elm St", "Gombak", "Kuala Lumpur", "91232"));
+        returnLocations.add(new Location("879 Oak St", "Ipoh", "Perak", "30000"));
+        returnLocations.add(new Location("321 Pine St", "Jeli", "Kelanatan", "54321"));
     }
 
+    //Add pickup location into the vector location
     public void addPickupLocation(Location location) {
         pickupLocations.add(location);
     }
 
+    //Add return location into the vector location
     public void addReturnLocation(Location location) {
         returnLocations.add(location);
     }
 
+    //Retrieve pickup location object
     public Vector<Location> getPickupLocations() {
         return pickupLocations;
     }
 
+    //Retrieve return location object
     public Vector<Location> getReturnLocations() {
         return returnLocations;
     }
 
+    //Display pickup location
     public void displayPickupLocations() {
         System.out.println("\n--- Pickup Locations ---");
         int i = 1;
@@ -120,6 +133,7 @@ public class RentalSystem {
         }
     }
 
+    //Display return location
     public void displayReturnLocations() {
         System.out.println("\n--- Return Locations ---");
         int i = 1;
@@ -130,6 +144,7 @@ public class RentalSystem {
     }
     
 
+    //Rent a vehicle and after that produce output containing info about customer, car rented, pickup time, pickup and return location, duration and total.
     public void rentVehicle(Customer customer, Rentable rentable, Appointment appointment, Location pickupLocation, Location returnLocation, int rentalDays) {
         Rental rental = new Rental(customer, rentable, appointment, pickupLocation, returnLocation, rentalDays);
         this.rental.add(rental);
@@ -152,7 +167,7 @@ public class RentalSystem {
         System.out.println("\n-------------------------------------------------");
     }
 
-    //to display rental history
+    //To display rental history
     public void displayRentals() {
         System.out.println("\n--- Rental History ---");
         for (Rental rental : rental) {
@@ -172,12 +187,12 @@ public class RentalSystem {
         }
     }
 
-
+    //Close scanner to prevent resource leak
     public void closeScanner() {
         scanner.close();
     }
 
-
+    //Initialize car into arrayList and return the list index
     public Rentable chooseCarTypeByIndex(int carIndex) {
         // Choose a vehicle based on index
         List<Rentable> availableCar = new ArrayList<>();
@@ -207,6 +222,7 @@ public class RentalSystem {
         }
     }
 
+    //Retrieve customer object.
     public List<Customer> getCustomers() {
         return customers;
     }

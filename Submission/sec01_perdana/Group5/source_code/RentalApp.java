@@ -46,7 +46,7 @@ public class RentalApp {
 
                         //add Customer Details
                         customer = new Customer(name, licenseNumber, address, email, phoneNumber);
-                        rentalSystem.addUserDetails(customer);
+                        rentalSystem.addCustomerDetails(customer);
                         System.out.println("\nCustomer details added: ");
                         System.out.println("Name: " + customer.getName());
                         System.out.println("License Number: " + customer.getLicenseNumber());
@@ -60,7 +60,7 @@ public class RentalApp {
                         break;
                     case 4:
                         // Rent a car
-                        if (rentalSystem.hasUserDetails()) {
+                        if (rentalSystem.hasCustomerDetails()) {
                             rentalSystem.printAllCustomers();
                             System.out.print("Enter the index of the customer to make a reservation for: ");
                             int customerIndex = rentalSystem.getScanner().nextInt();
