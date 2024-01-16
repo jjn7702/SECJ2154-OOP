@@ -159,10 +159,20 @@ public class RentalSystem {
     public void displayRentals() {
         System.out.println("\n--- Rental History ---");
         for (Rental rental : rental) {
-            System.out.println(rental);
-            System.out.println();
+            System.out.println("\nName: " + rental.getCustomer().getName());
+            System.out.println("License Number: " + rental.getCustomer().getLicenseNumber());
+            System.out.println("Address: " + rental.getCustomer().getAddress());
+            System.out.println("Email: " + rental.getCustomer().getEmail());
+            System.out.println("Phone Number: " + rental.getCustomer().getPhoneNumber());
+
+            System.out.println("\nCar rented: " + rental.getRentable());
+            System.out.println("Pickup date: " + rental.getAppointment().getAppointmentDate());
+            System.out.println("Pickup location: " + rental.getPLocation().toString());
+            System.out.println("Return location: " + rental.getPLocation().toString());
+            System.out.println("Duration: " + rental.getRentalDays() + " day(s)");
+            System.out.printf("\nTotal: RM%.2f", rental.calculateRentalCost());
+            System.out.println("\n-------------------------------------------------");
         }
-        System.out.println("----------------------\n");
     }
 
 
