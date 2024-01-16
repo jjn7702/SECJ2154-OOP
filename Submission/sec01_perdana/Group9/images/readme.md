@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-The goal of the Hospital Management System is to 
+The goal of the Hospital Management System is to BYE
 
 ## Prepared by 🧑‍💻
 
