@@ -9,7 +9,6 @@ public class Appointment {
         this.appointmentDate = appointmentDate;
     }
     
-
     public Date getAppointmentDate() {
         return appointmentDate;
     }

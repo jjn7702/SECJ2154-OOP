@@ -15,6 +15,7 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
+    //Getter method
     public String getName(){
         return name;
     }

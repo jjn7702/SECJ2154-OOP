@@ -17,6 +17,7 @@ public abstract class Car implements Rentable {
         this.rentalRate = rentalRate;
     }
 
+    //Getter method
     public String getType(){
         return type;
     }

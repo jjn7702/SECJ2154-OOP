@@ -28,6 +28,7 @@ public class Location {
         return zipCode;
     }
 
+    //toString method to get location as a String
     public String toString(){
         return getAddress() + ", " + getCity() + ", " + getState() + ", " + getZipCode();
     }
