@@ -11,16 +11,16 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-The goal of the Hospital Management System is to 
+The goal of the Hospital Management System is to BYE
 
 ## Prepared by 🧑‍💻
 
 | Name                                     | Matric Number | Photo                                                         |
 | :--------------------------------------- | :-------------: | :------------------------------------------------------------: |
-| IZNURIN FATIHAH BINTI MD FAIZAL          | B23CS0041        | <img src="" width=80px, height=80px>     |
+| IZNURIN FATIHAH BINTI MD FAIZAL          | B23CS0041        | <img src="GROUP 9 - IZNURIN FATIHAH.jpg" width=70px, height=90px>     |
 | NUR AIMI AFIQAH BINTI RAWI               | B23CS0065        | <img src="" width=80px, height=80px>       |
 | NUR BALQIS BATRISYIA BINTI SAIDIN SYAZLI | B23CS0066      | <img src="" width=80px, height=80px>           |
-| NUR BALQIS BINTI MOHD NASIR              | B22CS0067        |<img src="C:\Users\Uesr\Documents\GitHub\SECJ2154-OOP\Submission\sec01_perdana\Group9\images\GROUP9 - NUR BALQIS.jpeg" width=80px, height=80px>         |
+| NUR BALQIS BINTI MOHD NASIR              | B22CS0067        |<img src="GROUP9 - NUR BALQIS.jpeg" width=70px, height=80px>         |
 
 
 ## Findings 📊
