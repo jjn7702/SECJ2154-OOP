@@ -18,8 +18,8 @@ The goal of the Hospital Management System is to
 | Name                                     | Matric Number | Photo                                                         |
 | :--------------------------------------- | :-------------: | :------------------------------------------------------------: |
 | IZNURIN FATIHAH BINTI MD FAIZAL          | B23CS0041        | <img src="images/GROUP 9 - IZNURIN FATIHAH.jpg" width=70px, height=90px>     |
-| NUR AIMI AFIQAH BINTI RAWI               | B23CS0065        | <img src="" width=80px, height=80px>       |
-| NUR BALQIS BATRISYIA BINTI SAIDIN SYAZLI | B23CS0066        | <img src="" width=80px, height=80px>           |
+| NUR AIMI AFIQAH BINTI RAWI               | B23CS0065        | <img src="" width=70px, height=90px>       |
+| NUR BALQIS BATRISYIA BINTI SAIDIN SYAZLI | B23CS0066        | <img src="" width=70px, height=90px>           |
 | NUR BALQIS BINTI MOHD NASIR              | B23CS0067        |<img src="images/GROUP9 - NUR BALQIS.jpeg" width=70px, height=90px>         |
 
 
