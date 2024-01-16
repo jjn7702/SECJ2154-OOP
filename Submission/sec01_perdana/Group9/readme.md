@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-The goal of the Hospital Management System is to improve our healthcare service system.
+The healthcare sector is important to the society, and efficient administration of healthcare facilities is necessary to guarantee patient safety and enhance the efficiency and effectiveness of the operational processes. From patient registration to inventory management, the Hospital Management System (HMS) is a complete system that automates and optimizes many elements of hospital operations. The goal of this project is to improve the healthcare services by creating a stable and user friendly hospital management system.
 
 ## Prepared by 🧑‍💻
 
