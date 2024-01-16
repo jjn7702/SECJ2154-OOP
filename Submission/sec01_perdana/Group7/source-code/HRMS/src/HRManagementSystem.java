@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class HRManagementSystem{
+public class HRManagementSystem {
     public static Scanner scanner = new Scanner(System.in);
     private static HRSystem hrSystem = new HRSystem();
 
