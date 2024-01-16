@@ -46,7 +46,7 @@ public class RentalSystem {
     public void initializeCustomers(){
         customers.add(new Customer("Erfan Syabil", "021026060451", "Puchong, Selangor", "muhderfan2610@gmail.com", "0198525011"));
         customers.add(new Customer("Amirul Hani", "020814112378", "Gombak, Kuala Lumpur", "amirulhani02@gmail.com", "0173223121"));
-        customers.add(new Customer("Saranya Jayarama", "010515113278", "Ipoh, Perak", "saranyaJayarama@yahoo.com.my", "0178324320"));
+        customers.add(new Customer("Saranya Red", "010515113278", "Ipoh, Perak", "saranyaJayarama@yahoo.com.my", "0178324320"));
         customers.add(new Customer("Iswary Aish", "010715442781", "Kuantan, Pahang", "aish@email.com.my", "0132454430"));
         customerDetailsAdded = true;
     }
@@ -60,16 +60,13 @@ public class RentalSystem {
     //Display all Customer in the list
     public void printAllCustomers() {
         System.out.println("\n--- All Customer Information ---");
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("\tName \t" + "License Number \t\t" + "Address \t\t" + "Email \t\t" + "Phone No");
+        System.out.println("---------------------------------------------------------------------------");
         int i = 1;
-        for (Customer customer : customers) {
-            System.out.println("\nCustomer " + i);
-            System.out.println("----------------------------");
-            System.out.println("Name: " + customer.getName());
-            System.out.println("License Number: " + customer.getLicenseNumber());
-            System.out.println("Address: " + customer.getAddress());
-            System.out.println("Email: " + customer.getEmail());
-            System.out.println("Phone No: " + customer.getPhoneNumber());
-            System.out.println("----------------------------");
+        for (Customer customer : customers) { 
+            System.out.println(i + ". " + customer.getName() + "\t" + customer.getLicenseNumber() + "\t" + customer.getAddress() + "\t" + customer.getEmail()+ "\t" + customer.getPhoneNumber());
+            System.out.println("---------------------------------------------------------------------------");
             i++;
         }
     }
