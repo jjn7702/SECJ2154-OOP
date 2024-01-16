@@ -25,10 +25,10 @@ The healthcare sector is important to the society, and efficient administration 
 
 ## Findings 📊
 
-- [Source Code]([../Submission/sec01_perdana/Group9/Source%20code)
+- [Source Code]([[../Submission/sec01_perdana/Group9/Source%20code](https://github.com/jjn7702/SECJ2154-OOP/tree/06238d4dc102b114e975c34c9ce70668749c5b39/Submission/sec01_perdana/Group9/Source%20code))
 - Input Files
-- Report
-- Slide
+- [Report]([https://github.com/jjn7702/SECJ2154-OOP/tree/06238d4dc102b114e975c34c9ce70668749c5b39/Submission/sec01_perdana/Group9/Report)
+- [Slide]([https://github.com/jjn7702/SECJ2154-OOP/tree/06238d4dc102b114e975c34c9ce70668749c5b39/Submission/sec01_perdana/Group9/Slide)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.
