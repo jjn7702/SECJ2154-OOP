@@ -1,0 +1,3 @@
+D001 Dr.Amin Afiq  0123456789  Generaldoctor
+D002 Dr.Maria Noor 0119567788  Surgeon
+D003 Dr.Aslam Ahmad 0177896754  Cardiology
