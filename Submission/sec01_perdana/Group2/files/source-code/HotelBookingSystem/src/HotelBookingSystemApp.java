@@ -63,7 +63,7 @@ public class HotelBookingSystemApp { //Encapsulation!!!
                 loginAttempts--;
                 System.out.print("\nInvalid username or password. Login attempts left: " + loginAttempts);
                 if (loginAttempts > 0) {
-                    System.out.println("\nPlease try again.");
+                    System.out.print("\nPlease try again");
                     userInterface.loadingAnimation();
                     userInterface.clearScreen();
                 } else {
