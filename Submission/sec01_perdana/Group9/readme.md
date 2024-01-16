@@ -18,17 +18,17 @@ The healthcare sector is important to the society, and efficient administration 
 | Name                                     | Matric Number | Photo                                                         |
 | :--------------------------------------- | :-------------: | :------------------------------------------------------------: |
 | IZNURIN FATIHAH BINTI MD FAIZAL          | B23CS0041        | <img src="images/GROUP 9 - IZNURIN FATIHAH.jpg" width=70px, height=90px>     |
-| NUR AIMI AFIQAH BINTI RAWI               | B23CS0065        | <img src="images/GROUP 9_AIMI AFIQAH.jpg" width=70px, height=90px>       |
+| NUR AIMI AFIQAH BINTI RAWI               | B23CS0065        | <img src="images/GROUP 9_ AIMI AFIQAH.jpg" width=70px, height=90px>       |
 | NUR BALQIS BATRISYIA BINTI SAIDIN SYAZLI | B23CS0066        | <img src="images/GROUP 9 - NUR BALQIS BATRISYIA.jpg" width=90px, height=100px>           |
 | NUR BALQIS BINTI MOHD NASIR              | B23CS0067        |<img src="images/GROUP9 - NUR BALQIS.jpeg" width=70px, height=90px>         |
 
 
 ## Findings 📊
 
-- [Source Code]([../Submission/sec01_perdana/Group9/Source%20code)
+- [Source Code]([[../Submission/sec01_perdana/Group9/Source%20code)
 - Input Files
-- Report
-- Slide
+- [Report]([../Submission/sec01_perdana/Group9/Report)
+- [Slide]([../Submission/sec01_perdana/Group9/Slide)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.
