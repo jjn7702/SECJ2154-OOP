@@ -8,7 +8,7 @@ public class HRManagementSystem {
     public static void main(String[] args) {
         int choice, choiceEmp, employeeIDToRemove, choiceDep, choicePos, choiceSal, choiceAtt;
 
-        
+        displayWelcomeBanner();
         do {
             hrSystem.displayMainMenu();
             choice = scanner.nextInt();
