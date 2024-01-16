@@ -1,6 +1,5 @@
 //Iswary:B22EC3004
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Appointment {
@@ -12,10 +11,5 @@ public class Appointment {
 
     public Date getAppointmentDate() {
         return appointmentDate;
-    }
-
-    public String toString() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return "Appointment Date: " + sdf.format(appointmentDate);
     }
 }
