@@ -1,47 +1,29 @@
 class Leave {
-    private int leaveID;
     private Employee employee;
-    private String startDate;
-    private String endDate;
-    private String reason;
+    private int leaveDays;
 
-    public Leave(int lID, Employee employee, String sDate, String eDate, String rn) {
-        this.leaveID = lID;
+    public Leave(Employee employee, int leaveDays) {
+        this.leaveDays = leaveDays;
         this.employee = employee;
-        this.startDate = sDate;
-        this.endDate = eDate;
-        this.reason = rn;
     }
 
-    public boolean validateLeaveRequest() {
-        return startDate.compareTo(endDate) <= 0;
+    public int getLeaveDays() {
+        return leaveDays;
     }
 
-    public int getLeaveID() {
-        return leaveID;
+    public void setLeaveDays(int leaveDays) {
+        this.leaveDays = leaveDays;
     }
 
-    public Employee getEmployee(){
+    public void updateLeaveDays(int newLeaveDays) {
+        this.leaveDays = newLeaveDays;
+    }
+
+    public Employee getEmployee() {
         return employee;
     }
 
-    public String getStartDate(){
-        return startDate;
-    }
-
-    public String getEndDate() {
-        return endDate;
-    }
-
-    public String getReason() {
-        return reason;
-    }
-
-    public String getEmployeeFirstName() {
-        return employee.getFirstName();
-    }
-
-    public String getEmployeeLastName() {
-        return employee.getLastName();
+    public String getEmployeeFullName() {
+        return employee.getFullName();
     }
 }

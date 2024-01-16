@@ -14,7 +14,7 @@ public class Report {
             return;
         }
 
-        FileWriter fw = new FileWriter("./report/Report.txt");
+        FileWriter fw = new FileWriter("./Submission/sec01_perdana/Group2/files/source-code/HotelBookingSystem/report/Report.txt");
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter pw = new PrintWriter(bw);
 
