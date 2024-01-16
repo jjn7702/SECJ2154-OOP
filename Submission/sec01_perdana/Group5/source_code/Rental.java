@@ -17,31 +17,33 @@ public class Rental {
         this.rentalDays = rentalDays;
     }
 
-     public double calculateRentalCost(){
+    //Method to calculate the total rental
+    public double calculateRentalCost(){
          return rentable.getRentalRate() * rentalDays;
-     }
+        }
 
-     public Customer getCustomer() {
+    //Getter method
+    public Customer getCustomer() {
          return customer;
-     }
+        }
 
-     public Rentable getRentable() {
+    public Rentable getRentable() {
          return rentable;
-     }
+        }
 
-     public Appointment getAppointment() {
+    public Appointment getAppointment() {
          return appointment;
-     }
+        }
 
-     public Location getPLocation(){
+    public Location getPLocation(){
          return pickupLocation;
-     }
+        }
 
-     public Location getRLocation(){
+    public Location getRLocation(){
          return returnLocation;
-     }
+        }
 
-     public int getRentalDays(){
+    public int getRentalDays(){
          return rentalDays;
-     }
+        }
 }
