@@ -1,0 +1,5 @@
+Department ID   | Department Type      | Manager        
+------------------------------------------------------------
+1               | ICT                  | SALEHUDDIN     
+2               | SAFETY               | HAFIY DANIEL   
+3               | FINANCE              | KIM ROBERT     

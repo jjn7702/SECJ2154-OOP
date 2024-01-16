@@ -1,0 +1,4 @@
+Position ID     | Position Title      
+----------------------------------------
+1               | PROGRAMMER          
+2               | POLICE PATROL       

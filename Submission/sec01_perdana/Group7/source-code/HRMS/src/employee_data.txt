@@ -1,0 +1,4 @@
+ID         | First Name      | Last Name       | Date of Birth   | Gender     | Contact Info         | Email                | Department           | Position            
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1          | MUHAMMAD AIMAN  | HAIQAL          | 4 APRIL 2002    | MALE       | 01169353643          | aiman02@gmail.com    | ICT                  | PROGRAMMER          
+2          | PUTERI          | IZZAH           | 3 JANUARI 2003  | FEMALE     | 0177260308           | puteri@gmail.com     | SAFETY               | POLICE PATROL       
