@@ -95,6 +95,7 @@ public class RentalApp {
                                 Location returnLocation = rentalSystem.getReturnLocations().get(returnIndex - 1);
 
                                 Appointment appointment = rentalSystem.scheduleAppointment();
+                                
                                 System.out.print("Enter the duration of rental in days: ");
                                 int rentalDays = rentalSystem.getScanner().nextInt();
                                 rentalSystem.getScanner().nextLine();
