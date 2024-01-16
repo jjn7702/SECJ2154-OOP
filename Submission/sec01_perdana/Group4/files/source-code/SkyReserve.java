@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SkyReserve {
+public class SkyReserve{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -16,6 +16,7 @@ public class SkyReserve {
 
         availableFlightsAirAsia.add(new Flight("TAWAU", "KLIA", "4:00 PM"));
         availableFlightsAirAsia.add(new Flight("TAWAU", "SENAI", "6:00 PM"));
+
 
         List<Seat> availableSeatsAirAsia = new ArrayList<>();
         for (char seatChar = 'A'; seatChar <= 'J'; seatChar++) {
@@ -123,8 +124,7 @@ public class SkyReserve {
                         break;
                 }
 
-                System.out.println("\nAvailable flights from " + origin + " to " + destination + " with "
-                        + selectedAirline.getName() + ":");
+                System.out.println("\nAvailable flights from " + origin + " to " + destination + " with " + selectedAirline.getName() + ":");
                 for (int i = 0; i < availableFlights.size(); i++) {
                     Flight flight = availableFlights.get(i);
                     if (flight.getOrigin().equals(origin) && flight.getDestination().equals(destination)) {
@@ -146,7 +146,7 @@ public class SkyReserve {
                 }
 
                 List<Seat> availableSeatsForFlight = new ArrayList<>(availableSeats);
-
+                
                 for (Booking booked : bookings) {
                     if (booked.getFlight().equals(selectedFlight) && booked.getAirline().equals(selectedAirline)) {
                         availableSeatsForFlight.remove(booked.getSeat());
@@ -198,6 +198,5 @@ public class SkyReserve {
             System.out.println("Seat: " + booking.getSeat().getSeatName());
             System.out.println("--------------------");
         }
-        scanner.close();
+    scanner.close();}
     }
-}

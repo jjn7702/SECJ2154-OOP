@@ -1,4 +1,4 @@
-public class Flight extends SkyInfo{
+public class Flight extends SkyInfo {
     private String origin;
     private String destination;
     private String boardingTime;
