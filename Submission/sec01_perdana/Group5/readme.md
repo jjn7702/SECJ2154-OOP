@@ -25,10 +25,10 @@ The goal of the Car Rental System is to streamline the rental process for suppli
 
 ## Findings 📊
 
-- [Source Code](../sample/source_code/PatientSystem.java)
-- Input Files
-- Report
-- Slide
+- [Source Code](../Group5/source_code/RentalApp.java)
+- Input Files(../sample/source_code/PatientSystem.java)
+- [Report](../Group5/report)
+- [Slide](../Group5/slide)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.
