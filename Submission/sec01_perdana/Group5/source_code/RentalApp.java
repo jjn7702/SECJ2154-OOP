@@ -62,7 +62,7 @@ public class RentalApp {
                         // Rent a car
                         if (rentalSystem.hasCustomerDetails()) {
                             rentalSystem.printAllCustomers();
-                            System.out.print("Enter the index of the customer to make a reservation for: ");
+                            System.out.print("Enter the index of the customer to make a rental for: ");
                             int customerIndex = rentalSystem.getScanner().nextInt();
                             rentalSystem.getScanner().nextLine();
     
@@ -81,7 +81,7 @@ public class RentalApp {
 
                                 //Choose car to rent
                                 rentalSystem.displayAvailableCar();
-                                System.out.print("Enter the car index to reserve (1-4): ");
+                                System.out.print("Enter the car index to rent (1-4): ");
                                 int carIndex = rentalSystem.getScanner().nextInt();
                                 rentalSystem.getScanner().nextLine();
                                 Rentable selectedCar = rentalSystem.chooseCarTypeByIndex(carIndex);
@@ -116,7 +116,7 @@ public class RentalApp {
                         System.out.println("Exiting Rental System. Thank you!");
                         break;
                     default:
-                        System.out.println("Invalid choice. Please enter a number between 1 and 5.");
+                        System.out.println("Invalid choice. Please enter a number between 1 and 6.");
                 }
             } while (choice != 6);
 
