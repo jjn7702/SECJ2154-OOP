@@ -78,7 +78,7 @@ public class HotelBookingSystemApp { //Encapsulation!!!
 
     private boolean checkCredentials(String username, String password) {
         try {
-            File file = new File("Submission\\sec01_perdana\\Group2\\files\\source-code\\HotelBookingSystem\\credentials\\credentials.txt");
+            File file = new File("./Submission/sec01_perdana/Group2/files/source-code/HotelBookingSystem/credentials/credentials.txt");
             Scanner fileScanner = new Scanner(file);
 
             while (fileScanner.hasNextLine()) {
