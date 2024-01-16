@@ -224,7 +224,9 @@ public class InventorySystem {
                     System.out.println("Invalid Credentials Entered. Please Try Again!");
                 }
             }while(user == null);
-                User realUser = new BookSupplier(user.getUserID(), user.getUserName(),user.getPassword(),user.getEmail(), user.getUserRole(), user.getName().getfName(), user.getName().getlName());
+            System.out.print("Successfully Login :)\nPress any key to continue..");
+            scan.nextLine();
+            User realUser = new BookSupplier(user.getUserID(), user.getUserName(),user.getPassword(),user.getEmail(), user.getUserRole(), user.getName().getfName(), user.getName().getlName());
               
                 if(realUser.getUserRole()==3){
                     int value;
@@ -303,6 +305,8 @@ public class InventorySystem {
                         System.out.println("Invalid Credentials Entered. Please Try Again!");
                     }
                 }while(user == null);
+                System.out.print("Successfully Login :)\nPress any key to continue..");
+                scan.nextLine();
                 Book b = new Book();
                 User realUser = new Customer(user.getUserID(), user.getUserName(),user.getPassword(),user.getEmail(), user.getUserRole(), user.getName().getfName(), user.getName().getlName());
                 do {
