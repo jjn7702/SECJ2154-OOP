@@ -1,14 +1,14 @@
 import java.io.*;
 import java.util.*;
 
-public class HRManagementSystem{
+public class HRManagementSystem {
     public static Scanner scanner = new Scanner(System.in);
     private static HRSystem hrSystem = new HRSystem();
 
     public static void main(String[] args) {
         int choice, choiceEmp, employeeIDToRemove, choiceDep, choicePos, choiceSal, choiceAtt;
 
-        displayWelcomeBanner();
+        
         do {
             hrSystem.displayMainMenu();
             choice = scanner.nextInt();
