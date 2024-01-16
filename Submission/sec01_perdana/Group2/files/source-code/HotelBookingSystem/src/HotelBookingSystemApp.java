@@ -31,7 +31,7 @@ public class HotelBookingSystemApp { //Encapsulation!!!
                 "$$$$$$$/   $$$$$$/   $$$$$$/  $$/   $$/ $$$$$$/ $$/   $$/  $$$$$$/         $$$$$$/      $$/     $$$$$$/     $$/    $$$$$$$$/ $$/      $$/ ");
 
         System.out.println("\n\n----- Moyai Hotel Booking System -----\n");
-        System.out.println(" [1] Room Availability");
+        System.out.println(" [1] Display Room Availability");
         System.out.println(" [2] Create Booking");
         System.out.println(" [3] Display All Booking Information");
         System.out.println(" [4] Edit Booking");
