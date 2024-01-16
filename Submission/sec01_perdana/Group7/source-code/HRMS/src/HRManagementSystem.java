@@ -17,9 +17,6 @@ public class HRManagementSystem {
             switch (choice) {
                 case 1:
                     do {
-                        System.out.println("\n===================");
-                        System.out.println("Employee Management");
-                        System.out.println("===================");
                         System.out.println("1. Display Employee List");
                         System.out.println("2. Add Employee");
                         System.out.println("3. Remove Employee");
