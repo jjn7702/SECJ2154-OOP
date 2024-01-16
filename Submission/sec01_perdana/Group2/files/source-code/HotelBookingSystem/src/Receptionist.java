@@ -66,13 +66,18 @@ public class Receptionist {
         } else if (roomTypeChoice == 3 && allRoomsOccupiedByType(3)) {
             System.out.println("Sorry, all Superior rooms are currently occupied. Please choose another room type.\n");
             return;
+        } else if (roomTypeChoice < 1 || roomTypeChoice > 3){
+            System.out.print("\nInvalid room type. Please try again");
+            userInterface.loadingAnimation();
+            userInterface.clearScreen();
+            return;
         }
 
         displayAvailableRoomsByType(roomTypeChoice);
     
         // Assign room number manually
         System.out.print("Enter the desired room number: ");
-        int roomNumber = scanner.nextInt();
+        int roomNumber = getUserChoice();
 
         userInterface.clearScreen();
     
@@ -185,7 +190,7 @@ public class Receptionist {
         System.out.println("Booking successful!");
     
         System.out.print("Do you want to view the booking details? (1 - Yes/ 0 - No) : ");
-        int viewBookingDetails = scanner.nextInt();
+        int viewBookingDetails = getUserChoice();
         userInterface.clearScreen();
     
         if (viewBookingDetails == 1) {
@@ -231,10 +236,9 @@ public class Receptionist {
             // Booking found, prompt user for what to edit
             System.out.println("\nSelect what to edit:");
             System.out.println("1. Guest Details");
-            System.out.println("2. Check-in Date");
-            System.out.println("3. Check-out Date");
-            System.out.println("4. Payment Type");
-            System.out.println("5. Cancel");
+            System.out.println("2. Check-out Date");
+            System.out.println("3. Payment Type");
+            System.out.println("4. Cancel");
             System.out.print("Enter your choice: ");
 
             int editChoice = getUserChoice();
@@ -244,28 +248,22 @@ public class Receptionist {
                     editGuestDetails(bookingToEdit);
                     break;
                 case 2:
-                    editCheckInDate(bookingToEdit);
-                    break;
-                case 3:
                     editCheckOutDate(bookingToEdit);
                     break;
-                case 4:
+                case 3:
                     editPaymentType(bookingToEdit);
                     break;
-                case 5:
+                case 4:
                     userInterface.clearScreen();
                     return;
                 default:
                     System.out.println("Invalid choice. No changes made.");
+                    userInterface.clearScreen();
             }
         } else {
-            System.out.print("Booking not found with the specified room number. Please try again later. ");
-            try {
-                Thread.sleep(2000);
-                userInterface.clearScreen();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            System.out.print("Booking not found with the specified room number. Please try again later");
+            userInterface.loadingAnimation();
+            userInterface.clearScreen();
         }
     }
 
@@ -315,28 +313,11 @@ public class Receptionist {
         userInterface.clearScreen();
     }
 
-    public void editCheckInDate(BookingInfo booking) {
-        try {
-            System.out.print("Enter new check-in date (yyyy-MM-dd): ");
-            String newCheckInDateString = scanner.next();
-            LocalDate newCheckInDate = LocalDate.parse(newCheckInDateString, DateTimeFormatter.ofPattern("E, MMM dd yyyy"));
-            booking.setCheckInDate(newCheckInDate);
-            System.out.print("Check-in date updated successfully. <Press enter to continue>");
-            scanner.nextLine();
-
-        } catch (Exception e) {
-            System.out.print("Invalid date format. No changes made. <Press enter to continue>");
-            scanner.nextLine();
-        }
-
-        userInterface.clearScreen();
-    }
-
     public void editCheckOutDate(BookingInfo booking) {
         try {
-            System.out.print("Enter new check-out date (yyyy-MM-dd): ");
+            System.out.print("Enter new check-out date (dd-MM-yyyy): ");
             String newCheckOutDateString = scanner.next();
-            LocalDate newCheckOutDate = LocalDate.parse(newCheckOutDateString, DateTimeFormatter.ofPattern("E, MMM dd yyyy"));
+            LocalDate newCheckOutDate = LocalDate.parse(newCheckOutDateString, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             booking.setCheckOutDate(newCheckOutDate);
             System.out.print("Check-out date updated successfully. <Press enter to continue>");
             scanner.nextLine();
@@ -407,8 +388,10 @@ public class Receptionist {
             bookedRoom.setIsAvailable(true);
             System.out.print("Booking deleted successfully. <Press enter to continue>");
             scanner.nextLine();
+            scanner.nextLine();
         } else {
             System.out.print("Guest not found. <Press enter to continue>");
+            scanner.nextLine();
             scanner.nextLine();
         }
 
@@ -522,12 +505,14 @@ public class Receptionist {
     public int getUserChoice() {
         try {
             int choice = scanner.nextInt();
-            scanner.nextLine();  // Consume the newline character
             return choice;
         } catch (InputMismatchException e) {
             // Clear the buffer
+            int choice2;
             scanner.nextLine();
-            return -1;
+            System.out.print("Invalid input. Please enter a number: ");
+            choice2 = getUserChoice();
+            return choice2;
         }
     }
     
