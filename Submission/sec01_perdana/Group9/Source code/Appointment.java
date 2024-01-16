@@ -1,4 +1,5 @@
 public class Appointment {
+	private static int lastAppID = 0;
     private String appointmentID;
     private String patientID;
     private String date;
@@ -7,7 +8,8 @@ public class Appointment {
     private Doctor doctor;
 
     public Appointment(String appointmentID, String patientID, String date, String time, Doctor doctor) {
-        this.appointmentID = appointmentID;
+        lastAppID++;
+        this.appointmentID = "P00" +  lastAppID;
         this.patientID = patientID;
         this.date = date;
         this.time = time;
@@ -16,9 +18,6 @@ public class Appointment {
     }
 
     public String getAppointmentID() {
-        for (int i = 1; i <= 100; i++) {
-				     return "A00" + i;
-				 }
 		 return appointmentID;
     }
 
