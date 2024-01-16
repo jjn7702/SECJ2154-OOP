@@ -51,7 +51,7 @@ In summary, this folder structure appears to be organizing a GitHub repository b
 | --- | --- | :---: |
 | _0_ |[Sample](../Submission/sec01_perdana/sample/readme.md) | <a href="../Submission/sec01_perdana/sample/readme.md" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
 | 1 | Group 1 | <a href="group1" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
-| 2 | Group 2 | <a href="group2" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
+| 2 | [Group 2](../Submission/sec01_perdana/Group2/readme.md) | <a href="../Submission/sec01_perdana/Group2/readme.md" >🗿</a> |
 | 3 | Group 3 | <a href="group3" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
 | 4 | Group 4 | <a href="group4" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
 | 5 | Group 5 | <a href="group5" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
