@@ -26,8 +26,8 @@ The goal of the Car Rental System is to streamline the rental process for suppli
 ## Findings 📊
 
 - [Source Code](../Group5/source_code/RentalApp.java)
-- [Report](../Group5/report)
-- [Slide](../Group5/slide)
+- [Report](../Group5/report/Group 5 OOP Project - Report.pdf)
+- [Slide](../Group5/slide/GROUP 5 - OOP Project Slide.pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.
