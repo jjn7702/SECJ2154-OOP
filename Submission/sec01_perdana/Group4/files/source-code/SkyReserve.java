@@ -74,54 +74,75 @@ public class SkyReserve{
                     availableSeats = availableSeatsMAS;
                 }
 
-                System.out.println("\nOrigin:");
-                System.out.println("1. KLIA");
-                System.out.println("2. SENAI");
-                System.out.println("3. TAWAU");
-                System.out.print("Choose your origin: ");
-                int originChoice = scanner.nextInt();
-                scanner.nextLine();
-
-                String origin;
-                switch (originChoice) {
-                    case 1:
-                        origin = "KLIA";
-                        break;
-                    case 2:
-                        origin = "SENAI";
-                        break;
-                    case 3:
-                        origin = "TAWAU";
-                        break;
-                    default:
-                        System.out.println("Invalid choice. Defaulting to KLIA.");
-                        origin = "KLIA";
-                        break;
+                int originChoice = 0;
+                String origin = null;
+                while (true) {
+                    System.out.println("\nOrigin:");
+                    System.out.println("1. KLIA");
+                    System.out.println("2. SENAI");
+                    System.out.println("3. TAWAU");
+                    System.out.print("Choose your origin: ");
+                    originChoice = scanner.nextInt();
+                    scanner.nextLine();  // consume the newline character
+                    
+                    //String origin;
+                    switch (originChoice) {
+                        case 1:
+                            origin = "KLIA";
+                            break;
+                        case 2:
+                            origin = "SENAI";
+                            break;
+                        case 3:
+                            origin = "TAWAU";
+                            break;
+                        default:
+                            System.out.println("Invalid choice. Please choose a valid origin.");
+                            continue;
+                    }
+                    break;  
                 }
 
-                System.out.println("\nDestination:");
-                System.out.println("1. KLIA");
-                System.out.println("2. SENAI");
-                System.out.println("3. TAWAU");
-                System.out.print("Choose your destination: ");
-                int destinationChoice = scanner.nextInt();
-                scanner.nextLine();
-
-                String destination;
-                switch (destinationChoice) {
-                    case 1:
-                        destination = "KLIA";
-                        break;
-                    case 2:
-                        destination = "SENAI";
-                        break;
-                    case 3:
-                        destination = "TAWAU";
-                        break;
-                    default:
-                        System.out.println("Invalid choice. Defaulting to KLIA.");
-                        destination = "KLIA";
-                        break;
+                int destinationChoice = 0;
+                String destination = null;
+                while (true) {
+                    System.out.println("\nDestination:");
+                    System.out.println("1. KLIA");
+                    System.out.println("2. SENAI");
+                    System.out.println("3. TAWAU");
+                    System.out.print("Choose your destination: ");
+                    destinationChoice = scanner.nextInt();
+                
+                    switch (destinationChoice) {
+                        case 1:
+                            if(originChoice == 1){
+                                System.out.print("\nCannot choose the same origin and destination, default will change to TAWAU");
+                                destination = "TAWAU";
+                            }else{
+                                destination = "KLIA";
+                            }
+                            break;
+                        case 2:
+                            if(originChoice == 2){
+                                System.out.print("\nCannot choose the same origin and destination, default will change to KLIA");
+                                destination = "KLIA";
+                            }else{
+                                destination = "SENAI"; 
+                            }
+                            break;
+                        case 3:
+                            if(originChoice == 3){
+                                System.out.print("\nCannot choose the same origin and destination, default will change to KLIA");
+                                destination = "KLIA";
+                            }else{
+                                destination = "TAWAU";
+                            }
+                            break;
+                        default:
+                            System.out.println("Invalid choice. Please choose a valid destination.");
+                            continue;
+                    }
+                    break;
                 }
 
                 System.out.println("\nAvailable flights from " + origin + " to " + destination + " with " + selectedAirline.getName() + ":");
