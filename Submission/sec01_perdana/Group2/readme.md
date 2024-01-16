@@ -7,7 +7,12 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# 🗿 Moyai Hotel Booking System 🗿
+<h1 align="center">
+🗿 Moyai Hotel Booking System 🗿
+</h1>
+
+<img src="https://a3.cdn.japantravel.com/photo/44646-184656/1440x960!/tokyo-moyai-statue-in-shibuya-184656.jpg" alt="Moyai Statue in Shibuya, Tokyo">
+
 
 ## Description 📝
 
@@ -17,16 +22,16 @@ Moyai Hotel Booking System: Your Java-powered solution for hassle-free travel pl
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| AHMAD NABIL BIN AHMAD NAZRIL   | B23CS0020        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>     |
-| AQMAR ILHAN BIN MOHAMAD FADZILAH     | B23CS0027        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/girl_4537097.png" width=80px, height=80px>         |
-| EIZKHAN BIN SAHARIZA      | B23CS0035        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
-| MUHAMMAD HANIF AZRI BIN AZIZAN       | B23CS0057        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
+| AHMAD NABIL BIN AHMAD NAZRIL   | B23CS0020        | <img src="files/images/Ahmad Nabil.jpg" width=200px, height=200px>     |
+| AQMAR ILHAN BIN MOHAMAD FADZILAH     | B23CS0027        | <img src="files/images/Aqmar Ilhan.jpg" width=150px, height=200px>         |
+| EIZKHAN BIN SAHARIZA      | B23CS0035        | <img src="files/images/Eizkhan.jpg" width=150px, height=200px>         |
+| MUHAMMAD HANIF AZRI BIN AZIZAN       | B23CS0057        | <img src="files/images/Hanif Azri.jpg" width=150px, height=200px>         |
 
 
 ## Findings 📊
 
-- [Source Code](../Submission/sec01_perdana/Group2/files/source-code/HotelBookingSystem/src/HotelBookingSystemApp.java)
-- [Input Files](../Submission/sec01_perdana/Group2/files/source-code/HotelBookingSystem/credentials/credentials.txt)
+- [Source Code](Submission/sec01_perdana/Group2/files/source-code/HotelBookingSystem/src/HotelBookingSystemApp.java)
+- [Input Files](Submission/sec01_perdana/Group2/files/source-code/HotelBookingSystem/credentials/credentials.txt)
 - Report
 - Slide
 
