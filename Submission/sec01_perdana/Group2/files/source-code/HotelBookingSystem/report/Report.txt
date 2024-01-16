@@ -1,0 +1,6 @@
+                                              Moyai Hotel Booking Information Report                                              [ 16-01-2024 ]
+---------------------------------------------------------------------------------------------------------------------------------------------
+#  | Room Number  | Guest Name                | Room Type  | Check-in Date    | Check-out Date   | Night(s) | Booking Amount  | Payment Type     
+---+--------------+---------------------------+------------+------------------+------------------+----------+-----------------+--------------
+1  | 100          | Ahmad Nabil               | Standard   | Mon, 20 May 2002 | Fri, 31 May 2002 |    11    | RM 1100.0       | Cash             
+2  | 304          | Ali Bin Abu               | Superior   | Mon, 20 May 2002 | Sat, 25 May 2002 |    5     | RM 1500.0       | eWallet          
