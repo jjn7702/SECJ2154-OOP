@@ -61,27 +61,27 @@ public class RentalApp {
                     case 4:
                         // Rent a car
                         if (rentalSystem.hasUserDetails()) {
-                            // Display available customers
                             rentalSystem.printAllCustomers();
                             System.out.print("Enter the index of the customer to make a reservation for: ");
                             int customerIndex = rentalSystem.getScanner().nextInt();
                             rentalSystem.getScanner().nextLine();
-
-        
-                            // Validate customer index
+    
                             if (customerIndex >= 1 && customerIndex <= rentalSystem.getCustomers().size()) {
-                                Customer selectedCustomer = rentalSystem.getCustomers().get(customerIndex - 1);
+                                customer = rentalSystem.getCustomers().get(customerIndex - 1);
+                            
+    
                                 // Choose pickup location
                                 rentalSystem.displayPickupLocations();
                                 System.out.print("Enter the index of the pickup location: ");
                                 int pickupIndex = rentalSystem.getScanner().nextInt();
                                 rentalSystem.getScanner().nextLine();
-
+    
                                 Location pickupLocation = rentalSystem.getPickupLocations().get(pickupIndex - 1);
+                                
 
                                 //Choose car to rent
                                 rentalSystem.displayAvailableCar();
-                                System.out.print("Enter the vehicle index to reserve (1-4): ");
+                                System.out.print("Enter the car index to reserve (1-4): ");
                                 int carIndex = rentalSystem.getScanner().nextInt();
                                 rentalSystem.getScanner().nextLine();
                                 Rentable selectedCar = rentalSystem.chooseCarTypeByIndex(carIndex);
