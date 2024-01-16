@@ -1,4 +1,4 @@
-class Ticket extends SkyInfo {
+public class Ticket extends SkyInfo {
     private int ticketNumber;
 
     public Ticket(int ticketNumber) {
@@ -12,5 +12,5 @@ class Ticket extends SkyInfo {
 
     public void setTicketNumber(int ticketNumber) {
         this.ticketNumber = ticketNumber;
-    }
+    }
 }

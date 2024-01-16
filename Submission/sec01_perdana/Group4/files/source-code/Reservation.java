@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Reservation {
+public class Reservation {
     private List<Ticket> tickets;
 
     public Reservation() {

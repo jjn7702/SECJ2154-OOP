@@ -1,4 +1,4 @@
-class Seat extends SkyInfo {
+public class Seat extends SkyInfo {
     private String seatName;
 
     public Seat(String seatName) {
