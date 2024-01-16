@@ -17,7 +17,7 @@ public class RentalApp {
                 System.out.println("4. Rent a car");
                 System.out.println("5. View rental history");
                 System.out.println("6. Exit");
-                System.out.print("Enter your choice (1-5): ");
+                System.out.print("Enter your choice (1-6): ");
 
                 choice = rentalSystem.getScanner().nextInt();
                 rentalSystem.getScanner().nextLine(); 
