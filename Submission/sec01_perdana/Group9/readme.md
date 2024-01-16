@@ -25,7 +25,7 @@ The goal of the Hospital Management System is to improve our healthcare service 
 
 ## Findings 📊
 
-- [Source Code](../sample/source_code/PatientSystem.java)
+- [Source Code]([../Submission/sec01_perdana/Group9/Source%20code)
 - Input Files
 - Report
 - Slide
