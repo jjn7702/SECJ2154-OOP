@@ -30,10 +30,10 @@ Moyai Hotel Booking System: Your Java-powered solution for hassle-free travel pl
 
 ## Findings 📊
 
-- [Source Code](Submission/sec01_perdana/Group2/files/source-code/HotelBookingSystem/src/HotelBookingSystemApp.java)
-- [Input Files](Submission/sec01_perdana/Group2/files/source-code/HotelBookingSystem/credentials/credentials.txt)
-- [Report](Submission/sec01_perdana/Group2/files/report/Group 2 - OOP Project Moyai Hotel Booking System Report)
-- [Slide](Submission/sec01_perdana/Group2/files/slide/SLIDE - MOYAI HOTEL BOOKING SYSTEM.pdf)
+- [Source Code](files/source-code/HotelBookingSystem/src/HotelBookingSystemApp.java)
+- [Input Files](files/source-code/HotelBookingSystem/credentials/credentials.txt)
+- [Report](files/report)
+- [Slide](files/slide)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.
