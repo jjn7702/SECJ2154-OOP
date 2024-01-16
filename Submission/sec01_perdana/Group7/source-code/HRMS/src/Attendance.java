@@ -1,20 +1,39 @@
 class Attendance {
     private int attendanceID;
     private Employee employee;
-    private String date;
-    private double hoursWorked;
+    private int daysAttended;
+    private int daysOnLeave;
 
-    public Attendance(int aid, Employee employee, String dt, double hw) {
-        this.attendanceID = aid;
+    public Attendance(int attendanceID, Employee employee, int daysAttended, int daysOnLeave) {
         this.employee = employee;
-        this.date = dt;
-        this.hoursWorked = hw;
+        this.daysAttended = daysAttended;
+        this.daysOnLeave = daysOnLeave;
+        this.attendanceID = attendanceID;
     }
 
-    public double calculateOvertime() {
-        double regularHours = 8.0;
-        double overtimeHours = Math.max(0, hoursWorked - regularHours);
-        return overtimeHours;
+    public int getDaysAttended() {
+        return daysAttended;
+    }
+
+    public void setDaysAttended(int daysAttended) {
+        this.daysAttended = daysAttended;
+    }
+
+    public int getDaysOnLeave() {
+        return daysOnLeave;
+    }
+
+    public void setDaysOnLeave(int daysOnLeave) {
+        this.daysOnLeave = daysOnLeave;
+    }
+
+    public String getEmployeeFullName() {
+        return employee.getFullName();
+    }
+
+    public void updateAttendance(int daysAttended, int daysOnLeave) {
+        this.daysAttended = daysAttended;
+        this.daysOnLeave = daysOnLeave;
     }
 
     public int getAttendanceID() {
@@ -25,23 +44,7 @@ class Attendance {
         return employee;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public double getHoursWorked() {
-        return hoursWorked;
-    }
-
-    public String getEmployeeFirstName() {
-        return employee.getFirstName();
-    }
-
-    public String getEmployeeLastName() {
-        return employee.getLastName();
-    }
-
-    public double getEmployeeHoursWorked() {
-        return hoursWorked;
+    public int getAttendDays() {
+        return daysAttended;
     }
 }

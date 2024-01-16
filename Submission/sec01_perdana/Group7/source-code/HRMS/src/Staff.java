@@ -1,8 +1,9 @@
 class Staff extends Employee {
     private Position position;
 
-    public Staff(int employeeID, String firstName, String lastName, String dateOfBirth, String gender, String contactInfo, String email, Position position) {
-        super(employeeID, firstName, lastName, dateOfBirth, gender, contactInfo,email);
+    public Staff(int employeeID, String firstName, String lastName, String dateOfBirth, String gender,
+            String contactInfo, String email, Position position) {
+        super(employeeID, firstName, lastName, dateOfBirth, gender, contactInfo, email);
         this.position = position;
     }
 
@@ -15,7 +16,6 @@ class Staff extends Employee {
     }
 
     public void displayEmployeeInfo() {
-        // Polymorphism
         System.out.println("Staff Member Information:");
         super.displayEmployeeInfo();
         System.out.println("Position: " + position.getTitle());
