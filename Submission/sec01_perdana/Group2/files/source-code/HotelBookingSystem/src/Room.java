@@ -1,12 +1,15 @@
-// Room.java
-public class Room {
+// Abstraction: Declares an abstract class named Room, serving as a base class for specific types of rooms.
+abstract class Room {
+    
+    // Encapsulation: Protected fields to encapsulate the internal state, accessible to subclasses.
     protected int roomNumber;
     protected int capacity;
     protected String roomType;  // Added roomType
-    protected RoomPrice price;
-    protected RoomAvailability isAvailable;
+    protected double price;
+    protected boolean isAvailable;
 
-    public Room(int roomNumber, int capacity, String roomType, RoomPrice price, RoomAvailability isAvailable) {
+    // Encapsulation and Constructor: Initializes the common attributes of a room during object creation.
+    public Room(int roomNumber, int capacity, String roomType, double price, boolean isAvailable) {
         this.roomNumber = roomNumber;
         this.capacity = capacity;
         this.roomType = roomType;  // Set roomType in the constructor
@@ -14,6 +17,7 @@ public class Room {
         this.isAvailable = isAvailable;
     }
 
+    // Getter methods: Provide access to the private/protected fields, following encapsulation principles.
     public int getRoomNumber() {
         return roomNumber;
     }
@@ -26,14 +30,15 @@ public class Room {
         return roomType;
     }
 
-    public RoomPrice getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public RoomAvailability getIsAvailable() {
+    public boolean getIsAvailable() {
         return isAvailable;
     }
 
+    // Setter methods: Allow modification of protected fields, following encapsulation principles.
     public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
     }
@@ -42,16 +47,14 @@ public class Room {
         this.capacity = capacity;
     }
 
-    public void setPrice(RoomPrice price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public void setIsAvailable(RoomAvailability isAvailable) {
+    public void setIsAvailable(boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
 
-    @Override
-    public String toString() {
-        return "Room{" + "roomNumber=" + roomNumber + ", capacity=" + capacity + ", roomType=" + roomType + ", price=" + price + ", isAvailable=" + isAvailable + '}';
-    }
+    // Abstraction: Declares an abstract method without implementation details, to be defined by subclasses.
+    public abstract String description();
 }

@@ -1,9 +1,7 @@
+// Inheritance: DeluxeRoom extends the Room class, inheriting its attributes and methods.
 public class DeluxeRoom extends Room {
-    private static int deluxeRoomCounter = 200; // Start room number for Standard Room
-    private RoomAvailability availability;
-    private RoomPrice roomPrice;
 
-    // Enum for Standard Room Type and Base Price
+    // Enum for DeluxeRoomType with associated base price.
     public enum DeluxeRoomType {
         DELUXE(200.0); // The start room number is now managed separately
 
@@ -13,22 +11,21 @@ public class DeluxeRoom extends Room {
             this.basePrice = basePrice;
         }
 
+        // Encapsulation: Provides access to the private basePrice field.
         public double getBasePrice() {
             return basePrice;
         }
     }
 
-    public DeluxeRoom(RoomAvailability availability, RoomPrice roomPrice) {
-        super(deluxeRoomCounter++, 6, "Deluxe", roomPrice, availability);
-        this.availability = availability;
-        this.roomPrice = roomPrice;
-    }    
-
-    public RoomAvailability getAvailability() {
-        return availability;
+    // Constructor: Initializes DeluxeRoom with specific DeluxeRoomType, availability, and room price.
+    public DeluxeRoom(DeluxeRoomType roomType, boolean availability, double roomPrice) {
+        // Constructor chaining: Calls the superclass constructor to initialize common attributes.
+        super(0, 6, "Deluxe", roomPrice, availability);
     }
 
-    public RoomPrice getRoomPrice() {
-        return roomPrice;
+    // Polymorphism and Method Override: Overrides the description method in the base class Room.
+    @Override
+    public String description() {
+        return "Deluxe Room with capacity of " + getCapacity() + " guest.";
     }
 }

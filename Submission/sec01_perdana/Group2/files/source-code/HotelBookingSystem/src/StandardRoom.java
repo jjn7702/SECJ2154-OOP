@@ -1,9 +1,7 @@
+// Inheritance: StandardRoom extends the Room class, inheriting its attributes and methods.
 public class StandardRoom extends Room {
-    private static int standardRoomCounter = 100; // Start room number for Standard Room
-    private RoomAvailability availability;
-    private RoomPrice roomPrice;
 
-    // Enum for Standard Room Type and Base Price
+    // Enum for StandardRoomType with associated base price.
     public enum StandardRoomType {
         STANDARD(100.0); // The start room number is now managed separately
 
@@ -13,22 +11,21 @@ public class StandardRoom extends Room {
             this.basePrice = basePrice;
         }
 
+        // Encapsulation: Provides access to the private basePrice field.
         public double getBasePrice() {
             return basePrice;
         }
     }
 
-    public StandardRoom(RoomAvailability availability, RoomPrice roomPrice) {
-        super(standardRoomCounter++, 2, "Standard", roomPrice, availability);
-        this.availability = availability;
-        this.roomPrice = roomPrice;
+    // Constructor: Initializes StandardRoom with specific StandardRoomType, availability, and room price.
+    public StandardRoom(StandardRoomType roomType, boolean availability, double roomPrice) {
+        // Constructor chaining: Calls the superclass constructor to initialize common attributes.
+        super(0, 2, "Standard", roomPrice, availability);
     }    
 
-    public RoomAvailability getAvailability() {
-        return availability;
-    }
-
-    public RoomPrice getRoomPrice() {
-        return roomPrice;
+    // Polymorphism and Method Override: Overrides the description method in the base class Room.
+    @Override
+    public String description() {
+        return "Standard Room with capacity of " + getCapacity() + " guest.";
     }
 }

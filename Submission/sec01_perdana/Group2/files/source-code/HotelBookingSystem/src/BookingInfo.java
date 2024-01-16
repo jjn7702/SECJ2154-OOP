@@ -1,14 +1,19 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
+// Encapsulation: The class encapsulates the details of a booking, including room, guest, dates, and payment.
 public class BookingInfo {
+    
+    // Composition: The class has member variables representing other classes, forming a composition.
     private Room bookedRoom;
     private Guest guest;
-    private Date checkInDate;
-    private Date checkOutDate;
+    private LocalDate checkInDate;
+    private LocalDate checkOutDate;
     private Payment payment;
 
-    public BookingInfo(Room bookedRoom, Guest guest, Date checkInDate, Date checkOutDate, Payment payment) {
+    // Constructor: Initializes the BookingInfo object with provided values during object creation.
+    public BookingInfo(Room bookedRoom, Guest guest, LocalDate checkInDate, LocalDate checkOutDate, Payment payment) {
+        // Encapsulation: Setting private fields using constructor parameters.
         this.bookedRoom = bookedRoom;
         this.guest = guest;
         this.checkInDate = checkInDate;
@@ -16,6 +21,7 @@ public class BookingInfo {
         this.payment = payment;
     }
 
+    // Getter methods: Provide access to the private fields, following encapsulation principles.
     public Room getBookedRoom() {
         return bookedRoom;
     }
@@ -24,18 +30,24 @@ public class BookingInfo {
         return guest;
     }
 
-    public Date getCheckInDate() {
+    public LocalDate getCheckInDate() {
         return checkInDate;
     }
 
-    public Date getCheckOutDate() {
+    public LocalDate getCheckOutDate() {
         return checkOutDate;
+    }
+
+    // Encapsulation: Calculates and returns the number of nights based on encapsulated date fields.
+    public int getNumberOfNights() {
+        return checkOutDate.compareTo(checkInDate);
     }
 
     public Payment getPayment() {
         return payment;
     }
 
+    // Setter methods: Allow modification of private fields, following encapsulation principles.
     public void setBookedRoom(Room bookedRoom) {
         this.bookedRoom = bookedRoom;
     }
@@ -44,11 +56,11 @@ public class BookingInfo {
         this.guest = guest;
     }
 
-    public void setCheckInDate(Date newCheckInDate) {
+    public void setCheckInDate(LocalDate newCheckInDate) {
         this.checkInDate = newCheckInDate;
     }
 
-    public void setCheckOutDate(Date newCheckOutDate) {
+    public void setCheckOutDate(LocalDate newCheckOutDate) {
         this.checkOutDate = newCheckOutDate;
     }
 
@@ -56,24 +68,26 @@ public class BookingInfo {
         this.payment = payment;
     }
 
-    private String formatDate(Date date) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        return dateFormat.format(date);
+    // Helper method: Formats a LocalDate into a string using a specific format.
+    public String formatDate(LocalDate date) {
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("E, dd MMM yyyy");
+        return date.format(outputFormatter);
     }
 
-    public void displayBookingInfo() {
-        System.out.println("\nRoom Number: " + bookedRoom.getRoomNumber());
-        System.out.println("Room Type: " + bookedRoom.getRoomType());
-        System.out.println("Guest: " + guest.getName());
-        System.out.println("Contact Number: " + guest.getContactNumber());
-        System.out.println("Email: " + guest.getEmail());
-        System.out.println("Check-in Date: " + formatDate(checkInDate));
-        System.out.println("Check-out Date: " + formatDate(checkOutDate));
-        //System.out.println("Number");
-        System.out.println("Room Capacity: " + bookedRoom.getCapacity());
-        System.out.println("Room Price: " + bookedRoom.getPrice());
-        System.out.println("Total Amount: " + payment.getAmount());
-        System.out.println("Payment Type: " + payment.getPaymentType());
-        System.out.println("Payment Status: " + (payment.isPaid()));
+    // Static method: Displays booking information without requiring an instance of BookingInfo.
+    public static void displayBookingInfo(BookingInfo bookingInfo) {
+        System.out.println("----- Guest: " + bookingInfo.getGuest().getName() + " Booking Information -----");
+        System.out.format("\t%-19s: %d\n", "Room Number", bookingInfo.getBookedRoom().getRoomNumber());
+        System.out.format("\t%-19s: %s\n", "Guest", bookingInfo.getGuest().getName());
+        System.out.format("\t%-19s: %s\n", "Contact Number", bookingInfo.getGuest().getContactNumber());
+        System.out.format("\t%-19s: %s\n", "Email", bookingInfo.getGuest().getEmail());
+        System.out.format("\t%-19s: %s\n", "Check-in Date", bookingInfo.formatDate(bookingInfo.getCheckInDate()));
+        System.out.format("\t%-19s: %s\n", "Check-out Date", bookingInfo.formatDate(bookingInfo.getCheckOutDate()));
+        System.out.format("\t%-19s: %d\n", "Number of Night(s)", bookingInfo.getNumberOfNights());
+        System.out.format("\t%-19s: RM%.2f\n", "Total Amount", bookingInfo.getPayment().getAmount());
+        System.out.format("\t%-19s: %s\n", "Payment Type", bookingInfo.getPayment().getPaymentType());
+        System.out.format("\t%-19s: %s\n", "Room Type", bookingInfo.getBookedRoom().getRoomType());
+        System.out.format("\t%-19s: %s\n", "Description", String.valueOf(bookingInfo.getBookedRoom().description())); // Convert int to String using valueOf
+        System.out.println("----------------------------------------------------------------------");
     }
 }
