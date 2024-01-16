@@ -152,11 +152,6 @@ public class RentalSystem {
         System.out.println("\n-------------------------------------------------");
     }
 
-
-    public List<Rental> getRental() {
-        return rental;
-    }
-
     //to display rental history
     public void displayRentals() {
         System.out.println("\n--- Rental History ---");
