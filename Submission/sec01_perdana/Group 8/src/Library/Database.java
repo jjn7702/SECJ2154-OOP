@@ -15,10 +15,10 @@ public class Database {
     private ArrayList<Borrowing> borrowings = new ArrayList<Borrowing>();
 
 
-    private File usersfile = new File("Group 8/src/data/Users.txt");
-    private File bookfile = new File("Group 8/src/data/Books.txt");
-    private File ordersfile = new File("Group 8/src/data/Orders.txt");
-    private File borrowingsfile = new File("Group 8/src/data/Borrowings.txt");
+    private File usersfile = new File("Submission/sec01_perdana/Group 8/src/data/Users.txt");
+    private File bookfile = new File("Submission/sec01_perdana/Group 8/src/data/Books.txt");
+    private File ordersfile = new File("Submission/sec01_perdana/Group 8/src/data/Orders.txt");
+    private File borrowingsfile = new File("Submission/sec01_perdana/Group 8/src/data/Borrowings.txt");
     private File folder = new File("Submission/sec01_perdana/Group 8/src/data");
 
     public Database(){
