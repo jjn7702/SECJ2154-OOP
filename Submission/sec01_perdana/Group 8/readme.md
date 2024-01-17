@@ -13,7 +13,7 @@ _Don't forget to hit the :star: if you like this repo._
    Otter Library Managemen System 
 </h1>
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Flibrary&psig=AOvVaw3qV1DWFsy2Sl3ryd3V-5ts&ust=1705552730298000&source=images&cd=vfe&ved=0CBMQjRxqFwoTCMDz-JbN44MDFQAAAAAdAAAAABAE" alt="Library ">
+<img src="Submission/sec01_perdana/Group 8/images/bookshelves-library-old-books-3d-260nw-1530516716.jpg" alt="Library ">
 
 
 ## Description 📝
