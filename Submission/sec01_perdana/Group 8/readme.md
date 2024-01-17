@@ -13,7 +13,7 @@ _Don't forget to hit the :star: if you like this repo._
    Otter Library Managemen System 
 </h1>
 
-<img src="Submission/sec01_perdana/Group 8/images/bookshelves-library-old-books-3d-260nw-1530516716.jpg" alt="Library ">
+<img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2428&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Library ">
 
 
 ## Description 📝
@@ -27,7 +27,7 @@ OTTER LMS is a comprehensive and user-friendly library management system built w
 | AINA NURAIN BINTI MOHD AROFF          | B23CS0022        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>     |
 | ANUSHKA ROSHNI SIVAKUMAR              | B23CS0026        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/girl_4537097.png" width=80px, height=80px>         |
 | DANESH MUTHU KRISNAN                  | B23CS0034        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
-| MUHAMAD AFIQ IRFAN BIN MOHAMAD IZAM   | B23CS00        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>     |
+| MUHAMAD AFIQ IRFAN BIN MOHAMAD IZAM   | B23CS0046        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>     |
 
 
 ## Findings 📊
