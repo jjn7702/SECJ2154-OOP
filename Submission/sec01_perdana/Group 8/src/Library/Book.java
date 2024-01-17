@@ -26,13 +26,13 @@ public class Book {
     }
 
     public String toString(){
-        String text = "Book Name : " + this.title + "\n" +
-                      "Author : " + this.author + "\n" +
-                      "Publisher : " + this.publisher + "\n" +
-                      "ISBN : " + this.isbn + "\n" +
-                      "Quantity : " + String.valueOf(qty) + "\n" +
-                      "Price : " + String.valueOf(price) + "\n" +
-                      "Borrowed Copies : " + String.valueOf(brwCoppies)+ "\n";
+        String text =   String.format("%-20s: %s%n", "Book Name", this.title) +
+                        String.format("%-20s: %s%n", "Author", this.author) +
+                        String.format("%-20s: %s%n", "Publisher", this.publisher) +
+                        String.format("%-20s: %s%n", "ISBN", this.isbn) +
+                        String.format("%-20s: %s%n", "Quantity", String.valueOf(qty)) +
+                        String.format("%-20s: %s%n", "Price", String.valueOf(price)) +
+                        String.format("%-20s: %s%n", "Borrowed Copies", String.valueOf(brwCoppies));
 
         return text;
     }

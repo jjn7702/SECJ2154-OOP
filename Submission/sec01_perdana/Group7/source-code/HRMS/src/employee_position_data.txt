@@ -1,4 +1,0 @@
-ID         | Employee Name   | Position ID     | Position Title      
-----------------------------------------------------------------------
-1          | MUHAMMAD AIMAN HAIQAL | 1               | PROGRAMMER          
-2          | PUTERI IZZAH    | 2               | POLICE PATROL       

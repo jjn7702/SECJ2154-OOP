@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 public class Database {
     
-    private ArrayList<User> users = new ArrayList<User>();
+    private  ArrayList<User> users = new ArrayList<User>();
     private ArrayList<String> userName = new ArrayList<String>();
     private ArrayList<Book> books = new ArrayList<Book>();
     private ArrayList<String> bookName = new ArrayList<String>();
@@ -20,6 +20,7 @@ public class Database {
     private File ordersfile = new File("Submission/sec01_perdana/Group 8/src/data/Orders.txt");
     private File borrowingsfile = new File("Submission/sec01_perdana/Group 8/src/data/Borrowings.txt");
     private File folder = new File("Submission/sec01_perdana/Group 8/src/data");
+
 
     public Database(){
         if (!folder.exists()){

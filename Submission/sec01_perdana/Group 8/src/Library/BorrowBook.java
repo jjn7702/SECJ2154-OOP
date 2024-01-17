@@ -6,7 +6,7 @@ public class BorrowBook implements IOOperation{
     Scanner s = new Scanner(System.in);
     public void oper(Database database,User user){
         
-        System.out.println("Enter Book You Wanna borrow : ");
+        System.out.print("Enter Book You Wanna borrow : ");
         String bookName = s.nextLine();
 
         int i = database.getBook(bookName);
@@ -35,6 +35,12 @@ public class BorrowBook implements IOOperation{
         }else{
             System.out.println("Book not found / Book Doesn't exist\n");
         }
+
+        System.out.print("Press any to continue.... ");
+        Scanner pause = new Scanner(System.in);
+        pause.nextLine();
+        System.out.print("\033[H\033[2J");
+            System.out.flush();
 
         user.menu(database, user);
 

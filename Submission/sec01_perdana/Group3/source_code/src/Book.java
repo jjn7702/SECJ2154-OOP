@@ -209,6 +209,7 @@ class Book{
         System.out.print("\033[H\033[2J");  
         System.out.flush();
         InventorySystem.header();
+        books = getBooksfromFile();
         if(books.size() == 0){
             System.out.println("\nNo books in the database.");
         }else{

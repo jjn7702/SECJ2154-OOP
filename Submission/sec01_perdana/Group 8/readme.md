@@ -9,26 +9,33 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Library Management System 
 
+<h1 align="center">
+   📖 Otter Library Managemen System 📖
+</h1>
+
+<img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2428&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Library ">
+
+
 ## Description 📝
 
-System Description - ( 8.01.24)
+OTTER LMS is a comprehensive and user-friendly library management system built with Java programming language. It caters to the needs of both librarians and patrons, offering a streamlined experience for managing library resources and accessing information
 
 ## Prepared by 🧑‍💻
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| AINA NURAIN BINTI MOHD AROFF          | B23CS0022        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>     |
-| ANUSHKA ROSHNI SIVAKUMAR              | B23CS0026        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/girl_4537097.png" width=80px, height=80px>         |
-| DANESH MUTHU KRISNAN                  | B23CS0034        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
-| MUHAMAD AFIQ IRFAN BIN MOHAMAD IZAM   | B23CS00        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>     |
+| AINA NURAIN BINTI MOHD AROFF          | B23CS0022        | <img src="images/Aina.jpg" width=200px, height=200px>    |
+| ANUSHKA ROSHNI SIVAKUMAR              | B23CS0026        | <img src="images/Anushka.jpg" width=200px, height=200px>    |
+| DANESH MUTHU KRISNAN                  | B23CS0034        | <img src="images/Danesh.JPG" width=200px, height=200px>         |
+| MUHAMAD AFIQ IRFAN BIN MOHAMAD IZAM   | B23CS0046        | <img src="images/Afiq Irfan.JPG" width=200px, height=200px>   |
 
 
 ## Findings 📊
 
-- [Source Code](../sample/source_code/PatientSystem.java)
-- Input Files
-- Report
-- Slide
+- [Source Code](src/Library/Main.java)
+- [Input](src/data)
+- [Report](Files/report)
+- [Slide](Files/Slide)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.

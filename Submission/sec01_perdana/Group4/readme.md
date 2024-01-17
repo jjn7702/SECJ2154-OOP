@@ -26,9 +26,9 @@ The Airline Reservation System is a sophisticated software application designed 
 ## Findings 📊
 
 - [Source Code](../Group4/files/source-code/SkyReserve.java)
-- [Input Files](../Group4/files)
-- [Report](../Group4/files)
-- [Slide](../Group4/files)
+- Input Files
+- [Report](../Group4/files/Report/OOP_MINI_PROJECT_REPORT_GROUP4.pdf)
+- [Slide](../Group4/files/Slide/OOP_MINI_PROJECT_SLIDES_GROUP4.pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.

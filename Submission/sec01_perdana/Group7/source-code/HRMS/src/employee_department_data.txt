@@ -1,4 +1,0 @@
-ID         | Employee Name   | Department ID   | Department Type     
-----------------------------------------------------------------------
-1          | MUHAMMAD AIMAN HAIQAL | 1               | ICT                 
-2          | PUTERI IZZAH    | 2               | SAFETY              

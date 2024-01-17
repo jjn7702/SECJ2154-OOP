@@ -189,6 +189,7 @@ public class HRManagementSystem {
                                 clearScreenWithPrompt();
                                 System.out.print("Add Attendance Record\n");
                                 System.out.print("=====================\n\n");
+                                hrSystem.displayEmployeeList();
                                 hrSystem.recordAttendance();
                                 clearScreenWithPrompt();
                                 break;
@@ -216,34 +217,15 @@ public class HRManagementSystem {
                                 clearScreenWithPrompt();
                                 System.out.print("Key-In Employee Salary\n");
                                 System.out.print("======================\n\n");
-
-                                /*
-                                 * System.out.print("Enter employee ID: ");
-                                 * int employeeID = scanner.nextInt();
-                                 * Employee employee = hrSystem.findEmployeeByID(employeeID);
-                                 * 
-                                 * if (employee != null) {
-                                 * int daysAttended = employee.getAttendance.getDaysAttended();
-                                 * //int daysOnLeave = em.getDaysOnLeave();
-                                 * 
-                                 * double salary = hrSystem.calculateSalary(employeeID, daysAttended,
-                                 * daysOnLeave);
-                                 * System.out.printf("\nCalculated Salary: RM %.2d", salary);
-                                 * } else {
-                                 * System.out.println("Employee not found.");
-                                 * }
-                                 */
-
+                                hrSystem.displayEmployeeList();
                                 System.out.print("Enter employee ID: ");
                                 int employeeIDForSalary = scanner.nextInt();
                                 Employee employeeForSalary = hrSystem.findEmployeeByID(employeeIDForSalary);
 
                                 if (employeeForSalary != null) {
-                                    // Get salary amount
-                                    System.out.print("Enter salary amount: ");
+                                    System.out.print("Enter salary per day : RM ");
                                     double salaryAmount = scanner.nextDouble();
 
-                                    // Calculate net salary based on attendance and leave days
 
                                     double deductions = 100 * employeeForSalary.getAttendance().getDaysOnLeave();
 
@@ -251,12 +233,10 @@ public class HRManagementSystem {
                                             * employeeForSalary.getAttendance().getDaysAttended()
                                             - (deductions);
 
-                                    // Create a new Salary object and add it to the HR system
                                     Salary salary = new Salary(hrSystem.generateSalaryID(), netSalary, deductions,
                                             employeeForSalary);
                                     hrSystem.addSalary(salary);
 
-                                    // Update the salary data file
                                     hrSystem.updateSalaryDataFile();
 
                                     System.out.println("Salary recorded successfully.");
@@ -269,6 +249,7 @@ public class HRManagementSystem {
                             case 2:
                                 clearScreenWithPrompt();
                                 hrSystem.displayEmployeeSalary();
+                                System.out.println();
                                 clearScreenWithPrompt();
                                 break;
                             case 3:
@@ -306,38 +287,38 @@ public class HRManagementSystem {
         System.out.print("Enter employee ID: ");
         int employeeID = scanner.nextInt();
         scanner.nextLine();
-
+    
         System.out.print("Enter first name: ");
         String firstName = scanner.nextLine().toUpperCase();
-
+    
         System.out.print("Enter last name: ");
         String lastName = scanner.nextLine().toUpperCase();
-
+    
         System.out.print("Enter date of birth: ");
         String dateOfBirth = scanner.nextLine().toUpperCase();
-
+    
         System.out.print("Enter gender: ");
         String gender = scanner.nextLine().toUpperCase();
-
+    
         System.out.print("Enter contact info: ");
         String contactInfo = scanner.nextLine();
-
+    
         System.out.print("Enter email: ");
         String email = scanner.nextLine();
-
+    
         Employee newEmployee = new Employee(employeeID, firstName, lastName, dateOfBirth, gender, contactInfo, email);
         hrSystem.addEmployee(newEmployee);
-
+    
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("employee_data.txt", true));
                 BufferedReader reader = new BufferedReader(new FileReader("employee_data.txt"))) {
-
+    
             if (reader.readLine() == null) {
                 writer.write(String.format("%-10s | %-15s | %-15s | %-15s | %-10s | %-20s | %-20s%n",
                         "ID", "First Name", "Last Name", "Date of Birth", "Gender", "Contact Info", "Email"));
                 writer.write("-".repeat(110));
                 writer.newLine();
             }
-
+    
             writer.write(String.format("%-10s | %-15s | %-15s | %-15s | %-10s | %-20s | %-20s%n",
                     newEmployee.getEmployeeID(), newEmployee.getFirstName(), newEmployee.getLastName(),
                     newEmployee.getDateOfBirth(), newEmployee.getGender(), newEmployee.getContactInfo(),
@@ -346,6 +327,7 @@ public class HRManagementSystem {
             System.out.println("Error logging employee data: " + e.getMessage());
         }
     }
+    
 
     public static void addDepartment() {
         System.out.print("Enter Department ID: ");
@@ -406,15 +388,16 @@ public class HRManagementSystem {
     }
 
     public static void displayWelcomeBanner() {
-        System.out.println("*********************************************");
-        System.out.println("*                                           *");
-        System.out.println("*      Welcome to HR Management System      *");
-        System.out.println("*                                           *");
-        System.out.println("*   We Got Your Back, We'll Call You Back   *");
-        System.out.println("*                                           *");
-        System.out.println("*********************************************");
+        System.out.println("╔═════════════════════════════════════════╗");
+        System.out.println("║                                         ║");
+        System.out.println("║      \033[1;36mWelcome to\033[0m \033[1;33mH\033[1;31mR\033[1;32mM\033[1;34mS\033[1;35m\033[1;36m Management System\033[0m  ║");
+        System.out.println("║                                         ║");
+        System.out.println("║   \033[1;32mWe Got Your Back, We'll Call You Back\033[0m ║");
+        System.out.println("║                                         ║");
+        System.out.println("╚═════════════════════════════════════════╝");
         System.out.println();
     }
+    
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");

@@ -9,7 +9,7 @@ public class PlaceOrder implements IOOperation{
 
 
         Order order = new Order();
-        System.out.println("\nEnter Book Name : ");
+        System.out.print("\nEnter Book Name : ");
         String bookName = scanner.nextLine();
 
         int i = database.getBook(bookName);
@@ -20,7 +20,7 @@ public class PlaceOrder implements IOOperation{
             Book book = database.getBook(i);
             order.setBook(book);
             order.setUser(user);
-            System.out.println("Enter qty :");
+            System.out.print("Enter qty :");
             int qty = scanner.nextInt();
             order.setQuantity(qty);
             order.setPrice(book.getPrice()*qty);
@@ -30,7 +30,15 @@ public class PlaceOrder implements IOOperation{
             book.setQty(book.getQty()-qty);
             database.addOrder(order,book,bookindex);
             System.out.println("Order Placed Successfully\n");
+
+
         }
+
+        System.out.print("Press any to continue.... ");
+        Scanner pause = new Scanner(System.in);
+        pause.nextLine();
+        System.out.print("\033[H\033[2J");
+            System.out.flush();
 
         user.menu(database, user);
 
