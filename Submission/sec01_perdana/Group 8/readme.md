@@ -26,8 +26,8 @@ OTTER LMS is a comprehensive and user-friendly library management system built w
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 | AINA NURAIN BINTI MOHD AROFF          | B23CS0022        | <img src="images/Aina.jpg" width=200px, height=200px>    |
 | ANUSHKA ROSHNI SIVAKUMAR              | B23CS0026        | <img src="images/Anushka.jpg" width=200px, height=200px>    |
-| DANESH MUTHU KRISNAN                  | B23CS0034        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
-| MUHAMAD AFIQ IRFAN BIN MOHAMAD IZAM   | B23CS0046        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537038.png" width=80px, height=80px>     |
+| DANESH MUTHU KRISNAN                  | B23CS0034        | <img src="images/Danesh.JPG" width=200px, height=200px>         |
+| MUHAMAD AFIQ IRFAN BIN MOHAMAD IZAM   | B23CS0046        | <img src="images/Afiq Irfan.JPG" width=200px, height=200px>   |
 
 
 ## Findings 📊
