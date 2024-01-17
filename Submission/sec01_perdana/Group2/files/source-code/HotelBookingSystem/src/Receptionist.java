@@ -269,7 +269,7 @@ public class Receptionist {
 
     public void editGuestDetails(BookingInfo booking) {
         String newName, newContactNumber, newEmail;
-
+        scanner.nextLine(); // Clear the buffer
         System.out.print("Enter new guest full name: ");
         newName = scanner.nextLine();
         newName = capitalizeEachWord(newName);
@@ -317,17 +317,29 @@ public class Receptionist {
         try {
             System.out.print("Enter new check-out date (dd-MM-yyyy): ");
             String newCheckOutDateString = scanner.next();
-            LocalDate newCheckOutDate = LocalDate.parse(newCheckOutDateString, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-            booking.setCheckOutDate(newCheckOutDate);
+            if (isValidDateFormat(newCheckOutDateString)) {
+                LocalDate newCheckOutDate = LocalDate.parse(newCheckOutDateString, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                // Check if check-out date is before or same as check-in date
+                booking.setCheckOutDate(newCheckOutDate);
+            } else{
+                System.out.print("Invalid date format. No changes made. <Press enter to continue>");
+                scanner.nextLine();
+                scanner.nextLine();
+                userInterface.clearScreen();
+                return;
+            }
+            
             System.out.print("Check-out date updated successfully. <Press enter to continue>");
             scanner.nextLine();
-
+            scanner.nextLine();
+            userInterface.clearScreen();
         } catch (Exception e) {
             System.out.print("Invalid date format. No changes made. <Press enter to continue>");
             scanner.nextLine();
+            scanner.nextLine();
         }
 
-        userInterface.clearScreen();
+        
     }
     
     public void editPaymentType(BookingInfo booking){

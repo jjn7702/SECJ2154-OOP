@@ -1,5 +1,5 @@
-                                              Moyai Hotel Booking Information Report                                              [ 16-01-2024 ]
+                                              Moyai Hotel Booking Information Report                                              [ 17-01-2024 ]
 ---------------------------------------------------------------------------------------------------------------------------------------------
 #  | Room Number  | Guest Name                | Room Type  | Check-in Date    | Check-out Date   | Night(s) | Booking Amount  | Payment Type     
 ---+--------------+---------------------------+------------+------------------+------------------+----------+-----------------+--------------
-1  | 300          | Hanif                     | Superior   | Wed, 20 Dec 2023 | Sat, 23 Dec 2023 |    3     | RM 900.0        | Cash             
+1  | 100          | Hanif                     | Standard   | Wed, 20 Dec 2023 | Sat, 23 Dec 2023 |    3     | RM 300.0        | Cash             
