@@ -7,7 +7,6 @@ class HRSystem {
     private ArrayList<Employee> employees;
     private ArrayList<Department> departments;
     private ArrayList<Position> positions;
-    // private ArrayList<Attendance> attendanceRecords;
     private ArrayList<HRManager> hrManagers;
 
     public HRSystem() {
@@ -40,7 +39,7 @@ class HRSystem {
         Employee employeeToRemove = findEmployeeByID(employeeID);
         if (employeeToRemove != null) {
             employees.remove(employeeToRemove);
-            updateEmployeeDataFile(); // Update the file after removing the employee
+            updateEmployeeDataFile();
             System.out.println("Employee removed successfully.");
         } else {
             System.out.println("Employee with ID " + employeeID + " not found.");
@@ -115,7 +114,7 @@ class HRSystem {
         Department departmentToRemove = findDepartmentByID(departmentID);
         if (departmentToRemove != null) {
             departments.remove(departmentToRemove);
-            updateDepartmentDataFile(); // Update the file after removing the employee
+            updateDepartmentDataFile(); 
             System.out.println("Department removed successfully.");
         } else {
             System.out.println("Department with ID " + departmentID + " not found.");
@@ -372,9 +371,6 @@ class HRSystem {
         if (employee != null) {
             System.out.print("Enter days attended (1-30): ");
             int daysAttended = scanner.nextInt();
-
-            // int daysOnLeave = (daysAttended >= 1 && daysAttended <= 30) ? 30 -
-            // daysAttended : 0;
             int daysOnLeave = 0;
             if (daysAttended >= 1 && daysAttended <= 30) {
                 daysOnLeave = 30 - daysAttended;
@@ -391,82 +387,25 @@ class HRSystem {
         }
         // scanner.close();
     }
-
-    // public double calculateSalary(int employeeID, int daysAttended, int
-    // daysOnLeave) {
-    // Employee employee = findEmployeeByID(employeeID);
-    // if (employee != null) {
-    // double baseSalary = 1000.0; // Replace with your actual base salary
-    // double dailyRate = baseSalary / 30.0; // Assuming a 30-day month
-
-    // // Calculate salary based on daysAttended
-    // double salary = dailyRate * daysAttended;
-
-    // // Deduct $100 for each day on leave
-    // salary -= (daysOnLeave * 100.0);
-
-    // return salary;
-    // } else {
-    // System.out.println("Employee not found.");
-    // return 0;
-    // }
-    // }
-
-    // public double calculateSalary(int employeeID, int daysAttended, int
-    // daysOnLeave) {
-    // Employee employee = findEmployeeByID(employeeID);
-    // if (employee != null) {
-    // Salary latestSalary = getLatestSalary(); // Assuming this method returns the
-    // latest salary
-
-    // if (latestSalary != null) {
-    // double totalSalary = latestSalary.getAmount() * 30; // Assuming a 30-day
-    // month
-    // double deduction = Math.max((daysOnLeave - 100.0), 0.0);
-
-    // // Ensure deduction does not exceed total salary
-    // deduction = Math.min(deduction, totalSalary);
-
-    // double attendanceSalary = totalSalary - deduction;
-
-    // // Ensure salary is not negative
-    // if (attendanceSalary < 0) {
-    // attendanceSalary = 0;
-    // }
-
-    // return attendanceSalary;
-    // } else {
-    // System.out.println("No salary records found for the employee.");
-    // return 0;
-    // }
-    // } else {
-    // System.out.println("Employee not found.");
-    // return 0;
-    // }
-    // }
-
+    
     public double calculateSalary(int employeeID, int daysAttended, int daysOnLeave) {
         Employee employee = findEmployeeByID(employeeID);
         if (employee != null) {
-            Salary latestSalary = getLatestSalary(); // Assuming this method returns the latest salary
+            Salary latestSalary = getLatestSalary(); 
 
             if (latestSalary != null) {
-                double totalSalary = latestSalary.getAmount() * 30; // Assuming a 30-day month
+                double totalSalary = latestSalary.getAmount() * daysAttended; 
                 double deduction = daysOnLeave * 100.0;
 
-                // Ensure deduction is at least 0
                 if (deduction < 0.0) {
                     deduction = 0.0;
                 }
-
-                // Ensure deduction does not exceed total salary
                 if (deduction > totalSalary) {
                     deduction = totalSalary;
                 }
 
                 double attendanceSalary = totalSalary - deduction;
 
-                // Ensure salary is not negative
                 if (attendanceSalary < 0) {
                     attendanceSalary = 0;
                 }
@@ -485,34 +424,36 @@ class HRSystem {
 
     public void updateSalaryDataFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("salary_data.txt", true))) {
-            Salary latestSalary = getLatestSalary(); // Implement this method to get the latest salary
-
+            Salary latestSalary = getLatestSalary(); 
+    
             if (latestSalary != null) {
-                // Assuming Salary has getSalaryID(), getAmount(), and getEmployee() methods
-                writer.write(String.format("%-10s | %-15s | %-15s | %-20s%n",
-                        "Salary ID", "Amount", "Deductions", "Employee ID"));
-                writer.write("-".repeat(60));
-                writer.newLine();
-                writer.write(String.format("%-10s | %-15s | %-15s | %-20s%n",
+                if (new File("salary_data.txt").length() == 0) {
+                    // File is empty, append header
+                    writer.write(String.format("%-10s | %-15s | %-15s | %-20s%n",
+                            "Salary ID", "Amount", "Deductions", "Employee ID"));
+                    writer.write("-".repeat(60));
+                    writer.newLine();
+                }
+    
+                writer.newLine();  // Add a new line before appending the new data
+                writer.write(String.format("%-10s | %-15.2f | %-15.2f | %-20s%n",
                         latestSalary.getSalaryID(), latestSalary.getAmount(), latestSalary.getDeductions(),
                         latestSalary.getEmployee().getEmployeeID()));
-                System.out.println("Salary data written to file successfully.");
+                System.out.println("Salary data appended to file successfully.");
             } else {
                 System.out.println("No salary records found.");
             }
         } catch (IOException e) {
             System.out.println("Error updating salary data file: " + e.getMessage());
         }
-    }
+    }    
 
     public Salary getLatestSalary() {
         if (!salaryRecords.isEmpty()) {
-            // Sort the list by salary ID in descending order (assuming higher salary IDs
-            // are newer)
             salaryRecords.sort(Comparator.comparingInt(Salary::getSalaryID).reversed());
-            return salaryRecords.get(0); // Return the first (latest) salary
+            return salaryRecords.get(0); 
         } else {
-            return null; // Return null if the list is empty
+            return null; 
         }
     }
 
