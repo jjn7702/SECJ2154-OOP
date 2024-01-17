@@ -32,10 +32,10 @@ OTTER LMS is a comprehensive and user-friendly library management system built w
 
 ## Findings 📊
 
-- [Source Code](../sample/source_code/PatientSystem.java)
-- Input Files
-- Report
-- Slide
+- [Source Code](src/Library/Main.java)
+- [Input](src/data)
+- [Report](Files/report)
+- [Slide](Files/Slide)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.
