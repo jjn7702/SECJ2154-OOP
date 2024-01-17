@@ -13,7 +13,7 @@ _Don't forget to hit the :star: if you like this repo._
    Otter Library Managemen System 
 </h1>
 
-<img src="https://a3.cdn.japantravel.com/photo/44646-184656/1440x960!/tokyo-moyai-statue-in-shibuya-184656.jpg" alt="Moyai Statue in Shibuya, Tokyo">
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Flibrary&psig=AOvVaw3qV1DWFsy2Sl3ryd3V-5ts&ust=1705552730298000&source=images&cd=vfe&ved=0CBMQjRxqFwoTCMDz-JbN44MDFQAAAAAdAAAAABAE" alt="Library ">
 
 
 ## Description 📝
