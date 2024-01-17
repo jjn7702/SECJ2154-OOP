@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-System Description - ( 8.01.24)
+OTTER LMS is a comprehensive and user-friendly library management system built with Java programming language. It caters to the needs of both librarians and patrons, offering a streamlined experience for managing library resources and accessing information
 
 ## Prepared by 🧑‍💻
 
