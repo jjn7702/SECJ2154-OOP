@@ -4,7 +4,7 @@ public class ReturnBook implements IOOperation {
 
     Scanner scanner = new Scanner(System.in);
     public void oper(Database database,User user){
-        System.out.println("Enter book name : ");
+        System.out.print("Enter book name : ");
         String bookName = scanner.nextLine();
 
         if(!database.getBrws().isEmpty()){
@@ -26,6 +26,13 @@ public class ReturnBook implements IOOperation {
         }else{
             System.out.println("You didn't borrow any book\n");
         }
+
+        System.out.print("Press any to continue.... ");
+        Scanner pause = new Scanner(System.in);
+        pause.nextLine();
+        System.out.print("\033[H\033[2J");
+            System.out.flush();
+
         user.menu(database, user);
 
     }

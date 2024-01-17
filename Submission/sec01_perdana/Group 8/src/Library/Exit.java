@@ -11,6 +11,8 @@ public class Exit implements IOOperation {
         this.user = user;
         System.out.println("\nAre you sure you want to exit\n 1. Yes\n 2. Main Menu");
         int n = scanner.nextInt();
+        System.out.print("\033[H\033[2J");
+            System.out.flush();
         if(n==1){
             System.out.println("1.Login");
             System.out.println("2.Register");
@@ -56,15 +58,33 @@ public class Exit implements IOOperation {
     }
 
     public void Register(){
-        System.out.println("======================Create An Account======================");
-        System.out.print("Enter your name: ");
+        System.out.println("============================================OTTER LMS==================================================");
+        System.out.println("=                                                                                                     =");
+        System.out.println("=                                         CREATE ACCOUNT                                              =");
+        System.out.println("=                                                                                                     =");
+        System.out.println("=======================================================================================================");
+        System.out.print("Enter Your Name: ");
         String name = scanner.next();
+        if(database.userExist(name)){
+            System.out.println("This User/Username is already exist !.....");
+            System.out.println("Please try again,Thank You.....");
+            Register();
+        }
         System.out.print("Enter your phone number : ");
         String phoneNumber = scanner.next();
-        System.out.print("Enter your email: ");
+        System.out.print("Enter your email        : ");
         String email = scanner.next();
 
-        System.out.println("1. Admin \n2. Member");
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+
+
+        System.out.println("============================================OTTER LMS==================================================");
+        System.out.println("=                                        Choose Your User Type                                        =");
+        System.out.println("=                                        1. Admin                                                     =");
+        System.out.println("=                                        2. Member                                                    =");
+        System.out.println("=======================================================================================================");
+
         int n2 = scanner.nextInt();
         User user;
         if(n2==1){
@@ -75,8 +95,11 @@ public class Exit implements IOOperation {
             user = new Members(name, email, phoneNumber);
         }
         database.AddUser(user);
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
         user.menu(database, user);
 
+        
    
 
     }

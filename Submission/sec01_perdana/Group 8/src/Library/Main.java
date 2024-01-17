@@ -10,17 +10,38 @@ public class Main{
         database = new Database();
 
         
-        System.out.println("====================================");
-        System.out.println("Welcome to Library Management System");
-        System.out.println("===================================="); 
+        System.out.println("================================================================================================================================");
+        System.out.println("+                                             Welcome to Library Management System                                             +");
+        System.out.println("================================================================================================================================");
+        System.out.println("+                                          ## ##   #### ##  #### ##  ### ###   ### ##                                          +");
+        System.out.println("+                                         ##   ##  # ## ##  # ## ##   ##  ##   ##  ##                                          +");
+        System.out.println("+                                         ##   ##    ##       ##      ##       ##  ##                                          +");
+        System.out.println("+                                         ##   ##    ##       ##      ## ##    ## ##                                           +");
+        System.out.println("+                                         ##   ##    ##       ##      ##       ## ##                                           +");
+        System.out.println("+                                         ##   ##    ##       ##      ##  ##   ##  ##                                          +");
+        System.out.println("+                                         ##   ##    ##       ##      ##  ##   ##  ##                                          +");
+        System.out.println("+                                          ## ##    ####     ####    ### ###  #### ##                                          +");
+        System.out.println("-----------------------------------                                                       --------------------------------------");
+        System.out.println("+                                               ####       ##   ##   ## ##                                                     +");
+        System.out.println("+                                               ##         ##   ##  ##   ##                                                    +");
+        System.out.println("+                                               ##         # ### #  ####                                                       +");
+        System.out.println("+                                               ##         ## # ##   #####                                                     +");
+        System.out.println("+                                               ##         ##   ##      ###                                                    +");
+        System.out.println("+                                               ##  ##     ##   ##  ##   ##                                                    +");
+        System.out.println("+                                               ### ###    ##   ##   ## ##                                                     +");
+        System.out.println("+                                                                                                                              +");
+        System.out.println("================================================================================================================================"); 
 
             int num;
-                System.out.println("1.Login");
+            System.out.println("1.Login");
             System.out.println("2.Register");
             System.out.println("0.Exit");
             System.out.print("Enter your choice: ");
             num  = scanner.nextInt();
-    
+        
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+
             switch(num){
                 case 1:
                     Login();
@@ -36,18 +57,31 @@ public class Main{
                     break;
             }
             scanner.close();
-            
+             
     
         
     }
 
+    public static void clearScreen() { 
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
 
     public static void Login(){
-        System.out.println("Login");
+        System.out.println("============================================OTTER LMS==================================================");
+        System.out.println("=                                                                                                     =");
+        System.out.println("=                                             LOGIN                                                   =");
+        System.out.println("=                                                                                                     =");
+        System.out.println("=======================================================================================================");
         System.out.print("Enter your Phone Number : ");
         String phoneNumber = scanner.next();
         System.out.print("Enter your Email: ");
         String email = scanner.next();
+
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+
         int n = database.login(phoneNumber, email);
         if(n!= -1){
             User user = database.getUser(n);
@@ -57,20 +91,35 @@ public class Main{
         }
     }
 
+    
+
     public static void Register(){
-        System.out.println("======================Create An Account======================");
-        System.out.print("Enter your name: ");
+        System.out.println("============================================OTTER LMS==================================================");
+        System.out.println("=                                                                                                     =");
+        System.out.println("=                                         CREATE ACCOUNT                                              =");
+        System.out.println("=                                                                                                     =");
+        System.out.println("=======================================================================================================");
+        System.out.print("Enter Your Name: ");
         String name = scanner.next();
         if(database.userExist(name)){
-            System.out.println("User exist !");
+            System.out.println("This User/Username is already exist !.....");
+            System.out.println("Please try again,Thank You.....");
             Register();
         }
         System.out.print("Enter your phone number : ");
         String phoneNumber = scanner.next();
-        System.out.print("Enter your email: ");
+        System.out.print("Enter your email        : ");
         String email = scanner.next();
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
 
-        System.out.println("1. Admin \n2. Member");
+
+        System.out.println("============================================OTTER LMS==================================================");
+        System.out.println("=                                        Choose Your User Type                                        =");
+        System.out.println("=                                        1. Admin                                                     =");
+        System.out.println("=                                        2. Member                                                    =");
+        System.out.println("=======================================================================================================");
+        System.out.print("Enter your choice: ");
         int n2 = scanner.nextInt();
         User user;
         if(n2==1){
@@ -81,7 +130,11 @@ public class Main{
             user = new Members(name, email, phoneNumber);
         }
         database.AddUser(user);
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
         user.menu(database, user);
+
+        
 
    
 
