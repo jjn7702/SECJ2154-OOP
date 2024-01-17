@@ -9,6 +9,13 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Library Management System 
 
+<h1 align="center">
+   Otter Library Managemen System 
+</h1>
+
+<img src="https://a3.cdn.japantravel.com/photo/44646-184656/1440x960!/tokyo-moyai-statue-in-shibuya-184656.jpg" alt="Moyai Statue in Shibuya, Tokyo">
+
+
 ## Description 📝
 
 OTTER LMS is a comprehensive and user-friendly library management system built with Java programming language. It caters to the needs of both librarians and patrons, offering a streamlined experience for managing library resources and accessing information
