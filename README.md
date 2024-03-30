@@ -130,4 +130,5 @@ This course contributes to the following Program Learning Outcomes:
 - [Gaddis, T. (2015). Starting out with C++. From control structures through objects. Pearson.‌](https://github.com/ystanev/Fundamentals-of-Programming/blob/master/Starting%20Out%20With%20C%2B%2B%20From%20Control%20Structures%20Through%20Objects%208th%20Edition.pdf)
 - [Lipschutz, S. (2011). Data Structures With C. McGraw-Hill Education.‌](https://github.com/ahsan-habib-hstu/data-structure/blob/master/Data%20Structures%20With%20C%20-%20by%20schaum%20series_2.pdf)
 - [Miller, B., Ranum, D. and Pearce, J. (n.d.). Problem Solving with Algorithms and Data Structures using C++. Runestone.academy‌](https://runestone.academy/ns/books/published/cppds/index.html)
+- [Java Visualizer](https://cscircles.cemc.uwaterloo.ca/java_visualize/)
 - [Learn GitHub](https://github.com/drshahizan/learn-github)
