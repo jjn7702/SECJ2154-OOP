@@ -47,7 +47,7 @@ This course contributes to the following Program Learning Outcomes:
 ### Introduction to Object-oriented Concepts
 
 - [Object Oriented Definition](https://www.educative.io/blog/object-oriented-programming)
-  >!Alt Text(https://www.bing.com/th?id=OSK.HERO5FO8LQ3KdLTbt1TEy9kjiLEP-H7zZlSDgTkk9n6GgaU&pid=cdx&w=320&h=189&c=7)
+  >[Alt Text](https://www.bing.com/th?id=OSK.HERO5FO8LQ3KdLTbt1TEy9kjiLEP-H7zZlSDgTkk9n6GgaU&pid=cdx&w=320&h=189&c=7)
 - Object oriented concept
   > Object-oriented programming (OOP) is a fundamental programming paradigm used by nearly every developer at some point in their career [1](https://www.educative.io/blog/object-oriented-programming). OOP is the most popular programming paradigm used for software development and is taught as the standard way to code for most of a programmer’s educational career [1](https://www.educative.io/blog/object-oriented-programming). OOP refers to languages that use objects in programming [2](https://www.geeksforgeeks.org/introduction-of-object-oriented-programming/). Object-oriented programming aims to implement real-world entities like inheritance, hiding, polymorphism, etc in programming [2](https://www.geeksforgeeks.org/introduction-of-object-oriented-programming/). The main aim of OOP is to bind together the data and the functions that operate on them so that no other part of the code can access this data except that function. Key concepts of OOP include classes, objects, encapsulation, inheritance, polymorphism, and abstraction [3](https://dev.to/moustymainer/understanding-the-basics-and-key-concepts-of-object-oriented-programming-4dio).
 - Classes in Java
