@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Project 📚 
 
-In this course, each student is required to complete one group [project](#project). Each group is tasked with selecting a system from a list of topics/ case studies. Following that, you will be expected to apply object roriented (OO) concepts to your chosen topics.
+In this course, each student is required to complete one group [project](#project). Each group is tasked with selecting a system from a list of topics/ case studies. Following that, you will be expected to apply object oriented (OO) concepts to your chosen topics.
 
 - Each student (group member) must create at least one module (or one of the main functions of your proposed system), with that module/function containing at least TWO classes. This means that if you have four members, your group project must have at least eight classes.
 - It must implement the following concepts:
@@ -28,9 +28,10 @@ In this course, each student is required to complete one group [project](#projec
 You must place your file in the submission folder. Within the `submission` folder, create a folder called your  `group_name`. Suggested folder structure for the project:
 
 ```
-📁Submission/sec01_perdana/group_name
+📁Submission/sec04_23242/group_name
 ├── 📄readme.md
 └── 📁files
+
     ├── 📁images
     └── 📁source-code
 ```
