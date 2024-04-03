@@ -47,12 +47,20 @@ This course contributes to the following Program Learning Outcomes:
 ### Introduction to Object-oriented Concepts
 
 - [Object Oriented Definition](https://www.educative.io/blog/object-oriented-programming)
-
-Object-oriented refers to a programming language, system, or software methodology that is built on the concepts of logical objects[^1^][1]. It works through the creation, utilization, and manipulation of reusable objects to perform a specific task, process, or objective[^2^][4].
-
-Object-Oriented Programming (OOP) is a programming paradigm in computer science that relies on the concept of classes and objects[^3^][2][^4^][3]. It is used to structure a software program into simple, reusable pieces of code blueprints (usually called classes), which are used to create individual instances of objects[^3^][2][^4^][3].
-
 - Object oriented concept
+  > Object-oriented programming (OOP) is a fundamental programming paradigm used by nearly every developer at some point in their career[^1^][1]. OOP is the most popular programming paradigm used for software development and is taught as the standard way to code for most of a programmer’s educational career[^1^][1].
+
+OOP refers to languages that use objects in programming[^2^][2]. Object-oriented programming aims to implement real-world entities like inheritance, hiding, polymorphism, etc in programming[^2^][2]. The main aim of OOP is to bind together the data and the functions that operate on them so that no other part of the code can access this data except that function[^2^][2].
+
+Key concepts of OOP include classes, objects, encapsulation, inheritance, polymorphism, and abstraction[^3^][3].
+
+## Sources
+
+1. [Educative](https://www.educative.io/blog/object-oriented-programming)
+2. [GeeksforGeeks](https://www.geeksforgeeks.org/introduction-of-object-oriented-programming/)
+3. [Dev.to](https://dev.to/moustymainer/understanding-the-basics-and-key-concepts-of-object-oriented-programming-4dio)
+4. [Oracle](https://docs.oracle.com/javase/tutorial/java/concepts/index.html)
+   
 - Classes in Java
 - Java basics
 - Creating Java programs
