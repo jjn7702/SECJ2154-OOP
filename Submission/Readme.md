@@ -39,16 +39,20 @@ You must place your file in the submission folder. Within the `submission` folde
 The folder structure you provided appears to be organized in a hierarchical manner. Here's a description of each component:
 
 - `group_name` is your folder or repository name.
-- `readme.md` is a markdown file that serves as the readme for the repository. It usually contains information about the task, workflow, design, and documentation.
+- `readme.md` is a markdown file that serves as the readme for the folder or repository. It usually contains information about the task, workflow, design, and documentation.
 
 Inside the `group_name` folder, you'll find three subdirectories:
-  - `files` directory contains report
+  - `files` directory contains report, presentation slide and any other related documents.
   - `images` directory holds image files that are referenced or used within the task or any associated documentation.
   - `source-code` directory contains source code files related to the task, or input files if any.
 
 In summary, this folder structure appears to be organizing a GitHub repository by dividing it into separate sections for different classes. Each task has its own directory, including the md file, along with subdirectories for related files, such as images and source codes.
 
-### Section 01 (Perdana)
+
+### Examples
+- [Section 01 (2023/2024-1)](./sec01_perdana/readme.md)
+
+### Section 01 (2023/2024- Sem 1)
 
 | No | Name | Project |
 | --- | --- | :---: |
