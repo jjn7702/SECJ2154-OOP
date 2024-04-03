@@ -52,20 +52,6 @@ In summary, this folder structure appears to be organizing a GitHub repository b
 ### Examples
 - [Section 01 (2023/2024-1)](./sec01_perdana/readme.md)
 
-### Section 01 (2023/2024- Sem 1)
-
-| No | Name | Project |
-| --- | --- | :---: |
-| _0_ |[Sample](../Submission/sec01_perdana/sample/readme.md) | <a href="../Submission/sec01_perdana/sample/readme.md" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
-| 1 | Group 1 | <a href="group1" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
-| 2 | [Group 2](../Submission/sec01_perdana/Group2/readme.md) | <a href="../Submission/sec01_perdana/Group2/readme.md" >🗿</a> |
-| 3 | Group 3 | <a href="group3" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
-| 4 | Group 4 | <a href="group4" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
-| 5 | Group 5 | <a href="group5" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
-| 6 | Group 6 | <a href="group6" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
-| 7 | Group 7 | <a href="group7" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
-| 8 | Group 8 | <a href="group8" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
-| 9 | Group 9 | <a href="group9" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
 
 ### Section 01 (Space)
 
