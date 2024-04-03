@@ -18,7 +18,7 @@ Restaurant Management System is a system that helps a restaurant to take orders 
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| Muhammad Adib Fahmy   | B23CS0050        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Aiman Haiqal Salehuddin"><img src="../Group6/images/mnqarlz.jpg" width=80px, height=80px>     |
+| Muhammad Adib Fahmy   | B23CS0050        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Aiman Haiqal Salehuddin"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>     |
 | Nabil       | B23CS0021        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
 | Najwa Asyilah       | B23CS0051        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../sample/images/boy_4537022.png" width=80px, height=80px>         |
 
