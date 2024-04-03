@@ -9,7 +9,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 # [Object Oriented Programming (SECJ2154)](/.)
 
-## [Project 📚](/Submission/readme.md) 
+## [Project 📚](/Submission/Readme.md) 
 
 ### Section 01 (2023/2024- Sem 1)
 
