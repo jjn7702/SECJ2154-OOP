@@ -46,7 +46,7 @@ This course contributes to the following Program Learning Outcomes:
 
 ### Introduction to Object-oriented Concepts
 
-- ![Object Oriented Definition](https://www.educative.io/blog/object-oriented-programming)
+- [Object Oriented Definition](https://www.educative.io/blog/object-oriented-programming)
 Object-oriented refers to a programming language, system or software methodology that is built on the concepts of logical objects[^1^][1]. It works through the creation, utilization and manipulation of reusable objects to perform a specific task, process or objective[^2^][4].
 
 Object-Oriented Programming (OOP) is a programming paradigm in computer science that relies on the concept of classes and objects[^3^][2][^4^][3]. It is used to structure a software program into simple, reusable pieces of code blueprints (usually called classes), which are used to create individual instances of objects[^3^][2][^4^][3].
