@@ -18,9 +18,9 @@ _Don't forget to hit the :star: if you like this repo._
 | 1 | [Group 1](../sec01_perdana/Group1/readme.md) | <a href="/sec01_perdana/Group2/readme.md"><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 2 | [Group 2](../sec01_perdana/Group2/readme.md) | <a href="../Submission/sec01_perdana/Group2/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 3 | [Group 3](../sec01_perdana/Group3/readme.md) | <a href="group3" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
-| 4 | [Group 4](../sec01_perdana/Group4/readme.md) | <a href="group4" ><img src="/./Images/clipboard.png" width="24px" height="24px" ></a> |
-| 5 | [Group 5](../sec01_perdana/Group5/readme.md) | <a href="group5" ><img src="/./Images/clipboard.png" width="24px" height="24px" ></a> |
-| 6 | [Group 6](../sec01_perdana/Group6/readme.md) | <a href="group6" ><img src="/./Images/clipboard.png" width="24px" height="24px" ></a> |
-| 7 | [Group 7](../sec01_perdana/Group7/readme.md) | <a href="group7" ><img src="/./Images/clipboard.png" width="24px" height="24px" ></a> |
-| 8 | [Group 8](../sec01_perdana/Group%208/readme.md) | <a href="group8" ><img src="/./Images/clipboard.png" width="24px" height="24px" ></a> |
-| 9 | [Group 9](../sec01_perdana/Group9/readme.md) | <a href="group9" ><img src="/./Images/clipboard.png" width="24px" height="24px" ></a> |
+| 4 | [Group 4](../sec01_perdana/Group4/readme.md) | <a href="group4" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
+| 5 | [Group 5](../sec01_perdana/Group5/readme.md) | <a href="group5" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
+| 6 | [Group 6](../sec01_perdana/Group6/readme.md) | <a href="group6" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
+| 7 | [Group 7](../sec01_perdana/Group7/readme.md) | <a href="group7" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
+| 8 | [Group 8](../sec01_perdana/Group%208/readme.md) | <a href="group8" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
+| 9 | [Group 9](../sec01_perdana/Group9/readme.md) | <a href="group9" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
