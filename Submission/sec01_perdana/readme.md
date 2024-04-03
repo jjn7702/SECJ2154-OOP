@@ -24,3 +24,9 @@ _Don't forget to hit the :star: if you like this repo._
 | 7 | [Group 7](../sec01_perdana/Group7/readme.md) | <a href="group7" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 8 | [Group 8](../sec01_perdana/Group%208/readme.md) | <a href="group8" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 9 | [Group 9](../sec01_perdana/Group9/readme.md) | <a href="group9" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
+
+## Contribution 🛠️
+Please create an [Issue](https://github.com/jjn7702/SECJ2154-OOP/issues) for any improvements, suggestions or errors in the content.
+
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fjjn7702&labelColor=%23697689&countColor=%23555555&style=plastic)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fjjn7702)
+![](https://hit.yhype.me/github/profile?user_id=81284918)
