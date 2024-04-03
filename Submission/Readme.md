@@ -28,10 +28,11 @@ In this course, each student is required to complete one group [project](#projec
 You must place your file in the submission folder. Within the `submission` folder, create a folder called your  `group_name`. Suggested folder structure for the project:
 
 ```
-📁Submission/sec04_23242/group_name
+📁Submission/sec04_23242
 ├── 📄readme.md
-└── 📁files
-
+└── group_name
+    ├── 📄readme.md
+    ├── 📁files
     ├── 📁images
     └── 📁source-code
 ```
@@ -40,7 +41,8 @@ The folder structure you provided appears to be organized in a hierarchical mann
 - `group_name` is your folder or repository name.
 - `readme.md` is a markdown file that serves as the readme for the repository. It usually contains information about the task, workflow, design, and documentation.
 
-Inside the `group_name` folder, there is directory named `files`. Inside the `files` directory, you'll find two subdirectories:
+Inside the `group_name` folder, you'll find three subdirectories:
+  - `files` directory contains report
   - `images` directory holds image files that are referenced or used within the task or any associated documentation.
   - `source-code` directory contains source code files related to the task, or input files if any.
 
