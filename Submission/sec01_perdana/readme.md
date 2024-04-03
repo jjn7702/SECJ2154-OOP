@@ -15,7 +15,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 | No | Name | Project |
 | --- | --- | :---: |
-| 1 | [Group 1](../sec01_perdana/Group1/readme.md) | <a href="/sec01_perdana/Group2/readme.md"><img src="/./Images/clipboard.png" width="24px" height="24px" ></a> |
+| 1 | [Group 1](../sec01_perdana/Group1/readme.md) | <a href="/sec01_perdana/Group2/readme.md"><img src="./SECJ2013-DSA/images/clipboard.png" width="24px" height="24px" ></a> |
 | 2 | [Group 2](../Submission/sec01_perdana/Group2/readme.md) | <a href="../Submission/sec01_perdana/Group2/readme.md" >🗿</a> |
 | 3 | Group 3 | <a href="group3" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
 | 4 | Group 4 | <a href="group4" ><img src="../Images/clipboard.png" width="24px" height="24px" ></a> |
