@@ -38,6 +38,7 @@ class PatientSystem {
 		}
 		System.out.println("-------------------");
 		System.out.println("Total Patients: " + v.size());
+		System.out.println("testing");
 	}
 }
 
