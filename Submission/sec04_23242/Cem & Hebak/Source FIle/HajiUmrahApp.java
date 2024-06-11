@@ -135,6 +135,7 @@ class Embassy extends User {
 
 class Doctor extends User {
     private String hospital, position, doctor_Number;
+    protected Scanner inp = new Scanner(System.in);
 
     // name, contact, identification_Card, email;
     public Doctor(String name, String contact, String identification_Card, String email, String hospital,
@@ -177,7 +178,15 @@ class Doctor extends User {
     }
 
     public void update_Doctor_Info() {
+        super.updateUserInfo();
+        System.out.print("Hospital: ");
+        hospital = inp.nextLine();
+        System.out.print("Position: ");
+        position = inp.nextLine();
+        System.out.print("Doctor Number: ");
+        doctor_Number = inp.nextLine();
 
+        display_Doctor_Info();
     }
 }
 
