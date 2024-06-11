@@ -1,11 +1,11 @@
 class User {
-    private String name, contact_Info, Identification_Card, Email;
+    private String name, contact, identification_Card, email;
 
-    public User(String name, String contact_Info, String identification_Card, String email) {
+    public User(String name, String contact, String identification_Card, String email) {
         this.name = name;
-        this.contact_Info = contact_Info;
-        Identification_Card = identification_Card;
-        Email = email;
+        this.contact = contact;
+        this.identification_Card = identification_Card;
+        this.email = email;
     }
 
     public String getName() {
@@ -16,33 +16,73 @@ class User {
         this.name = name;
     }
 
-    public String getContact_Info() {
-        return contact_Info;
+    public String getcontact() {
+        return contact;
     }
 
-    public void setContact_Info(String contact_Info) {
-        this.contact_Info = contact_Info;
+    public void setcontact(String contact) {
+        this.contact = contact;
     }
 
     public String getIdentification_Card() {
-        return Identification_Card;
+        return identification_Card;
     }
 
     public void setIdentification_Card(String identification_Card) {
-        Identification_Card = identification_Card;
+        this.identification_Card = identification_Card;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
-    public void DisplayUserInfo () {
+
+    public void DisplayUserInfo() {
         System.out.println("Name : " + name);
-        System.out.println("Contact :" + contact_Info);
+        System.out.println("Contact :" + contact);
+        System.out.println("Identification Card : " + identification_Card);
+        System.out.println("Email: " + email);
     }
+}
+
+class Embassy extends User {
+    private String locatio, position, staff_number;
+
+    public Embassy(String name, String contact, String identification_Card, String email, String locatio,
+            String position, String staff_number) {
+        super(name, contact, identification_Card, email);
+        this.locatio = locatio;
+        this.position = position;
+        this.staff_number = staff_number;
+    }
+
+    public String getLocatio() {
+        return locatio;
+    }
+
+    public void setLocatio(String locatio) {
+        this.locatio = locatio;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getStaff_number() {
+        return staff_number;
+    }
+
+    public void setStaff_number(String staff_number) {
+        this.staff_number = staff_number;
+    }
+
 }
 
 public class HajiUmrahApp {
