@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Vector;
 
 class User {
     private String name, contact, identification_Card, email;
@@ -185,9 +186,50 @@ class Doctor extends User {
         position = inp.nextLine();
         System.out.print("Doctor Number: ");
         doctor_Number = inp.nextLine();
-
+        // updated info
         display_Doctor_Info();
     }
+
+    public void Check_Medical_Application() {
+
+    }
+
+    public void Update_Medical_Application() {
+
+    }
+
+    public void Update_Prescribe_Medication() {
+
+    }
+}
+
+class Jemaah {
+    private String jemaahID;
+    private int age;
+    private Vector<String> penyakit;
+
+    public Jemaah(String jemaahID, int age) {
+        this.jemaahID = jemaahID;
+        this.age = age;
+        penyakit = new Vector<>();
+    }
+
+    public String getJemaahID() {
+        return jemaahID;
+    }
+
+    public void setJemaahID(String jemaahID) {
+        this.jemaahID = jemaahID;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
 }
 
 public class HajiUmrahApp {
