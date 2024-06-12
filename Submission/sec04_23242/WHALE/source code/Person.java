@@ -4,5 +4,5 @@ public class Person {
     private String phoneNum;
     private Address address;
 
-    public
+    public void setName(String name) {}
 }
