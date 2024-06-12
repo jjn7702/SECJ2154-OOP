@@ -232,14 +232,83 @@ class Jemaah {
 
 }
 
+class FLight {
+    private String flightID, dateGo, dateBack, departureTime, arrivalTime;
+
+    public FLight(String flightID, String dateGo, String dateBack, String departureTime, String arrivalTime) {
+        this.flightID = flightID;
+        this.dateGo = dateGo;
+        this.dateBack = dateBack;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+    }
+
+    public void display_Flight_Info() {
+        System.out.println("FLight ID: " + flightID);
+        System.out.println("Date of departure: " + dateGo);
+        System.out.println("Date of arrival: " + dateBack);
+        System.out.println("Departure time: " + departureTime);
+        System.out.println("Arrival time: " + arrivalTime);
+    }
+}
+
+class Hotel {
+    private String hotelName, address, roomSize;
+    private String checkInTime = "3:00 pm";
+    private String checkOutTime = "12:00 pm";
+    private Object[][] roomSizeAvailable = {
+            { "Singel Room", 150 },
+            { "Double Room", 200 },
+            { "Twin Room", 200 },
+            { "King Room", 500 },
+            { "Junior Suite", 1000 },
+            { "Suite", 5000 },
+            { "Presidential Suite", 7500 }
+    };
+
+    private int noRoom;
+
+    // Untuk jemaah purpose
+    public Hotel(String hotelName, String address, String roomSize, int noRoom) {
+        this.hotelName = hotelName;
+        this.address = address;
+        this.roomSize = roomSize;
+        this.noRoom = noRoom;
+    }
+
+    // untuk hotel purpose
+    public Hotel(String hotelName, String address, int noRoom) {
+        this.hotelName = hotelName;
+        this.address = address;
+        this.noRoom = noRoom;
+    }
+
+    public void display_Hotel_Info() {
+        System.out.println("Hotel: " + hotelName);
+        System.out.println("Address: " + address);
+        System.out.println("Room size available: ");
+        for (int i = 0; i < roomSizeAvailable.length; i++) {
+            for (int j = 0; j < roomSizeAvailable[i].length; j++) {
+                System.out.print(roomSizeAvailable[i][j] + " RM");
+
+            }
+            System.out.println();
+        }
+    }
+}
+
 public class HajiUmrahApp {
     public static void main(String[] args) {
         Scanner inp = new Scanner(System.in);
         Embassy pegawai1 = new Embassy("Muhammad Faiz Bin Zakaria", "019-577 3762", "030717-08-0421",
                 "zfaiz2345@gmail.com", "Setia Tropika", "Kastam", "030717");
-        pegawai1.display_Embassy_Info();
-        pegawai1.update_Embassy_Info();
+        // pegawai1.display_Embassy_Info();
+        // pegawai1.update_Embassy_Info();
 
+        Hotel concorde = new Hotel("Hotel Concorde",
+                "2, Jln Sultan Ismail, Kuala Lumpur, 50250 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur", 600);
+
+        concorde.display_Hotel_Info();
         inp.close();
     }
 }
