@@ -22,7 +22,7 @@ _Don't forget to hit the :star: if you like this repo._
 | 5 | [Group 5](../sec04_23242/Group5/readme.md) | <a href="../sec04_23242/Group5/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 6 | [Group 6](../sec04_23242/Group6/readme.md) | <a href="../sec04_23242/Group6/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 7 | [Group 7](../sec04_23242/Group7/readme.md) | <a href="../sec04_23242/Group7/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
-| 8 | [Group 8](../sec04_23242/Group8/readme.md) | <a href="../sec04_23242/Group8/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
+| 8 | [Group 8](../sec04_23242/Group8/readme.md) | <a href="../sec04_23242/GROUP_8/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 9 | [Group 9](../sec04_23242/Group9/readme.md) | <a href="../sec04_23242/Group9/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 10 | [Group 10](../sec04_23242/Group7/readme.md) | <a href="../sec04_23242/Group10/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 11 | [Whale](../sec04_23242/WHALE/readme.md) | <a href="../sec04_23242/WHALE/readme.md" ><img src="/./images/whale.png" width="24px" height="24px" ></a> |
