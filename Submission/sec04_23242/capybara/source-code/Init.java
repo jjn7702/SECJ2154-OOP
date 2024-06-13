@@ -97,7 +97,7 @@ public class Init {
 
         JLabel headerLabel = new JLabel("Add New Trip -> Activity");
         headerLabel.setFont(headerFont);
-        headerLabel.setBounds(30, 1, 200, 100);
+        headerLabel.setBounds(30, 1, 400, 100);
         farif.add(headerLabel);
 
         JLabel labelActivityName = new JLabel("Activity Name");
