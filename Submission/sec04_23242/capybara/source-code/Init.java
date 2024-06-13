@@ -6,7 +6,7 @@ import java.util.Vector;
 
 public class Init {
     private static Vector<CampingTrips> campingTrips = new Vector<CampingTrips>();
-    private static JFrame frame = new JFrame("Budget Camping Trips Planner!");
+    private static JFrame frame = new JFrame("Camping Trips Planner!");
     private static Font headerFont = new Font("Arial", Font.BOLD, 18);
 
     public static void main(String[] args) {
@@ -37,7 +37,7 @@ public class Init {
 
         JButton showTripButton = new JButton("Show Trips");
         showTripButton.setBounds(230, 150, 150, 30);
-        // showTripButton.addActionListener(e -> showTrips());
+        showTripButton.addActionListener(e -> showTrips());
         frame.add(showTripButton);
 
         frame.revalidate();
@@ -67,14 +67,6 @@ public class Init {
         JTextField locationField = new JTextField();
         locationField.setBounds(230, 130, 150, 30);
         frame.add(locationField);
-
-        // JLabel labelBudget = new JLabel("Total Budget");
-        // labelBudget.setBounds(30, 190, 150, 30);
-        // frame.add(labelBudget);
-
-        // JTextField budgetField = new JTextField();
-        // budgetField.setBounds(30, 220, 150, 30);
-        // frame.add(budgetField);
 
         JLabel labelTransportType = new JLabel("Transport Type");
         labelTransportType.setBounds(30, 260, 150, 30);
@@ -250,24 +242,53 @@ public class Init {
         frame.repaint();
     }
 
-    // private static void showTrips() {
-    // StringBuilder tripsDetails = new StringBuilder();
-    // for (Budget budget : tripBudgets) {
-    // if (budget instanceof Activities) {
-    // tripsDetails.append("Activity:\n");
-    // ((Activities) budget).displayBudget();
-    // } else if (budget instanceof Transportation) {
-    // tripsDetails.append("Transportation:\n");
-    // ((Transportation) budget).displayBudget();
-    // } else {
-    // tripsDetails.append("Budget:\n");
-    // budget.displayBudget();
-    // }
-    // }
-    // JOptionPane.showMessageDialog(frame, tripsDetails.toString(), "Trips
-    // Details",
-    // JOptionPane.INFORMATION_MESSAGE);
-    // }
+    private static void showTrips() {
+        frame.getContentPane().removeAll();
+
+        JLabel headerLabel = new JLabel("All Trips");
+        headerLabel.setFont(headerFont);
+        headerLabel.setBounds(30, 1, 200, 100);
+        frame.add(headerLabel);
+
+        JTextArea tripsArea = new JTextArea();
+        tripsArea.setEditable(false);
+        tripsArea.setLineWrap(true);
+        tripsArea.setWrapStyleWord(true);
+
+        JScrollPane scrollPane = new JScrollPane(tripsArea);
+        scrollPane.setBounds(30, 80, 380, 270);
+        frame.add(scrollPane);
+
+        StringBuilder tripsText = new StringBuilder();
+        for (CampingTrips trip : campingTrips) {
+            tripsText.append("Trip Name: ").append(trip.getName()).append("\n");
+            tripsText.append("Location: ").append(trip.getLocation()).append("\n");
+            // tripsText.append("Total Budget:
+            // RM").append(trip.budget.getTotalCost()).append("\n\n");
+
+            for (Budget budget : trip.getBudgets()) {
+                if (budget instanceof Transportation) {
+                    Transportation transport = (Transportation) budget;
+                    tripsText.append("  Transport Type: ").append(transport.getName()).append("\n");
+                    tripsText.append("  Transport Cost: RM").append(transport.getCost()).append("\n");
+                } else if (budget instanceof Activities) {
+                    Activities activity = (Activities) budget;
+                    tripsText.append("  Activity Name: ").append(activity.getName()).append("\n");
+                    tripsText.append("  Activity Cost: RM").append(activity.getCost()).append("\n");
+                }
+            }
+            tripsText.append("\n");
+        }
+        tripsArea.setText(tripsText.toString());
+
+        JButton backButton = new JButton("Back to Main Menu");
+        backButton.setBounds(30, 360, 150, 30);
+        backButton.addActionListener(e -> showMainMenu());
+        frame.add(backButton);
+
+        frame.revalidate();
+        frame.repaint();
+    }
 
     static class ColoredItem {
         private final String name;
