@@ -1,16 +1,14 @@
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
-class Budget {
+public class Budget {
     private double sumBudget;
     private double sumUsed;
 
-    // No-args Constructor
     public Budget() {
         this.sumBudget = 0;
         this.sumUsed = 0;
     }
 
-    // Budget method
     public void setBudget(double sumBudget) {
         this.sumBudget = sumBudget;
     }
@@ -19,7 +17,6 @@ class Budget {
         return sumBudget;
     }
 
-    // Amount method
     public void setUsed(double sumUsed) {
         this.sumUsed = sumUsed;
     }
@@ -29,8 +26,9 @@ class Budget {
     }
 
     public void addExpense(double amount) {
-        if (amount > 0 && (sumUsed + amount) <= sumBudget)
+        if (amount > 0 && (sumUsed + amount) <= sumBudget) {
             sumUsed += amount;
+        }
     }
 
     public double getRemainingBudget() {
