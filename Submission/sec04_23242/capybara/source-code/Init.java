@@ -1,13 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
 public class Init {
-    private static Vector<CampingTrips> campingTrips = new Vector<CampingTrips>();
-    private static JFrame frame = new JFrame("Camping Trips Planner!");
-    private static Font headerFont = new Font("Arial", Font.BOLD, 18);
+    private static final Vector<CampingTrips> campingTrips = new Vector<>();
+    private static final JFrame frame = new JFrame("Camping Trips Planner!");
+    private static final Font headerFont = new Font("Arial", Font.BOLD, 18);
+    private static final Font textFont = new Font("Arial", Font.PLAIN, 12);
 
     public static void main(String[] args) {
         initializeMainFrame();
@@ -25,20 +25,10 @@ public class Init {
     private static void showMainMenu() {
         frame.getContentPane().removeAll();
 
-        JLabel head = new JLabel("Plan your trips!");
-        head.setBounds(30, 1, 200, 100);
-        head.setFont(headerFont);
-        frame.add(head);
+        addLabel("Plan your trips!", 30, 1, 200, 100, headerFont);
 
-        JButton addTripButton = new JButton("Add New Trip");
-        addTripButton.setBounds(50, 150, 150, 30);
-        addTripButton.addActionListener(e -> showAddTripScreen());
-        frame.add(addTripButton);
-
-        JButton showTripButton = new JButton("Show Trips");
-        showTripButton.setBounds(230, 150, 150, 30);
-        showTripButton.addActionListener(e -> showTrips());
-        frame.add(showTripButton);
+        addButton("Add New Trip", 50, 150, e -> showAddTripScreen());
+        addButton("Show Trips", 230, 150, e -> showTrips());
 
         frame.revalidate();
         frame.repaint();
@@ -47,196 +37,80 @@ public class Init {
     private static void showAddTripScreen() {
         frame.getContentPane().removeAll();
 
-        JLabel headerLabel = new JLabel("Add New Trip");
-        headerLabel.setFont(headerFont);
-        headerLabel.setBounds(30, 1, 200, 100);
-        frame.add(headerLabel);
+        addLabel("Add New Trip", 30, 1, 200, 100, headerFont);
 
-        JLabel labelNameTrip = new JLabel("Name Trip");
-        labelNameTrip.setBounds(30, 100, 150, 30);
-        frame.add(labelNameTrip);
+        JTextField nameField = addTextField("Name Trip", 30, 100, 150, 30);
+        JTextField locationField = addTextField("Location Trip", 230, 100, 150, 30);
+        JComboBox<String> transportTypeComboBox = addComboBox("Transport Type", 30, 260, 150, 30, new String[]{"Car", "Bus", "Train", "Miscellaneous"});
+        JTextField transportCostField = addTextField("Transport Cost", 230, 260, 150, 30);
 
-        JTextField nameField = new JTextField();
-        nameField.setBounds(30, 130, 150, 30);
-        frame.add(nameField);
-
-        JLabel labelLocationTrip = new JLabel("Location Trip");
-        labelLocationTrip.setBounds(230, 100, 150, 30);
-        frame.add(labelLocationTrip);
-
-        JTextField locationField = new JTextField();
-        locationField.setBounds(230, 130, 150, 30);
-        frame.add(locationField);
-
-        JLabel labelTransportType = new JLabel("Transport Type");
-        labelTransportType.setBounds(30, 260, 150, 30);
-        frame.add(labelTransportType);
-
-        String[] transportOptions = { "Car", "Bus", "Train", "Miscellaneous" };
-        JComboBox<String> transportTypeComboBox = new JComboBox<>(transportOptions);
-        transportTypeComboBox.setBounds(30, 290, 150, 30);
-        frame.add(transportTypeComboBox);
-
-        JLabel labelTransportCost = new JLabel("Transport Cost");
-        labelTransportCost.setBounds(230, 260, 150, 30);
-        frame.add(labelTransportCost);
-
-        JTextField transportCostField = new JTextField();
-        transportCostField.setBounds(230, 290, 150, 30);
-        frame.add(transportCostField);
-
-        JButton nextButton = new JButton("Next");
-        nextButton.setBounds(340, 370, 80, 30);
-        frame.add(nextButton);
-
-        nextButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                showAddActivityScreen(nameField, locationField, transportTypeComboBox, transportCostField);
-            }
-        });
+        addButton("Next", 270, 370, e -> showAddActivityScreen(nameField, locationField, transportTypeComboBox, transportCostField));
 
         frame.revalidate();
         frame.repaint();
     }
 
-    private static void showAddActivityScreen(JTextField nameField, JTextField locationField,
-            JComboBox<String> transportTypeComboBox,
-            JTextField transportCostField) {
+    private static void showAddActivityScreen(JTextField nameField, JTextField locationField, JComboBox<String> transportTypeComboBox, JTextField transportCostField) {
         frame.getContentPane().removeAll();
 
-        JLabel headerLabel = new JLabel("Add New Trip | Activity");
-        headerLabel.setFont(headerFont);
-        headerLabel.setBounds(30, 1, 400, 100);
-        frame.add(headerLabel);
+        addLabel("Add New Trip | Activity", 30, 1, 400, 100, headerFont);
 
-        JLabel labelActivityName = new JLabel("Activity Name");
-        labelActivityName.setBounds(30, 80, 150, 30);
-        frame.add(labelActivityName);
-
-        JTextField activityNameField = new JTextField();
-        activityNameField.setBounds(30, 110, 150, 30);
-        frame.add(activityNameField);
-
-        JLabel labelActivityCost = new JLabel("Activity Cost");
-        labelActivityCost.setBounds(30, 200, 150, 30);
-        frame.add(labelActivityCost);
-
-        JTextField activityCostField = new JTextField();
-        activityCostField.setBounds(30, 230, 150, 30);
-        frame.add(activityCostField);
-
-        // Add color dropdown for activity
-        JLabel labelActivityColor = new JLabel("Activity Color");
-        labelActivityColor.setBounds(230, 80, 150, 30);
-        frame.add(labelActivityColor);
-
-        ColoredItem[] items = {
+        JTextField activityNameField = addTextField("Activity Name", 30, 80, 150, 30);
+        JTextField activityCostField = addTextField("Activity Cost", 30, 200, 150, 30);
+        JComboBox<ColoredItem> colorComboBox = addColorComboBox("Activity Color", 230, 80, 150, 30, new ColoredItem[]{
                 new ColoredItem("Family", Color.RED),
                 new ColoredItem("Friend", Color.GREEN),
                 new ColoredItem("Partner", Color.PINK),
                 new ColoredItem("Others", Color.BLUE)
-        };
-
-        JComboBox<ColoredItem> colorComboBox = new JComboBox<>(items);
-        colorComboBox.setRenderer(new ColorfulRenderer());
-        colorComboBox.setBounds(230, 110, 150, 30);
-        frame.add(colorComboBox);
-
-        JButton saveButton = new JButton("Save Trip");
-        saveButton.setBounds(320, 370, 100, 30);
-        frame.add(saveButton);
-
-        saveButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                saveTrip(nameField, locationField, transportTypeComboBox, transportCostField,
-                        activityNameField, activityCostField,
-                        colorComboBox);
-            }
         });
+
+        addButton("Save Trip", 270, 370, e -> saveTrip(nameField, locationField, transportTypeComboBox, transportCostField, activityNameField, activityCostField, colorComboBox));
 
         frame.revalidate();
         frame.repaint();
     }
 
-    private static void saveTrip(JTextField nameField, JTextField locationField,
-            JComboBox<String> transportTypeComboBox,
-            JTextField transportCostField,
-            JTextField activityNameField, JTextField activityCostField, JComboBox<ColoredItem> colorComboBox) {
-        Vector<Budget> tripBudgets = new Vector<Budget>();
+    private static void saveTrip(JTextField nameField, JTextField locationField, JComboBox<String> transportTypeComboBox, JTextField transportCostField, JTextField activityNameField, JTextField activityCostField, JComboBox<ColoredItem> colorComboBox) {
+        Vector<Budget> tripBudgets = new Vector<>();
 
-        // double budget = Double.parseDouble(budgetField.getText());
         String transportType = (String) transportTypeComboBox.getSelectedItem();
-
         if ("Miscellaneous".equals(transportType)) {
             transportType = JOptionPane.showInputDialog("Enter your transportation type:");
         }
+
         double transportCost = Double.parseDouble(transportCostField.getText());
-        String activityName = activityNameField.getText();
         double activityCost = Double.parseDouble(activityCostField.getText());
         Color activityColor = ((ColoredItem) colorComboBox.getSelectedItem()).getColor();
 
-        // Budget tripBudget = new Budget();
-        // tripBudget.setBudget(budget);
+        Transportation transport = new Transportation(transportType, transportCost);
+        Activities activities = new Activities(activityNameField.getText(), activityCost, activityColor);
 
-        Transportation transport = new Transportation();
-        transport.setTransportDetails(transportType, transportCost);
-        transport.addTransportExpense();
-
-        Activities activities = new Activities();
-        activities.setActivityDetails(activityName, activityCost, activityColor);
-        activities.addActivityExpense();
-
-        // tripBudgets.add(tripBudget);
         tripBudgets.add(transport);
         tripBudgets.add(activities);
 
         campingTrips.add(new CampingTrips(nameField.getText(), locationField.getText(), tripBudgets));
-        showSavedTripDetail(nameField, locationField, transport, activities);
+        showSavedTripDetail(transport, activities);
     }
 
-    private static void showSavedTripDetail(JTextField nameField, JTextField locationField,
-            Transportation transport, Activities activities) {
+    private static void showSavedTripDetail(Transportation transport, Activities activities) {
+        double totalCost = transport.getCost() + activities.getCost();
+        String totalBudgetStr = String.format("Total Budget: RM" + totalCost);
         frame.getContentPane().removeAll();
+        addLabel("Saved Trip Detail", 30, 1, 200, 100, headerFont);
 
-        JLabel headerLabel = new JLabel("Saved Trip Detail");
-        headerLabel.setFont(headerFont);
-        headerLabel.setBounds(30, 1, 200, 100);
-        frame.add(headerLabel);
-
-        JLabel savedLabelBudget = new JLabel("Total Budget: RM" +
-                (transport.getCost() + activities.getCost()));
-        savedLabelBudget.setBounds(30, 80, 200, 30);
-        frame.add(savedLabelBudget);
-
-        JLabel savedLabelTransportType = new JLabel("Transport Type: " + transport.getName());
-        savedLabelTransportType.setBounds(230, 150, 200, 30);
-        frame.add(savedLabelTransportType);
-
-        JLabel savedLabelTransportCost = new JLabel("Transport Cost: RM" + transport.getCost());
-        savedLabelTransportCost.setBounds(230, 230, 200, 30);
-        frame.add(savedLabelTransportCost);
-
-        JLabel savedLabelActivityName = new JLabel("Activity Name: " + activities.getName());
-        savedLabelActivityName.setBounds(30, 150, 200, 30);
-        frame.add(savedLabelActivityName);
-
-        JLabel savedLabelActivityCost = new JLabel("Activity Cost: RM" + activities.getCost());
-        savedLabelActivityCost.setBounds(30, 230, 200, 30);
-        frame.add(savedLabelActivityCost);
-
-        // Display color of the activity
-        JLabel savedLabelActivityColor = new JLabel("Activity Color: ");
-        savedLabelActivityColor.setBounds(30, 310, 200, 30);
-        frame.add(savedLabelActivityColor);
+      
+        addLabel(totalBudgetStr, 30, 80, 300, 30, textFont);
+        addLabel("Transport Type: " + transport.getName(), 30, 120, 300, 30, textFont);
+        addLabel("Transport Cost: RM" + transport.getCost(), 30, 160, 300, 30, textFont);
+        addLabel("Activity Name: " + activities.getName(), 30, 200, 300, 30, textFont);
+        addLabel("Activity Cost: RM" + activities.getCost(), 30, 240, 300, 30, textFont);
+        addLabel("Activity Color: ", 30, 280, 300, 30, textFont);
 
         JLabel colorDisplay = new JLabel(createColoredDotIcon(activities.getColor()));
         colorDisplay.setBounds(150, 310, 30, 30);
         frame.add(colorDisplay);
 
-        JButton backButton = new JButton("Back to Main Menu");
-        backButton.setBounds(30, 350, 150, 30);
-        backButton.addActionListener(e -> showMainMenu());
-        frame.add(backButton);
+        addButton("Back to Main Menu", 30, 350, e -> showMainMenu());
 
         frame.revalidate();
         frame.repaint();
@@ -245,10 +119,7 @@ public class Init {
     private static void showTrips() {
         frame.getContentPane().removeAll();
 
-        JLabel headerLabel = new JLabel("All Trips");
-        headerLabel.setFont(headerFont);
-        headerLabel.setBounds(30, 1, 200, 100);
-        frame.add(headerLabel);
+        addLabel("All Trips", 30, 1, 200, 100, headerFont);
 
         JTextArea tripsArea = new JTextArea();
         tripsArea.setEditable(false);
@@ -263,8 +134,6 @@ public class Init {
         for (CampingTrips trip : campingTrips) {
             tripsText.append("Trip Name: ").append(trip.getName()).append("\n");
             tripsText.append("Location: ").append(trip.getLocation()).append("\n");
-            // tripsText.append("Total Budget:
-            // RM").append(trip.budget.getTotalCost()).append("\n\n");
 
             for (Budget budget : trip.getBudgets()) {
                 if (budget instanceof Transportation) {
@@ -281,13 +150,83 @@ public class Init {
         }
         tripsArea.setText(tripsText.toString());
 
-        JButton backButton = new JButton("Back to Main Menu");
-        backButton.setBounds(30, 360, 150, 30);
-        backButton.addActionListener(e -> showMainMenu());
-        frame.add(backButton);
+        addButton("Back to Main Menu", 30, 360, e -> showMainMenu());
 
         frame.revalidate();
         frame.repaint();
+    }
+
+    private static JTextField addTextField(String labelText, int x, int y, int width, int height) {
+        JLabel label = new JLabel(labelText);
+        label.setBounds(x, y, width, height);
+        frame.add(label);
+
+        JTextField textField = new JTextField();
+        textField.setBounds(x, y + 30, width, height);
+        frame.add(textField);
+
+        return textField;
+    }
+
+    private static JComboBox<String> addComboBox(String labelText, int x, int y, int width, int height, String[] options) {
+        JLabel label = new JLabel(labelText);
+        label.setBounds(x, y, width, height);
+        frame.add(label);
+
+        JComboBox<String> comboBox = new JComboBox<>(options);
+        comboBox.setBounds(x, y + 30, width, height);
+        frame.add(comboBox);
+
+        return comboBox;
+    }
+
+    private static JComboBox<ColoredItem> addColorComboBox(String labelText, int x, int y, int width, int height, ColoredItem[] items) {
+        JLabel label = new JLabel(labelText);
+        label.setBounds(x, y, width, height);
+        frame.add(label);
+
+        JComboBox<ColoredItem> comboBox = new JComboBox<>(items);
+        comboBox.setRenderer(new ColorfulRenderer());
+        comboBox.setBounds(x, y + 30, width, height);
+        frame.add(comboBox);
+
+        return comboBox;
+    }
+
+    private static void addButton(String buttonText, int x, int y, ActionListener actionListener) {
+        JButton button = new JButton(buttonText);
+        button.setBounds(x, y, 150, 30);
+        button.addActionListener(actionListener);
+        frame.add(button);
+    }
+
+    private static void addLabel(String labelText, int x, int y, int width, int height, Font font) {
+        JLabel label = new JLabel(labelText);
+        label.setBounds(x, y, width, height);
+        label.setFont(font);
+        frame.add(label);
+    }
+
+    private static Icon createColoredDotIcon(Color color) {
+        return new Icon() {
+            private static final int SIZE = 10;
+
+            @Override
+            public void paintIcon(Component c, Graphics g, int x, int y) {
+                g.setColor(color);
+                g.fillOval(x, y, SIZE, SIZE);
+            }
+
+            @Override
+            public int getIconWidth() {
+                return SIZE;
+            }
+
+            @Override
+            public int getIconHeight() {
+                return SIZE;
+            }
+        };
     }
 
     static class ColoredItem {
@@ -319,8 +258,7 @@ public class Init {
         }
 
         @Override
-        public Component getListCellRendererComponent(JList<? extends ColoredItem> list, ColoredItem value,
-                int index, boolean isSelected, boolean cellHasFocus) {
+        public Component getListCellRendererComponent(JList<? extends ColoredItem> list, ColoredItem value, int index, boolean isSelected, boolean cellHasFocus) {
             if (isSelected) {
                 setBackground(list.getSelectionBackground());
                 setForeground(list.getSelectionForeground());
@@ -334,27 +272,5 @@ public class Init {
 
             return this;
         }
-    }
-
-    private static Icon createColoredDotIcon(Color color) {
-        return new Icon() {
-            private static final int SIZE = 10;
-
-            @Override
-            public void paintIcon(Component c, Graphics g, int x, int y) {
-                g.setColor(color);
-                g.fillOval(x, y, SIZE, SIZE);
-            }
-
-            @Override
-            public int getIconWidth() {
-                return SIZE;
-            }
-
-            @Override
-            public int getIconHeight() {
-                return SIZE;
-            }
-        };
     }
 }

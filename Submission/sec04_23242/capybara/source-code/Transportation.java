@@ -6,6 +6,12 @@ public class Transportation extends Budget {
 
     public Transportation() {
         super();
+    } 
+    
+    public Transportation(String transportType, double transportCost) {
+        super();
+        this.transportType = transportType;
+        this.transportCost = transportCost; 
     }
 
     public void setName(String transportType) {

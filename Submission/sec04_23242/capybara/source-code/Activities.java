@@ -8,6 +8,13 @@ public class Activities extends Budget {
 
     public Activities() {
         super();
+    } 
+    
+    public Activities(String activityName, double activityCost, Color activityColor) {
+        super();
+        this.activityName = activityName;
+        this.activityCost = activityCost;
+        this.activityColor = activityColor;
     }
 
     public void setName(String activityName) {
