@@ -14,7 +14,7 @@ public class Administrator extends User {
         super(fn, ln, a, em, add);
         this.adminID = adminId;
         this.job = job;
-        this.stud = stud;
+        stud = new ArrayList<>();
         this.scholar = scholar;
         this.application = application;
     }

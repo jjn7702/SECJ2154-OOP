@@ -1,5 +1,5 @@
-enum Programs{
+enum Programs {
     UNDERGRADUATE,
     PREGRADUATE,
-    POSTGRADUATE ;
+    POSTGRADUATE;
 }
