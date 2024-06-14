@@ -385,7 +385,7 @@ class Kursus{
     }
 
     public void Display_Kursus_info(){
-        
+        System.out.printf("%-5s %-8s %-12s %-22s %-15s\n", kursusID, time, date, kursusPlace, nameUstaz);
     }
 }
 
