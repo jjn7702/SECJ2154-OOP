@@ -375,6 +375,18 @@ class Kursus{
     private String date;
     private String kursusPlace;
     private String nameUstaz;
+
+    public Kursus(String kursusID, String time, String date, String kursusPlace, String nameUstaz){
+        this.kursusID = kursusID;
+        this.time = time;
+        this.date = date;
+        this.kursusPlace = kursusPlace;
+        this.nameUstaz = nameUstaz;
+    }
+
+    public void Display_Kursus_info(){
+        
+    }
 }
 
 public class HajiUmrahApp {
