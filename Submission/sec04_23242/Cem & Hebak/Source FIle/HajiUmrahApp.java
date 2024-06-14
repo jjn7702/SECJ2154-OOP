@@ -370,7 +370,11 @@ enum Pelancongan_package {
 }
 
 class Kursus{
-    
+    private String kursusID;
+    private String time;
+    private String date;
+    private String kursusPlace;
+    private String nameUstaz;
 }
 
 public class HajiUmrahApp {
