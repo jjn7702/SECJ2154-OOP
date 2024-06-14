@@ -14,4 +14,13 @@ public class User {
         email = em;
         this.add = add;
     }
+
+    // public methods
+    public String toString() {
+        return "";// fName + " " + lName + " " + age + " " + email + " " + add;
+    }
+
+    public int getAge() {
+        return age;
+    }
 }
