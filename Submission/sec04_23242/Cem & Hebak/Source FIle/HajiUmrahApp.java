@@ -404,9 +404,9 @@ public class HajiUmrahApp {
         // Embassy pegawai3 = new Embassy("Nur Aisyah Binti Mohd", "013-987 6543", "940202-05-5678",
         //         "aisyah.mohd@gmail.com", "Bukit Indah", "Konsulat", "940202");
         // Embassy pegawai4 = new Embassy("Siti Khadijah Binti Ismail", "017-223 3445", "950303-10-6789",
-                "khadijah.ismail@gmail.com", "Taman Molek", "Jabatan Luar Negeri", "950303");
+        //        "khadijah.ismail@gmail.com", "Taman Molek", "Jabatan Luar Negeri", "950303");
         //Embassy pegawai5 = new Embassy("Zulhilmi Bin Yusof", "016-998 7766", "960404-02-9876",
-                "zul.yusof@gmail.com", "Nusa Bestari", "Kementerian Pertahanan", "960404");
+        //        "zul.yusof@gmail.com", "Nusa Bestari", "Kementerian Pertahanan", "960404");
 
         // Doctor doctor1 = new Doctor("Dr. Ahmad Ali", "012-345 6789", "870101-01-1234",
         //         "ahmad.ali@gmail.com", "Hospital Kuala Lumpur", "Cardiologist", "DOC12345");
@@ -514,7 +514,7 @@ public class HajiUmrahApp {
         kList.add(k3);
         kList.add(k4);
 
-        System.out.prinitf("%-5s %-8s %-12s %-22s %-15s\n, "ID", "Time", "Date", "Place", "Ustaz");
+        System.out.printf("%-5s %-8s %-12s %-22s %-15s\n", "ID", "Time", "Date", "Place", "Ustaz");
         for(Kursus k:kList){
             k.Display_Kursus_info();
         }
