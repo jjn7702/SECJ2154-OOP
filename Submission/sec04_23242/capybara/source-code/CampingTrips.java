@@ -11,9 +11,10 @@ class CampingTrips {
     public CampingTrips() {
     };
 
-    public CampingTrips(String name, String location, Vector<Budget> tripBudgets) {
+    public CampingTrips(String name, String location, DateAndTime dateTime, Vector<Budget> tripBudgets) {
         this.name = name;
         this.location = location;
+        this.dateTime = dateTime;
         this.budget = tripBudgets;
     };
 
@@ -23,6 +24,10 @@ class CampingTrips {
 
     public String getLocation() {
         return location;
+    }
+
+    public DateAndTime getDateTime() {
+        return dateTime;
     }
 
     public Vector<Budget> getBudgets() {
