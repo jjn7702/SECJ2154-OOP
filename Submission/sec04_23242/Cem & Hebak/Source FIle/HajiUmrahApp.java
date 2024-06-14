@@ -254,6 +254,41 @@ class Jemaah extends User {
     }
 }
 
+enum Pelancongan_package{
+    Package_1("Turki","Ahmad Kamal",3500.00,"Hotel D'Mesra","Turki Airline"), 
+    Package_2("Paris","Kamarul Abadi",4000.00,"Grand Hotel","MAS Airline"),
+    Pakcage_3("Istanbul","Faruk Gafar",5200.00,"Hotel Urduk","Air Asia"), 
+    Package_4("China","Abdul Ikmal",3550.00,"G Wagon Hotel","Emirates Airline");
+
+    private Vector <String> places;
+    private String tour_Guide;
+    private double price_Pelancongan;
+    private Vector <Hotel> hotel_Pelancongan;
+    private Vector <FLight> flight_Pelancongan;
+
+    FLight flight;
+    Hotel hotel;
+
+    private Pelancongan_package(String tour_Guide, double price_Pelancongan, Hotel hotel, FLight flight){
+       this.places = new Vector<>();
+       this.tour_Guide = tour_Guide;
+       this.price_Pelancongan = price_Pelancongan;
+       this.hotel_Pelancongan = new Vector<>();
+       this.flight_Pelancongan = new Vector<>();
+       this.flight = flight;
+       this.hotel = hotel;
+    }
+
+    public void display_Pelancongan_info(){
+
+    }
+
+    public void add_Hotel_Pelancongan(Hotel h){
+        
+    }
+
+}
+
 class FLight {
     private String flightID, dateGo, dateBack, departureTime, arrivalTime;
 
