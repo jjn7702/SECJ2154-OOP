@@ -385,7 +385,7 @@ class Kursus{
     }
 
     public void Display_Kursus_info(){
-        System.out.printf("%-5s %-8s %-12s %-22s %-15s\n", kursusID, time, date, kursusPlace, nameUstaz);
+        System.out.printf("%-5s %-8s %-12s %-30s %-15s\n", kursusID, time, date, kursusPlace, nameUstaz);
     }
 }
 
@@ -514,7 +514,7 @@ public class HajiUmrahApp {
         kList.add(k3);
         kList.add(k4);
 
-        System.out.printf("%-5s %-8s %-12s %-22s %-15s\n", "ID", "Time", "Date", "Place", "Ustaz");
+        System.out.printf("%-5s %-8s %-12s %-30s %-15s\n", "ID", "Time", "Date", "Place", "Ustaz");
         for(Kursus k:kList){
             k.Display_Kursus_info();
         }
