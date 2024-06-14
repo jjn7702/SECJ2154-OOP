@@ -369,6 +369,10 @@ enum Pelancongan_package {
 
 }
 
+class Kursus{
+    
+}
+
 public class HajiUmrahApp {
     public static void main(String[] args) {
         Scanner inp = new Scanner(System.in);
