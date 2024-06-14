@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -254,15 +255,18 @@ class Jemaah extends User {
     }
 }
 
-class FLight {
-    private String flightID, dateGo, dateBack, departureTime, arrivalTime;
+class Flight {
+    private String flightID, dateGo, dateBack, departureTime, arrivalTime, departurePlace, arrivalPlace;
 
-    public FLight(String flightID, String dateGo, String dateBack, String departureTime, String arrivalTime) {
+    public Flight(String flightID, String dateGo, String dateBack, String departureTime, String arrivalTime,
+            String departurePlace, String arrivalPlace) {
         this.flightID = flightID;
         this.dateGo = dateGo;
         this.dateBack = dateBack;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
+        this.departurePlace = departurePlace;
+        this.arrivalPlace = arrivalPlace;
     }
 
     public void display_Flight_Info() {
@@ -326,6 +330,41 @@ class Hotel {
             System.out.println();
         }
         System.out.println("No of room available: " + noRoom);
+    }
+
+}
+
+enum Pelancongan_package {
+
+    Packej1(new Vector<>(List.of("Turki", "Istanbul")), "Uso", 2500.00,
+            new Vector<>(List.of(new Flight("D23", "14/6/2024", "20/6/2024", "0500", "1300", "Mekah", "Jeddah"))),
+            new Vector<>(List.of(new Hotel("Hotel Istana", "73nruhhhhhhh", "Wilayah Persekutuan", 500))));
+    // new Vector<>(Vector.of(new Flight("D23", "14/6/2024", "20/6/2024", "0500",
+    // "1300", "Mekah", "Jeddah"))),
+    // new Vector<>(Vector.of(new Hotel("Hotel Istana", "73nruhhhhhhh", "Wilayah
+    // Persekutuan", 500))));
+
+    private Vector<String> places;
+    private String tour_Guide;
+    private double price_Pelancongan;
+    private Vector<Hotel> hotel_Pelancongan;
+    private Vector<Flight> flight_Pelancongan;
+
+    private Pelancongan_package(Vector<String> places, String tour_Guide, double price_Pelancongan,
+            Vector<Flight> flights, Vector<Hotel> hotels) {
+        this.places = places;
+        this.tour_Guide = tour_Guide;
+        this.price_Pelancongan = price_Pelancongan;
+        this.flight_Pelancongan = flights;
+        this.hotel_Pelancongan = hotels;
+    }
+
+    public void display_Pelancongan_info() {
+
+    }
+
+    public void add_Hotel_Pelancongan(Hotel h) {
+
     }
 
 }
@@ -397,6 +436,17 @@ public class HajiUmrahApp {
         Jemaah jemaah10 = new Jemaah("Siti Aminah Binti Abdul Rahman", "0123344556", "990505070707",
                 "siti.aminah@gmail.com",
                 "990505", 27, doctor5, pegawai5);
+
+        Flight penerbangan1 = new Flight("D23", "14/6/2024", "20/6/2024", "0500", "1300", "Mekah", "Jeddah");
+        Flight penerbangan2 = new Flight("A12", "15/6/2024", "21/6/2024", "0600", "1400", "Riyadh", "Dammam");
+        Flight penerbangan3 = new Flight("B34", "16/6/2024", "22/6/2024", "0700", "1500", "Doha", "Dubai");
+        Flight penerbangan4 = new Flight("C56", "17/6/2024", "23/6/2024", "0800", "1600", "Abu Dhabi", "Sharjah");
+        Flight penerbangan5 = new Flight("D78", "18/6/2024", "24/6/2024", "0900", "1700", "Kuwait City", "Manama");
+        Flight penerbangan6 = new Flight("E90", "19/6/2024", "25/6/2024", "1000", "1800", "Muscat", "Salalah");
+        Flight penerbangan7 = new Flight("F12", "20/6/2024", "26/6/2024", "1100", "1900", "Baghdad", "Basra");
+        Flight penerbangan8 = new Flight("G34", "21/6/2024", "27/6/2024", "1200", "2000", "Beirut", "Tripoli");
+        Flight penerbangan9 = new Flight("H56", "22/6/2024", "28/6/2024", "1300", "2100", "Amman", "Aqaba");
+        Flight penerbangan10 = new Flight("I78", "23/6/2024", "29/6/2024", "1400", "2200", "Cairo", "Alexandria");
 
         pegawai.add(pegawai1);
         pegawai.add(pegawai2);

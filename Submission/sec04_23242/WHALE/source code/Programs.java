@@ -1,0 +1,5 @@
+enum Programs {
+    UNDERGRADUATE,
+    PREGRADUATE,
+    POSTGRADUATE;
+}

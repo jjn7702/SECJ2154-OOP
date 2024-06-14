@@ -1,0 +1,20 @@
+72.0 Apple
+289.0 Bagel
+105.0 Banana
+153.0 Beer
+66.0 Bread
+102.0 Butter
+52.0 Carrots
+113.0 Cheddar cheese
+142.0 Chicken breast
+287.0 Chili with beans
+59.0 Chocolate chip cookie
+2.0 Coffee
+136.0 Cola
+180.0 Corn
+102.0 Egg
+59.0 Graham cracker
+193.0 Granola bar
+40.0 Green beans
+193.0 Ground beef patty
+137.0 Hot dog
