@@ -19,4 +19,26 @@ public class Student extends User {
         this.studhist = studhist;
     }
 
+    // getters and setters
+    public void setMajor(String major) {
+        this.major = major;
+    }
+    public void setCgpa(double CGPA) {
+
+    }
+    public String getMatricsNumber(){
+        return matricsNumber;
+    }
+    public String getMajor(){
+        return major;
+    }
+    public double getCgpa(){
+        return CGPA;
+    }
+
+    @Override
+    public String toString() {
+        return "";
+    }
+
 }
