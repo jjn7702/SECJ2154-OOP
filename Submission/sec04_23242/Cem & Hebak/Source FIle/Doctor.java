@@ -61,8 +61,8 @@ class Doctor extends User {
 
     }
 
-    public void Check_Medical_Application() {
-
+    public void Check_Medical_Application(Jemaah umat) {
+        
     }
 
     public void Update_Medical_Application() {
