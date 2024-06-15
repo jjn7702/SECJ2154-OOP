@@ -8,9 +8,6 @@ public class Init {
     private static final JFrame frame = new JFrame("Camping Trips Planner!");
     private static final Font headerFont = new Font("Arial", Font.BOLD, 18);
     private static final Font textFont = new Font("Arial", Font.PLAIN, 12);
-    private static final Vector <JTextField> foodNamesField = new Vector <>();
-    private static final Vector <JTextField> foodQuantitiesField = new Vector <>();
-    private static final Vector <JTextField> foodCostsField = new Vector <>();
 
     public static void main(String[] args) {
         initializeMainFrame();
@@ -79,43 +76,67 @@ public class Init {
     }
 
     private static void showAddFoodScreen(JTextField nameField, JTextField locationField,
-    JComboBox<String> transportTypeComboBox, JTextField transportCostField, JTextField activityNameField,
-    JTextField activityCostField, JComboBox<ColoredItem> colorComboBox){
-        frame.setSize(640,450);
+            JComboBox<String> transportTypeComboBox, JTextField transportCostField, JTextField activityNameField,
+            JTextField activityCostField, JComboBox<ColoredItem> colorComboBox) {
+        frame.setSize(950, 500);
         frame.getContentPane().removeAll();
         addLabel("Add New Trip | Food", 30, 1, 400, 100, headerFont);
         JPanel foodPanel = new JPanel();
-        foodPanel.setLayout(new BoxLayout(foodPanel,BoxLayout.Y_AXIS));
-        foodPanel.setBounds(30,80,500,230);
+        foodPanel.setLayout(new BoxLayout(foodPanel, BoxLayout.Y_AXIS));
+        foodPanel.setBounds(30, 80, 920, 300);
         frame.add(foodPanel);
-        addFoodField(foodPanel);
+
+        Vector<JTextField> foodNamesField = new Vector<>();
+        Vector<JTextField> foodQuantitiesField = new Vector<>();
+        Vector<JTextField> foodCostsField = new Vector<>();
+        Vector<JTextField> expiryDateFields = new Vector<>();
+        Vector<JCheckBox> isVegetarianFields = new Vector<>();
+
+        addFoodField(foodPanel, foodNamesField, foodQuantitiesField, foodCostsField, expiryDateFields,
+                isVegetarianFields);
 
         JButton addFoodButton = new JButton("Add More Food");
-        addFoodButton.setBounds(100, 320, 150,30);
-        addFoodButton.addActionListener(e -> addFoodField(foodPanel));
+        addFoodButton.setBounds(100, 400, 150, 30);
+        addFoodButton.addActionListener(e -> addFoodField(foodPanel, foodNamesField, foodQuantitiesField,
+                foodCostsField, expiryDateFields, isVegetarianFields));
         frame.add(addFoodButton);
         JButton addSaveButton = new JButton("Save Food");
-        addSaveButton.setBounds(300, 320, 150,30);
+        addSaveButton.setBounds(300, 400, 150, 30);
+
+        addSaveButton.addActionListener(e -> showAddDateTimeScreen(nameField, locationField, transportTypeComboBox,
+                transportCostField, activityNameField, activityCostField, colorComboBox, foodNamesField,
+                foodQuantitiesField, foodCostsField, expiryDateFields, isVegetarianFields));
         frame.add(addSaveButton);
 
     }
 
-    private static void addFoodField (JPanel panel){
+    private static void addFoodField(JPanel panel, Vector<JTextField> foodNamesField,
+            Vector<JTextField> foodQuantitiesField, Vector<JTextField> foodCostsField,
+            Vector<JTextField> expiryDateFields, Vector<JCheckBox> isVegetarianFields) {
         JTextField foodNameField = new JTextField();
         JTextField foodQuantityField = new JTextField();
         JTextField foodCostField = new JTextField();
+        JTextField expiryDateField = new JTextField();
+        JCheckBox isVegetarianField = new JCheckBox();
 
         foodNamesField.addElement(foodNameField);
         foodQuantitiesField.addElement(foodQuantityField);
         foodCostsField.add(foodCostField);
+        expiryDateFields.add(expiryDateField);
+        isVegetarianFields.add(isVegetarianField);
+
         JPanel foodItemPanel = new JPanel();
-        foodItemPanel.setLayout(new GridLayout(1, 3,10,10));
+        foodItemPanel.setLayout(new GridLayout(1, 6, 10, 10));
         foodItemPanel.add(new JLabel("Food Name"));
         foodItemPanel.add(foodNameField);
         foodItemPanel.add(new JLabel("Food Quantity"));
         foodItemPanel.add(foodQuantityField);
         foodItemPanel.add(new JLabel("Food Cost"));
         foodItemPanel.add(foodCostField);
+        foodItemPanel.add(new JLabel("Expiry Date"));
+        foodItemPanel.add(expiryDateField);
+        foodItemPanel.add(new JLabel("Vegetarian"));
+        foodItemPanel.add(isVegetarianField);
 
         panel.add(foodItemPanel);
         panel.revalidate();
@@ -124,12 +145,14 @@ public class Init {
 
     private static void showAddDateTimeScreen(JTextField nameField, JTextField locationField,
             JComboBox<String> transportTypeComboBox, JTextField transportCostField, JTextField activityNameField,
-            JTextField activityCostField, JComboBox<ColoredItem> colorComboBox) {
+            JTextField activityCostField, JComboBox<ColoredItem> colorComboBox, Vector<JTextField> foodNameFields,
+            Vector<JTextField> foodQuantitiesFields, Vector<JTextField> foodCostsFields,
+            Vector<JTextField> expiryDateFields, Vector<JCheckBox> isVegetarianFields) {
         frame.getContentPane().removeAll();
+        frame.setSize(450, 450);
 
         addLabel("Add New Trip | Date & Time", 30, 1, 400, 100, headerFont);
 
-        // Input fields untuk date and time
         JPanel datePanel = new JPanel(new FlowLayout());
         datePanel.add(new JLabel("YYYY:"));
         JTextField yearField = new JTextField(4);
@@ -161,22 +184,35 @@ public class Init {
         addButton("Save Trip", 270, 370,
                 e -> saveTrip(nameField, locationField, yearField, monthField, dayField, hourField, minuteField,
                         transportTypeComboBox, transportCostField, activityNameField, activityCostField,
-                        colorComboBox));
+                        colorComboBox, foodNameFields, foodQuantitiesFields, foodCostsFields, expiryDateFields,
+                        isVegetarianFields));
 
         frame.revalidate();
         frame.repaint();
     }
 
-    // Integrated date and time input validation and handling
     private static void saveTrip(JTextField nameField, JTextField locationField, JTextField yearField,
             JTextField monthField, JTextField dayField, JTextField hourField, JTextField minuteField,
             JComboBox<String> transportTypeComboBox, JTextField transportCostField, JTextField activityNameField,
-            JTextField activityCostField, JComboBox<ColoredItem> colorComboBox) {
+            JTextField activityCostField, JComboBox<ColoredItem> colorComboBox, Vector<JTextField> foodNameFields,
+            Vector<JTextField> foodQuantitiesFields, Vector<JTextField> foodCostsFields,
+            Vector<JTextField> expiryDateFields, Vector<JCheckBox> isVegetarianFields) {
         Vector<Budget> tripBudgets = new Vector<>();
+        Vector<Item> items = new Vector<>();
 
         String transportType = (String) transportTypeComboBox.getSelectedItem();
         if ("Miscellaneous".equals(transportType)) {
             transportType = JOptionPane.showInputDialog("Enter your transportation type:");
+        }
+
+        for (int i = 0; i < foodNameFields.size(); i++) {
+            String name = foodNameFields.get(i).getText();
+            int quantity = Integer.parseInt(foodQuantitiesFields.get(i).getText());
+            double cost = Double.parseDouble(foodCostsFields.get(i).getText());
+            String expiryDate = expiryDateFields.get(i).getText();
+            boolean isVegetarian = isVegetarianFields.get(i).isSelected();
+
+            items.add(new Food(name, quantity, cost, expiryDate, isVegetarian));
         }
 
         double transportCost = Double.parseDouble(transportCostField.getText());
@@ -186,7 +222,6 @@ public class Init {
         String date = yearField.getText() + "-" + monthField.getText() + "-" + dayField.getText();
         String time = hourField.getText() + ":" + minuteField.getText();
 
-        // Validate date & time
         if (DateAndTime.isValidDate(date) && DateAndTime.isValidTime(time)) {
             DateAndTime dateTime = new DateAndTime(date, time);
             Transportation transport = new Transportation(transportType, transportCost);
@@ -195,8 +230,9 @@ public class Init {
             tripBudgets.add(transport);
             tripBudgets.add(activities);
 
-            campingTrips.add(new CampingTrips(nameField.getText(), locationField.getText(), dateTime, tripBudgets));
-            showSavedTripDetail(transport, activities, dateTime);
+            campingTrips
+                    .add(new CampingTrips(nameField.getText(), locationField.getText(), dateTime, tripBudgets, items));
+            showSavedTripDetail(transport, activities, dateTime, items);
         } else {
             JOptionPane.showMessageDialog(null, "Invalid date or time format. Please try again.", "Error",
                     JOptionPane.ERROR_MESSAGE);
@@ -204,7 +240,8 @@ public class Init {
     }
 
     // Display date & time in saved trip details
-    private static void showSavedTripDetail(Transportation transport, Activities activities, DateAndTime dateTime) {
+    private static void showSavedTripDetail(Transportation transport, Activities activities, DateAndTime dateTime,
+            Vector<Item> foods) {
         double totalCost = transport.getCost() + activities.getCost();
         String totalBudgetStr = String.format("Total Budget: RM" + totalCost);
         frame.getContentPane().removeAll();

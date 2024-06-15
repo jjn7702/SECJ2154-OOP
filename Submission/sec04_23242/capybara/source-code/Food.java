@@ -1,27 +1,20 @@
 public class Food extends Item {
-    private String expirationDate; // expirationDate for Packet Food
-    private String type; //Fruit, Lunch meal, Breakfast, Dinner, Packet food 
+    private String expirationDate; // expirationDate for Packet Food // Fruit, Lunch meal, Breakfast, Dinner, //
+                                   // Packet food
     private boolean isVegetarian;
 
-    public Food (String n, int q, double p, String d, String e, String t){
-        super(n,q,p,d);
+    public Food(String n, int q, double p, String e, Boolean t) {
+        super(n, q, p);
         expirationDate = e;
-        type = t;
-    }
-
-    public String getExpirationDate() {
-        if(type == "Packet Food")
-            return expirationDate;
-        else 
-            return "None";
-    }
-
-    public String getType() {
-        return type;
+        isVegetarian = t;
     }
 
     public boolean isVegetarian() {
         return isVegetarian;
+    }
+
+    public String getExpirationDate() {
+        return expirationDate;
     }
 
     public void addQuantity(int amount) {
@@ -33,4 +26,3 @@ public class Food extends Item {
         }
     }
 }
-

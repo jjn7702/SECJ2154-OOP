@@ -6,12 +6,13 @@ class CampingTrips {
     private String location;
     private DateAndTime dateTime;
     private Vector<Budget> budget = new Vector<Budget>();
-    private Item items;
+    private Vector<Item> item = new Vector<Item>();
 
     public CampingTrips() {
     };
 
-    public CampingTrips(String name, String location, DateAndTime dateTime, Vector<Budget> tripBudgets) {
+    public CampingTrips(String name, String location, DateAndTime dateTime, Vector<Budget> tripBudgets,
+            Vector<Item> item) {
         this.name = name;
         this.location = location;
         this.dateTime = dateTime;
