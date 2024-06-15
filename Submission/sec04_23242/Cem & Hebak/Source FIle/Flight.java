@@ -20,5 +20,7 @@ public class Flight {
         System.out.println("Date of arrival: " + dateBack);
         System.out.println("Departure time: " + departureTime);
         System.out.println("Arrival time: " + arrivalTime);
+        System.out.println("Departure Location: " + departurePlace);
+        System.out.println("Arrival Location: " + arrivalPlace);
     }
 }
