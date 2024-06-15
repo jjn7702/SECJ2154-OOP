@@ -63,12 +63,12 @@ class Doctor extends User {
 
     public void Medical_Application(Jemaah umat) {
 
-        int choice, choice2, choice3;
+        int choice, choice2;
 
         do {
 
-            System.out.println(
-                    "[1] Check Medical Application\n[2] Medical Application Approval\n[3] State Disease\n[4] Prescribe Medication\n[5] Exit");
+            System.out.print(
+                    "[1] Check Medical Application\n[2] Medical Application Approval\n[3] State Disease\n[4] Prescribe Medication\n[5] Exit\nYour Choice: ");
             choice = inp.nextInt();
             switch (choice) {
                 case 1:
@@ -81,7 +81,7 @@ class Doctor extends User {
                     // 1 failed
                     // 0 pending
                     umat.display_Jemaah_Info();
-                    System.out.println("[1] Approve\n[2] Failed");
+                    System.out.print("[1] Approve\n[2] Failed\nYour Choice: ");
                     int choice4 = inp.nextInt();
 
                     umat.setApproval_from_doctor(choice4);
@@ -97,7 +97,7 @@ class Doctor extends User {
                         System.out.println("Please State the Jemaah Disease:");
                         String input_Penyakit = inp.nextLine();
                         umat.setPenyakit(input_Penyakit);
-                        System.out.println("[1] to continue\n[2] to exit");
+                        System.out.print("[1] to continue\n[2] to exit\nYour Choice: ");
                         choice2 = inp.nextInt();
                         inp.nextLine();
 
@@ -112,7 +112,7 @@ class Doctor extends User {
                         System.out.println("Please State the Jemaah Medicine:");
                         String input_Medicine = inp.nextLine();
                         umat.setUbat(input_Medicine);
-                        System.out.println("[1] to continue\n[2] to exit");
+                        System.out.println("[1] to continue\n[2] to exit\nYour Choice: ");
                         choice2 = inp.nextInt();
                         inp.nextLine();
 

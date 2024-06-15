@@ -117,10 +117,10 @@ public class HajiUmrahApp {
                 jemaah.add(jemaah9);
                 jemaah.add(jemaah10);
 
-                for (int i = 0; i < jemaah.size(); i++) {
-                        System.out.println("========== JEMAAH " + (i + 1) + " ==========");
-                        jemaah.get(i).display_Jemaah_Info();
-                }
+                // for (int i = 0; i < jemaah.size(); i++) {
+                // System.out.println("========== JEMAAH " + (i + 1) + " ==========");
+                // jemaah.get(i).display_Jemaah_Info();
+                // }
 
                 // trying to display Kursus information
                 Vector<Kursus> kList = new Vector<>();
@@ -136,10 +136,14 @@ public class HajiUmrahApp {
                 kList.add(k3);
                 kList.add(k4);
 
-                System.out.printf("%-5s %-8s %-12s %-30s %-15s\n", "ID", "Time", "Date", "Place", "Ustaz");
-                for (Kursus k : kList) {
-                        k.Display_Kursus_info();
-                }
+                // System.out.printf("%-5s %-8s %-12s %-30s %-15s\n", "ID", "Time", "Date",
+                // "Place", "Ustaz");
+                // for (Kursus k : kList) {
+                // k.Display_Kur1sus_info();
+                // }
+
+                jemaah.get(0).checkKesihatan();
+                jemaah.get(0).checkVisa();
 
                 inp.close();
         }

@@ -97,7 +97,7 @@ public class Jemaah extends User {
                 break;
         }
 
-        if (approval_from_doctor == 2 && approval_from_embassy == 2) {
+        if (approval_from_doctor == 1 && approval_from_embassy == 1) {
             Approval = "Approve";
         } else if (approval_from_doctor == 0 && approval_from_embassy == 0) {
             Approval = "Pending";
@@ -139,7 +139,7 @@ public class Jemaah extends User {
     }
 
     public void checkVisa() {
-        // embassy
+        embassy.Visa_Application(this);
     }
 
 }
