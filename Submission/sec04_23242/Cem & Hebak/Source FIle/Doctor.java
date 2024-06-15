@@ -11,6 +11,7 @@ class Doctor extends User {
         this.hospital = hospital;
         this.position = position;
         this.doctor_Number = doctor_Number;
+        //try from faiz pc visual studio code
     }
 
     public String getHospital() {
