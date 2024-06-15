@@ -1,7 +1,7 @@
 import javax.swing.JOptionPane;
 import java.awt.Color;
 
-public class Activities extends Budget {
+public class Activities extends Budget {//class kugan hantar
     private String activityName;
     private double activityCost;
     private Color activityColor;
