@@ -2,17 +2,18 @@ import java.util.ArrayList;
 
 public class Administrator extends User {
     // Private attributes
-    public String adminID;
+    public String username;
     private String job;
     private ArrayList<Student> stud;
     private Scholarship scholar;
     private Apply application;
 
     // Public constructor
-    public Administrator(String fn, String ln, int a, String em, Address add, String adminId, String job,
+    
+    public Administrator(String fn, String ln, int a, String em, Address add, String username, String job,
             ArrayList<Student> stud, Scholarship scholar, Apply application) {
         super(fn, ln, a, em, add);
-        this.adminID = adminId;
+        this.username = adminId;
         this.job = job;
         stud = new ArrayList<>();
         this.scholar = scholar;

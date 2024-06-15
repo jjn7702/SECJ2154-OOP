@@ -19,7 +19,8 @@ public class ScholarshipApp {
                 registerAdministrator();
                 countAdmin++;
             } else if (rs == 'N') {
-                signInAdministrator();
+                Administrator ad = new Administrator() ;
+                ad = signInAdministrator();
             } else {
                 System.out.println("Invalid choice. Please enter Y or N.");
             }
@@ -28,7 +29,7 @@ public class ScholarshipApp {
         inp.close();
     }
 
-    private static void registerAdministrator() {
+    private static registerAdministrator() {
         try {
             System.out.println("---------- Personal Information ----------");
             System.out.print("FIRST NAME:\t");
@@ -40,6 +41,8 @@ public class ScholarshipApp {
             inp.nextLine(); // Consume newline
             System.out.print("EMAIL:\t");
             String email = inp.nextLine();
+            System.out.print("POSITION:\t") ;
+            String posi = inp.nextLine() ;
 
             System.out.println("---------- Address Information ----------");
             System.out.print("STREET:\t");
@@ -69,7 +72,7 @@ public class ScholarshipApp {
         }
     }
 
-    private static void signInAdministrator() {
+    private static Administrator signInAdministrator(Administrator fd) {
         System.out.println("---------- Sign In ----------");
         System.out.print("ENTER YOUR USERNAME:\t");
         String us = inp.next();
