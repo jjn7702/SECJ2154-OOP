@@ -3,7 +3,6 @@ import java.io.*;
 
 public class ScholarshipApp {
     static Scanner inp = new Scanner(System.in);
-    static int countAdmin = 0 ;
 
     public static void main(String[] args) throws IOException {
         System.out.println("---------- WHALE SCHOLARSHIP ----------");
