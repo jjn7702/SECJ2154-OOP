@@ -16,7 +16,7 @@ public enum Pelancongan_Package {
     private Vector<Hotel> hotel_Pelancongan;
     private Vector<Flight> flight_Pelancongan;
 
-    private Pelancongan_package(Vector<String> places, String tour_Guide, double price_Pelancongan,
+    private Pelancongan_Package(Vector<String> places, String tour_Guide, double price_Pelancongan,
             Vector<Flight> flights, Vector<Hotel> hotels) {
         this.places = places;
         this.tour_Guide = tour_Guide;
