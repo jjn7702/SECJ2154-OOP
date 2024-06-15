@@ -1,30 +1,37 @@
+import java.util.List;
 import java.util.Vector;
 
 public enum Haji_Umrah_Package {
     // package 1 = haji ifrad (haji pastu umrah)
-    PACKAGE1("Haji", "Umrah",
-            new Flight("AA", "22 May 2024", "22 July 2024", "12:00 AM", "5:30 PM", "Mekkah", "Malaysia"),
-            new Hotel("Hotel Oyo", "Mekkah", "2 person", 219),
-            new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji")),
+    IFRAD("Haji", "Umrah",
+        new Vector<>(List.of(new Flight("AA", "22 May 2024", "22 July 2024", "0000", "1730", "KLIA", "Jeddah"))),
+        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219))), // use 3-arg hotel constructor
+        new Vector<>(List.of(new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"))),
+        15000),
     // package 2 = haji qiran (haji dan umrah serentak)
-    PACKAGE2("Haji dan Umrah",
-            new Flight("MAS", "30 May 2024", "30 Jun 2024", "12:00 AM", "5:30 PM", "Mekkah", "Malaysia"),
-            new Hotel("Hotel Oyo", "Mekkah", "2 person", 219),
-            new Kursus("0002", "12:00 PM", "12 May 2024", "DSI", "Don")),
+    QIRAN("Haji dan Umrah",
+        new Vector<>(List.of(new Flight("MAS", "30 May 2024", "30 Jun 2024", "0000", "1730", "KLIA", "Jeddah"))),
+        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219))), // use 3-arg hotel constructor
+        new Vector<>(List.of(new Kursus("0002", "12:00 PM", "12 May 2024", "DSI", "Don"))),
+        20000),
     // package 3 = haji tamattuk (umrah dan haji)
-    PACKAGE3("Umrah", new Flight("AA", "22 May 2024", "10 Jun 2024", "12:00 AM", "5:30 PM", "Mekkah", "Malaysia"),
-            new Hotel("Hotel Oyo", "Mekkah", "2 person", 219),
-            new Kursus("0003", "3:30 PM", "12 May 2024", "DSI", "Kazim"), "Haji"),
+    TAMATTUK("Haji", "Umrah",
+        new Vector<>(List.of(new Flight("AA", "22 May 2024", "10 Jun 2024", "0320", "1120", "KLIA", "Jeddah"))),
+        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219))), // use 3-arg hotel constructor 
+        new Vector<>(List.of(new Kursus("0003", "3:30 PM", "12 May 2024", "DSI", "Kazim"))),
+        15000),
     // package 4 = haji sahaja
-    PACKAGE4("Haji", null,
-            new Flight("AA", "22 May 2024", "22 July 2024", "12:00 AM", "5:30 PM", "Mekkah", "Malaysia"),
-            new Hotel("Hotel Oyo", "Mekkah", "2 person", 219),
-            new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji")),
+    HAJI("Haji", null,
+        new Vector<>(List.of(new Flight("AA", "22 May 2024", "22 July 2024", "0415", "1215", "KLIA", "Jeddah"))),
+        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219))), // use 3-arg hotel constructor
+        new Vector<>(List.of(new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"))),
+        10000),
     // package 5 = umrah sahaja
-    PACKAGE5(null, "Umrah",
-            new Flight("AA", "22 May 2024", "22 July 2024", "12:00 AM", "5:30 PM", "Mekkah", "Malaysia"),
-            new Hotel("Hotel Oyo", "Mekkah", "2 person", 219),
-            new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"));
+    UMRAH(null, "Umrah",
+        new Vector<>(List.of(new Flight("AA", "22 May 2024", "22 July 2024", "0045", "0545", "KLIA", "Jeddah"))),
+        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219))), // use 3-arg hotel constructor
+        new Vector<>(List.of(new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji")),
+        5000);
     // buat lagi 2 pakej, untuk haji ifrad, qiran, tamattuk pastu ko comment kan
     // package 1 = haji ifrad (haji pastu umrah)
     // package 2 = haji qiran (haji dan umrah serentak)
@@ -50,44 +57,34 @@ public enum Haji_Umrah_Package {
     private String Haji;
     private String Umrah;
     private String Haji_Umrah;
-    private Flight depart;
+    //private Flight depart;
     private Vector<Flight> flight_Ibadah;
-    private Hotel h1;
+    //private Hotel h1;
     private Vector<Hotel> hotel_Ibadah;
-    private Kursus kursus;
+    //private Kursus kursus;
     private Vector<Kursus> kursus_Ibadah;
+    private Pelancongan_Package plgPkg;
     private double price;
 
-    private Haji_Umrah_Package(String Haji, String Umrah, Flight depart, Hotel h1, Kursus kursus) {
+    private Haji_Umrah_Package(String Haji, String Umrah, Vector<Flight> flight_Ibadah, Vector<Hotel> hotel_Ibadah, Vector<Kursus> kursus_Ibadah, double price) {
         this.Haji = Haji;
         this.Umrah = Umrah;
-        this.depart = depart;
-        this.h1 = h1;
-        this.kursus = kursus;
-        flight_Ibadah = new Vector<>();
-        hotel_Ibadah = new Vector<>();
-        kursus_Ibadah = new Vector<>();
+        this.flight_Ibadah = flight_Ibadah;
+        this.hotel_Ibadah = hotel_Ibadah;
+        this.kursus_Ibadah = kursus_Ibadah;
+        this.price = price;
     }
 
-    private Haji_Umrah_Package(String Umrah, Flight depart, Hotel h1, Kursus kursus, String Haji) {
-        this.Haji = Haji;
-        this.Umrah = Umrah;
-        this.depart = depart;
-        this.h1 = h1;
-        this.kursus = kursus;
-        flight_Ibadah = new Vector<>();
-        hotel_Ibadah = new Vector<>();
-        kursus_Ibadah = new Vector<>();
-    }
-
-    private Haji_Umrah_Package(String Haji_Umrah, Flight depart, Hotel h1, Kursus kursus) {
+    private Haji_Umrah_Package(String Haji_Umrah, Vector<Flight> flight_Ibadah, Vector<Hotel> hotel_Ibadah, Vector<Kursus> kursus, double price) {
         this.Haji_Umrah = Haji_Umrah;
-        this.depart = depart;
-        this.h1 = h1;
-        this.kursus = kursus;
-        flight_Ibadah = new Vector<>();
-        hotel_Ibadah = new Vector<>();
-        kursus_Ibadah = new Vector<>();
+        this.flight_Ibadah = flight_Ibadah;
+        this.hotel_Ibadah = hotel_Ibadah;
+        this.kursus_Ibadah = kursus_Ibadah;
+        this.price = price;
+    }
+
+    public void add_Pelancongan_Package(Pelancongan_Package p){
+        
     }
 
     public void Display_Pakej_Info() {
