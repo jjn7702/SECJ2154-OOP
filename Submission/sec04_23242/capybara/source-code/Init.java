@@ -8,6 +8,9 @@ public class Init {
     private static final JFrame frame = new JFrame("Camping Trips Planner!");
     private static final Font headerFont = new Font("Arial", Font.BOLD, 18);
     private static final Font textFont = new Font("Arial", Font.PLAIN, 12);
+    private static final Vector <JTextField> foodNamesField = new Vector <>();
+    private static final Vector <JTextField> foodQuantitiesField = new Vector <>();
+    private static final Vector <JTextField> foodCostsField = new Vector <>();
 
     public static void main(String[] args) {
         initializeMainFrame();
@@ -68,11 +71,55 @@ public class Init {
                 new ColoredItem("Others", Color.BLUE)
         });
 
-        addButton("Next", 270, 370, e -> showAddDateTimeScreen(nameField, locationField, transportTypeComboBox,
+        addButton("Next", 270, 370, e -> showAddFoodScreen(nameField, locationField, transportTypeComboBox,
                 transportCostField, activityNameField, activityCostField, colorComboBox));
 
         frame.revalidate();
         frame.repaint();
+    }
+
+    private static void showAddFoodScreen(JTextField nameField, JTextField locationField,
+    JComboBox<String> transportTypeComboBox, JTextField transportCostField, JTextField activityNameField,
+    JTextField activityCostField, JComboBox<ColoredItem> colorComboBox){
+        frame.setSize(640,450);
+        frame.getContentPane().removeAll();
+        addLabel("Add New Trip | Food", 30, 1, 400, 100, headerFont);
+        JPanel foodPanel = new JPanel();
+        foodPanel.setLayout(new BoxLayout(foodPanel,BoxLayout.Y_AXIS));
+        foodPanel.setBounds(30,80,500,230);
+        frame.add(foodPanel);
+        addFoodField(foodPanel);
+
+        JButton addFoodButton = new JButton("Add More Food");
+        addFoodButton.setBounds(100, 320, 150,30);
+        addFoodButton.addActionListener(e -> addFoodField(foodPanel));
+        frame.add(addFoodButton);
+        JButton addSaveButton = new JButton("Save Food");
+        addSaveButton.setBounds(300, 320, 150,30);
+        frame.add(addSaveButton);
+
+    }
+
+    private static void addFoodField (JPanel panel){
+        JTextField foodNameField = new JTextField();
+        JTextField foodQuantityField = new JTextField();
+        JTextField foodCostField = new JTextField();
+
+        foodNamesField.addElement(foodNameField);
+        foodQuantitiesField.addElement(foodQuantityField);
+        foodCostsField.add(foodCostField);
+        JPanel foodItemPanel = new JPanel();
+        foodItemPanel.setLayout(new GridLayout(1, 3,10,10));
+        foodItemPanel.add(new JLabel("Food Name"));
+        foodItemPanel.add(foodNameField);
+        foodItemPanel.add(new JLabel("Food Quantity"));
+        foodItemPanel.add(foodQuantityField);
+        foodItemPanel.add(new JLabel("Food Cost"));
+        foodItemPanel.add(foodCostField);
+
+        panel.add(foodItemPanel);
+        panel.revalidate();
+        panel.repaint();
     }
 
     private static void showAddDateTimeScreen(JTextField nameField, JTextField locationField,
