@@ -2,7 +2,6 @@ import java.util.Vector;
 
 public enum Haji_Umrah_Package {
     // package 1 = haji ifrad (haji pastu umrah)
-
     PACKAGE1("Haji", "Umrah",
             new Flight("AA", "22 May 2024", "22 July 2024", "12:00 AM", "5:30 PM", "Mekkah", "Malaysia"),
             new Hotel("Hotel Oyo", "Mekkah", "2 person", 219),
