@@ -130,7 +130,7 @@ public class HajiUmrahApp {
                                 "Ustaz Daniyel Don");
                 Kursus k4 = new Kursus("0004", "9:00 AM", "25 May 2024", "Dewan Pak Munawir",
                                 "Ustaz Zim Zim Ala Kazzim");
-
+                // try from pc faiz 12.47
                 kList.add(k1);
                 kList.add(k2);
                 kList.add(k3);
