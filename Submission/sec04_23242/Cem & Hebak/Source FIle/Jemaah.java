@@ -99,7 +99,7 @@ public class Jemaah extends User {
 
         if (approval_from_doctor == 1 && approval_from_embassy == 1) {
             Approval = "Approve";
-        } else if (approval_from_doctor == 0 && approval_from_embassy == 0) {
+        } else if (approval_from_doctor == 0 || approval_from_embassy == 0) {
             Approval = "Pending";
         } else {
             Approval = "Failed";
