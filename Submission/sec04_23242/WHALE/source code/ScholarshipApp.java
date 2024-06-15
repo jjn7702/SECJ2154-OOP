@@ -3,11 +3,11 @@ import java.io.*;
 
 public class ScholarshipApp {
     static Scanner inp = new Scanner(System.in);
+    static int countAdmin = 0 ;
 
     public static void main(String[] args) throws IOException {
         System.out.println("---------- WHALE SCHOLARSHIP ----------");
         System.out.println("Are you a Student or an Administrator?");
-        int countAdmin = 0;
 
         System.out.print("[0]\tStudent\n[1]\tAdministrator\n");
         int choice = inp.nextInt();
@@ -79,22 +79,19 @@ public class ScholarshipApp {
 
         boolean authenticated = false;
 
-        // Try to authenticate with "Admin" + us + ".txt"
-        authenticated = authenticateUser("Admin" + us + ".txt", us, pass);
+        File file = new File("Submission/sec04_23242/WHALE/source code/Admin" + us + ".txt") ;
+        //Submission/sec04_23242/WHALE/source code/Adminhazim.txt
 
-        // If not authenticated and username is "haziq", try "Admintaiman.txt"
-        if (!authenticated && us.equals("haziq")) {
-            authenticated = authenticateUser("Admintaiman.txt", us, pass);
-        }
+        authenticated = authenticateUser(file, us, pass) ;
 
         if (!authenticated) {
             System.out.println("Authentication failed. Incorrect username or password.");
         }
     }
 
-    private static boolean authenticateUser(String fileName, String username, String password) {
+    private static boolean authenticateUser(File file, String username, String password) {
         try {
-            File file = new File(fileName);
+            System.out.print("Inside the file") ;
             Scanner fileScanner = new Scanner(file);
 
             // Read the username and password from the file
@@ -131,11 +128,11 @@ public class ScholarshipApp {
                 System.out.println("State: " + state);
 
                 fileScanner.close();
-                return true;
             }
+            return true ;
 
-            fileScanner.close();
-        } catch (FileNotFoundException e) {
+        }  
+        catch (FileNotFoundException e) {
             // If file is not found, continue to next authentication attempt
         }
 
