@@ -7,7 +7,6 @@ public class Init {
     private static final Vector<CampingTrips> campingTrips = new Vector<>();
     private static final JFrame frame = new JFrame("Camping Trips Planner!");
     private static final Font headerFont = new Font("Arial", Font.BOLD, 18);
-    private static final Font textFont = new Font("Arial", Font.PLAIN, 12);
 
     public static void main(String[] args) {
         initializeMainFrame();
@@ -212,7 +211,12 @@ public class Init {
             String expiryDate = expiryDateFields.get(i).getText();
             boolean isVegetarian = isVegetarianFields.get(i).isSelected();
 
-            items.add(new Food(name, quantity, cost, expiryDate, isVegetarian));
+            Food food = new Food(name, quantity, cost, expiryDate, isVegetarian);
+            items.add(food);
+
+            // Debugging: Print each food item to confirm it is created correctly
+            System.out.println("Food Item: " + food.getName() + ", Quantity: " + food.getQuantity() + ", Cost: RM"
+                    + food.getPrice());
         }
 
         double transportCost = Double.parseDouble(transportCostField.getText());
@@ -230,48 +234,23 @@ public class Init {
             tripBudgets.add(transport);
             tripBudgets.add(activities);
 
-            campingTrips
-                    .add(new CampingTrips(nameField.getText(), locationField.getText(), dateTime, tripBudgets, items));
-            showSavedTripDetail(transport, activities, dateTime, items);
+            CampingTrips trip = new CampingTrips(nameField.getText(), locationField.getText(), dateTime, tripBudgets,
+                    items);
+            campingTrips.add(trip);
+
+            // Debugging: Print the trip details to confirm it is created correctly
+            System.out.println("Trip Saved: " + trip.getName() + ", Location: " + trip.getLocation());
+            showTrips();
         } else {
             JOptionPane.showMessageDialog(null, "Invalid date or time format. Please try again.", "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    // Display date & time in saved trip details
-    private static void showSavedTripDetail(Transportation transport, Activities activities, DateAndTime dateTime,
-            Vector<Item> foods) {
-        double totalCost = transport.getCost() + activities.getCost();
-        String totalBudgetStr = String.format("Total Budget: RM" + totalCost);
-        frame.getContentPane().removeAll();
-        addLabel("Saved Trip Detail", 30, 1, 200, 100, headerFont);
-
-        addLabel(totalBudgetStr, 30, 80, 300, 30, textFont);
-        addLabel("Transport Type: " + transport.getName(), 30, 120, 300, 30, textFont);
-        addLabel("Transport Cost: RM" + transport.getCost(), 30, 160, 300, 30, textFont);
-        addLabel("Activity Name: " + activities.getName(), 30, 200, 300, 30, textFont);
-        addLabel("Activity Cost: RM" + activities.getCost(), 30, 240, 300, 30, textFont);
-        addLabel("Activity Color: ", 30, 280, 300, 30, textFont);
-
-        // Added date & time display
-        addLabel("Trip Date: " + dateTime.getDate(), 30, 320, 300, 30, textFont);
-        addLabel("Trip Time: " + dateTime.getTime(), 30, 360, 300, 30, textFont);
-
-        JLabel colorDisplay = new JLabel(createColoredDotIcon(activities.getColor()));
-        colorDisplay.setBounds(150, 310, 30, 30);
-        frame.add(colorDisplay);
-
-        addButton("Back to Main Menu", 30, 400, e -> showMainMenu());
-
-        frame.revalidate();
-        frame.repaint();
-    }
-
     // Display date & time in trip list
     private static void showTrips() {
         frame.getContentPane().removeAll();
-
+        frame.setSize(600, 600);
         addLabel("All Trips", 30, 1, 200, 100, headerFont);
 
         JTextArea tripsArea = new JTextArea();
@@ -280,7 +259,7 @@ public class Init {
         tripsArea.setWrapStyleWord(true);
 
         JScrollPane scrollPane = new JScrollPane(tripsArea);
-        scrollPane.setBounds(30, 80, 380, 270);
+        scrollPane.setBounds(30, 80, 500, 370);
         frame.add(scrollPane);
 
         StringBuilder tripsText = new StringBuilder();
@@ -301,11 +280,23 @@ public class Init {
                     tripsText.append("  Activity Cost: RM").append(activity.getCost()).append("\n");
                 }
             }
+
+            tripsText.append(" Foods:\n");
+            for (Item item : trip.getItems()) {
+                if (item instanceof Food) {
+                    Food food = (Food) item;
+                    tripsText.append("  Food Name: ").append(food.getName()).append("\n");
+                    tripsText.append("  Quantity: ").append(food.getQuantity()).append("\n");
+                    tripsText.append("  Price: RM").append(food.getPrice()).append("\n");
+                    tripsText.append("  Expiration Date: ").append(food.getExpirationDate()).append("\n");
+                    tripsText.append("  Vegetarian: ").append(food.isVegetarian() ? "Yes" : "No").append("\n");
+                }
+            }
             tripsText.append("\n");
         }
         tripsArea.setText(tripsText.toString());
 
-        addButton("Back to Main Menu", 30, 360, e -> showMainMenu());
+        addButton("Back to Main Menu", 30, 460, e -> showMainMenu());
 
         frame.revalidate();
         frame.repaint();

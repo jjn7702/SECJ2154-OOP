@@ -17,6 +17,7 @@ class CampingTrips {
         this.location = location;
         this.dateTime = dateTime;
         this.budget = tripBudgets;
+        this.item = item;
     };
 
     public String getName() {
@@ -33,5 +34,9 @@ class CampingTrips {
 
     public Vector<Budget> getBudgets() {
         return budget;
+    }
+
+    public Vector<Item> getItems() {
+        return item;
     }
 }
