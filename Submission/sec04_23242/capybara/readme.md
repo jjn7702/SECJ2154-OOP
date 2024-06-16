@@ -4,7 +4,7 @@
 
 ## Table of Contents  
 [What it does?](#-what-it-does)  
-[Technical Implementation](%EF%B8%8F-technical-implementation)  
+[Technical Implementation](#table-of-contents%EF%B8%8F-technical-implementation)  
 
 <img src="https://media.giphy.com/media/26gsvCk59AwGX28XS/giphy.gif" alt="Camping GIF" width="600"/>
 
