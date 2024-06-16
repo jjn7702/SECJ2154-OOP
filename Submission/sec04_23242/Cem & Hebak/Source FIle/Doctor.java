@@ -11,7 +11,7 @@ class Doctor extends User {
         this.hospital = hospital;
         this.position = position;
         this.doctor_Number = doctor_Number;
-        //try from faiz pc visual studio code
+        // try from faiz pc visual studio code
     }
 
     public String getHospital() {
@@ -61,15 +61,67 @@ class Doctor extends User {
 
     }
 
-    public void Check_Medical_Application(Jemaah umat) {
-        
-    }
+    public void Medical_Application(Jemaah umat) {
 
-    public void Update_Medical_Application() {
+        int choice, choice2;
 
-    }
+        do {
 
-    public void Update_Prescribe_Medication() {
+            System.out.print(
+                    "[1] Check Medical Application\n[2] Medical Application Approval\n[3] State Disease\n[4] Prescribe Medication\n[5] Exit\nYour Choice: ");
+            choice = inp.nextInt();
+            switch (choice) {
+                case 1:
+                    // display jemaah info
+                    umat.display_Jemaah_Info();
+                    break;
+                case 2:
+                    // Medical Application Approval
+                    // 2 approve
+                    // 1 failed
+                    // 0 pending
+                    umat.display_Jemaah_Info();
+                    System.out.print("[1] Approve\n[2] Failed\nYour Choice: ");
+                    int choice4 = inp.nextInt();
+
+                    umat.setApproval_from_doctor(choice4);
+
+                    break;
+                case 3:
+
+                    // state disease
+
+                    inp.nextLine();
+                    do {
+
+                        System.out.println("Please State the Jemaah Disease:");
+                        String input_Penyakit = inp.nextLine();
+                        umat.setPenyakit(input_Penyakit);
+                        System.out.print("[1] to continue\n[2] to exit\nYour Choice: ");
+                        choice2 = inp.nextInt();
+                        inp.nextLine();
+
+                    } while (choice2 != 2);
+                    break;
+
+                case 4:
+                    // prescribe medication
+                    inp.nextLine();
+                    do {
+
+                        System.out.println("Please State the Jemaah Medicine:");
+                        String input_Medicine = inp.nextLine();
+                        umat.setUbat(input_Medicine);
+                        System.out.println("[1] to continue\n[2] to exit\nYour Choice: ");
+                        choice2 = inp.nextInt();
+                        inp.nextLine();
+
+                    } while (choice2 != 2);
+                    break;
+
+            }
+
+        } while (choice != 5);
 
     }
 }

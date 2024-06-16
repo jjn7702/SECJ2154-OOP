@@ -59,11 +59,27 @@ public class Embassy extends User {
         display_Embassy_Info();
     }
 
-    public void checkVisaApplication() {
+    public void Visa_Application(Jemaah Umat) {
+        int choice, choice2;
 
-    }
+        do {
+            System.out.println("[1] Check Visa Application");
+            System.out.println("[2] Visa Application Approval");
+            System.out.print("[3] Exit\nYour Choice: ");
+            choice = inp.nextInt();
 
-    public void updateVisaApplication() {
+            if (choice == 1) {
+                Umat.display_Jemaah_Info();
+            } else if (choice == 2) {
+                // 2 approve
+                // 1 failed
+                // 0 pending
+                Umat.display_Jemaah_Info();
+                System.out.print("[1] Approve\n[2] Failed\nYour Choice: ");
+                choice2 = inp.nextInt();
+                Umat.setApproval_from_embassy(choice2);
+            }
+        } while (choice != 3);
 
     }
 }

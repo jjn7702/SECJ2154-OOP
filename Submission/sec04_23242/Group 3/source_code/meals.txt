@@ -1,0 +1,7 @@
+Qingyee Breakfast 2024-06-11 Banana 60
+Sini Breakfast 2024-06-12 NasiLemak 280
+Qingyee Lunch 2024-06-11 Noodles 200 Shrimp 100
+Qingyee Dinner 2024-06-11 McChicken 450
+Qingyee Breakfast 2024-06-14 FriedRice 330
+Sini Dinner 2024-06-14 Pasta 300
+Kaixuen Snack 2024-06-15 SuperRing 88

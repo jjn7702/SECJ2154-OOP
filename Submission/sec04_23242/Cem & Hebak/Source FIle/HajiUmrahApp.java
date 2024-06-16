@@ -74,19 +74,19 @@ public class HajiUmrahApp {
                                 "siti.aminah@gmail.com",
                                 "990505", 27, doctor5, pegawai5);
 
-                Flight penerbangan1 = new Flight("D23", "14/6/2024", "20/6/2024", "0500", "1300", "Mekah", "Jeddah");
-                Flight penerbangan2 = new Flight("A12", "15/6/2024", "21/6/2024", "0600", "1400", "Riyadh", "Dammam");
-                Flight penerbangan3 = new Flight("B34", "16/6/2024", "22/6/2024", "0700", "1500", "Doha", "Dubai");
-                Flight penerbangan4 = new Flight("C56", "17/6/2024", "23/6/2024", "0800", "1600", "Abu Dhabi",
-                                "Sharjah");
-                Flight penerbangan5 = new Flight("D78", "18/6/2024", "24/6/2024", "0900", "1700", "Kuwait City",
-                                "Manama");
-                Flight penerbangan6 = new Flight("E90", "19/6/2024", "25/6/2024", "1000", "1800", "Muscat", "Salalah");
-                Flight penerbangan7 = new Flight("F12", "20/6/2024", "26/6/2024", "1100", "1900", "Baghdad", "Basra");
-                Flight penerbangan8 = new Flight("G34", "21/6/2024", "27/6/2024", "1200", "2000", "Beirut", "Tripoli");
-                Flight penerbangan9 = new Flight("H56", "22/6/2024", "28/6/2024", "1300", "2100", "Amman", "Aqaba");
-                Flight penerbangan10 = new Flight("I78", "23/6/2024", "29/6/2024", "1400", "2200", "Cairo",
-                                "Alexandria");
+                // Flight penerbangan1 = new Flight("D23", "14/6/2024", "20/6/2024", "0500", "1300", "Mekah", "Jeddah");
+                // Flight penerbangan2 = new Flight("A12", "15/6/2024", "21/6/2024", "0600", "1400", "Riyadh", "Dammam");
+                // Flight penerbangan3 = new Flight("B34", "16/6/2024", "22/6/2024", "0700", "1500", "Doha", "Dubai");
+                // Flight penerbangan4 = new Flight("C56", "17/6/2024", "23/6/2024", "0800", "1600", "Abu Dhabi",
+                //                 "Sharjah");
+                // Flight penerbangan5 = new Flight("D78", "18/6/2024", "24/6/2024", "0900", "1700", "Kuwait City",
+                //                 "Manama");
+                // Flight penerbangan6 = new Flight("E90", "19/6/2024", "25/6/2024", "1000", "1800", "Muscat", "Salalah");
+                // Flight penerbangan7 = new Flight("F12", "20/6/2024", "26/6/2024", "1100", "1900", "Baghdad", "Basra");
+                // Flight penerbangan8 = new Flight("G34", "21/6/2024", "27/6/2024", "1200", "2000", "Beirut", "Tripoli");
+                // Flight penerbangan9 = new Flight("H56", "22/6/2024", "28/6/2024", "1300", "2100", "Amman", "Aqaba");
+                // Flight penerbangan10 = new Flight("I78", "23/6/2024", "29/6/2024", "1400", "2200", "Cairo",
+                //                 "Alexandria");
 
                 pegawai.add(pegawai1);
                 pegawai.add(pegawai2);
@@ -117,10 +117,10 @@ public class HajiUmrahApp {
                 jemaah.add(jemaah9);
                 jemaah.add(jemaah10);
 
-                for (int i = 0; i < jemaah.size(); i++) {
-                        System.out.println("========== JEMAAH " + (i + 1) + " ==========");
-                        jemaah.get(i).display_Jemaah_Info();
-                }
+                // for (int i = 0; i < jemaah.size(); i++) {
+                // System.out.println("========== JEMAAH " + (i + 1) + " ==========");
+                // jemaah.get(i).display_Jemaah_Info();
+                // }
 
                 // trying to display Kursus information
                 Vector<Kursus> kList = new Vector<>();
@@ -136,10 +136,14 @@ public class HajiUmrahApp {
                 kList.add(k3);
                 kList.add(k4);
 
-                System.out.printf("%-5s %-8s %-12s %-30s %-15s\n", "ID", "Time", "Date", "Place", "Ustaz");
-                for (Kursus k : kList) {
-                        k.Display_Kursus_info();
-                }
+                // System.out.printf("%-5s %-8s %-12s %-30s %-15s\n", "ID", "Time", "Date",
+                // "Place", "Ustaz");
+                // for (Kursus k : kList) {
+                // k.Display_Kur1sus_info();
+                // }
+
+                jemaah.get(0).checkKesihatan();
+                jemaah.get(0).checkVisa();
 
                 inp.close();
         }

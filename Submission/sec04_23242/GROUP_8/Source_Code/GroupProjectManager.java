@@ -1,4 +1,7 @@
 
+import java.util.Vector;
+
+
 abstract class User {
     private String userID;
     private String name;
@@ -80,6 +83,79 @@ public class GroupProjectManager {
     public static void main(String[] args) {
         User std1 = new Student("A22EC0178", "Kugen", "kugen@graduate.utm.my");
         std1.displayInfo();
+    }
+}
+
+class Task {
+    private int taskID;
+    private String taskName;
+    private String status;
+    private Deadline deadline;
+
+    public Deadline getDeadline() { //composition
+        return deadline;
+    }
+
+    public Task (int taskId, String taskName, String status){
+        this.taskID = taskID;
+        this.taskName = taskName;
+        this.status = status;
+    }
+
+    public int gettaskID() {
+        return taskID;
+    }
+    
+    public String gettaskName() {
+        return taskName;
+    }
+
+    public String getstatus() {
+        return status;
+    }
+
+    public void setStatus(){
+
+    }
+
+}
+
+class Deadline {
+    private String dueDate;
+
+    public Deadline (String dueDate){
+        this.dueDate = dueDate;
+    }
+
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate() {
+
+    }
+}
+
+class Milestone {
+    private String milestoneName;
+    private Vector <Task> task = new Vector<>();
+
+    public Milestone (String milestoneName){
+        this.milestoneName = milestoneName;
+    }
+
+    public String getMilestoneName() {
+        return milestoneName;
+    }
+
+    void addTask(Task t){
+        task.add(t);
+    }
+
+    public void printTask(){
+        for (int i = 0; i < task.size(); i++) {
+            System.out.println(task.get(i));
+        }
     }
 }
 

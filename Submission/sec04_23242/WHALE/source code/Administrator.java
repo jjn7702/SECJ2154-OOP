@@ -2,17 +2,20 @@ import java.util.ArrayList;
 
 public class Administrator extends User {
     // Private attributes
-    public String adminID;
+    public String username;
     private String job;
     private ArrayList<Student> stud;
     private Scholarship scholar;
     private Apply application;
 
     // Public constructor
-    public Administrator(String fn, String ln, int a, String em, Address add, String adminId, String job,
+
+    public Administrator(){}
+    
+    public Administrator(String fn, String ln, int a, String em, Address add, String username, String job,
             ArrayList<Student> stud, Scholarship scholar, Apply application) {
         super(fn, ln, a, em, add);
-        this.adminID = adminId;
+        this.username = username;
         this.job = job;
         stud = new ArrayList<>();
         this.scholar = scholar;
@@ -20,15 +23,15 @@ public class Administrator extends User {
     }
 
     public void setAdminId(String aid) {
-        adminID = aid;
+        username = aid;
     }
 
     public void setJob(String j) {
         job = j;
     }
 
-    public String getAdminID() {
-        return adminID;
+    public String getusername() {
+        return username;
     }
 
     public String getJob() {
@@ -41,6 +44,6 @@ public class Administrator extends User {
 
     @Override
     public String toString() {
-        return super.toString() + " Admin ID: " + adminID + " Job: " + job;
+        return super.toString() + " Admin username: " + username + " Job: " + job;
     }
 }
