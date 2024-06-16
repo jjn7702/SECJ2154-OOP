@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "ScholarshipApp",
+            "request": "launch",
+            "mainClass": "ScholarshipApp",
+            "projectName": "SECJ2154-OOP_9825a15c"
+        },
+        {
             "type": "jdk",
             "request": "launch",
             "name": "Launch Java App"

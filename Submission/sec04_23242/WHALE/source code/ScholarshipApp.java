@@ -3,8 +3,10 @@ import java.io.*;
 
 public class ScholarshipApp {
     static Scanner inp = new Scanner(System.in);
+    static int countAdmin = 0 ;
 
     public static void main(String[] args) throws IOException {
+        Administrator ad ;
         System.out.println("---------- WHALE SCHOLARSHIP ----------");
         System.out.println("Are you a Student or an Administrator?");
 
@@ -19,9 +21,10 @@ public class ScholarshipApp {
                 registerAdministrator();
                 countAdmin++;
             } else if (rs == 'N') {
-                Administrator ad = new Administrator() ;
                 ad = signInAdministrator();
-            } else {
+                System.out.println(ad.getusername()) ;
+            } 
+            else {
                 System.out.println("Invalid choice. Please enter Y or N.");
             }
         }
@@ -29,7 +32,7 @@ public class ScholarshipApp {
         inp.close();
     }
 
-    private static registerAdministrator() {
+    private static void registerAdministrator() {
         try {
             System.out.println("---------- Personal Information ----------");
             System.out.print("FIRST NAME:\t");
@@ -72,7 +75,7 @@ public class ScholarshipApp {
         }
     }
 
-    private static Administrator signInAdministrator(Administrator fd) {
+    private static Administrator signInAdministrator() {
         System.out.println("---------- Sign In ----------");
         System.out.print("ENTER YOUR USERNAME:\t");
         String us = inp.next();
@@ -83,17 +86,20 @@ public class ScholarshipApp {
 
         File file = new File("Submission/sec04_23242/WHALE/source code/Admin" + us + ".txt") ;
         //Submission/sec04_23242/WHALE/source code/Adminhazim.txt
+        Administrator fd
 
-        authenticated = authenticateUser(file, us, pass) ;
+        authenticated = authenticateUser(file, us, pass, fd) ;
 
         if (!authenticated) {
             System.out.println("Authentication failed. Incorrect username or password.");
         }
+
+        return fd ;
     }
 
-    private static boolean authenticateUser(File file, String username, String password) {
+    private static boolean authenticateUser(File file, String username, String password, Administrator fd) {
         try {
-            System.out.print("Inside the file") ;
+            //System.out.print("Inside the file") ;
             Scanner fileScanner = new Scanner(file);
 
             // Read the username and password from the file
@@ -131,6 +137,8 @@ public class ScholarshipApp {
 
                 fileScanner.close();
             }
+            fd = new Administrator(filePassword, username, 0, password, null, fileUsername, filePassword, null, null, null) ;
+            
             return true ;
 
         }  

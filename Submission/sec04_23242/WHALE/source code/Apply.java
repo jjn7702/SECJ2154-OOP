@@ -17,5 +17,3 @@ public class Apply {
         this.studCount = studCount;
     }
 }
-    
-}
