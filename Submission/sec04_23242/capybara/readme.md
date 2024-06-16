@@ -7,9 +7,9 @@
 </div>
 
 ## 🚀 What it does?
-1. Collect all **important information** regarding your upcoming camping trip.
-2. Automatically **calculate** all your budgets.
-3. Make sure to **archive** all your previous trips.
+1. Collect all <span style="color: yellow;">important information</span> regarding your upcoming camping trip.
+2. Automatically <span style="color: yellow;">calculate</span> all your budgets.
+3. Make sure to <span style="color: yellow;">archive</span> all your previous trips.
 
 ## 🛠️ Technical Implementation
 
