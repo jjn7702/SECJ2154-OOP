@@ -2,6 +2,7 @@ import java.util.List;
 import java.util.Vector;
 
 public enum Haji_Umrah_Package {
+        // try from pc faiz
         // package 1 = haji ifrad (haji pastu umrah)
         IFRAD("Haji and Umrah",
         new Vector<>(List.of(new Flight("AA", "22 May 2024", null, "0000", "1730", "KLIA", "Jeddah"),
