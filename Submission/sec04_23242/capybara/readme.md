@@ -6,12 +6,18 @@
 
 ## Table of Contents  
 [What it does?](#-what-it-does)  
-[Work Distribution](#)
+[Work Distribution](#-work-distribution)                      
 [Technical Implementation](#%EF%B8%8F-technical-implementation)
 
 ## 👨🏻‍💻 Work Distribution
 
-
+| Group Members | Classes       | Implementation  |
+| :-------------: |:-------------:| :-----:|
+| Megat      | Init & CampingTrips | UI & Exception Handling |
+| Arif      |   Transportation & Budget   |   Composition & Inheritance |
+| Danial | DateAndTime & Activities      |   Composition & Inheritance |
+| Kugan | Item & Food      |  Composition & Inheritance |
+| Ainn | Location & Campground      |    Polymorphism (Abstract) & Inheritance |
 
 ## 🚀 What it does?
 1. Collect all <span style="color: yellow;">important information</span> regarding your upcoming camping trip.
