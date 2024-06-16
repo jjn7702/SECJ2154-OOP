@@ -249,6 +249,7 @@ public class Init {
 
     // Display date & time in trip list
     private static void showTrips() {
+        double totalCost = 0;
         frame.getContentPane().removeAll();
         frame.setSize(600, 600);
         addLabel("All Trips", 30, 1, 200, 100, headerFont);
@@ -274,10 +275,12 @@ public class Init {
                     Transportation transport = (Transportation) budget;
                     tripsText.append("  Transport Type: ").append(transport.getName()).append("\n");
                     tripsText.append("  Transport Cost: RM").append(transport.getCost()).append("\n");
+                    totalCost += transport.getCost();
                 } else if (budget instanceof Activities) {
                     Activities activity = (Activities) budget;
                     tripsText.append("  Activity Name: ").append(activity.getName()).append("\n");
                     tripsText.append("  Activity Cost: RM").append(activity.getCost()).append("\n");
+                    totalCost += activity.getCost();
                 }
             }
 
@@ -285,13 +288,17 @@ public class Init {
             for (Item item : trip.getItems()) {
                 if (item instanceof Food) {
                     Food food = (Food) item;
+                    totalCost += food.getQuantity() * food.getPrice();
+
                     tripsText.append("  Food Name: ").append(food.getName()).append("\n");
                     tripsText.append("  Quantity: ").append(food.getQuantity()).append("\n");
                     tripsText.append("  Price: RM").append(food.getPrice()).append("\n");
                     tripsText.append("  Expiration Date: ").append(food.getExpirationDate()).append("\n");
                     tripsText.append("  Vegetarian: ").append(food.isVegetarian() ? "Yes" : "No").append("\n");
+                    tripsText.append("TOTAL COST: ").append(totalCost).append("\n");
                 }
             }
+
             tripsText.append("\n");
         }
         tripsArea.setText(tripsText.toString());
