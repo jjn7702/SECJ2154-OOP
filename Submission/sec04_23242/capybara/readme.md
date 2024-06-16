@@ -2,9 +2,8 @@
 
 > The most efficient way to prepare your memorable days on a camping trip together with your family, friends, or even your partners!
 
-<div style="text-align: center;">
-    <img src="https://media.giphy.com/media/26gsvCk59AwGX28XS/giphy.gif" alt="Camping GIF" width="300"/>
-</div>
+
+<img src="https://media.giphy.com/media/26gsvCk59AwGX28XS/giphy.gif" alt="Camping GIF" width="600"/>
 
 ## 🚀 What it does?
 1. Collect all <span style="color: yellow;">important information</span> regarding your upcoming camping trip.
@@ -14,7 +13,6 @@
 ## 🛠️ Technical Implementation
 
 ### 🗃️ Encapsulation and Data Hiding
-
 
 ### 🔗 Association: Composition and Aggregation
 
