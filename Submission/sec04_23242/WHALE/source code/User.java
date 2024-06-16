@@ -6,6 +6,8 @@ public class User {
     private int age;
     private String email;
 
+    public User(){}
+
     // public attributes
     public User(String fn, String ln, int a, String em, Address add) {
         fName = fn;
