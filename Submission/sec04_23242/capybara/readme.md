@@ -2,7 +2,9 @@
 
 > The most efficient way to prepare your memorable days on a camping trip together with your family, friends, or even your partners!
 
-<iframe src="https://giphy.com/embed/26gsvCk59AwGX28XS" width="480" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/fire-camping-26gsvCk59AwGX28XS">via GIPHY</a></p>
+<div style="text-align: center;">
+    <img src="https://media.giphy.com/media/26gsvCk59AwGX28XS/giphy.gif" alt="Camping GIF" width="300"/>
+</div>
 
 ## 🚀 What it does?
 1. Collect all **important information** regarding your upcoming camping trip.
