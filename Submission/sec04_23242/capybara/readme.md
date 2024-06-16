@@ -2,11 +2,16 @@
 
 > The most efficient way to prepare your memorable days on a camping trip together with your family, friends, or even your partners!
 
+![alt text](/images/campingGif.gif "Logo Title Text 1")
+
 ## Table of Contents  
 [What it does?](#-what-it-does)  
-[Technical Implementation](#table-of-contents%EF%B8%8F-technical-implementation)  
+[Work Distribution](#)
+[Technical Implementation](#%EF%B8%8F-technical-implementation)
 
-<img src="https://media.giphy.com/media/26gsvCk59AwGX28XS/giphy.gif" alt="Camping GIF" width="600"/>
+## 👨🏻‍💻 Work Distribution
+
+
 
 ## 🚀 What it does?
 1. Collect all <span style="color: yellow;">important information</span> regarding your upcoming camping trip.
@@ -27,4 +32,5 @@
 
 
 ### 🔍 Exception Handling
+
 
