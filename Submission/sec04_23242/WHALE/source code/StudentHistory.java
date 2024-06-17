@@ -9,5 +9,11 @@ public class StudentHistory {
         this.majors = majors;
     }
 
+    public void display() {
+        System.out.println("Last Program: " + lastprog);
+        System.out.println("CGPA: " + cgpa);
+        System.out.println("Majors: " + majors);
+    }
+
     
 }

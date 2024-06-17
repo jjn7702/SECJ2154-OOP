@@ -21,6 +21,9 @@ class needBased extends Scholarship{
     }
 
     public void display(){
+        System.out.println("Scholarship ID: " + scholarsID);
+        System.out.println("Allowance: " + allowance);
+        System.out.println("Scholarship ID Number: " + id);
         
     }
 }
