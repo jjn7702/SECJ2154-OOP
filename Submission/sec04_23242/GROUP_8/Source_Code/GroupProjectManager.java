@@ -1,137 +1,119 @@
 import java.util.Vector;
 
-abstract class User {
-    private int userID;
-    private String name;
-    private String email;
+// abstract class User {
+//     private int userID;
+//     private String name;
+//     private String email;
 
-    public User() { }
+//     public User() { }
 
-    public User(int id, String name, String email) {
-        this.userID = id;
-        this.name = name;
-        this.email = email;
-    }
+//     public User(int id, String name, String email) {
+//         this.userID = id;
+//         this.name = name;
+//         this.email = email;
+//     }
 
-    public int getUserID() {
-        return userID;
-    }
+//     public int getUserID() {
+//         return userID;
+//     }
 
-    public String getName() {
-        return name;
-    }
+//     public String getName() {
+//         return name;
+//     }
 
-    public String getEmail() {
-        return email;
-    }
+//     public String getEmail() {
+//         return email;
+//     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//     public void setEmail(String email) {
+//         this.email = email;
+//     }
 
-    public void displayInfo() {
+//     public void display() {
 
-    }
-}
+//     }
+// }
 
-class Student extends User {
-    private String matricsNumber, role;
+// class Student extends User {
+//     private String matricsNumber, role;
 
-    public Student(int userID, String name, String email, String mat_No, String r) {
-        super(userID, name, email);
-        matricsNumber = mat_No;
-        role = r;
-    }
+//     public Student(int userID, String name, String email, String mat_No, String r) {
+//         super(name, email);
+//         matricsNumber = mat_No;
+//         role = r;
+//     }
 
-    public String getMatricsNum() {
-        return matricsNumber;
-    }
+//     public String getMatricsNum() {
+//         return matricsNumber;
+//     }
 
-    public String getRole() {
-        return role;
-    }
+//     public String getRole() {
+//         return role;
+//     }
 
-    public void setMatricsNum (String matricsNumber){
-        this.matricsNumber = matricsNumber;
-    }
+//     public void setMatricsNum (String matricsNumber){
+//         this.matricsNumber = matricsNumber;
+//     }
 
-    @Override
-    public void displayInfo() {
-        System.out.println("Student Info:");
-        // System.out.println("ID: " + getUserID());
-        // System.out.println("Name: " + getName());
-        // System.out.println("Email: " + getEmail());
-    }
-}
+//     public 
 
-class Instructor extends User {
-    public Instructor(String ins_ID, String name, String email) {
-        super(ins_ID, name, email);
-    }
+//     @Override
+//     public void displayInfo() {
+//         System.out.println("Student Info:");
+//         // System.out.println("ID: " + getUserID());
+//         // System.out.println("Name: " + getName());
+//         // System.out.println("Email: " + getEmail());
+//     }
+// }
 
-    
-    public void displayInfo() {
-        System.out.println("Instructor Info:");
-        System.out.println("ID: " + getUserID());
-        System.out.println("Name: " + getName());
-        System.out.println("Email: " + getEmail());
-    }
-}
-
-class ProjectManager extends User {
-    public ProjectManager(String man_ID, String name, String email) {
-        super(man_ID, name, email);
-    }
+// class Instructor extends User {
+//     public Instructor(String ins_ID, String name, String email) {
+//         super(ins_ID, name, email);
+//     }
 
     
-    public void displayInfo() {
-        System.out.println("Project Manager Info:");
-        System.out.println("ID: " + getUserID());
-        System.out.println("Name: " + getName());
-        System.out.println("Email: " + getEmail());
-    }
-}
+//     public void displayInfo() {
+//         System.out.println("Instructor Info:");
+//         System.out.println("ID: " + getUserID());
+//         System.out.println("Name: " + getName());
+//         System.out.println("Email: " + getEmail());
+//     }
+// }
 
-public class GroupProjectManager {
-    public static void main(String[] args) {
-        User std1 = new Student("A22EC0178", "Kugen", "kugen@graduate.utm.my");
-        std1.displayInfo();
-    }
-}
 
-class Task {
-    private int taskID;
-    private String taskName;
-    private String status;
-    private Deadline deadline;
+// class Task {
+//     private int taskID;
+//     private String taskName;
+//     private String status;
+//     private Deadline deadline;
 
-    public Deadline getDeadline() { // composition
-        return deadline;
-    }
+//     public Deadline getDeadline() { // composition
+//         return deadline;
+//     }
 
-    public Task(int taskID, String taskName, String status) {
-        this.taskID = taskID;
-        this.taskName = taskName;
-        this.status = status;
-    }
+//     public Task(int taskID, String taskName, String status) {
+//         this.taskID = taskID;
+//         this.taskName = taskName;
+//         this.status = status;
+//     }
 
-    public int gettaskID() {
-        return taskID;
-    }
+//     public int gettaskID() {
+//         return taskID;
+//     }
 
-    public String gettaskName() {
-        return taskName;
-    }
+//     public String gettaskName() {
+//         return taskName;
+//     }
 
-    public String getstatus() {
-        return status;
-    }
+//     public String getstatus() {
+//         return status;
+//     }
 
-    public void setStatus() {
+//     public void setStatus() {
 
-    }
+//     }
 
-}
+// }
 
 class Deadline {
     private String dueDate;
@@ -231,5 +213,12 @@ class Review {
 
     public Report getReport() {
         return report;
+    }
+}
+
+public class GroupProjectManager {
+    public static void main(String[] args) {
+        User std1 = new Student("Kugen", "kugen@graduate.utm.my", "A22EC0178", "Project Manager");
+        std1.display();
     }
 }

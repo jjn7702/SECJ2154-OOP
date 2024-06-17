@@ -1,18 +1,12 @@
 abstract class User {
-    private String userID;
     private String name;
     private String email;
 
     public User() { }
 
-    public User(String id, String name, String email) {
-        this.userID = id;
+    public User(String name, String email) {
         this.name = name;
         this.email = email;
-    }
-
-    public String getUserID() {
-        return userID;
     }
 
     public String getName() {
@@ -27,7 +21,7 @@ abstract class User {
         this.email = email;
     }
 
-    public void displayInfo() {
+    public void display() {
 
     }
 }

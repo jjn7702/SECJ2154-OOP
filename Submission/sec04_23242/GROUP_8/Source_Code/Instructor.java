@@ -1,12 +1,16 @@
 class Instructor extends User {
-    public Instructor(String ins_ID, String name, String email) {
-        super(ins_ID, name, email);
+    private String empNumber;
+
+    public Instructor(String name, String email, String emp_no) {
+        super(name, email);
+        empNumber = emp_no;
+    }
+
+    public String getEmpNum() {
+        return empNumber;
     }
     
-    public void displayInfo() {
+    public void display() {
         System.out.println("Instructor Info:");
-        System.out.println("ID: " + getUserID());
-        System.out.println("Name: " + getName());
-        System.out.println("Email: " + getEmail());
     }
 }
