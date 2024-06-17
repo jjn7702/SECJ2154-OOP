@@ -46,4 +46,12 @@ public class Administrator extends User {
     public String toString() {
         return super.toString() + " Admin username: " + username + " Job: " + job;
     }
+
+    public void display(){
+        System.out.println("Full Name: " + super.fName + " " + super.lName);
+        System.out.println("Position: " + position);
+        System.out.println("Age: " + super.getAge());
+        System.out.println("Email: " + super.getEmail());    
+        System.out.println("Address: " + super.add.toString());
+    }
 }
