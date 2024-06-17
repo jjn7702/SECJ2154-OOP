@@ -14,6 +14,7 @@ public class ScholarshipApp {
 
         System.out.print("[0]\tStudent\n[1]\tAdministrator\n");
         int choice = inp.nextInt();
+
         if (choice == 0) {
             System.out.println("Register? (Y/N)");
             char rs = inp.next().toUpperCase().charAt(0);
@@ -289,7 +290,6 @@ public class ScholarshipApp {
                 fname = fileScanner.next();
                 lname = fileScanner.next();
                 age = fileScanner.nextInt();
-                fileScanner.nextLine(); // Consume the newline character after age
                 email = fileScanner.nextLine();
 
                 address = fileScanner.nextLine();

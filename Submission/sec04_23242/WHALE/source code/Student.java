@@ -51,4 +51,11 @@ public class Student extends User {
                 + " Scholarship: " + scholarship + " Program: " + prog + " Student History: " + studhist;
     }
 
+    public void display(){
+        System.out.println("Full Name: " + super.fName + " " + super.lName);
+        System.out.println("Position: " + position);
+        System.out.println("Age: " + super.getAge());
+        System.out.println("Email: " + super.getEmail());    
+        System.out.println("Address: " + super.add.toString());
+    }
 }
