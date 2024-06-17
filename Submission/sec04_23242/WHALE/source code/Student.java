@@ -8,31 +8,40 @@ public class Student extends User {
     private StudentHistory studhist;
 
     // constructor
-    public Student(String fn, String ln, int a, String em, Address add, String matricsNumber, String major, double CGPA,
-            Scholarship scholarship, Programs prog, StudentHistory studhist) {
+    public Student(String fn, String ln, int a, String em, Address add, String matricsNumber/*
+                                                                                             * String major, double
+                                                                                             * CGPA,
+                                                                                             * Scholarship scholarship,
+                                                                                             * Programs prog,
+                                                                                             * StudentHistory studhist
+                                                                                             */) {
         super(fn, ln, a, em, add);
         this.matricsNumber = matricsNumber;
-        this.major = major;
-        this.CGPA = CGPA;
-        this.scholarship = scholarship;
-        this.prog = prog;
-        this.studhist = studhist;
+        // this.major = major;
+        // this.CGPA = CGPA;
+        // this.scholarship = scholarship;
+        // this.prog = prog;
+        // this.studhist = studhist;
     }
 
     // getters and setters
     public void setMajor(String major) {
         this.major = major;
     }
+
     public void setCgpa(double CGPA) {
 
     }
-    public String getMatricsNumber(){
+
+    public String getMatricsNumber() {
         return matricsNumber;
     }
-    public String getMajor(){
+
+    public String getMajor() {
         return major;
     }
-    public double getCgpa(){
+
+    public double getCgpa() {
         return CGPA;
     }
 
