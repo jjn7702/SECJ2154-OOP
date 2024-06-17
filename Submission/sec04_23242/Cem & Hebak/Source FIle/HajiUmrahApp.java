@@ -85,35 +85,11 @@ public class HajiUmrahApp {
                 jemaah.add(jemaah9);
                 jemaah.add(jemaah10);
 
-                // for (int i = 0; i < jemaah.size(); i++) {
-                // System.out.println("========== JEMAAH " + (i + 1) + " ==========");
-                // jemaah.get(i).display_Jemaah_Info();
-                // }
-
-                // trying to display Kursus information
-                Vector<Kursus> kList = new Vector<>();
-                Kursus k1 = new Kursus("0001", "9:00 AM", "12 May 2024", "Dewan Sultan Iskandar", "Ustaz Panji Alam");
-                Kursus k2 = new Kursus("0002", "9:00 AM", "12 May 2024", "Dewan Sultan Iskandar", "Ustaz Panji Alam");
-                Kursus k3 = new Kursus("0003", "8:00 AM", "22 May 2024", "Dewan Serbaguna Labu Batu 9",
-                                "Ustaz Daniyel Don");
-                Kursus k4 = new Kursus("0004", "9:00 AM", "25 May 2024", "Dewan Pak Munawir",
-                                "Ustaz Zim Zim Ala Kazzim");
-                // try from pc faiz 12.47
-                kList.add(k1);
-                kList.add(k2);
-                kList.add(k3);
-                kList.add(k4);
-
-                // System.out.printf("%-5s %-8s %-12s %-30s %-15s\n", "ID", "Time", "Date",
-                // "Place", "Ustaz");
-                // for (Kursus k : kList) {
-                // k.Display_Kur1sus_info();
-                // }
-
-                // jemaah.get(0).checkKesihatan();
-                // jemaah.get(0).checkVisa();
-                // hotel.get(0).display_Hotel_Info();
-                jemaah.get(0).chooseUmrahPackage();
+                // jemaah.get(0).chooseUmrahPackage();
+                Hotel bruh = new Hotel("Concorde", "Putrajaya", 350);
+                bruh.display_Hotel_Info();
+                bruh.chooseRoomSize();
+                bruh.display_Hotel_Info();
                 inp.close();
         }
 }

@@ -78,19 +78,6 @@ public enum Haji_Umrah_Package {
                 // tengok jemaah punya class camne pilih package haji umrah
         }
 
-        public void Choose_Hotel_Room() {
-                int counterHotel = 1;
-                int choice = 0;
-                for (Hotel hotel : hotel_Ibadah) {
-                        System.out.println("========== Hotel " + counterHotel + " ==========");
-                        hotel.display_Hotel_Info();
-                        counterHotel++;
-                }
-                System.out.print("Pilih Bilik yang anda ingin: ");
-                choice = inp.nextInt();
-                // if (choice == )
-        }
-
         public void Display_Pakej_Info() {
                 System.out.println("FROM CLASS HAJI UMRAH PACKAGE");
                 System.out.println("Ibadah: " + ibadah);
@@ -98,15 +85,20 @@ public enum Haji_Umrah_Package {
                 int counterHotel = 1;
 
                 for (Flight flight : flight_Ibadah) {
-                        System.out.println("========== Flight " + counterFlight + " ==========");
+                        System.out.println("========================= Flight " + counterFlight
+                                        + " =========================");
                         flight.display_Flight_Info();
                         counterFlight++;
                 }
                 for (Hotel hotel : hotel_Ibadah) {
-                        System.out.println("========== Hotel " + counterHotel + " ==========");
-                        hotel.display_Hotel_Info();
+                        System.out.println("========================= Hotel " + counterHotel
+                                        + " =========================");
+                        hotel.display_Hotel_Ibadah_Info();
                         counterHotel++;
                 }
+                System.out.println("========================= Kursus Haji =========================");
+                kursus_Ibadah.Display_Kursus_info();
+                System.out.println("Jumlah: " + price);
 
         }
 }

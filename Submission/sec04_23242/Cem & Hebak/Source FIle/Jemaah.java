@@ -153,7 +153,6 @@ public class Jemaah extends User {
         System.out.println("5) UMRAH = Megerjakan Umrah sahaja");
         System.out.println("Sila taip IFRAD, QIRAN, TAMATTUK, HAJI, UMRAH untuk pilih pakej ibadah anda");
         pakejIbadah = Haji_Umrah_Package.valueOf(inp.nextLine().toUpperCase());
-        pakejIbadah.Choose_Hotel_Room();
         pakejIbadah.Display_Pakej_Info();
     }
 

@@ -16,12 +16,13 @@ public class Flight {
 
     public void display_Flight_Info() {
 
-        System.out.println("FLight ID: " + flightID);
-        System.out.println("Date of departure: " + dateDeparture);
-        System.out.println("Date of arrival: " + dateArrival);
-        System.out.println("Departure time: " + departureTime);
-        System.out.println("Arrival time: " + arrivalTime);
-        System.out.println("Departure Location: " + departurePlace);
-        System.out.println("Arrival Location: " + arrivalPlace);
+        System.out.printf("%-35s: %20s%n", "Flight ID", flightID);
+        System.out.printf("%-35s: %20s%n", "Date of Departure", dateDeparture);
+        System.out.printf("%-35s: %20s%n", "Date of Arrival", dateArrival);
+        System.out.printf("%-35s: %20s%n", "Departure Time", departureTime);
+        System.out.printf("%-35s: %20s%n", "Arrival Time", arrivalTime);
+        System.out.printf("%-35s: %20s%n", "Departure Location", departurePlace);
+        System.out.printf("%-35s: %20s%n", "Arrival Location", arrivalPlace);
+
     }
 }
