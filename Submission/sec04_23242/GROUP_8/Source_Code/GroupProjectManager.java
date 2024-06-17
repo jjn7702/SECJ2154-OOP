@@ -55,7 +55,7 @@ class Instructor extends User {
         super(ins_ID, name, email);
     }
 
-    @Override
+    
     public void displayInfo() {
         System.out.println("Instructor Info:");
         System.out.println("ID: " + getUserID());
@@ -69,7 +69,7 @@ class ProjectManager extends User {
         super(man_ID, name, email);
     }
 
-    @Override
+    
     public void displayInfo() {
         System.out.println("Project Manager Info:");
         System.out.println("ID: " + getUserID());
