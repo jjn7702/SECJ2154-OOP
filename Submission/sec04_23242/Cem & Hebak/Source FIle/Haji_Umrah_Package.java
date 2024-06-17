@@ -80,6 +80,8 @@ public enum Haji_Umrah_Package {
         }
 
         public void Display_Pakej_Info() {
+                // System.out.println("FROM CLASS HAJI UMRAH PACKAGE");
+                System.out.println("bruh");
 
         }
 }
