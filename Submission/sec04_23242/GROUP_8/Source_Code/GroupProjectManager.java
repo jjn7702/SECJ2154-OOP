@@ -1,40 +1,38 @@
-
 import java.util.Vector;
 
-abstract class User {
-    private String userID;
-    private String name;
-    private String email;
+// abstract class User {
+//     private String userID;
+//     private String name;
+//     private String email;
 
-    public User() {
-    }
+//     public User() { }
 
-    public User(String id, String name, String email) {
-        this.userID = id;
-        this.name = name;
-        this.email = email;
-    }
+//     public User(String id, String name, String email) {
+//         this.userID = id;
+//         this.name = name;
+//         this.email = email;
+//     }
 
-    public String getUserID() {
-        return userID;
-    }
+//     public String getUserID() {
+//         return userID;
+//     }
 
-    public String getName() {
-        return name;
-    }
+//     public String getName() {
+//         return name;
+//     }
 
-    public String getEmail() {
-        return email;
-    }
+//     public String getEmail() {
+//         return email;
+//     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//     public void setEmail(String email) {
+//         this.email = email;
+//     }
 
-    public void displayInfo() {
+//     public void displayInfo() {
 
-    }
-}
+//     }
+// }
 
 class Student extends User {
     public Student(String std_ID, String name, String email) {
