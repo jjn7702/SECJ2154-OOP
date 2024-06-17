@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.io.*;
 
 public class ScholarshipApp {
-    static Scanner inp = new Scanner(System.in);
+    static Scanner inp ;
     static int countAdmin = 0;
     static int countStudent = 0;
     static Administrator ad;
@@ -13,6 +13,7 @@ public class ScholarshipApp {
         Scholarship nB = new needBased(5000.00) ;  
 
         do{
+            inp = new Scanner(System.in) ;
             System.out.println("---------- WHALE SCHOLARSHIP ----------");
             System.out.println("Are you a Student or an Administrator?");
 
