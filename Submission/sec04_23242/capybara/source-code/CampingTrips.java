@@ -7,9 +7,6 @@ class CampingTrips {
     private Vector<Item> item = new Vector<Item>();
     private Campground campground = new Campground();
 
-    public CampingTrips() {
-    };
-
     public CampingTrips(String name, DateAndTime dateTime, Vector<Budget> tripBudgets,
             Vector<Item> item, Campground campground) {
         this.name = name;
