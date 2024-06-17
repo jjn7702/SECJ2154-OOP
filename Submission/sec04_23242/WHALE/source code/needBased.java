@@ -6,8 +6,11 @@ class needBased extends Scholarship{
     }
 
     public boolean isEligible(Student st){
-        if (st.getCgpa() >= ScholarshipRequirement.threshold)
+        if (st.getThreshold() >= ScholarshipRequirement.threshold){
+            id++ ;
+            scholarsID = String.valueOf(id) ;
             return true ;
+        }
         else
             return false ;
     }

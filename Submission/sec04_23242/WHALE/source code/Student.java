@@ -46,6 +46,10 @@ public class Student extends User {
         return CGPA;
     }
 
+    public double getThreshold(){
+        return threshold ;
+    }
+
     @Override
     public String toString() {
         return super.toString() + " Matrics Number: " + matricsNumber + " Major: " + major + " CGPA: " + CGPA
