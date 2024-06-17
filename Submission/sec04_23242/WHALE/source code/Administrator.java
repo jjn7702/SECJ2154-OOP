@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Administrator extends User {
     // Private attributes
     public String username;
-    private String job;
+    private String position;
     private ArrayList<Student> stud;
     private Scholarship scholar;
     private Apply application;
@@ -12,11 +12,11 @@ public class Administrator extends User {
 
     public Administrator(){}
     
-    public Administrator(String fn, String ln, int a, String em, Address add, String username, String job,
+    public Administrator(String fn, String ln, int a, String em, Address add, String username, String position,
             ArrayList<Student> stud, Scholarship scholar, Apply application) {
         super(fn, ln, a, em, add);
         this.username = username;
-        this.job = job;
+        this.position = position;
         stud = new ArrayList<>();
         this.scholar = scholar;
         this.application = application;
@@ -27,7 +27,7 @@ public class Administrator extends User {
     }
 
     public void setJob(String j) {
-        job = j;
+        position = j;
     }
 
     public String getusername() {
@@ -35,7 +35,7 @@ public class Administrator extends User {
     }
 
     public String getJob() {
-        return job;
+        return position;
     }
 
     public void evaluateStudent(Student st) {
@@ -44,7 +44,7 @@ public class Administrator extends User {
 
     @Override
     public String toString() {
-        return super.toString() + " Admin username: " + username + " Job: " + job;
+        return super.toString() + " Admin username: " + username + "\nPosition: " + position;
     }
 
     public void display(){
