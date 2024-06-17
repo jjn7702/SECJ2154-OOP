@@ -63,4 +63,27 @@ public class Student extends User {
         System.out.println("Email: " + super.getEmail());    
         System.out.println("Address: " + super.add.toString());
     }
+
+    public void displayAllDetails() {
+        display();
+        System.out.println("Matrics Number: " + matricsNumber);
+        System.out.println("Major: " + major);
+        System.out.println("CGPA: " + CGPA);
+        System.out.println("Program: " + prog);
+
+        if (scholarship != null) {
+            System.out.println("Scholarship Details:");
+            scholarship.display();
+        } else {
+            System.out.println("No Scholarship");
+        }
+
+        if (studhist != null) {
+            System.out.println("Student History Details:");
+            studhist.display();
+        } else {
+            System.out.println("No Student History");
+        }
+    }
+
 }
