@@ -46,36 +46,7 @@ public enum Haji_Umrah_Package {
                         new Vector<>(List.of(new Hotel("Hotel Oyo", "Medinah", 304))), // use 3-arg hotel constructor
                         new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"),
                         5000);
-        // QIRAN("Haji and Umrah simultaneously",
-        // new Vector<>(List.of(new Flight("MAS", "30 May 2024", null, "0000", "1730",
-        // "KLIA", "Jeddah"),
-        // new Flight("AA", "22 May 2024", null, "0000", "1730", "Medinah", "KLIA"))),
-        // new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219),
-        // new Hotel("Hotel Oyo", "Medinah", 304))),
-        // new Kursus("0002", "12:00 PM", "12 May 2024", "DSI", "Don"),
-        // 20000);
-        // buat lagi 2 pakej, untuk haji ifrad, qiran, tamattuk pastu ko comment kan
-        // package 1 = haji ifrad (haji pastu umrah)
-        // package 2 = haji qiran (haji dan umrah serentak)
-        // package 3 = haji tamattuk (umrah dan haji)
 
-        // contoh nak buat dalam enum ada vector. macam ni
-        // Packej1(new Vector<>(List.of("Turki", "Istanbul")), "Uso", 2500.00,
-        // new Vector<>(List.of(new Flight("D23", "14/6/2024", "20/6/2024", "0500",
-        // "1300", "Mekah", "Jeddah"))),
-        // new Vector<>(List.of(new Hotel("Hotel Istana", "73nruhhhhhhh", "Wilayah
-        // Persekutuan", 500))));
-
-        // contoh consstructor enum dalam tu ada vector
-        // private Pelancongan_package(Vector<String> places, String tour_Guide, double
-        // price_Pelancongan,
-        // Vector<Flight> flights, Vector<Hotel> hotels) {
-        // this.places = places;
-        // this.tour_Guide = tour_Guide;
-        // this.price_Pelancongan = price_Pelancongan;
-        // this.flight_Pelancongan = flights;
-        // this.hotel_Pelancongan = hotels;
-        // }
         private String ibadah;
         // private Flight depart;
         private Vector<Flight> flight_Ibadah;

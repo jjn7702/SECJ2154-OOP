@@ -9,6 +9,7 @@ public class Jemaah extends User {
     private Embassy embassy;
     private Vector<String> penyakit;
     private Vector<String> ubat;
+    private Haji_Umrah_Package pakejIbadah;
 
     public Jemaah(String name, String contact, String identification_Card, String email, String jemaahID, int age,
             Doctor doctor, Embassy embassy) {
@@ -140,6 +141,13 @@ public class Jemaah extends User {
 
     public void checkVisa() {
         embassy.Visa_Application(this);
+    }
+
+    public void chooseUmrahPackage() {
+        System.out.println("Please choose your ibadah package: ");
+        System.out.println("1) IFRAD = Haji dahulu dan Umrah kemudian");
+        System.out.println("2) QIRAN = Mengerjakan Haji dan Umrah serentak");
+        System.out.println("3) TAMATTUK = Umrah dahulu Haji kemudian");
     }
 
 }

@@ -1,4 +1,4 @@
-import java.util.*;
+// import java.util.*;
 
 public class Hotel {
     private String hotelName, address, roomSize;
@@ -35,23 +35,28 @@ public class Hotel {
         System.out.println("========= HOTEL INFO ==========");
         System.out.println("Hotel: " + hotelName);
         System.out.println("Address: " + address);
-        System.out.println("=========Standard check in time and check out time========== ");
+        System.out.println("Standard check in time and check out time");
         System.out.println("Check in time: " + checkInTime);
         System.out.println("Check out time: " + checkOutTime);
         System.out.println("Room size and price available: ");
         for (int i = 0; i < roomSizeAvailable.length; i++) {
             for (int j = 0; j < roomSizeAvailable[i].length; j++) {
                 if (j == 0) {
-                    System.out.print((i + 1) + ")");
+                    System.out.print((i + 1) + ") ");
                     System.out.print(roomSizeAvailable[i][j]);
                 } else if (j == 1) {
+                    // System.out.printf("RM%10s%.2f ", roomSizeAvailable[i][j]);
                     System.out.print(" RM " + roomSizeAvailable[i][j]);
                 }
+                // System.out.print((i + 1) + ") ");
+                // System.out.printf("%20s RM%.2f", roomSizeAvailable[i][0],
+                // roomSizeAvailable[i][j]);
 
             }
             System.out.println();
         }
-        System.out.println("No of room available: " + noRoom);
+
+        System.out.println("No of room: " + noRoom);
     }
 
 }
