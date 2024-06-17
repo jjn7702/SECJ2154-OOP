@@ -249,7 +249,7 @@ public class ScholarshipApp {
             // Write to File
             PrintWriter outFile = new PrintWriter("Student" + usname + ".txt");
             outFile.printf("%-20s\t%-20s\n", usname, pass);
-            outFile.println (fn + "\t" + ln + "\t" + age + "\t" + email + "\n" + s + ", " + ci + ", " + st);
+            outFile.println(fn + "\t" + ln + "\t" + age + "\t" + email + "\n" + s + ", " + ci + ", " + st);
             outFile.printf("%-20s", matricsNu);
             outFile.close();
             System.out.println("Student information saved successfully.");

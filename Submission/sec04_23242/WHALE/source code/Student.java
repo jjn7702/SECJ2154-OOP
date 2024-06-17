@@ -47,7 +47,8 @@ public class Student extends User {
 
     @Override
     public String toString() {
-        return "";
+        return super.toString() + " Matrics Number: " + matricsNumber + " Major: " + major + " CGPA: " + CGPA
+                + " Scholarship: " + scholarship + " Program: " + prog + " Student History: " + studhist;
     }
 
 }
