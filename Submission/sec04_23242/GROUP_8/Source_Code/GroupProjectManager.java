@@ -1,19 +1,19 @@
 import java.util.Vector;
 
 abstract class User {
-    private String userID;
+    private int userID;
     private String name;
     private String email;
 
     public User() { }
 
-    public User(String id, String name, String email) {
+    public User(int id, String name, String email) {
         this.userID = id;
         this.name = name;
         this.email = email;
     }
 
-    public String getUserID() {
+    public int getUserID() {
         return userID;
     }
 
@@ -35,16 +35,32 @@ abstract class User {
 }
 
 class Student extends User {
-    public Student(String std_ID, String name, String email) {
-        super(std_ID, name, email);
+    private String matricsNumber, role;
+
+    public Student(int userID, String name, String email, String mat_No, String r) {
+        super(userID, name, email);
+        matricsNumber = mat_No;
+        role = r;
+    }
+
+    public String getMatricsNum() {
+        return matricsNumber;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setMatricsNum (String matricsNumber){
+        this.matricsNumber = matricsNumber;
     }
 
     @Override
     public void displayInfo() {
         System.out.println("Student Info:");
-        System.out.println("ID: " + getUserID());
-        System.out.println("Name: " + getName());
-        System.out.println("Email: " + getEmail());
+        // System.out.println("ID: " + getUserID());
+        // System.out.println("Name: " + getName());
+        // System.out.println("Email: " + getEmail());
     }
 }
 
