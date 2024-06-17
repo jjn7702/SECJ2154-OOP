@@ -2,46 +2,50 @@ import java.util.List;
 import java.util.Vector;
 
 public enum Haji_Umrah_Package {
+        // try from pc faiz
+        // try 2
         // package 1 = haji ifrad (haji pastu umrah)
         IFRAD("Haji and Umrah",
-        new Vector<>(List.of(new Flight("AA", "22 May 2024", null, "0000", "1730", "KLIA", "Jeddah"),
-                        new Flight("AA", "22 May 2024", null, "0000", "1730", "Medinah", "KLIA"))),
-        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219), // use 3-arg hotel constructor
-                        new Hotel("Hotel Oyo", "Medinah", 304))),
-        new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"),
-                       15000),
+                        new Vector<>(List.of(new Flight("AA", "22 May 2024", null, "0000", "1730", "KLIA", "Jeddah"),
+                                        new Flight("AA", "22 May 2024", null, "0000", "1730", "Medinah", "KLIA"))),
+                        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219), // use 3-arg hotel constructor
+                                        new Hotel("Hotel Oyo", "Medinah", 304))),
+                        new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"),
+                        15000),
 
         // package 2 = haji qiran (haji dan umrah serentak)
         QIRAN("Haji and Umrah simultaneously",
-            new Vector<>(List.of(new Flight("MAS", "30 May 2024", null, "0000", "1730", "KLIA", "Jeddah"),
-                        new Flight("AA", "22 May 2024", null, "0000", "1730", "Medinah", "KLIA"))),
-            new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219), // use 3-arg hotel constructor
-                        new Hotel("Hotel Oyo", "Medinah", 304))),
-            new Kursus("0002", "12:00 PM", "12 May 2024", "DSI", "Don"),
+                        new Vector<>(List.of(new Flight("MAS", "30 May 2024", null, "0000", "1730", "KLIA", "Jeddah"),
+                                        new Flight("AA", "22 May 2024", null, "0000", "1730", "Medinah", "KLIA"))),
+                        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219), // use 3-arg hotel constructor
+                                        new Hotel("Hotel Oyo", "Medinah", 304))),
+                        new Kursus("0002", "12:00 PM", "12 May 2024", "DSI", "Don"),
                         20000),
 
         // package 3 = haji tamattuk (umrah dan haji)
         TAMATTUK("Umrah and Haji",
-                new Vector<>(List.of(new Flight("AA", "22 May 2024", null, "0320", "1120", "KLIA", "Jeddah"),
-                        new Flight("AA", "22 May 2024", null, "0000", "1730", "Medinah", "KLIA"))),
-                new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219), // use 3-arg hotel constructor 
-                        new Hotel("Hotel Oyo", "Medinah", 304))),
-                new Kursus("0003", "3:30 PM", "12 May 2024", "DSI", "Kazim"),
-                15000),
+                        new Vector<>(List.of(new Flight("AA", "22 May 2024", null, "0320", "1120", "KLIA", "Jeddah"),
+                                        new Flight("AA", "22 May 2024", null, "0000", "1730", "Medinah", "KLIA"))),
+                        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219), // use 3-arg hotel constructor
+                                        new Hotel("Hotel Oyo", "Medinah", 304))),
+                        new Kursus("0003", "3:30 PM", "12 May 2024", "DSI", "Kazim"),
+                        15000),
 
-            // package 4 = haji sahaja
-            HAJI("Haji",
-                new Vector<>(List.of(new Flight("AA", "22 May 2024", "22 July 2024", "0415", "1215", "KLIA", "Jeddah"))),
-                new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219))), // use 3-arg hotel constructor
-                new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"),
-                10000),
+        // package 4 = haji sahaja
+        HAJI("Haji",
+                        new Vector<>(List.of(new Flight("AA", "22 May 2024", "22 July 2024", "0415", "1215", "KLIA",
+                                        "Jeddah"))),
+                        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219))), // use 3-arg hotel constructor
+                        new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"),
+                        10000),
 
-            // package 5 = umrah sahaja
-            UMRAH("Umrah",
-                new Vector<>(List.of(new Flight("AA", "22 May 2024", "22 July 2024", "0045", "0545", "KLIA", "Jeddah"))),
-                new Vector<>(List.of(new Hotel("Hotel Oyo", "Medinah", 304))), // use 3-arg hotel constructor
-                new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"),
-                5000);
+        // package 5 = umrah sahaja
+        UMRAH("Umrah",
+                        new Vector<>(List.of(new Flight("AA", "22 May 2024", "22 July 2024", "0045", "0545", "KLIA",
+                                        "Jeddah"))),
+                        new Vector<>(List.of(new Hotel("Hotel Oyo", "Medinah", 304))), // use 3-arg hotel constructor
+                        new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"),
+                        5000);
         // QIRAN("Haji and Umrah simultaneously",
         // new Vector<>(List.of(new Flight("MAS", "30 May 2024", null, "0000", "1730",
         // "KLIA", "Jeddah"),
