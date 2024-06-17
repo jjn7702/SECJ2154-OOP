@@ -2,51 +2,84 @@ import java.util.Scanner;
 import java.io.*;
 
 public class ScholarshipApp {
-    static Scanner inp = new Scanner(System.in);
+    static Scanner inp = new Scanner(System.in) ;
     static int countAdmin = 0;
     static int countStudent = 0;
+    static Administrator ad;
+    static Student stu;
 
-    public static void main(String[] args) throws IOException {
-        Administrator ad;
-        Student stu;
-        System.out.println("---------- WHALE SCHOLARSHIP ----------");
-        System.out.println("Are you a Student or an Administrator?");
+    public static void main(String[] args) throws IOException { 
+        int sID = 0000 ;
 
-        System.out.print("[0]\tStudent\n[1]\tAdministrator\n");
-        int choice = inp.nextInt();
+        do{
+            System.out.println("---------- WHALE SCHOLARSHIP ----------");
+            System.out.println("Are you a Student or an Administrator?");
 
-        if (choice == 0) {
-            System.out.println("Register? (Y/N)");
-            char rs = inp.next().toUpperCase().charAt(0);
+            System.out.print("[0]\tStudent\n[1]\tAdministrator\n");
+            int choice = inp.nextInt() ;
 
-            if (rs == 'Y') {
-                registerStudent();
-                countStudent++;
-            } else if (rs == 'N') {
-                stu = signInStudent();
-                System.out.println(stu.toString());
-            } else {
-                System.out.println("Invalid choice. Please enter Y or N.");
+            if (choice == 0) {
+                System.out.println("Register? (Y/N)");
+                char rs = inp.next().toUpperCase().charAt(0);
+
+                if (rs == 'Y') {
+                    registerStudent();
+                    countStudent++;
+                } else if (rs == 'N') {
+                    stu = signInStudent();
+                    if(countStudent == 0)
+                        countStudent++ ;
+
+                    sID = applyScholarship(stu, sID) ;
+                } 
+                else {
+                    System.out.println("Invalid choice. Please enter Y or N.");
+                }
             }
-        }
-        if (choice == 1) {
-            System.out.println("Register? (Y/N)");
-            char rs = inp.next().toUpperCase().charAt(0);
+            if (choice == 1) {
+                System.out.println("Register? (Y/N)");
+                char rs = inp.next().toUpperCase().charAt(0);
 
-            if (rs == 'Y') {
-                registerAdministrator();
-                countAdmin++;
-            } else if (rs == 'N') {
-                ad = signInAdministrator();
-                System.out.println(ad.getusername());
-            } else {
-                System.out.println("Invalid choice. Please enter Y or N.");
+                if (rs == 'Y') {
+                    registerAdministrator();
+                    countAdmin++;
+                } 
+                else if (rs == 'N') {
+                    ad = signInAdministrator();
+                    if(countAdmin == 0)
+                        countAdmin++ ;
+
+                    System.out.println(ad.getusername());
+                } 
+                else {
+                    System.out.println("Invalid choice. Please enter Y or N.");
+                }
             }
-        }
-        inp.close();
+            System.out.println(countAdmin) ;
 
-        Scholarship mB = new meritBased(3000.00) ;
-        Scholarship nB = new needBased(5000.00) ;        
+            if(countStudent == 0){
+                System.out.println("There is no student applying the scholarship") ;
+            }
+
+            System.out.println("Admin Count: " + countAdmin) ;
+            System.out.println("Student Count: " + countStudent) ;
+
+
+            if(countStudent>0){
+                ad.evaluateStudent(stu) ;
+                ad.getStudent(0).display() ;
+            }
+
+            if (choice == 1){
+                System.out.println("do you want to logout? (Y/N)" ) ;
+                char y = inp.next().toUpperCase().charAt(0) ;
+                if (y == 'Y'){
+                    countAdmin-- ;
+                }
+            }
+        }while (countAdmin>0 || countStudent>0) ;   
+        
+        inp.close() ;
     }
 
     private static void registerAdministrator() {
@@ -128,10 +161,6 @@ public class ScholarshipApp {
 
                 address = fileScanner.nextLine();
 
-                System.out.println("Full Name: " + fname + " " + lname);
-                System.out.println("Age: " + age);
-                System.out.println("Email: " + email);
-
                 // Split the address by commas
                 String[] addressParts = address.split(",");
 
@@ -139,10 +168,6 @@ public class ScholarshipApp {
                 street = addressParts[0].trim();
                 cityAndPostalCode = addressParts[1].trim();
                 state = addressParts[2].trim();
-
-                System.out.println("Street: " + street);
-                System.out.println("City and Postal Code: " + cityAndPostalCode);
-                System.out.println("State: " + state);
 
                 fileScanner.close();
             }
@@ -234,10 +259,6 @@ public class ScholarshipApp {
                 address = fileScanner.nextLine();
                 matricsNu = fileScanner.nextLine();
 
-                System.out.println("Full Name: " + fname + " " + lname);
-                System.out.println("Age: " + age);
-                System.out.println("Email: " + email);
-
                 // Split the address by commas
                 String[] addressParts = address.split(",");
 
@@ -245,10 +266,6 @@ public class ScholarshipApp {
                 street = addressParts[0].trim();
                 cityAndPostalCode = addressParts[1].trim();
                 state = addressParts[2].trim();
-
-                System.out.println("Street: " + street);
-                System.out.println("City and Postal Code: " + cityAndPostalCode);
-                System.out.println("State: " + state);
 
                 fileScanner.close();
 
@@ -266,4 +283,21 @@ public class ScholarshipApp {
         return null;
     }
 
+    private static int applyScholarship(Student st, int sid){
+        Scholarship ip ;
+        sid++ ; 
+        String schship = "" ;
+        String sID = String.valueOf(sid) ;
+
+        if (schship == "meritBased"){
+            ip = new meritBased(sID, 3453) ;
+        }
+
+        if (schship == "needBased"){
+            ip  = new meritBased(sID, 3453) ;
+        }
+
+        return sid ;
+    }
 }
+
