@@ -45,7 +45,8 @@ public class ScholarshipApp {
         }
         inp.close();
 
-        
+        Scholarship mB = new meritBased(3000.00) ;
+        Scholarship nB = new needBased(5000.00) ;        
     }
 
     private static void registerAdministrator() {
