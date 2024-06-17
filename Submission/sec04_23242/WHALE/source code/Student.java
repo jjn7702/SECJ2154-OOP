@@ -6,6 +6,7 @@ public class Student extends User {
     private Scholarship scholarship;
     private Programs prog;
     private StudentHistory studhist;
+    private double threshold ;
 
     // constructor
     public Student(String fn, String ln, int a, String em, Address add, String matricsNumber/*
@@ -53,7 +54,7 @@ public class Student extends User {
 
     public void display(){
         System.out.println("Full Name: " + super.fName + " " + super.lName);
-        System.out.println("Position: " + position);
+        //System.out.println("Position: " + position);
         System.out.println("Age: " + super.getAge());
         System.out.println("Email: " + super.getEmail());    
         System.out.println("Address: " + super.add.toString());

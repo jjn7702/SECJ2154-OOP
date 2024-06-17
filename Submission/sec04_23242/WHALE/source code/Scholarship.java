@@ -1,8 +1,7 @@
 abstract class Scholarship {
     public String scholarsID ;
 
-    public Scholarship(String sid){
-        scholarsID = sid ;
+    public Scholarship(){
     }
 
     public abstract boolean isEligible(Student st) ;

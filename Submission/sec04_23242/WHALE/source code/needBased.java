@@ -1,8 +1,7 @@
 class needBased extends Scholarship{
     private double allowance ;
 
-    public needBased(String sid, double all){
-        super(sid) ;
+    public needBased(double all){
         allowance = all ;
     }
 
