@@ -1,13 +1,13 @@
 
 import java.util.Vector;
 
-
 abstract class User {
     private String userID;
     private String name;
     private String email;
 
-    public User() {}
+    public User() {
+    }
 
     public User(String id, String name, String email) {
         this.userID = id;
@@ -31,8 +31,7 @@ abstract class User {
         this.email = email;
     }
 
-    public  void displayInfo()
-    {
+    public void displayInfo() {
 
     }
 }
@@ -92,11 +91,11 @@ class Task {
     private String status;
     private Deadline deadline;
 
-    public Deadline getDeadline() { //composition
+    public Deadline getDeadline() { // composition
         return deadline;
     }
 
-    public Task (int taskId, String taskName, String status){
+    public Task(int taskID, String taskName, String status) {
         this.taskID = taskID;
         this.taskName = taskName;
         this.status = status;
@@ -105,7 +104,7 @@ class Task {
     public int gettaskID() {
         return taskID;
     }
-    
+
     public String gettaskName() {
         return taskName;
     }
@@ -114,7 +113,7 @@ class Task {
         return status;
     }
 
-    public void setStatus(){
+    public void setStatus() {
 
     }
 
@@ -123,7 +122,7 @@ class Task {
 class Deadline {
     private String dueDate;
 
-    public Deadline (String dueDate){
+    public Deadline(String dueDate) {
         this.dueDate = dueDate;
     }
 
@@ -138,9 +137,9 @@ class Deadline {
 
 class Milestone {
     private String milestoneName;
-    private Vector <Task> task = new Vector<>();
+    private Vector<Task> task = new Vector<>();
 
-    public Milestone (String milestoneName){
+    public Milestone(String milestoneName) {
         this.milestoneName = milestoneName;
     }
 
@@ -148,14 +147,18 @@ class Milestone {
         return milestoneName;
     }
 
-    void addTask(Task t){
+    void addTask(Task t) {
         task.add(t);
     }
 
-    public void printTask(){
+    public void printTask() {
         for (int i = 0; i < task.size(); i++) {
             System.out.println(task.get(i));
         }
     }
 }
 
+class Team {
+    private String teamName;
+    
+}
