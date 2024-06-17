@@ -89,7 +89,18 @@ public class ScholarshipApp {
             String fn = inp.next();
             System.out.print("LAST NAME:\t");
             String ln = inp.next();
-            System.out.print("CURRENT AGE:\t");
+
+            while(true){
+                System.out.print("CURRENT AGE:\t");
+                try {
+                    int age = inp.nextInt();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid Input. Please enter number!");
+                    inp.nextLine();
+                }
+            }
+            
             int age = inp.nextInt();
             inp.nextLine(); // Consume newline
             System.out.print("EMAIL:\t");
