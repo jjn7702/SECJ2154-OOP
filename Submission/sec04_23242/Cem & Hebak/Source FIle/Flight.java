@@ -15,6 +15,7 @@ public class Flight {
     }
 
     public void display_Flight_Info() {
+
         System.out.println("FLight ID: " + flightID);
         System.out.println("Date of departure: " + dateDeparture);
         System.out.println("Date of arrival: " + dateArrival);

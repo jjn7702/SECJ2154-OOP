@@ -33,18 +33,6 @@ public class HajiUmrahApp {
                 // pegawai1.display_Embassy_Info();
                 // pegawai1.update_Embassy_Info();
 
-                Hotel hotel1 = new Hotel("Hotel Concorde",
-                                "2, Jln Sultan Ismail, Kuala Lumpur, 50250 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur",
-                                600);
-                Hotel hotel2 = new Hotel("Hotel Istana",
-                                "73, Jalan Raja Chulan, 50200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur", 500);
-                Hotel hotel3 = new Hotel("Shangri-La Hotel",
-                                "11, Jalan Sultan Ismail, 50250 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur", 700);
-                Hotel hotel4 = new Hotel("Traders Hotel",
-                                "Kuala Lumpur City Centre, 50088 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur", 650);
-                Hotel hotel5 = new Hotel("The Majestic Hotel",
-                                "5, Jalan Sultan Hishamuddin, 50000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur",
-                                550);
                 // concorde.display_Hotel_Info();
 
                 Jemaah jemaah1 = new Jemaah("Muhammad Faiz Bin Zakaria", "0195773762", "030717080421",
@@ -85,12 +73,6 @@ public class HajiUmrahApp {
                 doktor.add(doctor3);
                 doktor.add(doctor4);
                 doktor.add(doctor5);
-
-                hotel.add(hotel1);
-                hotel.add(hotel2);
-                hotel.add(hotel3);
-                hotel.add(hotel4);
-                hotel.add(hotel5);
 
                 jemaah.add(jemaah1);
                 jemaah.add(jemaah2);
