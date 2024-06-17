@@ -8,6 +8,7 @@ public class ScholarshipApp {
 
     public static void main(String[] args) throws IOException {
         Administrator ad;
+        Student stu;
         System.out.println("---------- WHALE SCHOLARSHIP ----------");
         System.out.println("Are you a Student or an Administrator?");
 
@@ -21,8 +22,8 @@ public class ScholarshipApp {
                 registerStudent();
                 countStudent++;
             } else if (rs == 'N') {
-                ad = signInAdministrator();
-                System.out.println(ad.getusername());
+                stu = signInStudent();
+                System.out.println(stu.toString());
             } else {
                 System.out.println("Invalid choice. Please enter Y or N.");
             }
@@ -248,7 +249,7 @@ public class ScholarshipApp {
             // Write to File
             PrintWriter outFile = new PrintWriter("Student" + usname + ".txt");
             outFile.printf("%-20s\t%-20s\n", usname, pass);
-            outFile.print(fn + "\t" + ln + "\t" + age + "\t" + email + "\n" + s + ", " + ci + ", " + st);
+            outFile.println (fn + "\t" + ln + "\t" + age + "\t" + email + "\n" + s + ", " + ci + ", " + st);
             outFile.printf("%-20s", matricsNu);
             outFile.close();
             System.out.println("Student information saved successfully.");
