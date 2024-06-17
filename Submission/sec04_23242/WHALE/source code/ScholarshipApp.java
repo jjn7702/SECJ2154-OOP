@@ -5,48 +5,61 @@ public class ScholarshipApp {
     static Scanner inp = new Scanner(System.in);
     static int countAdmin = 0;
     static int countStudent = 0;
+    static Administrator ad;
+    static Student stu;
 
     public static void main(String[] args) throws IOException {
-        Administrator ad;
-        Student stu;
-        System.out.println("---------- WHALE SCHOLARSHIP ----------");
-        System.out.println("Are you a Student or an Administrator?");
-
-        System.out.print("[0]\tStudent\n[1]\tAdministrator\n");
-        int choice = inp.nextInt();
-
-        if (choice == 0) {
-            System.out.println("Register? (Y/N)");
-            char rs = inp.next().toUpperCase().charAt(0);
-
-            if (rs == 'Y') {
-                registerStudent();
-                countStudent++;
-            } else if (rs == 'N') {
-                stu = signInStudent();
-                System.out.println(stu.toString());
-            } else {
-                System.out.println("Invalid choice. Please enter Y or N.");
-            }
-        }
-        if (choice == 1) {
-            System.out.println("Register? (Y/N)");
-            char rs = inp.next().toUpperCase().charAt(0);
-
-            if (rs == 'Y') {
-                registerAdministrator();
-                countAdmin++;
-            } else if (rs == 'N') {
-                ad = signInAdministrator();
-                System.out.println(ad.getusername());
-            } else {
-                System.out.println("Invalid choice. Please enter Y or N.");
-            }
-        }
-        inp.close();
-
         Scholarship mB = new meritBased(3000.00) ;
-        Scholarship nB = new needBased(5000.00) ;        
+        Scholarship nB = new needBased(5000.00) ;  
+
+        do{
+            System.out.println("---------- WHALE SCHOLARSHIP ----------");
+            System.out.println("Are you a Student or an Administrator?");
+
+            System.out.print("[0]\tStudent\n[1]\tAdministrator\n");
+            int choice = inp.nextInt() ;
+
+            if (choice == 0) {
+                System.out.println("Register? (Y/N)");
+                char rs = inp.next().toUpperCase().charAt(0);
+
+                if (rs == 'Y') {
+                    registerStudent();
+                    countStudent++;
+                } else if (rs == 'N') {
+                    stu = signInStudent();
+                    System.out.println(stu.toString());
+                } 
+                else {
+                    System.out.println("Invalid choice. Please enter Y or N.");
+                }
+            }
+            if (choice == 1) {
+                System.out.println("Register? (Y/N)");
+                char rs = inp.next().toUpperCase().charAt(0);
+
+                if (rs == 'Y') {
+                    registerAdministrator();
+                    countAdmin++;
+                } 
+                else if (rs == 'N') {
+                    ad = signInAdministrator();
+                    if(countAdmin == 0)
+                        countAdmin++ ;
+
+                    System.out.println(ad.getusername());
+                } 
+                else {
+                    System.out.println("Invalid choice. Please enter Y or N.");
+                }
+            }
+            inp.close(); 
+            System.out.println(countAdmin) ;
+
+            if(countStudent == 0){
+                System.out.println("There is no student applying the scholarship") ;
+            }
+        }while (countAdmin>0 || countStudent>0) ;     
     }
 
     private static void registerAdministrator() {

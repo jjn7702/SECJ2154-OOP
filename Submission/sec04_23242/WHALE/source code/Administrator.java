@@ -39,7 +39,8 @@ public class Administrator extends User {
     }
 
     public void evaluateStudent(Student st) {
-        stud.add(st);
+        if(scholar.isEligible(st) == true)
+            stud.add(st);
     }
 
     @Override
