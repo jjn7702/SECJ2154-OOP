@@ -43,6 +43,10 @@ public class Administrator extends User {
             stud.add(st);
     }
 
+    public Student getStudent(int i){
+        return stud.get(i) ;
+    }
+
     @Override
     public String toString() {
         return super.toString() + " Admin username: " + username + "\nPosition: " + position;

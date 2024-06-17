@@ -1,7 +1,8 @@
 class meritBased extends Scholarship{
     private double allowance ;
 
-    public meritBased(double all){
+    public meritBased(String sid, double all){
+        super(sid) ;
         allowance = all ;
     }
 
