@@ -100,15 +100,25 @@ public class ScholarshipApp {
     }
 
     private static void registerAdministrator() {
+        boolean validInput = false;
+        int age = 0;
+
         try {
             System.out.println("---------- Personal Information ----------");
             System.out.print("FIRST NAME:\t");
             String fn = inp.next();
             System.out.print("LAST NAME:\t");
             String ln = inp.next();
+             while (!validInput) {
             System.out.print("CURRENT AGE:\t");
-            int age = inp.nextInt();
-            inp.nextLine(); // Consume newline
+            try {
+                age = inp.nextInt();
+                inp.nextLine();  
+                validInput = true;  
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                inp.nextLine();  
+        }
             System.out.print("EMAIL:\t");
             String email = inp.nextLine();
             System.out.print("POSITION:\t");
