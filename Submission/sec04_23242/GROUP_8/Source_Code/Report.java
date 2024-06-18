@@ -1,22 +1,32 @@
-class Milestone {
-    private String milestoneName;
-    private Vector<Task> task = new Vector<>();
+class Report {
+    private String reportID;
+    private String content;
+    private Project project;
+    
 
-    public Milestone(String milestoneName) {
-        this.milestoneName = milestoneName;
+    public Report(String reportID, String content, Project project) {
+        this.reportID = reportID;
+        this.content = content;
+        this.project = project;
     }
 
-    public String getMilestoneName() {
-        return milestoneName;
+    public String getReportID() {
+        return reportID;
     }
 
-    void addTask(Task t) {
-        task.add(t);
+    public String getContent() {
+        return content;
     }
 
-    public void printTask() {
-        for (int i = 0; i < task.size(); i++) {
-            System.out.println(task.get(i));
-        }
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setReportID(String reportID) {
+        this.reportID = reportID;
+    }
+
+    public Project getProject() {
+        return project;
     }
 }
