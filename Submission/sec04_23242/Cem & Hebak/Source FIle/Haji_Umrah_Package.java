@@ -69,8 +69,8 @@ public enum Haji_Umrah_Package {
         }
 
         public void add_Pelancongan_Package(Pelancongan_Package p) {
-                p.display_Pelancongan_info;
                 plgPkg = p;
+                plgPkg.display_Pelancongan_info();      
                 // tengok jemaah punya class camne pilih package haji umrah
         }
 
