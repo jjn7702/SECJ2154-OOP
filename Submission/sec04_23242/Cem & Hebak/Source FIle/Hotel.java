@@ -11,11 +11,12 @@ public class Hotel {
     Scanner inp = new Scanner(System.in);
 
     // constructor untuk hotel di madinah and mekah
-    public Hotel(String hotelName, String address, double price, double distance_MasjidilHaram,
+    public Hotel(String hotelName, String address, double distance_MasjidilHaram,
             double distance_MasjidilNabawi) {
         this.hotelName = hotelName;
         this.address = address;
-        this.price = price;
+        this.roomSize = "Double Room";
+        this.price = 135.00;
         this.distance_MasjidilHaram = distance_MasjidilHaram;
         this.distance_MasjidilNabawi = distance_MasjidilNabawi;
     }
