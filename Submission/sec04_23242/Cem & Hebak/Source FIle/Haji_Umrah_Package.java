@@ -7,51 +7,45 @@ public enum Haji_Umrah_Package {
         // try 2
         // package 1 = haji ifrad (haji pastu umrah)
         IFRAD("Haji and Umrah",
-                        new Vector<>(List.of(new Flight("AA", "22 May 2024", null, "0000", "1730", "KLIA", "Jeddah"),
-                                        new Flight("AA", "22 May 2024", null, "0000", "1730", "Medinah", "KLIA"))),
-                        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219, 300.0, 500.0), // use 3-arg hotel
-                                                                                                  // constructor
-                                        new Hotel("Hotel Oyo", "Medinah", 219, 300.0, 500.0))),
+                        new Vector<>(List.of(new Flight("AA", "31 May 2024", "31 May 2024", "0000", "0850", "KLIA", "Jeddah"),
+                                             new Flight("AA", "15 July 2024", "16 July 2024", "0000", "1115", "Medinah", "KLIA"))),
+                        new Vector<>(List.of(new Hotel("Hilton Makkah Convention Hotel", "Mekkah", 219, 300.0, 500.0), // use 3-arg hotel constructor
+                                             new Hotel("Al Meknan Hotel", "Medinah", 219, 300.0, 500.0))),
                         new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"),
                         15000),
 
         // package 2 = haji qiran (haji dan umrah serentak)
         QIRAN("Haji and Umrah simultaneously",
-                        new Vector<>(List.of(new Flight("MAS", "30 May 2024", null, "0000", "1730", "KLIA", "Jeddah"),
-                                        new Flight("AA", "22 May 2024", null, "0000", "1730", "Medinah", "KLIA"))),
-                        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219, 300.0, 500.0), // use 3-arg hotel
-                                                                                                  // constructor
-                                        new Hotel("Hotel Oyo", "Medinah", 219, 300.0, 500.0))),
-                        new Kursus("0002", "12:00 PM", "12 May 2024", "DSI", "Don"),
-                        20000),
+                new Vector<>(List.of(new Flight("MAS", "15 Jun 2024", "16 Jun 2024", "2250", "0740", "KLIA", "Jeddah"),
+                                   new Flight("AA", "1 August 2024", "1 August 2024", "0020", "1135", "Medinah", "KLIA"))),
+                new Vector<>(List.of(new Hotel("Hilton Makkah Convention Hotel", "Mekkah", 219, 300.0, 500.0), // use 3-arg hotel constructor
+                                     new Hotel("Al Meknan Hotel", "Medinah", 219, 300.0, 500.0))),
+                new Kursus("0002", "12:00 PM", "12 May 2024", "DSI", "Don"),
+                20000),
 
         // package 3 = haji tamattuk (umrah dan haji)
         TAMATTUK("Umrah and Haji",
-                        new Vector<>(List.of(new Flight("AA", "22 May 2024", null, "0320", "1120", "KLIA", "Jeddah"),
-                                        new Flight("AA", "22 May 2024", null, "0000", "1730", "Medinah", "KLIA"))),
-                        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219, 300.0, 500.0), // use 3-arg hotel
-                                                                                                  // constructor
-                                        new Hotel("Hotel Oyo", "Medinah", 219, 300.0, 500.0))),
-                        new Kursus("0003", "3:30 PM", "12 May 2024", "DSI", "Kazim"),
-                        15000),
+                new Vector<>(List.of(new Flight("AA", "5 Jun 2024", "6 Jun 2024", "2220", "0710", "KLIA", "Jeddah"),
+                                     new Flight("AA", "20 July 2024", "21 July 2024", "2350", "1105", "Medinah", "KLIA"))),
+                new Vector<>(List.of(new Hotel("Hilton Makkah Convention Hotel", "Mekkah", 219, 300.0, 500.0), // use 3-arg hotel constructor
+                                     new Hotel("Al Meknan Hotel", "Medinah", 219, 300.0, 500.0))),
+                new Kursus("0003", "3:30 PM", "12 May 2024", "DSI", "Kazim"),
+                15000),
 
         // package 4 = haji sahaja
         HAJI("Haji",
-                        new Vector<>(List.of(new Flight("AA", "22 May 2024", "22 July 2024", "0415", "1215", "KLIA",
-                                        "Jeddah"))),
-                        new Vector<>(List.of(new Hotel("Hotel Oyo", "Mekkah", 219, 300.0, 500.0))), // use 3-arg hotel
-                                                                                                    // constructor
-                        new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"),
-                        10000),
+                new Vector<>(List.of(new Flight("AA", "22 May 2024", "22 July 2024", "0415", "1215", "KLIA", "Jeddah"))),
+                new Vector<>(List.of(new Hotel("Hilton Makkah Convention Hotel", "Mekkah", 219, 300.0, 500.0))), // use 3-arg hotel constructor
+                new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"),
+                10000),
 
         // package 5 = umrah sahaja
         UMRAH("Umrah",
-                        new Vector<>(List.of(new Flight("AA", "22 May 2024", "22 July 2024", "0045", "0545", "KLIA",
-                                        "Jeddah"))),
-                        new Vector<>(List.of(new Hotel("Hotel Oyo", "Medinah", 219, 300.0, 500.0))), // use 3-arg hotel
-                                                                                                     // constructor
-                        new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"),
-                        5000);
+                new Vector<>(List.of(new Flight("AA", "22 May 2024", "22 July 2024", "0045", "0545", "KLIA","Jeddah"))),
+                new Vector<>(List.of(new Hotel("Hilton Makkah Convention Hotel", "Mekkah", 219, 300.0, 500.0), // use 3-arg hotel constructor
+                                     new Hotel("Al Meknan Hotel", "Medinah", 219, 300.0, 500.0))),
+                new Kursus("0001", "9:00 AM", "12 May 2024", "DSI", "Panji"),
+                5000);
 
         private String ibadah;
         // private Flight depart;
@@ -75,6 +69,8 @@ public enum Haji_Umrah_Package {
         }
 
         public void add_Pelancongan_Package(Pelancongan_Package p) {
+                p.display_Pelancongan_info;
+                plgPkg = p;
                 // tengok jemaah punya class camne pilih package haji umrah
         }
 

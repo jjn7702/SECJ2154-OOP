@@ -55,7 +55,7 @@ public class Embassy extends User {
         System.out.print("Staff Number: ");
         staff_number = inp.nextLine();
 
-        // new credentials
+        // new credentialsdsadasdasdas
         display_Embassy_Info();
     }
 
