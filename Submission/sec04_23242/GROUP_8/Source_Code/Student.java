@@ -36,7 +36,7 @@ class Student extends User {
 
     @Override
     public void display() {
-        System.out.println("Name: " + getName());
+        System.out.println("Name: " + getName().toUpperCase());
         System.out.println("Email: " + getEmail());
         System.out.println("Student Matrics No: " + matricsNumber);
         System.out.println("Student Role: " + role);

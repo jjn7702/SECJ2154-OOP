@@ -23,6 +23,14 @@ public class Jemaah extends User {
 
     }
 
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public Embassy getEmbassy() {
+        return embassy;
+    }
+
     public String getJemaahID() {
         return jemaahID;
     }
