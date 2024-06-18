@@ -137,7 +137,7 @@ public class HajiUmrahApp {
                                                                                         }
 
                                                                                 }
-                                                                                for (User jemaahtry : jemaahWithDoctor) {
+                                                                                for (Jemaah jemaahtry : jemaahWithDoctor) {       //Jemaah or User kita cuba
                                                                                         jemaahtry.display();    //dia akan panggil semua super and subclass display
                                                                                 }
 
