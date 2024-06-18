@@ -36,9 +36,10 @@ public class Embassy extends User {
         this.embassy_number = embassy_number;
     }
 
-    public void display_Embassy_Info() {
+    //Polymorphism
+    public void display() {
         System.out.println("========== EMBASSY CREDENTIALS ==========");
-        super.DisplayUserInfo();
+        super.display();
         System.out.println("Location: " + location);
         System.out.println("Position: " + position);
         System.out.println("Embassy Number: " + embassy_number);
@@ -56,7 +57,7 @@ public class Embassy extends User {
         embassy_number = inp.nextLine();
 
         // new credentialsdsadasdasdas
-        display_Embassy_Info();
+        display();
     }
 
     public void Visa_Application(Jemaah Umat) {
@@ -69,12 +70,12 @@ public class Embassy extends User {
             choice = inp.nextInt();
 
             if (choice == 1) {
-                Umat.display_Jemaah_Info();
+                Umat.display();         //JemaahInfo
             } else if (choice == 2) {
                 // 2 approve
                 // 1 failed
                 // 0 pending
-                Umat.display_Jemaah_Info();
+                Umat.display();         //JemaahInfo
                 System.out.print("[1] Approve\n[2] Failed\nYour Choice: ");
                 choice2 = inp.nextInt();
                 Umat.setApproval_from_embassy(choice2);

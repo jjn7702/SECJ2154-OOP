@@ -42,8 +42,8 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public void DisplayUserInfo() {
+    //Polymorphism
+    public void display() {
         // System.out.println("========== CREDENTIALS ==========");
         System.out.println("Name : " + name);
         System.out.println("Contact :" + contact);

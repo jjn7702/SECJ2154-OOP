@@ -139,7 +139,7 @@ public class Jemaah extends User {
             }
         }
 
-        
+        // dulu ada display embassy info & Doctor info, tapi guna polymorphism boleh panggil terus di main
         System.out.println();
     }
 

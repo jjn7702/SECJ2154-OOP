@@ -41,7 +41,7 @@ class Doctor extends User {
     //Polymorphism
     public void display() {
         System.out.println("========== DOCTOR CREDENTIALS ==========");
-        super.DisplayUserInfo();
+        super.display();
         System.out.println("Hospital: " + hospital);
         System.out.println("Position: " + position);
         System.out.println("Doctor Number: " + doctor_Number);
@@ -74,14 +74,14 @@ class Doctor extends User {
             switch (choice) {
                 case 1:
                     // display jemaah info
-                    umat.display_Jemaah_Info();
+                    umat.display();         //JemaahInfo
                     break;
                 case 2:
                     // Medical Application Approval
                     // 2 approve
                     // 1 failed
                     // 0 pending
-                    umat.display_Jemaah_Info();
+                    umat.display();         //JemaahInfo
                     System.out.print("[1] Approve\n[2] Failed\nYour Choice: ");
                     int choice4 = inp.nextInt();
 

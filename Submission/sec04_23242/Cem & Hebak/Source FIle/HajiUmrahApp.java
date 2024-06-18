@@ -118,7 +118,7 @@ public class HajiUmrahApp {
                                                                         choice3 = inp.nextInt();
 
                                                                         if (choice3 == 1) {
-                                                                                doktor.get(i).display_Doctor_Info();
+                                                                                doktor.get(i).display();                //dulu guna dooktor.get(i).display_doctor_info()
                                                                         } else if (choice3 == 2) {
                                                                                 Vector<Jemaah> jemaahWithDoctor = new Vector<>();
 
@@ -137,8 +137,8 @@ public class HajiUmrahApp {
                                                                                         }
 
                                                                                 }
-                                                                                for (Jemaah jemaahtry : jemaahWithDoctor) {
-                                                                                        jemaahtry.DisplayUserInfo();
+                                                                                for (User jemaahtry : jemaahWithDoctor) {
+                                                                                        jemaahtry.display();    //dia akan panggil semua super and subclass display
                                                                                 }
 
                                                                                 // doktor.get(i).Medical_Application(
