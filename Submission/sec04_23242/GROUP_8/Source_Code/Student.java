@@ -1,4 +1,4 @@
-class Student extends User {
+class Student extends User implements T1{
     private String matricsNumber, role;
 
     public Student(String name, String email, String mat_No, String r) {

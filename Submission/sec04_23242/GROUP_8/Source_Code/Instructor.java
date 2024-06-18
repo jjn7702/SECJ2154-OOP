@@ -1,6 +1,6 @@
 
 
-class Instructor extends User {
+class Instructor extends User implements T1{
     private String empNumber;
 
     public Instructor(String name, String email, String emp_no) {
