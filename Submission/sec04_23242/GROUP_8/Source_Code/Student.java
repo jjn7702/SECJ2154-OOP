@@ -16,10 +16,6 @@ class Student extends User {
         return role;
     }
 
-    public void setMatricsNum(String matricsNumber) {
-        this.matricsNumber = matricsNumber;
-    }
-
     public void setRole(String role) {
         this.role = role;
     }
@@ -29,12 +25,19 @@ class Student extends User {
     }
 
     public void setTeam(Team team) {
+        if (this.team!= null) {
+            this.team.removeMember(this);
+        }
         this.team = team;
+        if (team!= null) {
+            team.addMember(this);
+        }
     }
 
     @Override
     public void display() {
-        super.display();
+        System.out.println("Name: " + getName());
+        System.out.println("Email: " + getEmail());
         System.out.println("Student Matrics No: " + matricsNumber);
         System.out.println("Student Role: " + role);
     }

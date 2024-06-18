@@ -1,6 +1,4 @@
-
-
-class Instructor extends User implements T1{
+class Instructor extends User {
     private String empNumber;
 
     public Instructor(String name, String email, String emp_no) {
@@ -11,9 +9,11 @@ class Instructor extends User implements T1{
     public String getEmpNum() {
         return empNumber;
     }
-    
+
+    @Override
     public void display() {
-        super.display();
+        System.out.println("Name: " + getName());
+        System.out.println("Email: " + getEmail());
         System.out.println("Instructor Employee No: " + empNumber);
     }
 }

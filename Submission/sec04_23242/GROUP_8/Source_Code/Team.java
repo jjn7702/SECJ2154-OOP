@@ -10,16 +10,11 @@ class Team {
     }
 
     public void addMember(Student s) {
-        if (s.getTeam()!= null) {
-            s.getTeam().removeMember(s);
-        }
         members.add(s);
-        s.setTeam(this);
     }
 
     public void removeMember(Student s) {
         members.remove(s);
-        s.setTeam(null);
     }
 
     public String getTeamName() {

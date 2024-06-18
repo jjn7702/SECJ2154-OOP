@@ -2,8 +2,6 @@ abstract class User {
     private String name;
     private String email;
 
-    public User() { }
-
     public User(String name, String email) {
         this.name = name;
         this.email = email;
@@ -21,9 +19,5 @@ abstract class User {
         this.email = email;
     }
 
-    public void display() {
-        System.out.println("Name: " + name);
-        System.out.println("Email: " + email);
-
-    }
+    public abstract void display();
 }
