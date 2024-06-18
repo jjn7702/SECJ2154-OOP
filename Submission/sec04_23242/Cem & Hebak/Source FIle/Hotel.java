@@ -7,7 +7,7 @@ public class Hotel {
     private double price, distance_MasjidilHaram, distance_MasjidilNabawi;
     private String checkInTime = "3:00 pm";
     private String checkOutTime = "12:00 pm";
-    private int noRoom;
+    private int totalRoom;
     Scanner inp = new Scanner(System.in);
 
     // constructor untuk hotel di madinah and mekah
@@ -17,17 +17,25 @@ public class Hotel {
         this.address = address;
         this.roomSize = "Double Room";
         this.price = 135.00;
+    }
+
+    public Hotel(String hotelName, String address, double price, int totalRoom, double distance_MasjidilHaram,
+            double distance_MasjidilNabawi) {
+        this.hotelName = hotelName;
+        this.address = address;
+        this.price = price;
+        this.totalRoom = totalRoom;
         this.distance_MasjidilHaram = distance_MasjidilHaram;
         this.distance_MasjidilNabawi = distance_MasjidilNabawi;
     }
 
     // constructor untuk hotel selain mekah dan madinah
-    public Hotel(String hotelName, String address, int noRoom) {
+    public Hotel(String hotelName, String address, int totalRoom) {
         this.hotelName = hotelName;
         this.address = address;
         this.roomSize = "";
         this.price = 0;
-        this.noRoom = noRoom;
+        this.totalRoom = totalRoom;
     }
 
     public void chooseRoomSize() {
@@ -60,12 +68,13 @@ public class Hotel {
         System.out.printf("%-35s: %20s%n", "Hotel", hotelName);
         System.out.printf("%-35s: %20s%n", "Address", address);
         System.out.printf("%-35s: %20.2f%n", "Price", price);
+        System.out.printf("%-35s: %20s%n", "Room Size", roomSize);
         System.out.printf("%-35s: %20.2f m%n", "Distance from Masjidil Haram", distance_MasjidilHaram);
         System.out.printf("%-35s: %20.2f m%n", "Distance from Masjidil Nabawi", distance_MasjidilNabawi);
         System.out.println("Standard check-in and check-out times:");
         System.out.printf("%-35s: %20s%n", "Check-in time", checkInTime);
         System.out.printf("%-35s: %20s%n", "Check-out time", checkOutTime);
-        System.out.printf("%-35s: %20d%n", "Number of rooms", noRoom);
+        System.out.printf("%-35s: %20d%n", "Number of rooms", totalRoom);
     }
 
     public void display_Hotel_Info() {
@@ -76,6 +85,6 @@ public class Hotel {
         System.out.println("Standard check-in and check-out times:");
         System.out.printf("%-35s: %20s%n", "Check-in time", checkInTime);
         System.out.printf("%-35s: %20s%n", "Check-out time", checkOutTime);
-        System.out.printf("%-35s: %20d%n", "Number of rooms", noRoom);
+        System.out.printf("%-35s: %20d%n", "Number of rooms", totalRoom);
     }
 }
