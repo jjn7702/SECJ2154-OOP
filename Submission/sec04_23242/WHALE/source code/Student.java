@@ -6,7 +6,7 @@ public class Student extends User {
     private Scholarship scholarship;
     private Programs prog;
     private StudentHistory studhist;
-    private double threshold ;
+    private double threshold;
 
     // constructor
     public Student(String fn, String ln, int a, String em, Address add, String matricsNumber/*
@@ -34,6 +34,14 @@ public class Student extends User {
 
     }
 
+    public void setScholarship(Scholarship scholarship) {
+        this.scholarship = scholarship;
+    }
+
+    public Scholarship getScholarship() {
+        return scholarship;
+    }
+
     public String getMatricsNumber() {
         return matricsNumber;
     }
@@ -46,8 +54,8 @@ public class Student extends User {
         return CGPA;
     }
 
-    public double getThreshold(){
-        return threshold ;
+    public double getThreshold() {
+        return threshold;
     }
 
     @Override
@@ -56,10 +64,10 @@ public class Student extends User {
                 + " Scholarship: " + scholarship + " Program: " + prog + " Student History: " + studhist;
     }
 
-    public void display(){
+    public void display() {
         System.out.println("Full Name: " + super.fName + " " + super.lName);
         System.out.println("Age: " + super.getAge());
-        System.out.println("Email: " + super.getEmail());    
+        System.out.println("Email: " + super.getEmail());
         System.out.println("Address: " + super.add.toString());
     }
 

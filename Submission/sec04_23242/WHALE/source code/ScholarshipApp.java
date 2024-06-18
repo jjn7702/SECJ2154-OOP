@@ -51,6 +51,17 @@ public class ScholarshipApp {
                     System.out.println("Invalid choice. Please enter Y or N.");
                 }
 
+                // Call the applyFromDisplayScholarship method
+                if (choice == 0) { // Assuming choice 0 is for students
+                    Student student = signInStudent();
+                    if (student != null) {
+                        System.out.println("Do you want to apply for a scholarship? (Y/N)");
+                        char apply = inp.next().toUpperCase().charAt(0);
+                        if (apply == 'Y') {
+                            applyFromDisplayScholarship(student, sID); // Assuming sID is the student ID
+                        }
+                    }
+                }
             }
             if (choice == 1) {
                 System.out.println("Register? (Y/N)");
@@ -334,19 +345,71 @@ public class ScholarshipApp {
         String sID = String.valueOf(sid);
         Scholarship ip;
 
-        if (schship == "meritBased") {
+        if (schship.equals("meritBased")) {
             ip = new meritBased(sID, 3453);
-            st.RegisterScholarship(ip);
+            st.setScholarship(ip);
         }
 
-        if (schship == "needBased") {
-            ip = new meritBased(sID, 3453);
-            st.RegisterScholarship(ip);
+        if (schship.equals("needBased")) {
+            ip = new needBased(sID, 3453);
+            st.setScholarship(ip);
         }
 
         // Letak diorang isi StudentHistory juga dlm ni
 
         return sid;
+    }
+
+    private static void applyFromDisplayScholarship(Student student, int sid) {
+        try {
+            System.out.println("Select type of scholarship to apply:");
+            System.out.println("[1] Merit Based");
+            System.out.println("[2] Need Based");
+            int choice = inp.nextInt();
+            File file;
+            if (choice == 1) {
+                file = new File("meritScholarship.txt");
+            } else if (choice == 2) {
+                file = new File("needScholarship.txt");
+            } else {
+                System.out.println("Invalid choice.");
+                return;
+            }
+
+            Scanner fileScanner = new Scanner(file);
+            ArrayList<String> scholarships = new ArrayList<>();
+            while (fileScanner.hasNextLine()) {
+                scholarships.add(fileScanner.nextLine());
+            }
+            fileScanner.close();
+
+            // Display all scholarships with an index
+            for (int i = 0; i < scholarships.size(); i++) {
+                System.out.println("[" + (i + 1) + "] " + scholarships.get(i));
+            }
+
+            // Ask the student to select a scholarship
+            System.out.println("Enter the number of the scholarship you want to apply for:");
+            int scholarshipChoice = inp.nextInt() - 1; // Adjust for 0-based index
+            if (scholarshipChoice < 0 || scholarshipChoice >= scholarships.size()) {
+                System.out.println("Invalid choice.");
+                return;
+            }
+
+            // Confirm application
+            System.out.println("You have selected: " + scholarships.get(scholarshipChoice));
+            System.out.println("Do you want to apply for this scholarship? (Y/N)");
+            char response = inp.next().toUpperCase().charAt(0);
+            if (response == 'Y') {
+                sid++; // Assuming Student class has getStudentId method
+                applyScholarship(student, sid);
+                System.out.println("Application successful.");
+            } else {
+                System.out.println("Application cancelled.");
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Scholarship file not found.");
+        }
     }
 
     private static void displayStudList(Vector<Student> sop) {
