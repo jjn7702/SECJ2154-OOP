@@ -1,12 +1,10 @@
 class Review {
     private String reviewerName;
     private String feedback;
-    private Report report;
 
-    public Review(String reviewerName, String feedback, Report report) {
+    public Review(String reviewerName, String feedback) {
         this.reviewerName = reviewerName;
         this.feedback = feedback;
-        this.report = report;
     }
 
     public String getReviewName() {
@@ -17,7 +15,9 @@ class Review {
         return feedback;
     }
 
-    public Report getReport() {
-        return report;
+    public String toString() {
+        return "Reviewer Name : " + reviewerName + "\n    Feedback : " + feedback;
     }
+    
+
 }

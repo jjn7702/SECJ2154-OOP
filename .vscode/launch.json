@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GroupProjectManager3",
+            "request": "launch",
+            "mainClass": "GroupProjectManager3",
+            "projectName": "SECJ2154-OOP_96ec5f4c"
+        },
+        {
+            "type": "java",
             "name": "GroupProjectManager",
             "request": "launch",
             "mainClass": "GroupProjectManager",

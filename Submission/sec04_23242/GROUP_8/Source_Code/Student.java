@@ -2,10 +2,10 @@ class Student extends User {
     private String matricsNumber, role;
     private Team team;
 
-    public Student(String name, String email, String mat_No, String r) {
+    public Student( String mat_No,String name, String email) {
         super(name, email);
         matricsNumber = mat_No;
-        role = r;
+       
     }
 
     public String getMatricsNum() {

@@ -9,7 +9,11 @@ class Deadline {
         return dueDate;
     }
 
-    public void setDueDate() {
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
+    }
 
+    public String toString() {
+        return "Due Date: " + dueDate;
     }
 }

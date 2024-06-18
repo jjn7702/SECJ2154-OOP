@@ -4,30 +4,33 @@ class Task {
     private String status;
     private Deadline deadline;
 
-    public Deadline getDeadline() { // composition
-        return deadline;
-    }
-
     public Task(int taskID, String taskName, String status) {
         this.taskID = taskID;
         this.taskName = taskName;
         this.status = status;
     }
 
-    public int gettaskID() {
+    public int getTaskID() {
         return taskID;
     }
 
-    public String gettaskName() {
+    public String getTaskName() {
         return taskName;
     }
 
-    public String getstatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus() {
-
+    public void setStatus(String status) {
+        this.status = status;
     }
 
+    public Deadline getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(Deadline deadline) {
+        this.deadline = deadline;
+    }
 }

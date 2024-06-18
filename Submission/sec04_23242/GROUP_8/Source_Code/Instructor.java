@@ -10,7 +10,7 @@ class Instructor extends User {
         return empNumber;
     }
 
-    @Override
+    
     public void display() {
         System.out.println("Name: " + getName());
         System.out.println("Email: " + getEmail());
