@@ -60,6 +60,7 @@ public class Hotel {
         System.out.printf("%-35s: %20s%n", "Hotel", hotelName);
         System.out.printf("%-35s: %20s%n", "Address", address);
         System.out.printf("%-35s: %20.2f%n", "Price", price);
+        System.out.printf("%-35s: %20s%n", "Room Size", roomSize);
         System.out.printf("%-35s: %20.2f m%n", "Distance from Masjidil Haram", distance_MasjidilHaram);
         System.out.printf("%-35s: %20.2f m%n", "Distance from Masjidil Nabawi", distance_MasjidilNabawi);
         System.out.println("Standard check-in and check-out times:");
