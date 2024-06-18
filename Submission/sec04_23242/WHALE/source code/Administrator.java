@@ -6,7 +6,7 @@ public class Administrator extends User {
     private String position;
     private ArrayList<Student> stud;
     private Scholarship scholar;
-    private Apply application;
+    public Apply application;
 
     // Public constructor
 
@@ -38,9 +38,14 @@ public class Administrator extends User {
         return position;
     }
 
-    public void evaluateStudent(Student st) {
-        if(scholar.isEligible(st) == true)
+    public boolean evaluateStudent(Student st) {
+        if(scholar.isEligible(st) == true){
             stud.add(st);
+            return true ;
+        }
+
+        else
+            return false ;
     }
 
     public Student getStudent(int i){
