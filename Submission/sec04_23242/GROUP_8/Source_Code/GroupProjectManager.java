@@ -161,10 +161,7 @@ import java.util.Vector;
 // }
 >>>>>>> 0a70781d68299d93b7c4ccce252a03fb53c41153
 
-class Team {
-    private String teamName;
-    
-}
+
 
 // class Report {
 //     private String reportID;
