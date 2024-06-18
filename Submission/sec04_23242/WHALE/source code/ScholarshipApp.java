@@ -11,6 +11,11 @@ public class ScholarshipApp {
     public static void main(String[] args) throws IOException { 
         int sID = 0000 ;
 
+        String si = String.valueOf(sID) ;
+        Scholarship os = new needBased(si, 5000.00) ;
+
+        os.display() ;
+
         do{
             System.out.println("---------- WHALE SCHOLARSHIP ----------");
             System.out.println("Are you a Student or an Administrator?");
@@ -65,10 +70,10 @@ public class ScholarshipApp {
             System.out.println("Student Count: " + countStudent) ;
 
 
-            if(countStudent>0){
+            /*if(countStudent>0){
                 ad.evaluateStudent(stu) ;
                 ad.getStudent(0).display() ;
-            }
+            }*/
 
             if (choice == 1){
                 System.out.println("do you want to logout? (Y/N)" ) ;
@@ -89,18 +94,7 @@ public class ScholarshipApp {
             String fn = inp.next();
             System.out.print("LAST NAME:\t");
             String ln = inp.next();
-
-            while(true){
-                System.out.print("CURRENT AGE:\t");
-                try {
-                    int age = inp.nextInt();
-                    break;
-                } catch (InputMismatchException e) {
-                    System.out.println("Invalid Input. Please enter number!");
-                    inp.nextLine();
-                }
-            }
-            
+            System.out.print("CURRENT AGE:\t");
             int age = inp.nextInt();
             inp.nextLine(); // Consume newline
             System.out.print("EMAIL:\t");
@@ -188,6 +182,7 @@ public class ScholarshipApp {
         } catch (FileNotFoundException e) {
             // If file is not found, continue to next authentication attempt
         }
+        
         return null;
     }
 
