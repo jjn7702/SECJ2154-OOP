@@ -146,12 +146,6 @@ class Milestone {
     void addTask(Task t) {
         task.add(t);
     }
-
-    public void printTask() {
-        for (int i = 0; i < task.size(); i++) {
-            System.out.println(task.get(i));
-        }
-    }
 }
 
 class Team {
