@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Vector;
+import java.security.SecureRandom;
 
 public class HajiUmrahApp {
         public static void main(String[] args) {
@@ -7,72 +8,60 @@ public class HajiUmrahApp {
                 Vector<Embassy> pegawai = new Vector<>();
                 Vector<Doctor> doktor = new Vector<>();
                 Vector<Jemaah> jemaah = new Vector<>();
-                Vector<Hotel> hotel = new Vector<>();
+                SecureRandom randomNumberGenerator = new SecureRandom();
+                int randomNumber = randomNumberGenerator.nextInt(2);
 
-                Embassy pegawai1 = new Embassy("Muhammad Ilman Bin Mohd Khairi", "019-577 3762", "030717-08-0421",
-                                "zilman2345@gmail.com", "Setia Tropika", "Kastam", "030717");
+                Embassy pegawai1 = new Embassy("Muhammad Ali Bin Abu", "019-375 6551", "920102-01-9874",
+                                "zilman2345@gmail.com", "Setia Tropika", "Ketua Jabatan Imigresen", "JIM2013");
                 Embassy pegawai2 = new Embassy("Ahmad Aliff Bin Ali", "012-345 6789", "920101-01-1234",
-                                "aliff.ali@gmail.com", "Taman Sri Andalas", "Imigresen", "920101");
-                Embassy pegawai3 = new Embassy("Nur Aisyah Binti Mohd", "013-987 6543", "940202-05-5678",
-                                "aisyah.mohd@gmail.com", "Bukit Indah", "Konsulat", "940202");
-                Embassy pegawai4 = new Embassy("Siti Khadijah Binti Ismail", "017-223 3445", "950303-10-6789",
-                                "khadijah.ismail@gmail.com", "Taman Molek", "Jabatan Luar Negeri", "950303");
-                Embassy pegawai5 = new Embassy("Zulhilmi Bin Yusof", "016-998 7766", "960404-02-9876",
-                                "zul.yusof@gmail.com", "Nusa Bestari", "Kementerian Pertahanan", "960404");
+                                "aliff.ali@gmail.com", "Taman Sri Andalas", "Timbalan Ketua Jabatan Imigresen",
+                                "JIM1223");
 
-                Doctor doctor1 = new Doctor("Dr. Ahmad Ali", "012-345 6789", "870101-01-1234",
-                                "ahmad.ali@gmail.com", "Hospital Kuala Lumpur", "Cardiologist", "DOC12345");
-                Doctor doctor2 = new Doctor("Dr. Siti Nurhaliza", "013-987 6543", "890202-05-5678",
-                                "siti.nurhaliza@gmail.com", "Hospital Selayang", "Neurologist", "DOC23456");
-                Doctor doctor3 = new Doctor("Dr. Mohd Faizal", "014-223 3445", "910303-10-6789",
-                                "mohd.faizal@gmail.com", "Hospital Putrajaya", "Pediatrician", "DOC34567");
-                Doctor doctor4 = new Doctor("Dr. Aisyah Ismail", "015-998 7766", "920404-02-9876",
-                                "aisyah.ismail@gmail.com", "Hospital Serdang", "Surgeon", "DOC45678");
-                Doctor doctor5 = new Doctor("Dr. Zulhilmi Yusof", "016-577 3762", "930505-08-0421",
-                                "zul.yusof@gmail.com", "Hospital Ampang", "General Practitioner", "DOC56789");
-                // pegawai1.display_Embassy_Info();
-                // pegawai1.update_Embassy_Info();
-
-                // concorde.display_Hotel_Info();
-
-                Jemaah jemaah1 = new Jemaah("Muhammad Faiz Bin Zakaria", "0195773762", "030717080421",
-                                "zfaiz2345@gmail.com",
-                                "030717", 21, doctor1, pegawai1);
-                Jemaah jemaah2 = new Jemaah("Ahmad Ali Bin Hassan", "0123456789", "950101010101", "ahmad.ali@gmail.com",
-                                "950101", 40, doctor1, pegawai1);
-                Jemaah jemaah3 = new Jemaah("Nur Aisyah Binti Mohd", "0139876543", "940202050567",
-                                "aisyah.mohd@gmail.com",
-                                "940202", 33, doctor2, pegawai2);
-                Jemaah jemaah4 = new Jemaah("Siti Khadijah Binti Ismail", "0172233445", "930303101234",
-                                "khadijah.ismail@gmail.com",
-                                "930303", 28, doctor2, pegawai2);
-                Jemaah jemaah5 = new Jemaah("Zulhilmi Bin Yusof", "0169987766", "960404020987", "zul.yusof@gmail.com",
-                                "960404", 25, doctor3, pegawai3);
-                Jemaah jemaah6 = new Jemaah("Aminah Binti Ali", "0187766554", "920808030404", "aminah.ali@gmail.com",
-                                "920808", 29, doctor3, pegawai3);
-                Jemaah jemaah7 = new Jemaah("Ahmad Bin Samad", "0194455566", "911111101010", "ahmad.samad@gmail.com",
-                                "911111", 36, doctor4, pegawai4);
-                Jemaah jemaah8 = new Jemaah("Nurul Huda Binti Zainal", "0178877799", "931212101011",
-                                "nurul.huda@gmail.com",
-                                "931212", 31, doctor4, pegawai4);
-                Jemaah jemaah9 = new Jemaah("Azizul Rahman Bin Mahmood", "0143322111", "971213030101",
-                                "azizul.rahman@gmail.com",
-                                "971213", 24, doctor5, pegawai5);
-                Jemaah jemaah10 = new Jemaah("Siti Aminah Binti Abdul Rahman", "0123344556", "990505070707",
-                                "siti.aminah@gmail.com",
-                                "990505", 27, doctor5, pegawai5);
+                Doctor doctor1 = new Doctor("Ahmad Zairul Bin Iman", "012-345 6789", "111",
+                                "ahmad.ali@gmail.com", "Hospital Universiti Kuala Lumpur",
+                                "Head of the Family Physicians",
+                                "111");
+                // Doctor doctor2 = new Doctor("Siti Nurhaliza Binti Osman", "013-987 6543",
+                // "890202-05-5678",
+                // "siti.nurhaliza@gmail.com", "Hospital Selayang", "Deputy Head of the Family
+                // Physicians",
+                // "DOC23456");
+                Doctor doctor2 = new Doctor("Siti Nurhaliza Binti Osman", "013-987 6543", "222",
+                                "siti.nurhaliza@gmail.com", "Hospital Selayang", "Deputy Head of the Family Physicians",
+                                "222");
 
                 pegawai.add(pegawai1);
                 pegawai.add(pegawai2);
-                pegawai.add(pegawai3);
-                pegawai.add(pegawai4);
-                pegawai.add(pegawai5);
 
                 doktor.add(doctor1);
                 doktor.add(doctor2);
-                doktor.add(doctor3);
-                doktor.add(doctor4);
-                doktor.add(doctor5);
+
+                Jemaah jemaah1 = new Jemaah("Muhammad Faiz Bin Zakaria", "0195773762", "030717080421",
+                                "zfaiz2345@gmail.com",
+                                "030717", 21, doktor.get(randomNumber), pegawai.get(randomNumber));
+                Jemaah jemaah2 = new Jemaah("Ahmad Ali Bin Hassan", "0123456789", "950101010101", "ahmad.ali@gmail.com",
+                                "950101", 40, doktor.get(randomNumber), pegawai.get(randomNumber));
+                Jemaah jemaah3 = new Jemaah("Nur Aisyah Binti Mohd", "0139876543", "940202050567",
+                                "aisyah.mohd@gmail.com",
+                                "940202", 33, doktor.get(randomNumber), pegawai.get(randomNumber));
+                Jemaah jemaah4 = new Jemaah("Siti Khadijah Binti Ismail", "0172233445", "930303101234",
+                                "khadijah.ismail@gmail.com",
+                                "930303", 28, doktor.get(randomNumber), pegawai.get(randomNumber));
+                Jemaah jemaah5 = new Jemaah("Zulhilmi Bin Yusof", "0169987766", "960404020987", "zul.yusof@gmail.com",
+                                "960404", 25, doktor.get(randomNumber), pegawai.get(randomNumber));
+                Jemaah jemaah6 = new Jemaah("Aminah Binti Ali", "0187766554", "920808030404", "aminah.ali@gmail.com",
+                                "920808", 29, doctor2, pegawai2);
+                Jemaah jemaah7 = new Jemaah("Ahmad Bin Samad", "0194455566", "911111101010", "ahmad.samad@gmail.com",
+                                "911111", 36, doktor.get(randomNumber), pegawai.get(randomNumber));
+                Jemaah jemaah8 = new Jemaah("Nurul Huda Binti Zainal", "0178877799", "931212101011",
+                                "nurul.huda@gmail.com",
+                                "931212", 31, doktor.get(randomNumber), pegawai.get(randomNumber));
+                Jemaah jemaah9 = new Jemaah("Azizul Rahman Bin Mahmood", "0143322111", "971213030101",
+                                "azizul.rahman@gmail.com",
+                                "971213", 24, doktor.get(randomNumber), pegawai.get(randomNumber));
+                Jemaah jemaah10 = new Jemaah("Siti Aminah Binti Abdul Rahman", "0123344556", "990505070707",
+                                "siti.aminah@gmail.com",
+                                "990505", 27, doktor.get(randomNumber), pegawai.get(randomNumber));
 
                 jemaah.add(jemaah1);
                 jemaah.add(jemaah2);
@@ -85,11 +74,103 @@ public class HajiUmrahApp {
                 jemaah.add(jemaah9);
                 jemaah.add(jemaah10);
 
-                // jemaah.get(0).chooseUmrahPackage();
-                Hotel bruh = new Hotel("Concorde", "Putrajaya", 350);
-                bruh.display_Hotel_Info();
-                bruh.chooseRoomSize();
-                bruh.display_Hotel_Info();
+                int choice1 = 0;
+                int choice2 = 0;
+                int choice3 = 0;
+                String IC, ID;
+                do {
+                        System.out.print("[1] Log In\n[2] Exit\nYour Choice: ");
+                        choice1 = inp.nextInt();
+                        if (choice1 == 1) {
+                                System.out.print("Who are you?\n[1] Jemaah\n[2] Doctor\n[3] Embassy\nYour choice: ");
+                                choice2 = inp.nextInt();
+                                inp.nextLine();
+                                switch (choice2) {
+                                        case 1: {
+
+                                                break;
+                                        }
+                                        case 2: {
+                                                System.out.println("Enter your credentials");
+                                                System.out.print("Identification Card Number: ");
+                                                IC = inp.nextLine();
+                                                System.out.print("Doctor ID: ");
+                                                ID = inp.nextLine();
+                                                for (int i = 0; i < doktor.size(); i++) {
+                                                        if (IC.equals(doktor.get(i).getIdentification_Card()) && ID
+                                                                        .equals(doktor.get(i).getDoctor_Number())) { // check
+                                                                // IC
+                                                                // and
+                                                                // ID
+                                                                // sama
+                                                                // tak
+                                                                do {
+
+                                                                        System.out.println("Hi Dr. "
+                                                                                        + doktor.get(i).getName());
+                                                                        System.out.println(
+                                                                                        "========== Doctor Menu ==========");
+                                                                        System.out.println("[1] Show Dr. "
+                                                                                        + doktor.get(i).getName()
+                                                                                        + " info");
+                                                                        System.out.println(
+                                                                                        "[2] Medical Application Business\n[3] Exit\nYour choice: ");
+                                                                        choice3 = inp.nextInt();
+
+                                                                        if (choice3 == 1) {
+                                                                                doktor.get(i).display_Doctor_Info();
+                                                                        } else if (choice3 == 2) {
+                                                                                Vector<Jemaah> jemaahWithDoctor = new Vector<>();
+
+                                                                                for (int j = 0; j < jemaah
+                                                                                                .size(); j++) {
+                                                                                        if (jemaah.get(j)
+                                                                                                        .getDoctor() == doktor
+                                                                                                                        .get(i)) {
+                                                                                                // if jemaah ni dengan
+                                                                                                // doctor
+                                                                                                // ni, dia masuk dalam
+                                                                                                // vector
+                                                                                                // jemaahwithDoctor
+                                                                                                jemaahWithDoctor.add(
+                                                                                                                jemaah.get(j));
+                                                                                        }
+
+                                                                                }
+                                                                                for (Jemaah jemaahtry : jemaahWithDoctor) {
+                                                                                        jemaahtry.DisplayUserInfo();
+                                                                                }
+
+                                                                                // doktor.get(i).Medical_Application(
+                                                                                // jemaah10); camne nak check, the first
+                                                                                // jemaah yang ada mohon
+                                                                        }
+
+                                                                } while (choice3 != 3);
+                                                        } else {
+
+                                                        }
+
+                                                }
+                                                break;
+                                        }
+                                        case 3: {
+                                                System.out.println("Enter your credentials");
+                                                System.out.print("Identification Card Number: ");
+                                                IC = inp.nextLine();
+                                                inp.nextLine(); // clear buffer
+                                                System.out.print("Embassy ID: ");
+                                                ID = inp.nextLine();
+                                                break;
+                                        }
+                                }
+                        }
+
+                        else {
+                                break;
+                        }
+
+                } while (choice1 != 2);
                 inp.close();
         }
 }
