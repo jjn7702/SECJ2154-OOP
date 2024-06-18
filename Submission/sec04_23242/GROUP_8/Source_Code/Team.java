@@ -8,7 +8,21 @@ class Team
     public Team(String teamName)
     {
         this.teamName=teamName;
+        members = new Vector<>();
+
     }
 
+    public void addMember(Student s)
+    {
+        members.add(s);
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public Vector<Student> getMembers() {
+        return members;
+    }
     
 }
