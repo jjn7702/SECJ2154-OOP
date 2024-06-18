@@ -199,29 +199,29 @@ class Team {
 //     }
 // }
 
-class Review {
-    private String reviewerName;
-    private String feedback;
-    private Report report;
+// class Review {
+//     private String reviewerName;
+//     private String feedback;
+//     private Report report;
 
-    public Review(String reviewerName, String feedback, Report report) {
-        this.reviewerName = reviewerName;
-        this.feedback = feedback;
-        this.report = report;
-    }
+//     public Review(String reviewerName, String feedback, Report report) {
+//         this.reviewerName = reviewerName;
+//         this.feedback = feedback;
+//         this.report = report;
+//     }
 
-    public String getReviewName() {
-        return reviewerName;
-    }
+//     public String getReviewName() {
+//         return reviewerName;
+//     }
 
-    public String getFeedback() {
-        return feedback;
-    }
+//     public String getFeedback() {
+//         return feedback;
+//     }
 
-    public Report getReport() {
-        return report;
-    }
-}
+//     public Report getReport() {
+//         return report;
+//     }
+// }
 
 public class GroupProjectManager {
     public static void main(String[] args) {
