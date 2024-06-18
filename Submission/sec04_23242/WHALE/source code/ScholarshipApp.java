@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 import java.io.*;
 
 public class ScholarshipApp {
@@ -10,17 +10,13 @@ public class ScholarshipApp {
 
     public static void main(String[] args) throws IOException { 
         int sID = 0000 ;
-
-        String si = String.valueOf(sID) ;
-        Scholarship os = new needBased(si, 5000.00) ;
-
-        os.display() ;
+        Vector<Student> StudList = new Vector<Student>() ;
 
         do{
             System.out.println("---------- WHALE SCHOLARSHIP ----------");
             System.out.println("Are you a Student or an Administrator?");
 
-            System.out.print("[0]\tStudent\n[1]\tAdministrator\n");
+            System.out.print("[0]\tStudent\n[1]\tAdministrator\n") ;
             int choice = inp.nextInt() ;
 
             if (choice == 0) {
@@ -60,29 +56,37 @@ public class ScholarshipApp {
                     System.out.println("Invalid choice. Please enter Y or N.");
                 }
             }
-            System.out.println(countAdmin) ;
 
             if(countStudent == 0){
                 System.out.println("There is no student applying the scholarship") ;
             }
 
-            System.out.println("Admin Count: " + countAdmin) ;
-            System.out.println("Student Count: " + countStudent) ;
+            if (choice == 1){ // The Administrator work
+                if(countStudent>0){
+                    boolean evs = ad.evaluateStudent(stu) ;
+                    if (evs){
+                        StudList.add(stu) ;
+                    }
+                    else{
 
+                    }
+                    //ad.getStudent(0).display() ;
+                }
 
-            /*if(countStudent>0){
-                ad.evaluateStudent(stu) ;
-                ad.getStudent(0).display() ;
-            }*/
-
-            if (choice == 1){
                 System.out.println("do you want to logout? (Y/N)" ) ;
                 char y = inp.next().toUpperCase().charAt(0) ;
                 if (y == 'Y'){
                     countAdmin-- ;
                 }
             }
-        }while (countAdmin>0 || countStudent>0) ;   
+
+            if (choice == 0){
+                // Karu nanti nk buat Student isi butiran diti utk scholarship tu, buat dkt sini
+            }
+
+        }while (countAdmin>0 || countStudent>0) ;
+        
+        displayStudList(StudList) ;
         
         inp.close() ;
     }
@@ -224,7 +228,9 @@ public class ScholarshipApp {
             outFile.printf("%-20s", matricsNu);
             outFile.close();
             System.out.println("Student information saved successfully.");
-        } catch (FileNotFoundException e) {
+        } 
+        
+        catch (FileNotFoundException e) {
             System.err.println("Error: Unable to create or write to the file.");
             e.printStackTrace();
         }
@@ -277,10 +283,12 @@ public class ScholarshipApp {
 
                 Student stu = new Student(fname, lname, age, email, null, matricsNu);
                 return stu;
-            } else {
+            } 
+            else {
                 System.out.println("Invalid username or password.");
             }
-        } catch (FileNotFoundException e) {
+        }
+        catch (FileNotFoundException e) {
             // If file is not found, continue to next authentication attempt
             System.out.println("User file not found.");
         }
@@ -303,7 +311,17 @@ public class ScholarshipApp {
             ip  = new meritBased(sID, 3453) ;
         }
 
+        //Letak Student History juga dlm ni
+
         return sid ;
+    }
+
+    private static void displayStudList(Vector<Student> sop){
+        if (!sop.isEmpty()){
+            for(Student k :sop){
+                k.displayAllDetails() ;
+            }
+        }
     }
 }
 
