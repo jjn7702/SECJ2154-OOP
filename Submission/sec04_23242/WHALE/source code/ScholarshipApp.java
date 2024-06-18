@@ -26,11 +26,11 @@ public class ScholarshipApp {
                 if (rs == 'Y') {
                     registerStudent();
                     countStudent++;
+                    //Panggil Student nak isi dkt sini karu
+                
                 } else if (rs == 'N') {
                     stu = signInStudent();
                     if(countStudent == 0)
-                        countStudent++ ;
-
                     sID = applyScholarship(stu, sID) ;
                 } 
                 else {
@@ -63,20 +63,23 @@ public class ScholarshipApp {
 
             if (choice == 1){ // The Administrator work
                 if(countStudent>0){
-                    boolean evs = ad.evaluateStudent(stu) ;
-                    if (evs){
-                        StudList.add(stu) ;
-                    }
-                    else{
-
-                    }
-                    //ad.getStudent(0).display() ;
+                    for(int i=0 ; i<countStudent ; i++){
+                        stu.displayAllDetails() ;
+                        boolean evs = ad.evaluateStudent(stu) ;
+                        if (evs){
+                            StudList.add(stu) ;
+                            ad.application.incrementStudent() ;
+                        }
+                        else{
+                        }
                 }
+            }
 
                 System.out.println("do you want to logout? (Y/N)" ) ;
                 char y = inp.next().toUpperCase().charAt(0) ;
                 if (y == 'Y'){
                     countAdmin-- ;
+                    ad = null ;
                 }
             }
 
@@ -84,7 +87,7 @@ public class ScholarshipApp {
                 // Karu nanti nk buat Student isi butiran diti utk scholarship tu, buat dkt sini
             }
 
-        }while (countAdmin>0 || countStudent>0) ;
+        }while (ad != null || countStudent>0) ;
         
         displayStudList(StudList) ;
         
