@@ -115,76 +115,89 @@ import java.util.Vector;
 
 // }
 
-class Deadline {
-    private String dueDate;
+// class Deadline {
+//     private String dueDate;
 
-    public Deadline(String dueDate) {
-        this.dueDate = dueDate;
-    }
+//     public Deadline(String dueDate) {
+//         this.dueDate = dueDate;
+//     }
 
-    public String getDueDate() {
-        return dueDate;
-    }
+//     public String getDueDate() {
+//         return dueDate;
+//     }
 
-    public void setDueDate() {
+//     public void setDueDate() {
 
-    }
-}
+//     }
+// }
 
-class Milestone {
-    private String milestoneName;
-    private Vector<Task> task = new Vector<>();
+// class Milestone {
+//     private String milestoneName;
+//     private Vector<Task> task = new Vector<>();
 
-    public Milestone(String milestoneName) {
-        this.milestoneName = milestoneName;
-    }
+//     public Milestone(String milestoneName) {
+//         this.milestoneName = milestoneName;
+//     }
 
-    public String getMilestoneName() {
-        return milestoneName;
-    }
+//     public String getMilestoneName() {
+//         return milestoneName;
+//     }
 
+<<<<<<< HEAD
     void addTask(Task t) {
         task.add(t);
     }
 }
+=======
+//     void addTask(Task t) {
+//         task.add(t);
+//     }
+
+//     public void printTask() {
+//         for (int i = 0; i < task.size(); i++) {
+//             System.out.println(task.get(i));
+//         }
+//     }
+// }
+>>>>>>> 0a70781d68299d93b7c4ccce252a03fb53c41153
 
 class Team {
     private String teamName;
     
 }
 
-class Report {
-    private String reportID;
-    private String content;
-    private Project project;
+// class Report {
+//     private String reportID;
+//     private String content;
+//     private Project project;
     
 
-    public Report(String reportID, String content, Project project) {
-        this.reportID = reportID;
-        this.content = content;
-        this.project = project;
-    }
+//     public Report(String reportID, String content, Project project) {
+//         this.reportID = reportID;
+//         this.content = content;
+//         this.project = project;
+//     }
 
-    public String getReportID() {
-        return reportID;
-    }
+//     public String getReportID() {
+//         return reportID;
+//     }
 
-    public String getContent() {
-        return content;
-    }
+//     public String getContent() {
+//         return content;
+//     }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+//     public void setContent(String content) {
+//         this.content = content;
+//     }
 
-    public void setReportID(String reportID) {
-        this.reportID = reportID;
-    }
+//     public void setReportID(String reportID) {
+//         this.reportID = reportID;
+//     }
 
-    public Project getProject() {
-        return project;
-    }
-}
+//     public Project getProject() {
+//         return project;
+//     }
+// }
 
 class Review {
     private String reviewerName;

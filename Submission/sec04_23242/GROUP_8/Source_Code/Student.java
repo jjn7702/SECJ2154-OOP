@@ -25,11 +25,8 @@ class Student extends User {
 
     @Override
     public void display() {
-        System.out.println("Student Info:");
-
-
-        // System.out.println("ID: " + getUserID());
-        // System.out.println("Name: " + getName());
-        // System.out.println("Email: " + getEmail());
+        super.display();
+        System.out.println("Student Matrics No: " + matricsNumber);
+        System.out.println("Student Role: " + role);
     }
 }
