@@ -22,6 +22,8 @@ abstract class User {
     }
 
     public void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Email: " + email);
 
     }
 }

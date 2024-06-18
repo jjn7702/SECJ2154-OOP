@@ -11,6 +11,7 @@ class Instructor extends User {
     }
     
     public void display() {
-        System.out.println("Instructor Info:");
+        super.display();
+        System.out.println("Instructor Employee No: " + empNumber);
     }
 }
