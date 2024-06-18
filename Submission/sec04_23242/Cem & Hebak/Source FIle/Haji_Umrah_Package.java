@@ -9,8 +9,8 @@ public enum Haji_Umrah_Package {
         IFRAD("Haji and Umrah",
                 new Vector<>(List.of(new Flight("AA", "31 May 2024", "31 May 2024", "0000", "0850", "KLIA", "Jeddah"),
                                      new Flight("AA", "17 July 2024", "18 July 2024", "0000", "1115", "Medinah", "KLIA"))),
-                new Vector<>(List.of(new Hotel("Hilton Makkah Convention Hotel", "Mekkah", 220, 300.0, 500.0), // use 5-arg hotel constructor
-                                     new Hotel("Al Meknan Hotel", "Medinah", 219, 300.0, 500.0))),
+                new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 354, 0.62, 436.60), // use 5-arg hotel constructor
+                                     new Hotel("Al-Andalus Palace Hotel", "Medinah", 623, 0.32, 443.0))),  // distance always in km
                 new Kursus("A01", "9:00 AM", "12 May 2024", "DSI", "Panji"),
                 15000),
 
@@ -18,8 +18,8 @@ public enum Haji_Umrah_Package {
         QIRAN("Haji and Umrah simultaneously",
                 new Vector<>(List.of(new Flight("M302", "1 Jun 2024", "2 Jun 2024", "2250", "0740", "KLIA", "Jeddah"),
                                      new Flight("A107", "18 July 2024", "18 July 2024", "0020", "1135", "Medinah", "KLIA"))),
-                new Vector<>(List.of(new Hotel("Hilton Makkah Convention Hotel", "Mekkah", 219, 300.0, 500.0), // use 5-arg hotel constructor
-                                     new Hotel("Al Meknan Hotel", "Medinah", 219, 300.0, 500.0))),
+                new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 354, 0.62, 436.60), // use 5-arg hotel constructor
+                                     new Hotel("Al-Andalus Palace Hotel", "Medinah", 623, 0.32, 443.0))),
                 new Kursus("A02", "12:00 PM", "12 May 2024", "DSI", "Don"),
                 20000),
 
@@ -27,8 +27,8 @@ public enum Haji_Umrah_Package {
         TAMATTUK("Umrah and Haji",
                 new Vector<>(List.of(new Flight("A129", "2 Jun 2024", "3 Jun 2024", "2220", "0710", "KLIA", "Medinah"),
                                      new Flight("A315", "17 July 2024", "18 July 2024", "2350", "1105", "Jeddah", "KLIA"))),
-                new Vector<>(List.of(new Hotel("Al Meknan Hotel", "Mekkah", 219, 300.0, 500.0), // use 5-arg hotel constructor
-                                     new Hotel("Hilton Makkah Convention Hotel", "Medinah", 219, 300.0, 500.0))),
+                new Vector<>(List.of(new Hotel("Al-Andalus Palace Hotel", "Medinah", 623, 0.32, 443.0), // use 5-arg hotel constructor
+                                     new Hotel("Elaf Ajyad Hotel", "Mekkah", 354, 0.62, 436.60))),
                 new Kursus("A03", "3:30 PM", "12 May 2024", "DSI", "Kazim"),
                 15000),
 
@@ -36,16 +36,16 @@ public enum Haji_Umrah_Package {
         HAJI("Haji",
                 new Vector<>(List.of(new Flight("A268", "3 Jun 2024", "3 Jun 2024", "0415", "1215", "KLIA", "Jeddah"),
                                      new Flight("M231", "18 July 2024", "19 July 2024", "2350", "1105", "Medinah", "KLIA"))),
-                new Vector<>(List.of(new Hotel("Hilton Makkah Convention Hotel", "Mekkah", 219, 300.0, 500.0))), // use 5-arg hotel constructor
+                new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 354, 0.62, 436.60))), // use 5-arg hotel constructor
                 new Kursus("A04", "9:00 AM", "12 May 2024", "DSI", "Panji"),
                 10000),
 
         // package 5 = umrah sahaja
         UMRAH("Umrah",
-                new Vector<>(List.of(new Flight("M478", "4 Jun 2024", "5 Jun 2024", "0045", "0545", "KLIA","Jeddah"),
-                                     new Flight("A315", "17 July 2024", "7 July 2024", "2350", "1105", "Medinah", "KLIA"))),
-                new Vector<>(List.of(new Hotel("Hilton Makkah Convention Hotel", "Mekkah", 219, 300.0, 500.0), // use 5-arg hotel constructor
-                                     new Hotel("Al Meknan Hotel", "Medinah", 219, 300.0, 500.0))),
+                new Vector<>(List.of(new Flight("M478", "4 Dec 2024", "5 Dec 2024", "0045", "0545", "KLIA","Mekkah"),
+                                     new Flight("A315", "21 Dec 2024", "22 Dec 2024", "2350", "1105", "Medinah", "KLIA"))),
+                new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 354, 0.62, 436.60), // use 5-arg hotel constructor
+                                     new Hotel("Al-Andalus Palace Hotel", "Medinah", 623, 0.32, 443.0))),
                 new Kursus("A05", "9:00 AM", "12 May 2024", "DSI", "Panji"),
                 5000);
 
