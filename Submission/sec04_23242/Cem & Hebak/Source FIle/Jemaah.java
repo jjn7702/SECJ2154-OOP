@@ -70,10 +70,11 @@ public class Jemaah extends User {
     public void setApproval_from_embassy(int approval_from_embassy) {
         this.approval_from_embassy = approval_from_embassy;
     }
-
-    public void display_Jemaah_Info() {
+    
+    //Polymorphism
+    public void display() {
         System.out.println("========== JEMAAH CREDENTIALS ==========");
-        super.DisplayUserInfo();
+        super.display();
         System.out.println("Jemaah ID: " + jemaahID);
         System.out.println("Age: " + age);
         String Health = "pending", Visa = "pending", Approval = "pending";
@@ -138,8 +139,7 @@ public class Jemaah extends User {
             }
         }
 
-        doctor.display_Doctor_Info();
-        embassy.display_Embassy_Info();
+        
         System.out.println();
     }
 

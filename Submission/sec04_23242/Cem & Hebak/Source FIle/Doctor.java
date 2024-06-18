@@ -38,7 +38,8 @@ class Doctor extends User {
         this.doctor_Number = doctor_Number;
     }
 
-    public void display_Doctor_Info() {
+    //Polymorphism
+    public void display() {
         System.out.println("========== DOCTOR CREDENTIALS ==========");
         super.DisplayUserInfo();
         System.out.println("Hospital: " + hospital);
@@ -57,7 +58,7 @@ class Doctor extends User {
         System.out.print("Doctor Number: ");
         doctor_Number = inp.nextLine();
         // updated info
-        display_Doctor_Info();
+        display();
 
     }
 
