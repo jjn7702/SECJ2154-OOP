@@ -38,4 +38,12 @@ public class Store {
     public void setAdd(Address add) {
         this.add = add;
     }
+
+    public String toString() {
+        return name + "\t" + add.toString();
+    }
+
+    public Product searchItem(int n) {
+        return products.get(n);
+    }
 }
