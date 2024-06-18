@@ -1,5 +1,6 @@
-class Student extends User implements T1{
+class Student extends User {
     private String matricsNumber, role;
+    private Team team;
 
     public Student(String name, String email, String mat_No, String r) {
         super(name, email);
@@ -15,13 +16,21 @@ class Student extends User implements T1{
         return role;
     }
 
-    public void setMatricsNum (String matricsNumber) {
+    public void setMatricsNum(String matricsNumber) {
         this.matricsNumber = matricsNumber;
     }
 
-    public void setRole (String role) {
+    public void setRole(String role) {
         this.role = role;
-    } 
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 
     @Override
     public void display() {

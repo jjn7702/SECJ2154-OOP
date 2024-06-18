@@ -1,20 +1,25 @@
 import java.util.Vector;
 
-class Team
-{
+class Team {
     private String teamName;
-    private Vector <Student> members;
+    private Vector<Student> members;
 
-    public Team(String teamName)
-    {
-        this.teamName=teamName;
+    public Team(String teamName) {
+        this.teamName = teamName;
         members = new Vector<>();
-
     }
 
-    public void addMember(Student s)
-    {
+    public void addMember(Student s) {
+        if (s.getTeam()!= null) {
+            s.getTeam().removeMember(s);
+        }
         members.add(s);
+        s.setTeam(this);
+    }
+
+    public void removeMember(Student s) {
+        members.remove(s);
+        s.setTeam(null);
     }
 
     public String getTeamName() {
@@ -24,5 +29,4 @@ class Team
     public Vector<Student> getMembers() {
         return members;
     }
-    
 }
