@@ -16,7 +16,7 @@ public class Cart {
         System.out.print("\nPlease enter the item: ");
         String n = inp.nextLine().toLowerCase();
         System.out.print(
-                "Please enter the Category [FRUITS(F), VEGETABLES(V), DAIRY(D), MEAT(M), BAKERY(B), SNACKS(S), OHTERS(O)]: ");
+                "Please enter the Category [FRUITS(F), VEGETABLES(V), DAIRY(D), MEAT(M), BAKERY(B), SNACKS(S), OTHERS(O)]: ");
         String c = inp.nextLine().toUpperCase();
         switch (c) {
             case "F": {
