@@ -9,6 +9,13 @@
             "name": "GroupProjectManager3",
             "request": "launch",
             "mainClass": "GroupProjectManager3",
+            "projectName": "SECJ2154-OOP_cbede3f0"
+        },
+        {
+            "type": "java",
+            "name": "GroupProjectManager3",
+            "request": "launch",
+            "mainClass": "GroupProjectManager3",
             "projectName": "SECJ2154-OOP_96ec5f4c"
         },
         {
