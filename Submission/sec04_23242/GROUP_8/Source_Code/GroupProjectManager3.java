@@ -46,11 +46,19 @@ public class GroupProjectManager3 { public static void main(String[] args) {
 
         Scanner inp = new Scanner(System.in);
 
+<<<<<<< Updated upstream
         int choice;
         System.out.println("List of Actions\n");
         System.out.println("1) View Project List\n2) Add Project\n");
         System.out.print("Select your choice : ");
         choice = inp.nextInt();
+=======
+            switch (choice) {
+                case 1:
+                    for(Project p: project) {
+                        p.getName();
+                    } 
+>>>>>>> Stashed changes
 
         switch (choice) {
             case 1:
