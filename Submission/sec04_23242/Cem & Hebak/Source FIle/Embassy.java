@@ -38,14 +38,11 @@ public class Embassy extends User implements userDisplay {
 
     // Interface
     public void display() {
-        System.out.println("========== CREDENTIALS ==========");
+        System.out.println("========== EMBASSY CREDENTIALS ==========");
         System.out.println("Name : " + getName());
         System.out.println("Contact :" + getContact());
         System.out.println("Identification Card : " + getIdentification_Card());
         System.out.println("Email: " + getEmail());
-
-        System.out.println("========== EMBASSY CREDENTIALS ==========");
-        super.display();
         System.out.println("Location: " + location);
         System.out.println("Position: " + position);
         System.out.println("Embassy Number: " + embassy_number);

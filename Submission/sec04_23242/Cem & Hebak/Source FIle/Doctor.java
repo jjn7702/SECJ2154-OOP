@@ -41,7 +41,10 @@ class Doctor extends User {
     // Polymorphism
     public void display() {
         System.out.println("========== DOCTOR CREDENTIALS ==========");
-        super.display();
+        System.out.println("Name : " + getName());
+        System.out.println("Contact :" + getContact());
+        System.out.println("Identification Card : " + getIdentification_Card());
+        System.out.println("Email: " + getEmail());
         System.out.println("Hospital: " + hospital);
         System.out.println("Position: " + position);
         System.out.println("Doctor Number: " + doctor_Number);

@@ -73,14 +73,11 @@ public class Jemaah extends User implements userDisplay {
 
     // Interface
     public void display() {
-        System.out.println("========== CREDENTIALS ==========");
+        System.out.println("========== JEMAAH CREDENTIALS ==========");
         System.out.println("Name : " + getName());
         System.out.println("Contact :" + getContact());
         System.out.println("Identification Card : " + getIdentification_Card());
         System.out.println("Email: " + getEmail());
-
-        System.out.println("========== JEMAAH CREDENTIALS ==========");
-        super.display();
         System.out.println("Jemaah ID: " + jemaahID);
         System.out.println("Age: " + age);
         String Health = "pending", Visa = "pending", Approval = "pending";
