@@ -1,24 +1,49 @@
-import java.util.Vector;
+import java.util.*;
 
-class Milestone {
-    private String milestoneName;
-    private Vector<Task> task = new Vector<>();
+public class Milestone {
+    private String id;
+    private String name;
+    private String description;
+    private Deadline deadline;
+    private ArrayList<Task> task;
 
-    public Milestone(String milestoneName) {
-        this.milestoneName = milestoneName;
+    public Milestone(String id, String name, String description, Deadline deadline) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.deadline = deadline;
+        this.task = new ArrayList<>();
     }
 
-    public String getMilestoneName() {
-        return milestoneName;
+    public String getId() {
+        return id;
     }
 
-    void addTask(Task t) {
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Deadline getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(Deadline d) {
+        deadline = d;
+    }
+
+    public List<Task> getTask() {
+        return task;
+    }
+
+    public void addTask(Task t) {
         task.add(t);
     }
 
-    public void printTask() {
-        for (int i = 0; i < task.size(); i++) {
-            System.out.println(task.get(i));
-        }
+    public void removeTask(Task t) {
+        task.remove(t);
     }
 }
