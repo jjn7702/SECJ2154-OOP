@@ -119,10 +119,11 @@ public class HajiUmrahApp {
                                                                                                                         jemaah.get(i).getName());
                                                                                         System.out.print(
                                                                                                         "[1] Show jemaah info\n[2] Haji and Umrah package\n[3] Pelancongan package\n[4] Exit\nYour choice: ");
+                                                                                        choice4 = inp.nextInt();
                                                                                         if (choice4 == 1) {
                                                                                                 jemaah.get(i).display();
                                                                                         } else if (choice4 == 2) {
-
+                                                                                                jemaah.get(i).chooseUmrahPackage();
                                                                                         } else if (choice4 == 3) {
 
                                                                                         } else if (choice4 == 4) {

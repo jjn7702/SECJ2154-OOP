@@ -160,14 +160,6 @@ public class Jemaah extends User implements userDisplay {
         setEmail(inp.nextLine());
     }
 
-    public void checkKesihatan() {
-        doctor.Medical_Application(this);
-    }
-
-    public void checkVisa() {
-        embassy.Visa_Application(this);
-    }
-
     public void chooseUmrahPackage() {
 
         System.out.println("Please choose your ibadah package: ");
