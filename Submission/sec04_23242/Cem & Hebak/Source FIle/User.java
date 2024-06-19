@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class User {
+public abstract class User { // using abstarct
     private String name, contact, identification_Card, email;
     protected Scanner inp = new Scanner(System.in);
 
@@ -44,26 +44,27 @@ public class User {
     }
     //Polymorphism
     public void display() {
-        // System.out.println("========== CREDENTIALS ==========");
+        System.out.println("========== CREDENTIALS ==========");
         System.out.println("Name : " + name);
         System.out.println("Contact :" + contact);
         System.out.println("Identification Card : " + identification_Card);
         System.out.println("Email: " + email);
     }
 
-    public void updateUserInfo() {
+    public void updateUserInfo();
+    // public void updateUserInfo() {
 
-        System.out.println("========== UPDATE CREDENTIALS ==========");
-        System.out.print("Please enter your credentials: \nName: ");
-        name = inp.nextLine();
-        System.out.print("Contact :");
-        contact = inp.nextLine();
-        System.out.print("Identification Card : ");
-        identification_Card = inp.nextLine();
-        System.out.print("Email: ");
-        email = inp.nextLine();
+    //     System.out.println("========== UPDATE CREDENTIALS ==========");
+    //     System.out.print("Please enter your credentials: \nName: ");
+    //     name = inp.nextLine();
+    //     System.out.print("Contact :");
+    //     contact = inp.nextLine();
+    //     System.out.print("Identification Card : ");
+    //     identification_Card = inp.nextLine();
+    //     System.out.print("Email: ");
+    //     email = inp.nextLine();
 
-        // new credentials
-        // DisplayUserInfo();
-    }
+    //     // new credentials
+    //     // DisplayUserInfo();
+    // }
 }

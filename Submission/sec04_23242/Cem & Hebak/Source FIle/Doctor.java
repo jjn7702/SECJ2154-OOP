@@ -48,9 +48,18 @@ class Doctor extends User {
         System.out.println();
     }
 
-    public void update_Doctor_Info() {
+    public void updateUserInfo() {
 
-        super.updateUserInfo();
+        System.out.println("========== UPDATE CREDENTIALS ==========");
+        System.out.print("Please enter your credentials: \nName: ");
+        name = inp.nextLine();
+        System.out.print("Contact :");
+        contact = inp.nextLine();
+        System.out.print("Identification Card : ");
+        identification_Card = inp.nextLine();
+        System.out.print("Email: ");
+        email = inp.nextLine();
+
         System.out.print("Hospital: ");
         hospital = inp.nextLine();
         System.out.print("Position: ");

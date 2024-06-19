@@ -143,6 +143,18 @@ public class Jemaah extends User {
         System.out.println();
     }
 
+    public void UpdateUserInfo(){
+        System.out.println("========== UPDATE CREDENTIALS ==========");
+        System.out.print("Please enter your credentials: \nName: ");
+        name = inp.nextLine();
+        System.out.print("Contact :");
+        contact = inp.nextLine();
+        System.out.print("Identification Card : ");
+        identification_Card = inp.nextLine();
+        System.out.print("Email: ");
+        email = inp.nextLine();
+    }
+
     public void checkKesihatan() {
         doctor.Medical_Application(this);
     }
