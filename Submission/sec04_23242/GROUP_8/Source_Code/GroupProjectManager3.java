@@ -29,8 +29,14 @@ public class GroupProjectManager3 { public static void main(String[] args) {
         team.addMember(std4);
         team.addMember(std5);
 
-        Project project = new Project(101, "New Website", "Development of a new company website", report, team);
-        Project project2 = new Project(102, "Old Website", "Development of an old company website", report, team);
+
+            // Creating projects
+            Project project = new Project(101, "New Website", "Development of a new company website", report, team);
+            Project project2 = new Project(102, "Old Website", "Development of an old company website", report, team);
+            Project project3 = new Project(101, "New Website", "Development of a new company website", report, team);
+
+
+
 
         project.addTask(task1);
         project.addTask(task2);
