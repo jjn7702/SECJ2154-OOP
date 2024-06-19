@@ -70,7 +70,8 @@ class Account {
     }
 
     public void addTransaction(int id, String name, double balance, Date date, Category category) {
-        transactions.add(new Transaction(id, name, balance, date, category));
+        transactions.add(new Transaction(id, name, balance, date));
+        transactions.setCategory(category);
     }
 
     public void addBudget(double limit, Category category) {
