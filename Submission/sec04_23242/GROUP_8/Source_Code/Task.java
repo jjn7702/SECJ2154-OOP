@@ -43,4 +43,7 @@ class Task {
     }
 
     
+    public void removeTask(Task t) { //test
+        tek.remove(t);
+    }
 }
