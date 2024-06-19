@@ -7,6 +7,8 @@ import java.util.Vector;
 
 public class MovieRecommendationSystem {
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
         //Generate Data
         Vector<MovieType> mT = new Vector<MovieType>();
         Vector<Director> dr = new Vector<Director>();
