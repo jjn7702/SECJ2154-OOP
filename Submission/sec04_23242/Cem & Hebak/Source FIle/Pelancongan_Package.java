@@ -4,28 +4,28 @@ import java.util.Vector;
 public enum Pelancongan_Package {
 
         Package_1(new Vector<>(List.of("Turki", "Istanbul")), "Ahmad Kamarul", 2500.00,
-                        new Vector<>(List.of(new Flight("D23", "14/6/2024", "20/7/2024", "0500", "1300",
-                                        "Istanbul International Airport", "KLIA"))),
+                        new Vector<>(List.of(new Flight("Q32","19/7/2024","19/7/2024","0915","1315","King Abdul Aziz Airport","Istanbul International Airport"),
+                                             new Flight("D23", "26/7/2024", "26/7/2024", "0500", "1300","Istanbul International Airport", "KLIA"))),
                         new Vector<>(List.of(new Hotel("Hotel Istana", "Dizambug,Turki", 200)))),
 
         PACKAGE_2(new Vector<>(List.of("Riyadh", "Dammam")), "Badri Bakhtiar", 3000.00,
-                        new Vector<>(List.of(new Flight("A12", "15/6/2024", "22/7/2024", "0600", "1400",
-                                        "King Khalid Internatiinal Airport", "KLIA"))),
+                        new Vector<>(List.of(new Flight("K87","19/7/2024","19/7/2024","1400","1800","King Abdul Aziz Airport","King Khalid Internatiinal Airport"),
+                                             new Flight("A12", "26/7/2024", "27/7/2024", "2200", "0700","King Khalid Internatiinal Airport", "KLIA"))),
                         new Vector<>(List.of(new Hotel("Riyadh Hotel", "Riyadh Street", 300)))),
 
         PACKAGE_3(new Vector<>(List.of("Doha", "Dubai")), "Aiman Hadi", 3500.00,
-                        new Vector<>(List.of(new Flight("B34", "16/6/2024", "25/7/2024", "0700", "1500",
-                                        "Hamad International Airport", "KLIA"))),
+                        new Vector<>(List.of(new Flight("N52","19/7/2024","20/7/2024","2330","0330","King Abdul Aziz Airport","Hamad International Airport"),
+                                             new Flight("B34", "26/6/2024", "27/7/2024", "2230", "0730","Hamad International Airport", "KLIA"))),
                         new Vector<>(List.of(new Hotel("Doha Hotel", "Qatar Road", 250)))),
 
         PACKAGE_4(new Vector<>(List.of("Abu Dhabi", "Sharjah")), "Azhar Azfar", 2800.00,
-                        new Vector<>(List.of(new Flight("C56", "17/6/2024", "15/8/2024", "0800", "1600",
-                                        "Zayed International Airport", "KLIA"))),
+                        new Vector<>(List.of(new Flight("Q32","19/7/2024","20/7/2024","2200","0200","King Abdul Aziz Airport","Zayed International Airport"),
+                                             new Flight("C56", "26/7/2024", "26/7/2024", "0800", "1600","Zayed International Airport", "KLIA"))),
                         new Vector<>(List.of(new Hotel("Abu Dhabi Grand", "Sheikh Zayed", 150)))),
 
         PACKAGE_5(new Vector<>(List.of("Kuwait City", "Manama")), "Hafiz Haziq", 4000.00,
-                        new Vector<>(List.of(new Flight("D78", "18/6/2024", "17/8/2024", "0900", "1700",
-                                        "Kuwait International Airport", "KLIA"))),
+                        new Vector<>(List.of(new Flight("Q32","19/7/2024","19/7/2024","1300","1700","King Abdul Aziz Airport","Kuwait International Airport"),
+                                             new Flight("D78", "26/7/2024", "26/7/2024", "0900", "1700","Kuwait International Airport", "KLIA"))),
                         new Vector<>(List.of(new Hotel("Kuwait Palace", "Kuwait Avenue", 350))));
 
         private Vector<String> places;
