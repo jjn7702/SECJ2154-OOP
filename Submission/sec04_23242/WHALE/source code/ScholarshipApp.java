@@ -26,25 +26,39 @@ public class ScholarshipApp {
                 char rs = inp.next().toUpperCase().charAt(0);
 
                 if (rs == 'Y') {
-                    stu = registerStudent(); // Buat student isi dkt dlm function ni karu, dh register terus panggil
-                                             // function isi dlm function ni
+                    stu = registerStudent();
                     StudList.add(stu);
+
                 } else if (rs == 'N') {
                     stu = signInStudent(); // Ni function untuk tngok status je
-                    System.out.println("Do you want to check the status of your apllication? (Y/N)");
-                    char ap = inp.next().toUpperCase().charAt(0);
+                    int i=0 , j =0 ;
+
+                    if (StudList.size() == 0){
+                        StudList.add(stu) ;
+                    }
+
+                    for (Student st : StudList) {
+                        st.equals(stu);
+                        i++ ;
+                    }
+
+                    System.out.println("[0] Do you want to check the status of your apllication?");
+                    System.out.println("[1] Do you want to apply for a scholarship??");
+                    int ap = inp.nextInt() ;
 
                     switch (ap) {
-                        case 'Y':
-                            for (Student st : StudList) {
-                                st.equals(stu);
-                            }
-
-                            break;
-                        case 'N':
-                            break;
+                        case 0: if (StudList.get(i).getScholarship() == null){
+                                    System.out.println("Your application is not approved yet. Check again later") ;
+                                }
+                                else{
+                                    System.out.println("Your application has approved. We will display the information") ;
+                                    StudList.get(i).displayAllDetails() ;
+                                }
+                                break ;
+                        case 1: applyFromDisplayScholarship(stu, sID); // Assuming sID is the student ID
+                                  break;
                         default:
-                            System.out.println("Invalid choice. Please enter Y or N.");
+                            System.out.println("Invalid choice. Please enter 0 or 1") ;
                             break;
                     }
                 } else {
@@ -52,7 +66,7 @@ public class ScholarshipApp {
                 }
 
                 // Call the applyFromDisplayScholarship method
-                if (choice == 0) { // Assuming choice 0 is for students
+                /*if (choice == 0) { // Assuming choice 0 is for students
                     Student student = signInStudent();
                     if (student != null) {
                         System.out.println("Do you want to apply for a scholarship? (Y/N)");
@@ -61,7 +75,7 @@ public class ScholarshipApp {
                             applyFromDisplayScholarship(student, sID); // Assuming sID is the student ID
                         }
                     }
-                }
+                }*/
             }
             if (choice == 1) {
                 System.out.println("Register? (Y/N)");
@@ -74,8 +88,6 @@ public class ScholarshipApp {
                     ad = signInAdministrator();
                     if (countAdmin == 0)
                         countAdmin++;
-
-                    System.out.println(ad.getusername());
                 } else {
                     System.out.println("Invalid choice. Please enter Y or N.");
                 }
@@ -180,8 +192,7 @@ public class ScholarshipApp {
 
         boolean authenticated = false;
 
-        File file = new File("Submission/sec04_23242/WHALE/source code/Admin" + us + ".txt");
-        // Submission/sec04_23242/WHALE/source code/Adminhazim.txt
+        File file = new File("Admin" + us + ".txt");
 
         try {
             // System.out.print("Inside the file") ;
@@ -290,8 +301,7 @@ public class ScholarshipApp {
         int age = 0;
         boolean authenticated = false;
 
-        File file = new File("Submission/sec04_23242/WHALE/source code/Student" + us + ".txt");
-        // Submission/sec04_23242/WHALE/source code/Adminhazim.txt
+        File file = new File("Student" + us + ".txt");
 
         try {
             // System.out.print("Inside the file") ;
@@ -367,10 +377,11 @@ public class ScholarshipApp {
             System.out.println("[2] Need Based");
             int choice = inp.nextInt();
             File file;
+            
             if (choice == 1) {
-                file = new File("meritScholarship.txt");
+                file = new File("Submission\\sec04_23242\\WHALE\\source code\\meritScholarship.txt");
             } else if (choice == 2) {
-                file = new File("needScholarship.txt");
+                file = new File("Submission\\sec04_23242\\WHALE\\source code\\needScholarshp.txt");
             } else {
                 System.out.println("Invalid choice.");
                 return;
