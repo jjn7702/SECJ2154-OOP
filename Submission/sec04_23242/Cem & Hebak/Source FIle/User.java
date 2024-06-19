@@ -43,13 +43,9 @@ public abstract class User { // using abstarct
         this.email = email;
     }
 
-    // Polymorphism
+    // Interface
     public void display() {
-        System.out.println("========== CREDENTIALS ==========");
-        System.out.println("Name : " + name);
-        System.out.println("Contact :" + contact);
-        System.out.println("Identification Card : " + identification_Card);
-        System.out.println("Email: " + email);
+        
     }
 
     public abstract void updateUserInfo();

@@ -70,7 +70,7 @@ public class Jemaah extends User implements userDisplay {
         this.approval_from_embassy = approval_from_embassy;
     }
     
-    //Polymorphism
+    //Interface
     public void display() {
         System.out.println("========== CREDENTIALS ==========");
         System.out.println("Name : " + getName());

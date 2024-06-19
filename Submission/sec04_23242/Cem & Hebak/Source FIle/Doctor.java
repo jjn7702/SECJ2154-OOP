@@ -38,7 +38,7 @@ class Doctor extends User implements userDisplay{
         this.doctor_Number = doctor_Number;
     }
 
-    //Polymorphism
+    //Interface
     public void display() {
         System.out.println("========== CREDENTIALS ==========");
         System.out.println("Name : " + getName());

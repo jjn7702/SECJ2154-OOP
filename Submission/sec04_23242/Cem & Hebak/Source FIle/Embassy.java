@@ -36,7 +36,7 @@ public class Embassy extends User implements userDisplay {
         this.embassy_number = embassy_number;
     }
 
-    //Polymorphism
+    //Interface
     public void display() {
         System.out.println("========== CREDENTIALS ==========");
         System.out.println("Name : " + getName());
