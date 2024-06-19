@@ -277,3 +277,21 @@ public class Main {
         throw new CategoryNotFoundException("Category with ID " + id + " not found.");
     }
 }
+
+class AccountNotFoundException extends Exception {
+    public AccountNotFoundException(String message) {
+        super(message);
+    }
+}
+
+class InsufficientFundsException extends Exception {
+    public InsufficientFundsException(String message) {
+        super(message);
+    }
+}
+
+class CategoryNotFoundException extends Exception {
+    public CategoryNotFoundException(String message) {
+        super(message);
+    }
+}
