@@ -8,12 +8,11 @@ class Transaction {
     private Date date;
     private Category category;
 
-    public Transaction(int id, String description, double amount, Date date, Category category) {
+    public Transaction(int id, String description, double amount, Date date) {
         this.id = id;
         this.description = description;
         this.amount = amount;
         this.date = date;
-        this.category = category;
     }
 
     public int getId() {
