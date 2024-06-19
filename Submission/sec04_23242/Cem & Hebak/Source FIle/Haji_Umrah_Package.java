@@ -7,6 +7,7 @@ public enum Haji_Umrah_Package {
         // try 2
         // package 1 = haji ifrad (haji pastu umrah)
         IFRAD("Haji and Umrah",
+
                         new Vector<>(List.of(
                                         new Flight("AA", "31 May 2024", "31 May 2024", "0000", "0850", "KLIA",
                                                         "Jeddah"),
@@ -18,6 +19,7 @@ public enum Haji_Umrah_Package {
                                         new Hotel("Al-Andalus Palace Hotel", "Medinah", 623, 0.32, 443.0))), // distance
                                                                                                              // always
                                                                                                              // in km
+
                         new Kursus("A01", "9:00 AM", "12 May 2024", "DSI", "Panji"),
                         15000),
 
