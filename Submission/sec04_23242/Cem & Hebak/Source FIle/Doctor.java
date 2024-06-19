@@ -38,7 +38,7 @@ class Doctor extends User {
         this.doctor_Number = doctor_Number;
     }
 
-    //Polymorphism
+    // Polymorphism
     public void display() {
         System.out.println("========== DOCTOR CREDENTIALS ==========");
         super.display();
@@ -52,7 +52,8 @@ class Doctor extends User {
 
         System.out.println("========== UPDATE CREDENTIALS ==========");
         System.out.print("Please enter your credentials: \nName: ");
-        name = inp.nextLine();
+
+        setName(inp.nextLine());
         System.out.print("Contact :");
         contact = inp.nextLine();
         System.out.print("Identification Card : ");
@@ -83,14 +84,14 @@ class Doctor extends User {
             switch (choice) {
                 case 1:
                     // display jemaah info
-                    umat.display();         //JemaahInfo
+                    umat.display(); // JemaahInfo
                     break;
                 case 2:
                     // Medical Application Approval
                     // 2 approve
                     // 1 failed
                     // 0 pending
-                    umat.display();         //JemaahInfo
+                    umat.display(); // JemaahInfo
                     System.out.print("[1] Approve\n[2] Failed\nYour Choice: ");
                     int choice4 = inp.nextInt();
 
