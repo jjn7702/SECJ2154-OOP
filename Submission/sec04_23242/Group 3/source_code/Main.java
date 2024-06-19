@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         DatabaseManager dbManager = new DatabaseManager();
         Scanner scanner = new Scanner(System.in);
-        pauseForUserInput();
+
         while (true) {
             clearConsole();
             System.out.println("1. Admin Login");
@@ -83,6 +83,17 @@ public class Main {
         String password = scanner.nextLine();
         System.out.print("Confirm password: ");
         String confirmPassword = scanner.nextLine();
+        System.out.print("Enter age: ");
+        int age = scanner.nextInt();
+        scanner.nextLine();  // consume newline
+        System.out.print("Enter gender (male/female): ");
+        String gender = scanner.nextLine();
+        System.out.print("Enter weight (kg): ");
+        double weight = scanner.nextDouble();
+        scanner.nextLine();  // consume newline
+        System.out.print("Enter height (cm): ");
+        double height = scanner.nextDouble();
+        scanner.nextLine();  // consume newline
 
         if (!password.equals(confirmPassword)) {
             System.out.println("Passwords do not match!");
@@ -90,7 +101,7 @@ public class Main {
             return;
         }
 
-        RegularUser newUser = new RegularUser(username, password);
+        RegularUser newUser = new RegularUser(username, password, age, gender, weight, height);
         dbManager.addRegularUser(newUser);
         dbManager.saveRegularUsers(); // Save the new user to the file
         System.out.println("User registration successful!");
@@ -107,7 +118,7 @@ public class Main {
 
             if (choice == 1) {
                 clearConsole();
-                admin.viewAllMeals(dbManager);
+                admin.viewFoodItems();
                 pauseForUserInput();
             } else if (choice == 2) {
                 clearConsole();
@@ -118,7 +129,6 @@ public class Main {
                 System.out.print("Enter username to delete: ");
                 String usernameToDelete = scanner.nextLine();
                 admin.deleteRegularUser(dbManager, usernameToDelete);
-                System.out.println("User deleted successfully!");
                 pauseForUserInput();
             } else if (choice == 4) {
                 break;
@@ -142,9 +152,39 @@ public class Main {
 
             if (choice == 1) {
                 clearConsole();
-                System.out.print("Enter meal type (Breakfast/Lunch/Dinner/Snack): ");
-                String mealType = scanner.nextLine();
-                System.out.print("Enter meal date: ");
+                String mealType = "";
+                while (true) {
+                    System.out.println("Select meal type:");
+                    System.out.println("1. Breakfast");
+                    System.out.println("2. Lunch");
+                    System.out.println("3. Dinner");
+                    System.out.println("4. Snack");
+                    System.out.print("Choose an option (1-4): ");
+                    int mealTypeChoice = scanner.nextInt();
+                    scanner.nextLine();  // consume newline
+
+                    switch (mealTypeChoice) {
+                        case 1:
+                            mealType = "Breakfast";
+                            break;
+                        case 2:
+                            mealType = "Lunch";
+                            break;
+                        case 3:
+                            mealType = "Dinner";
+                            break;
+                        case 4:
+                            mealType = "Snack";
+                            break;
+                        default:
+                            clearConsole();
+                            System.out.println("Invalid choice! Please choose a number between 1 and 4.");
+                            continue;
+                    }
+                    break;
+                }
+
+                System.out.print("Enter meal date (yyyy-mm-dd): ");
                 String mealDate = scanner.nextLine();
                 Meal meal = new Meal(mealType, mealDate);
                 
@@ -155,9 +195,14 @@ public class Main {
                     if (foodName.equalsIgnoreCase("done")) {
                         break;
                     }
-                    System.out.print("Enter calories for " + foodName + ": ");
-                    int calories = scanner.nextInt();
-                    scanner.nextLine(); // consume newline
+                    
+                    Integer calories = FoodItemEnum.getCaloriesByName(foodName);
+                    if (calories == null) {
+                        System.out.print("Calories not found for " + foodName + ". Please enter calories: ");
+                        calories = scanner.nextInt();
+                        scanner.nextLine(); // consume newline
+                    }
+                    
                     meal.addFoodItem(new FoodItem(foodName, calories));
                 }
                 
@@ -192,8 +237,39 @@ public class Main {
                     if (mealToEdit == null) {
                         System.out.println("No meal found with the specified type.");
                     } else {
-                        System.out.print("Enter new meal type (Breakfast/Lunch/Dinner/Snack): ");
-                        String newMealType = scanner.nextLine();
+                        clearConsole();
+                        String newMealType = "";
+                        while (true) {
+                            System.out.println("Select new meal type:");
+                            System.out.println("1. Breakfast");
+                            System.out.println("2. Lunch");
+                            System.out.println("3. Dinner");
+                            System.out.println("4. Snack");
+                            System.out.print("Choose an option (1-4): ");
+                            int newMealTypeChoice = scanner.nextInt();
+                            scanner.nextLine();  // consume newline
+
+                            switch (newMealTypeChoice) {
+                                case 1:
+                                    newMealType = "Breakfast";
+                                    break;
+                                case 2:
+                                    newMealType = "Lunch";
+                                    break;
+                                case 3:
+                                    newMealType = "Dinner";
+                                    break;
+                                case 4:
+                                    newMealType = "Snack";
+                                    break;
+                                default:
+                                    clearConsole();
+                                    System.out.println("Invalid choice! Please choose a number between 1 and 4.");
+                                    continue;
+                            }
+                            break;
+                        }
+
                         System.out.print("Enter new meal date: ");
                         String newMealDate = scanner.nextLine();
                         Meal newMeal = new Meal(newMealType, newMealDate);
@@ -205,9 +281,14 @@ public class Main {
                             if (foodName.equalsIgnoreCase("done")) {
                                 break;
                             }
-                            System.out.print("Enter calories for " + foodName + ": ");
-                            int calories = scanner.nextInt();
-                            scanner.nextLine(); // consume newline
+                            
+                            Integer calories = FoodItemEnum.getCaloriesByName(foodName);
+                            if (calories == null) {
+                                System.out.print("Calories not found for " + foodName + ". Please enter calories: ");
+                                calories = scanner.nextInt();
+                                scanner.nextLine(); // consume newline
+                            }
+                            
                             newMeal.addFoodItem(new FoodItem(foodName, calories));
                         }
                         
