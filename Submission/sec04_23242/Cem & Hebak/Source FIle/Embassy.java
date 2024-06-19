@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Embassy extends User {
+public class Embassy extends User implements userDisplay {
     private String location, position, embassy_number;
     protected Scanner inp = new Scanner(System.in);
 
@@ -36,8 +36,14 @@ public class Embassy extends User {
         this.embassy_number = embassy_number;
     }
 
-    //Polymorphism
+    //Interface
     public void display() {
+        System.out.println("========== CREDENTIALS ==========");
+        System.out.println("Name : " + getName());
+        System.out.println("Contact :" + getcontact());
+        System.out.println("Identification Card : " + getIdentification_Card());
+        System.out.println("Email: " + getEmail());
+
         System.out.println("========== EMBASSY CREDENTIALS ==========");
         super.display();
         System.out.println("Location: " + location);
@@ -50,13 +56,13 @@ public class Embassy extends User {
 
         System.out.println("========== UPDATE CREDENTIALS ==========");
         System.out.print("Please enter your credentials: \nName: ");
-        name = inp.nextLine();
+        setName(inp.nextLine());
         System.out.print("Contact :");
-        contact = inp.nextLine();
+        setContact(inp.nextLine());
         System.out.print("Identification Card : ");
-        identification_Card = inp.nextLine();
+        setIdentification_Card(inp.nextLine());
         System.out.print("Email: ");
-        email = inp.nextLine();
+        setEmail(inp.nextLine());
 
         System.out.print("Location: ");
         location = inp.nextLine();

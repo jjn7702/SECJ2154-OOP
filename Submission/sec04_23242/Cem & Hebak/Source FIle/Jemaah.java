@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Jemaah extends User {
+public class Jemaah extends User implements userDisplay {
     private String jemaahID;
     private int age;
     private int approval_from_doctor = 0;
@@ -11,8 +11,7 @@ public class Jemaah extends User {
     private Vector<String> ubat;
     private Haji_Umrah_Package pakejIbadah;
 
-    public Jemaah(String name, String contact, String identification_Card, String email, String jemaahID, int age,
-            Doctor doctor, Embassy embassy) {
+    public Jemaah(String name, String contact, String identification_Card, String email, String jemaahID, int age, Doctor doctor, Embassy embassy) {
         super(name, contact, identification_Card, email);
         this.jemaahID = jemaahID;
         this.age = age;
@@ -71,8 +70,14 @@ public class Jemaah extends User {
         this.approval_from_embassy = approval_from_embassy;
     }
     
-    //Polymorphism
+    //Interface
     public void display() {
+        System.out.println("========== CREDENTIALS ==========");
+        System.out.println("Name : " + getName());
+        System.out.println("Contact :" + getcontact());
+        System.out.println("Identification Card : " + getIdentification_Card());
+        System.out.println("Email: " + getEmail());
+
         System.out.println("========== JEMAAH CREDENTIALS ==========");
         super.display();
         System.out.println("Jemaah ID: " + jemaahID);
@@ -138,7 +143,8 @@ public class Jemaah extends User {
                 System.out.println((i + 1) + ")" + ubat.get(i));
             }
         }
-
+        doctor.display();
+        embassy.display();
         // dulu ada display embassy info & Doctor info, tapi guna polymorphism boleh panggil terus di main
         System.out.println();
     }
@@ -146,13 +152,13 @@ public class Jemaah extends User {
     public void UpdateUserInfo(){
         System.out.println("========== UPDATE CREDENTIALS ==========");
         System.out.print("Please enter your credentials: \nName: ");
-        name = inp.nextLine();
+        setName(inp.nextLine());
         System.out.print("Contact :");
-        contact = inp.nextLine();
+        setContact(inp.nextLine());
         System.out.print("Identification Card : ");
-        identification_Card = inp.nextLine();
+        setIdentification_Card(inp.nextLine());
         System.out.print("Email: ");
-        email = inp.nextLine();
+        setEmail(inp.nextLine());
     }
 
     public void checkKesihatan() {

@@ -1,3 +1,3 @@
 public interface userDisplay {
-    public String display();
+    public void display();
 }

@@ -55,11 +55,11 @@ class Doctor extends User {
 
         setName(inp.nextLine());
         System.out.print("Contact :");
-        contact = inp.nextLine();
+        setContact(inp.nextLine());
         System.out.print("Identification Card : ");
-        identification_Card = inp.nextLine();
+        setIdentification_Card(inp.nextLine());
         System.out.print("Email: ");
-        email = inp.nextLine();
+        setEmail(inp.nextLine());
 
         System.out.print("Hospital: ");
         hospital = inp.nextLine();
