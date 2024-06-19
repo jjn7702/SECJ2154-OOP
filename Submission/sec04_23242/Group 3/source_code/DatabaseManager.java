@@ -11,15 +11,13 @@ import java.util.Scanner;
 public class DatabaseManager {
     private ArrayList<Admin> admins;
     private ArrayList<RegularUser> regularUsers;
-    private ArrayList<FoodItem> foodItems;
-    private static final String ADMIN_FILE = "C:\\Users\\Curry Laksa\\OneDrive\\ABC123\\OneDrive\\UTM\\JavaVSC\\MyFirstJava\\src\\GroupProject\\admins.txt";
-    private static final String REGULAR_USER_FILE = "C:\\Users\\Curry Laksa\\OneDrive\\ABC123\\OneDrive\\UTM\\JavaVSC\\MyFirstJava\\src\\GroupProject\\regular_users.txt";
-    private static final String MEAL_FILE = "C:\\Users\\Curry Laksa\\OneDrive\\ABC123\\OneDrive\\UTM\\JavaVSC\\MyFirstJava\\src\\GroupProject\\meals.txt";
+    private static final String ADMIN_FILE = "C:\\Users\\SOH FEI ZHEN\\Documents\\Documents\\UTM sem4\\OOP\\GroupProject0\\GroupProject\\GroupProject\\admins.txt";
+    private static final String REGULAR_USER_FILE = "C:\\Users\\SOH FEI ZHEN\\Documents\\Documents\\UTM sem4\\OOP\\GroupProject0\\GroupProject\\GroupProject\\regular_users.txt";
+    private static final String MEAL_FILE = "C:\\Users\\SOH FEI ZHEN\\Documents\\Documents\\UTM sem4\\OOP\\GroupProject0\\GroupProject\\GroupProject\\meals.txt";
 
     public DatabaseManager() throws IOException {
         this.admins = new ArrayList<>();
         this.regularUsers = new ArrayList<>();
-        this.foodItems = new ArrayList<>();
         loadAdmins();
         loadRegularUsers();
         loadMeals();
@@ -33,10 +31,6 @@ public class DatabaseManager {
         return regularUsers;
     }
 
-    public ArrayList<FoodItem> getFoodItems() {
-        return foodItems;
-    }
-
     public void addAdmin(Admin admin) {
         admins.add(admin);
     }
@@ -45,14 +39,13 @@ public class DatabaseManager {
         regularUsers.add(user);
     }
 
-    public void addFoodItem(FoodItem item) {
-        foodItems.add(item);
-    }
-
-    public void deleteRegularUser(String username) {
-        regularUsers.removeIf(user -> user.getUsername().equals(username));
-        saveRegularUsers();
-        saveMeals();
+    public boolean deleteRegularUser(String username) {
+        boolean userDeleted = regularUsers.removeIf(user -> user.getUsername().equals(username));
+        if (userDeleted) {
+            saveRegularUsers();
+            saveMeals();
+        }
+        return userDeleted;
     }
 
     public void saveMeals() {
@@ -90,8 +83,14 @@ public class DatabaseManager {
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             String[] parts = line.split(" ");
-            if (parts.length == 2) {
-                regularUsers.add(new RegularUser(parts[0], parts[1]));
+            if (parts.length == 6) {
+                String username = parts[0];
+                String password = parts[1];
+                int age = Integer.parseInt(parts[2]);
+                String gender = parts[3];
+                double weight = Double.parseDouble(parts[4]);
+                double height = Double.parseDouble(parts[5]);
+                regularUsers.add(new RegularUser(username, password, age, gender, weight, height));
             }
         }
         scanner.close();
@@ -102,16 +101,16 @@ public class DatabaseManager {
         Scanner scanner = new Scanner(file);
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            System.out.println("Reading line: " + line);  // Debug statement
+            System.out.println("Reading line: " + line); // Debug statement
             String[] parts = line.split(" ");
             if (parts.length >= 3) {
                 String username = parts[0];
                 String mealType = parts[1];
                 String mealDate = parts[2];
                 Meal meal = new Meal(mealType, mealDate); // Updated constructor
-                
-                System.out.println("Parsed meal: " + mealType + ", " + mealDate);  // Debug statement
-                
+
+                System.out.println("Parsed meal: " + mealType + ", " + mealDate); // Debug statement
+
                 // Process food items and their calories
                 int index = 3;
                 while (index < parts.length) {
@@ -123,10 +122,13 @@ public class DatabaseManager {
                     if (index < parts.length && isNumeric(parts[index])) {
                         int foodCalories = Integer.parseInt(parts[index]);
                         meal.addFoodItem(new FoodItem(foodName.toString().trim(), foodCalories));
-                        System.out.println("Added food item: " + foodName.toString().trim() + " with calories: " + foodCalories);  // Debug statement
+                        System.out.println(
+                                "Added food item: " + foodName.toString().trim() + " with calories: " + foodCalories); // Debug
+                                                                                                                       // statement
                         index++;
                     } else {
-                        System.out.println("Error parsing food item: " + foodName.toString().trim() + " in line: " + line);
+                        System.out.println(
+                                "Error parsing food item: " + foodName.toString().trim() + " in line: " + line);
                     }
                 }
 
@@ -134,7 +136,7 @@ public class DatabaseManager {
                 for (RegularUser user : regularUsers) {
                     if (user.getUsername().equals(username)) {
                         user.addMeal(meal);
-                        System.out.println("Associated meal with user: " + username);  // Debug statement
+                        System.out.println("Associated meal with user: " + username); // Debug statement
                         userFound = true;
                         break;
                     }
@@ -144,7 +146,7 @@ public class DatabaseManager {
                     System.out.println("User not found for username: " + username);
                 }
             } else {
-                System.out.println("Line does not have enough parts: " + line);  // Debug statement
+                System.out.println("Line does not have enough parts: " + line); // Debug statement
             }
         }
         scanner.close();
@@ -162,7 +164,8 @@ public class DatabaseManager {
     public void saveRegularUsers() {
         try (PrintWriter out = new PrintWriter(new FileWriter(REGULAR_USER_FILE))) {
             for (RegularUser user : regularUsers) {
-                out.println(user.getUsername() + " " + user.getPassword());
+                out.println(user.getUsername() + " " + user.getPassword() + " " + user.getAge() + " " + user.getGender()
+                        + " " + user.getWeight() + " " + user.getHeight());
             }
         } catch (IOException e) {
             e.printStackTrace();
