@@ -1,7 +1,40 @@
-Qingyee Breakfast 2024-06-11 Banana 60
-Sini Breakfast 2024-06-12 NasiLemak 280
-Qingyee Lunch 2024-06-11 Noodles 200 Shrimp 100
-Qingyee Dinner 2024-06-11 McChicken 450
-Qingyee Breakfast 2024-06-14 FriedRice 330
-Sini Dinner 2024-06-14 Pasta 300
-Kaixuen Snack 2024-06-15 SuperRing 88
+Qingyee Breakfast 2024-06-11 Apple 52 Toast 75 Bacon 42
+Qingyee Lunch 2024-06-11 Noodles 200 Shrimp 100 Salad 150
+Qingyee Dinner 2024-06-11 McChicken 450 Spaghetti 220
+Qingyee Snack 2024-06-11 GranolaBar 150 Yogurt 100
+Qingyee Breakfast 2024-06-12 Banana 89 Oatmeal 150
+Qingyee Lunch 2024-06-12 Sandwich 250 Soup 150
+Qingyee Dinner 2024-06-12 GrilledChicken 335 Salad 150
+Qingyee Snack 2024-06-12 ChocolateBar 210 FruitSalad 120
+Qingyee Breakfast 2024-06-13 Orange 62 Pancakes 175 ScrambledEggs 140
+Qingyee Lunch 2024-06-13 Burger 500 Sushi 200
+Qingyee Dinner 2024-06-13 Steak 679 RoastBeef 250
+Qingyee Snack 2024-06-13 Chips 152 Nuts 175
+Qingyee Breakfast 2024-06-14 Apple 52 Yogurt 100 Granola 200
+Qingyee Lunch 2024-06-14 Pizza 285 Noodles 200
+Qingyee Dinner 2024-06-14 Lasagna 350 StirFry 400
+Qingyee Snack 2024-06-14 IceCream 137 Popcorn 55
+Qingyee Breakfast 2024-06-15 Toast 75 Bacon 42 Smoothie 250
+Qingyee Lunch 2024-06-15 Pasta 300 Salad 150
+Qingyee Dinner 2024-06-15 BBQ Ribs 400 Tacos 200
+Qingyee Snack 2024-06-15 Cheese 113 TrailMix 200
+Sini Breakfast 2024-06-11 Apple 52 Toast 75
+Sini Lunch 2024-06-11 Sandwich 250 Soup 150
+Sini Dinner 2024-06-11 Pizza 285 GrilledChicken 335
+Sini Snack 2024-06-11 GranolaBar 150
+Sini Breakfast 2024-06-12 NasiLemak 280 Yogurt 100
+Sini Lunch 2024-06-12 Sushi 200 Salad 150
+Sini Dinner 2024-06-12 Pasta 300 Steak 679
+Sini Snack 2024-06-12 ChocolateBar 210
+Sini Breakfast 2024-06-13 Banana 89 Oatmeal 150
+Sini Lunch 2024-06-13 Burger 500 Noodles 200
+Sini Dinner 2024-06-13 Lasagna 350 StirFry 400
+Sini Snack 2024-06-13 FruitSalad 120 Nuts 175
+Sini Breakfast 2024-06-14 Orange 62 Pancakes 175
+Sini Lunch 2024-06-14 McChicken 450 Spaghetti 220
+Sini Dinner 2024-06-14 RoastBeef 250 Shrimp 100
+Sini Snack 2024-06-14 IceCream 137 Popcorn 55
+Sini Breakfast 2024-06-15 Toast 75 Bacon 42
+Sini Lunch 2024-06-15 Pizza 285 Salad 150
+Sini Dinner 2024-06-15 BBQ Ribs 400 Steak 679
+Sini Snack 2024-06-15 Cheese 113 TrailMix 200
