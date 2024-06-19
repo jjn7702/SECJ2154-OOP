@@ -91,7 +91,7 @@ public class MovieRecommendationSystem {
         mvt.add(mT.get(11));
         mvt.add(mT.get(14));
         mvt.add(mT.get(13));
-        mvt.add(mT.get(20));
+        mvt.add(mT.get(19));
         mvt.add(mT.get(5));
         mvt.add(mT.get(4));
         mv.add(new Movie("M104",mvString[1][3],dr.get(1),mvt));
@@ -101,7 +101,7 @@ public class MovieRecommendationSystem {
         mvt.add(mT.get(3));
         mvt.add(mT.get(1));
         mvt.add(mT.get(5));
-        mvt.add(mT.get(20));
+        mvt.add(mT.get(19));
         mvt.add(mT.get(16));
         mv.add(new Movie("M105",mvString[1][4],dr.get(1),mvt));
 
