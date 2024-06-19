@@ -51,7 +51,7 @@ public abstract class User { // using abstarct
         System.out.println("Email: " + email);
     }
 
-    public void updateUserInfo();
+    public abstract void updateUserInfo();
     // public void updateUserInfo() {
 
     //     System.out.println("========== UPDATE CREDENTIALS ==========");
