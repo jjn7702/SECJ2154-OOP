@@ -38,4 +38,3 @@ Sini Breakfast 2024-06-15 Toast 75 Bacon 42
 Sini Lunch 2024-06-15 Pizza 285 Salad 150
 Sini Dinner 2024-06-15 BBQ Ribs 400 Steak 679
 Sini Snack 2024-06-15 Cheese 113 TrailMix 200
-Soh Breakfast 2024-06-19 bread 70
