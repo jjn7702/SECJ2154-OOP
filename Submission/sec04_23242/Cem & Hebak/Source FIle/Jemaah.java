@@ -11,7 +11,8 @@ public class Jemaah extends User implements userDisplay {
     private Vector<String> ubat;
     private Haji_Umrah_Package pakejIbadah;
 
-    public Jemaah(String name, String contact, String identification_Card, String email, String jemaahID, int age, Doctor doctor, Embassy embassy) {
+    public Jemaah(String name, String contact, String identification_Card, String email, String jemaahID, int age,
+            Doctor doctor, Embassy embassy) {
         super(name, contact, identification_Card, email);
         this.jemaahID = jemaahID;
         this.age = age;
@@ -69,12 +70,12 @@ public class Jemaah extends User implements userDisplay {
     public void setApproval_from_embassy(int approval_from_embassy) {
         this.approval_from_embassy = approval_from_embassy;
     }
-    
-    //Interface
+
+    // Interface
     public void display() {
         System.out.println("========== CREDENTIALS ==========");
         System.out.println("Name : " + getName());
-        System.out.println("Contact :" + getcontact());
+        System.out.println("Contact :" + getContact());
         System.out.println("Identification Card : " + getIdentification_Card());
         System.out.println("Email: " + getEmail());
 
@@ -145,11 +146,12 @@ public class Jemaah extends User implements userDisplay {
         }
         doctor.display();
         embassy.display();
-        // dulu ada display embassy info & Doctor info, tapi guna polymorphism boleh panggil terus di main
+        // dulu ada display embassy info & Doctor info, tapi guna polymorphism boleh
+        // panggil terus di main
         System.out.println();
     }
 
-    public void UpdateUserInfo(){
+    public void updateUserInfo() {
         System.out.println("========== UPDATE CREDENTIALS ==========");
         System.out.print("Please enter your credentials: \nName: ");
         setName(inp.nextLine());

@@ -36,11 +36,11 @@ public class Embassy extends User implements userDisplay {
         this.embassy_number = embassy_number;
     }
 
-    //Interface
+    // Interface
     public void display() {
         System.out.println("========== CREDENTIALS ==========");
         System.out.println("Name : " + getName());
-        System.out.println("Contact :" + getcontact());
+        System.out.println("Contact :" + getContact());
         System.out.println("Identification Card : " + getIdentification_Card());
         System.out.println("Email: " + getEmail());
 
@@ -85,12 +85,12 @@ public class Embassy extends User implements userDisplay {
             choice = inp.nextInt();
 
             if (choice == 1) {
-                Umat.display();         //JemaahInfo
+                Umat.display(); // JemaahInfo
             } else if (choice == 2) {
                 // 2 approve
                 // 1 failed
                 // 0 pending
-                Umat.display();         //JemaahInfo
+                Umat.display(); // JemaahInfo
                 System.out.print("[1] Approve\n[2] Failed\nYour Choice: ");
                 choice2 = inp.nextInt();
                 Umat.setApproval_from_embassy(choice2);

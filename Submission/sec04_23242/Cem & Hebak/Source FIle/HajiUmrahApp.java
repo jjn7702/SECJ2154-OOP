@@ -87,6 +87,22 @@ public class HajiUmrahApp {
                                 inp.nextLine();
                                 switch (choice2) {
                                         case 1: {
+                                                System.out.println("Enter your credentials");
+                                                System.out.print("Identification Card Number: ");
+                                                IC = inp.nextLine();
+                                                System.out.print("Jemaah ID: ");
+                                                ID = inp.nextLine();
+                                                for (int i = 0; i < jemaah.size(); i++) {
+                                                        if (IC.equals(jemaah.get(i).getIdentification_Card())
+                                                                        && ID.equals(jemaah.get(i).getJemaahID())) {
+                                                                // do{
+                                                                // System.out.println("Assalamualaikum " +
+                                                                // jemaah.get(i).getName());
+                                                                // System.out.println("[1] Show jemaah info\n[2] Haji
+                                                                // and Umrah package\n");
+                                                                // }while (choice3 != 3)
+                                                        }
+                                                }
 
                                                 break;
                                         }
@@ -118,7 +134,8 @@ public class HajiUmrahApp {
                                                                         choice3 = inp.nextInt();
 
                                                                         if (choice3 == 1) {
-                                                                                doktor.get(i).display();                //dulu guna dooktor.get(i).display_doctor_info()
+                                                                                doktor.get(i).display(); // dulu guna
+                                                                                                         // dooktor.get(i).display_doctor_info()
                                                                         } else if (choice3 == 2) {
                                                                                 Vector<Jemaah> jemaahWithDoctor = new Vector<>();
 
@@ -137,8 +154,18 @@ public class HajiUmrahApp {
                                                                                         }
 
                                                                                 }
-                                                                                for (Jemaah jemaahtry : jemaahWithDoctor) {       //Jemaah or User kita cuba
-                                                                                        jemaahtry.display();    //dia akan panggil semua super and subclass display
+                                                                                for (Jemaah jemaahtry : jemaahWithDoctor) { // Jemaah
+                                                                                                                            // or
+                                                                                                                            // User
+                                                                                                                            // kita
+                                                                                                                            // cuba
+                                                                                        jemaahtry.display(); // dia akan
+                                                                                                             // panggil
+                                                                                                             // semua
+                                                                                                             // super
+                                                                                                             // and
+                                                                                                             // subclass
+                                                                                                             // display
                                                                                 }
 
                                                                                 // doktor.get(i).Medical_Application(

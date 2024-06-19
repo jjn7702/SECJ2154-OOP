@@ -19,11 +19,11 @@ public abstract class User { // using abstarct
         this.name = name;
     }
 
-    public String getcontact() {
+    public String getContact() {
         return contact;
     }
 
-    public void setcontact(String contact) {
+    public void setContact(String contact) {
         this.contact = contact;
     }
 
@@ -45,7 +45,7 @@ public abstract class User { // using abstarct
 
     // Interface
     public void display() {
-        
+
     }
 
     public abstract void updateUserInfo();

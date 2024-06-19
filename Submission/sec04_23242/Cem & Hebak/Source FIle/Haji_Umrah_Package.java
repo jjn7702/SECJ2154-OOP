@@ -8,7 +8,8 @@ public enum Haji_Umrah_Package {
         // package 1 = haji ifrad (haji pastu umrah)
         IFRAD("Haji and Umrah",
                         new Vector<>(List.of(
-                                        new Flight("AA", "31 May 2024", "31 May 2024", "0000", "0850", "KLIA", "Jeddah"),
+                                        new Flight("AA", "31 May 2024", "31 May 2024", "0000", "0850", "KLIA",
+                                                        "Jeddah"),
                                         new Flight("AA", "17 July 2024", "18 July 2024", "0000", "1115", "Medinah",
                                                         "KLIA"))),
                         new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 354, 0.62, 436.60), // use 5-arg
@@ -100,6 +101,10 @@ public enum Haji_Umrah_Package {
         public void add_Pelancongan_Package(Pelancongan_Package p) {
                 plgPkg = p;
                 plgPkg.display_Pelancongan_info();
+                flight_Ibadah.remove(1);
+                for (Flight flight : flight_Ibadah) {
+                        flight.display_Flight_Info();
+                }
                 // tengok jemaah punya class camne pilih package haji umrah
         }
 
