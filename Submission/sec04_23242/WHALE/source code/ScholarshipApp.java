@@ -11,8 +11,6 @@ public class ScholarshipApp {
         int sID = 0000;
         Vector<Student> StudList = new Vector<Student>(); // Insert the student that have been registered for
                                                           // scholarship
-        Vector<Student> StudApprove = new Vector<Student>(); // Insert the student that have been approved for
-                                                             // scholarship
 
         do {
             System.out.println("---------- WHALE SCHOLARSHIP ----------");
@@ -40,7 +38,6 @@ public class ScholarshipApp {
                     for (Student st : StudList) {
                         if(st.equals(stu))
                             break ;
-                            
                         i++ ;
                     }
 
@@ -57,7 +54,7 @@ public class ScholarshipApp {
                                     StudList.get(i).displayAllDetails() ;
                                 }
                                 break ;
-                        case 1: applyFromDisplayScholarship(stu, sID); // Assuming sID is the student ID
+                        case 1: applyFromDisplayScholarship(StudList.get(i), sID) ; // Assuming sID is the student ID
                                   break;
                         default:
                             System.out.println("Invalid choice. Please enter 0 or 1") ;
@@ -94,17 +91,18 @@ public class ScholarshipApp {
                     System.out.println("Invalid choice. Please enter Y or N.");
                 }
 
-                if (StudList.capacity() > 0) {
-                    /*
-                     * stu.displayAllDetails() ;
-                     * boolean evs = ad.evaluateStudent(stu) ;
-                     * if (evs){
-                     * StudList.add(stu) ;
-                     * ad.application.incrementStudent() ;
-                     * }
-                     * else{
-                     * }
-                     */
+                if (StudList.size() > 0) {
+                    for (int i=0 ; i<StudList.size(); i++){
+                        StudList.get(i).displayAllDetails() ;
+                        boolean evs = ad.evaluateStudent(StudList.get(i)) ;
+
+                        if (evs){
+                            ad.application.incrementStudent() ;
+                        }
+
+                        else{
+                        } 
+                    }
                 }
 
                 System.out.println("do you want to logout? (Y/N)");
@@ -113,6 +111,7 @@ public class ScholarshipApp {
                     countAdmin--;
                     ad = null;
                 }
+           
             }
 
             if (StudList.isEmpty()) {
@@ -418,7 +417,8 @@ public class ScholarshipApp {
             } else {
                 System.out.println("Application cancelled.");
             }
-        } catch (FileNotFoundException e) {
+        } 
+        catch (FileNotFoundException e) {
             System.out.println("Scholarship file not found.");
         }
     }
