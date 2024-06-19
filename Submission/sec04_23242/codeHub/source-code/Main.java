@@ -5,6 +5,7 @@ public class Main {
         int userid = 1; // set user id and will increase if there is more user
         Users user = new Users(userid++, "abu");
         Report report = new Report( 1.0); // rate set to be 1.0
+        report.setUser(user);     //association
         Vector<Category> categories = new Vector<>(); // Store category
 
         Scanner inp = new Scanner(new File("bank.txt"));
