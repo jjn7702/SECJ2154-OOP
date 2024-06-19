@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Doctor extends User {
+class Doctor extends User implements userDisplay{
     private String hospital, position, doctor_Number;
     protected Scanner inp = new Scanner(System.in);
 
@@ -40,6 +40,12 @@ class Doctor extends User {
 
     //Polymorphism
     public void display() {
+        System.out.println("========== CREDENTIALS ==========");
+        System.out.println("Name : " + getName());
+        System.out.println("Contact :" + getcontact());
+        System.out.println("Identification Card : " + getIdentification_Card());
+        System.out.println("Email: " + getEmail());
+
         System.out.println("========== DOCTOR CREDENTIALS ==========");
         super.display();
         System.out.println("Hospital: " + hospital);
