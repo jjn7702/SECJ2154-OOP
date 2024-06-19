@@ -36,9 +36,17 @@ class Student extends User {
 
     @Override
     public void display() {
-        System.out.println("Name: " + getName().toUpperCase());
-        System.out.println("Email: " + getEmail());
-        System.out.println("Student Matrics No: " + matricsNumber);
-        System.out.println("Student Role: " + role);
+        System.out.printf("\n╔═%-40s═╗", "══════════════════════════════════════════");
+        System.out.printf("\n║  %-40s  ║", "Student Info");       
+        System.out.printf("\n╠═%-40s═╣", "══════════════════════════════════════════");
+        System.out.printf("\n║  %-10s: %-28s  ║", "Name", getName());       
+        System.out.printf("\n║  %-10s: %-28s  ║", "Email", getEmail());     
+        System.out.printf("\n║  %-10s: %-28s  ║", "Matrics No", matricsNumber);     
+        System.out.printf("\n║  %-10s: %-28s  ║", "Role", role);     
+        System.out.printf("\n╚═%-40s═╝", "══════════════════════════════════════════");
+        // System.out.println("Name    : " + getName().toUpperCase());
+        // System.out.println("Email   : " + getEmail());
+        // System.out.println("Matrics No: " + matricsNumber);
+        // System.out.println("Role: " + role);
     }
 }

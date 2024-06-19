@@ -45,6 +45,7 @@ class Report {
         return reviews;
     }
 
+    @Override
     public String toString() {
         return "Report ID: " + reportID + "\nContent: " + content + "\nReviews: " + reviews.size();
     }

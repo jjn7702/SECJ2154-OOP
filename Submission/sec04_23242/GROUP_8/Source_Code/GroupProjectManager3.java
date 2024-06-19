@@ -1,4 +1,3 @@
-import java.util.*;
 
 public class GroupProjectManager3 {
     public static void main(String[] args) {
@@ -44,7 +43,7 @@ public class GroupProjectManager3 {
             report.addReview(review1);
             report.addReview(review2);
 
-            project.printProjectDetails();
+            // project.printProjectDetails();
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
