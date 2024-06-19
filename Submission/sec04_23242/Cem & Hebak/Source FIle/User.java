@@ -42,7 +42,8 @@ public abstract class User { // using abstarct
     public void setEmail(String email) {
         this.email = email;
     }
-    //Polymorphism
+
+    // Polymorphism
     public void display() {
         System.out.println("========== CREDENTIALS ==========");
         System.out.println("Name : " + name);
@@ -52,19 +53,5 @@ public abstract class User { // using abstarct
     }
 
     public void updateUserInfo();
-    // public void updateUserInfo() {
 
-    //     System.out.println("========== UPDATE CREDENTIALS ==========");
-    //     System.out.print("Please enter your credentials: \nName: ");
-    //     name = inp.nextLine();
-    //     System.out.print("Contact :");
-    //     contact = inp.nextLine();
-    //     System.out.print("Identification Card : ");
-    //     identification_Card = inp.nextLine();
-    //     System.out.print("Email: ");
-    //     email = inp.nextLine();
-
-    //     // new credentials
-    //     // DisplayUserInfo();
-    // }
 }
