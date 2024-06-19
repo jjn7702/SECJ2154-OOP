@@ -2,7 +2,7 @@
  * Name: Vennise Ngoh Yan Leng
  * Matric ID: B23CS8032
  */
-
+import java.util.Scanner;
 import java.util.Vector;
 
 public class MovieRecommendationSystem {
@@ -61,6 +61,16 @@ public class MovieRecommendationSystem {
         u1.watched(mv.get(15));
         u1.watched(mv.get(15));
         u1.watched(mv.get(20));
+
+        //input rating with Anonymous
+        System.out.println("Enter movie index :");
+        int movieIndex=in.nextInt();
+        System.out.println("Rate the movie from 0-5 :");
+        int rate=in.nextInt();
+        System.out.println("Comment :");
+        String comment=in.next();
+        System.out.println("Movie ID: " + mv.get(movieIndex) + ", Rating: " + rate + ", Comment: " + comment);        
+        u1.addRating("AnonymousRating", mv.get(movieIndex), rate, comment);
 
         u1.addRating("Regular Rating", mv.get(0), 4, "Good");
         u1.addRating("RegularRating", mv.get(1), 3, "Good");
