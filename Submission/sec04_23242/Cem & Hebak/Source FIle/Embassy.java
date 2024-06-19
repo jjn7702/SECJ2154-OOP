@@ -50,13 +50,13 @@ public class Embassy extends User {
 
         System.out.println("========== UPDATE CREDENTIALS ==========");
         System.out.print("Please enter your credentials: \nName: ");
-        name = inp.nextLine();
+        setName(inp.nextLine());
         System.out.print("Contact :");
-        contact = inp.nextLine();
+        setContact(inp.nextLine());
         System.out.print("Identification Card : ");
-        identification_Card = inp.nextLine();
+        setIdentification_Card(inp.nextLine());
         System.out.print("Email: ");
-        email = inp.nextLine();
+        setEmail(inp.nextLine());
 
         System.out.print("Location: ");
         location = inp.nextLine();

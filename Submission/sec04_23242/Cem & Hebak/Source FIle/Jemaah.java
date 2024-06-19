@@ -11,8 +11,7 @@ public class Jemaah extends User {
     private Vector<String> ubat;
     private Haji_Umrah_Package pakejIbadah;
 
-    public Jemaah(String name, String contact, String identification_Card, String email, String jemaahID, int age,
-            Doctor doctor, Embassy embassy) {
+    public Jemaah(String name, String contact, String identification_Card, String email, String jemaahID, int age, Doctor doctor, Embassy embassy) {
         super(name, contact, identification_Card, email);
         this.jemaahID = jemaahID;
         this.age = age;
@@ -146,13 +145,13 @@ public class Jemaah extends User {
     public void UpdateUserInfo(){
         System.out.println("========== UPDATE CREDENTIALS ==========");
         System.out.print("Please enter your credentials: \nName: ");
-        name = inp.nextLine();
+        setName(inp.nextLine());
         System.out.print("Contact :");
-        contact = inp.nextLine();
+        setContact(inp.nextLine());
         System.out.print("Identification Card : ");
-        identification_Card = inp.nextLine();
+        setIdentification_Card(inp.nextLine());
         System.out.print("Email: ");
-        email = inp.nextLine();
+        setEmail(inp.nextLine());
     }
 
     public void checkKesihatan() {
