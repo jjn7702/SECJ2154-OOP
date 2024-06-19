@@ -71,7 +71,6 @@ public class MovieRecommendationSystem {
         int rate=in.nextInt();
         System.out.println("Comment :");
         String comment=in.next();
-        System.out.println("Movie ID: " + mv.get(movieIndex) + ", Rating: " + rate + ", Comment: " + comment);        
         u1.addRating("AnonymousRating", mv.get(movieIndex), rate, comment);
 
         u1.addRating("Regular Rating", mv.get(0), 4, "Good");
