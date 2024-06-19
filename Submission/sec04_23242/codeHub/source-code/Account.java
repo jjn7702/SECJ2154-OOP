@@ -4,8 +4,8 @@ class Account {
     private int id;
     private String name;
     private double balance;
-    private Bank bank;
     private double rate;
+    private Bank bank;
     private Vector<Transaction> transactions;
     private Vector<Budget> budgets;
     private Vector<Saving> savings;
@@ -14,7 +14,6 @@ class Account {
         this.id = id;
         this.name = name;
         this.balance = balance;
-        this.bank = bank;
         this.transactions = new Vector<>();
         this.budgets = new Vector<>();
         this.savings = new Vector<>();
@@ -115,6 +114,9 @@ class Account {
     public void displayInfo() {
         System.out.printf("%-15s%-15s%-5s\n" , "Account ID", "Name", "Balance");
         System.out.printf("%-15s%-15s%-5.2f\n", id,name,balance * rate);
+    }
+    public void addBank(Bank bank){
+        this.bank = bank;
     }
 }
 
