@@ -1,6 +1,5 @@
-import java.util.Vector;
-import java.util.*;
 import java.util.Scanner;
+import java.util.Vector;
 
 public class GroupProjectManager3 {
     public static void main(String[] args) {
@@ -98,12 +97,33 @@ public class GroupProjectManager3 {
                                     break;
                             
                                 case 2:
-                                    System.out.println("Deleting project with ID " + selectedProjectId);
+                                    int nestedChoice2;
+                                    System.out.println("1) Delete Whole Project\n2) Delete Task\n3) Delete Member");
+                                    System.out.print("Which one would you like to delete? : ");
+                                    nestedChoice2 = inp.nextInt();
                                     // Remove project from projects list or mark as deleted
-                                    projects.remove(proj);
-                                    System.out.println("Project deleted successfully.");
-                                    break;
-                            
+                                    switch (nestedChoice2) {
+
+                                        case 1:
+                                            projects.remove(proj);
+                                            System.out.println("Project deleted successfully.");
+                                            break;
+
+                                            case 2:
+                                            task1.removeTask(task1);
+                                            task2.removeTask(task2);
+                                            System.out.println("Tasks deleted successfully.");
+                                            break;
+
+                                            case 3:
+                                            team.removeMember(std1);
+                                            team.removeMember(std2);
+                                            team.removeMember(std3);
+                                            team.removeMember(std4);
+                                            team.removeMember(std5);
+                                            System.out.println("Member deleted successfully.");
+                                            break;
+                                    }
                                 case 3:
                                     System.out.println("Returning to main menu.");
                                     break;

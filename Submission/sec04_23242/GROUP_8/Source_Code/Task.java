@@ -1,13 +1,17 @@
+import java.util.Vector;
+
 class Task {
     private int taskID;
     private String taskName;
     private String status;
     private Deadline deadline;
+    private Vector<Student> tek; // test
 
     public Task(int taskID, String taskName, String status) {
         this.taskID = taskID;
         this.taskName = taskName;
         this.status = status;
+        tek = new Vector<>(); //test
     }
 
     public int getTaskID() {
@@ -32,5 +36,9 @@ class Task {
 
     public void setDeadline(Deadline deadline) {
         this.deadline = deadline;
+    }
+
+    public void removeTask(Task t) { //test
+        tek.remove(t);
     }
 }
