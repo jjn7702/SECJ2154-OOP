@@ -1,3 +1,4 @@
-public static void main(String[] args) {
-    
+public class BookRecommend{
+    public static void main(String[] args) {
+    }
 }
