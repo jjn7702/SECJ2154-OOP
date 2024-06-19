@@ -42,7 +42,7 @@ class Seller extends User {
                     System.out.print("\nPlease enter the name: ");
                     String name = inp.nextLine().toLowerCase();
                     System.out.print(
-                            "Please enter the Category [FRUITS(F), VEGETABLES(V), DAIRY(D), MEAT(M), BAKERY(B), SNACKS(S), OHTERS(O)]: ");
+                            "Please enter the Category [FRUITS(F), VEGETABLES(V), DAIRY(D), MEAT(M), BAKERY(B), SNACKS(S), OTHERS(O)]: ");
                     String cat = inp.nextLine().toUpperCase();
                     switch (cat) {
                         case "F": {
@@ -83,7 +83,7 @@ class Seller extends User {
                     } else {
                         for (Product x : store.getProducts()) {
                             if (x.getName().equals(name) && x.getCategory() == c) {
-                                System.out.println("Item already exusts in List!");
+                                System.out.println("Item already exists in List!");
                                 check = true;
                                 break;
                             }
@@ -93,14 +93,12 @@ class Seller extends User {
                             System.out.println("Item successfully added!");
                         }
                     }
-
-                    store.addItem(name, c);
                     store.displayStore();
                     break;
                 }
                 case 2: {
                     store.displayStore();
-                    System.out.println("Please enter the index of the item: ");
+                    System.out.print("Please enter the index of the item: ");
                     int n = Integer.parseInt(inp.nextLine());
                     if (n <= store.getProducts().size()) {
                         Product p = store.searchItem(n - 1);
@@ -108,7 +106,7 @@ class Seller extends User {
                             store.deleteItem(p);
                             store.displayStore();
                         } else {
-                            System.out.println("Sorry");
+                            System.out.println("Sorry could not find the item, please try again!");
                             store.displayStore();
                         }
                     } else {
@@ -157,7 +155,7 @@ class Seller extends User {
 
             while (inp.hasNext()) {
                 String n = "", c = "";
-                n = inp.next();
+                n = inp.next().toLowerCase();
                 c = inp.nextLine().toUpperCase();
                 c = c.substring(1);
                 // System.out.println(n + c);
@@ -181,4 +179,3 @@ class Seller extends User {
         }
     }
 }
-
