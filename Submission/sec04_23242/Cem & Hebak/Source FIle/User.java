@@ -52,6 +52,8 @@ public abstract class User { // using abstarct
         System.out.println("Email: " + email);
     }
 
-    public void updateUserInfo();
+    public abstract void updateUserInfo();
+    // public void updateUserInfo() {
+    >>>>>>>5d ef8688739fc250a34b8c2eca022a8a11e679fe
 
 }
