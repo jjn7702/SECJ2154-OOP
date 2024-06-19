@@ -1,6 +1,4 @@
 import java.util.*;
-import java.util.Scanner;
-import java.util.Vector;
 
 public class GroupProjectManager3 {
     public static void main(String[] args) {
@@ -73,84 +71,6 @@ public class GroupProjectManager3 {
                                 System.out.println("Project Title: " + proj.getTitle());
                                 System.out.println("Project ID: " + proj.getProjectID());
                                 System.out.println("--------------------");
-            switch (choice) {
-                case 1:
-                if (projects.size() > 0) {
-                    for (Project proj : projects) {
-                        System.out.println("Project Title: " + proj.getTitle());
-                        System.out.println("Project ID: " + proj.getProjectID());
-                        System.out.println("--------------------");
-                    }
-            
-                    System.out.print("Select a project to view details (enter Project ID): ");
-                    int selectedProjectId = inp.nextInt();
-                    inp.nextLine(); // Consume newline
-            
-                    boolean projectFound = false;
-                    for (Project proj : projects) {
-                        if (proj.getProjectID() == selectedProjectId) {
-                            projectFound = true;
-                            System.out.println("\nProject Details:");
-                            proj.printProjectDetails(); // Assuming printProjectDetails method exists
-                            System.out.println("--------------------");
-                            
-                            // Nested switch for further actions on selected project
-                            int nestedChoice;
-                            System.out.println("1) Edit Project\n2) Delete Project\n3) Back to Main Menu");
-                            System.out.print("Select your choice for the selected project: ");
-                            nestedChoice = inp.nextInt();
-            
-                            switch (nestedChoice) {
-                                case 1:
-                                    System.out.println("Editing project with ID " + selectedProjectId);
-                                    System.out.print("Enter new project title: ");
-                                    String newTitle = inp.nextLine();
-                                    System.out.print("Enter new project description: ");
-                                    String newDescription = inp.nextLine();
-                                    
-                                    // Assuming setter methods exist in Project class
-                                   // proj.setTitle(newTitle);
-                                   // proj.setDescription(newDescription);
-                                    
-                                    System.out.println("Project updated successfully:");
-                                    proj.printProjectDetails(); // Print updated details
-                                    break;
-                            
-                                case 2:
-                                    int nestedChoice2;
-                                    System.out.println("1) Delete Whole Project\n2) Delete Task\n3) Delete Member");
-                                    System.out.print("Which one would you like to delete? : ");
-                                    nestedChoice2 = inp.nextInt();
-                                    // Remove project from projects list or mark as deleted
-                                    switch (nestedChoice2) {
-
-                                        case 1:
-                                            projects.remove(proj);
-                                            System.out.println("Project deleted successfully.");
-                                            break;
-
-                                            case 2:
-                                            task1.removeTask(task1);
-                                            task2.removeTask(task2);
-                                            System.out.println("Tasks deleted successfully.");
-                                            break;
-
-                                            case 3:
-                                            team.removeMember(std1);
-                                            team.removeMember(std2);
-                                            team.removeMember(std3);
-                                            team.removeMember(std4);
-                                            team.removeMember(std5);
-                                            System.out.println("Member deleted successfully.");
-                                            break;
-                                    }
-                                case 3:
-                                    System.out.println("Returning to main menu.");
-                                    break;
-                            
-                                default:
-                                    System.out.println("Invalid choice for selected project.");
-                                    break;
                             }
 
                             System.out.print("Select a project to view details (enter Project ID): ");
