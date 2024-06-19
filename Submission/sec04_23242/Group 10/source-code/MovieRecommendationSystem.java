@@ -120,6 +120,7 @@ public class MovieRecommendationSystem {
         re1.displayMostRatedMovies();
 
         Input in = new Input();
+        in.listMovie(mv);
         in.addRating(u1,mv);
 
     }
@@ -139,5 +140,47 @@ class Input{
 
         user.addRating("AnonymousRating", movie.get(movieIndex), rate, comment);
         in.close();
+    }
+
+    public void addRating(User user,Vector<Movie> movie,int index){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Rating for movie index: "+ index);
+        System.out.print("Rate the movie from 0-5 :");
+        int rate=in.nextInt();
+        System.out.print("Comment :");
+        String comment=in.nextLine();
+        System.out.print("Do you want to hide your name?(Y/N):");
+        String select = in.next();
+
+        if(select.equals("Y")){
+            user.addRating("AnonymousRating", movie.get(index), rate, comment);
+        }else{
+            user.addRating("RegularRating", movie.get(index), rate, comment);
+        }
+        in.close();
+    }
+
+    public void addWatched(User user,Vector<Movie> movie){
+        Scanner in = new Scanner(System.in);
+        System.out.println(user.getName()+" has watched a movie.");
+        this.listMovie(movie);
+        System.out.print("Enter new watched movie index :");
+        int movieIndex=in.nextInt();
+        System.out.print("Do you want to rate the movie? (Y/N)");
+        String select=in.next();
+        
+        user.watched(movie.get(movieIndex));
+        in.close();
+        if(select.equals("Y")){
+            this.addRating(user,movie,movieIndex);
+        }
+    }
+
+    public void listMovie(Vector<Movie> movie){
+        System.out.println("List of Movie: ");
+        for(int i =1;i<=movie.size();i++){
+            System.out.println(i+". "+movie.get(i-1).getTitle());
+        }
+        System.out.println("");
     }
 }
