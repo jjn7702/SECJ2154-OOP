@@ -38,7 +38,9 @@ public class ScholarshipApp {
                     }
 
                     for (Student st : StudList) {
-                        st.equals(stu);
+                        if(st.equals(stu))
+                            break ;
+                            
                         i++ ;
                     }
 
@@ -91,13 +93,7 @@ public class ScholarshipApp {
                 } else {
                     System.out.println("Invalid choice. Please enter Y or N.");
                 }
-            }
 
-            if (StudList.isEmpty()) {
-                System.out.println("There is no student applying the scholarship");
-            }
-
-            if (choice == 1) { // The Administrator work
                 if (StudList.capacity() > 0) {
                     /*
                      * stu.displayAllDetails() ;
@@ -110,16 +106,20 @@ public class ScholarshipApp {
                      * }
                      */
                 }
+
+                System.out.println("do you want to logout? (Y/N)");
+                char y = inp.next().toUpperCase().charAt(0);
+                if (y == 'Y') {
+                    countAdmin--;
+                    ad = null;
+                }
             }
 
-            System.out.println("do you want to logout? (Y/N)");
-            char y = inp.next().toUpperCase().charAt(0);
-            if (y == 'Y') {
-                countAdmin--;
-                ad = null;
+            if (StudList.isEmpty()) {
+                System.out.println("There is no student applying the scholarship");
             }
 
-        } while (ad != null || StudList.capacity() > 0);
+        } while (ad != null || StudList.size() > 0);
 
         displayStudList(StudList);
 
