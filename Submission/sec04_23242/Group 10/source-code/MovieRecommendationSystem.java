@@ -1,4 +1,4 @@
-*
+/*
  * Name: Vennise Ngoh Yan Leng
  * Matric ID: B23CS8032
  */
@@ -118,7 +118,14 @@ public class MovieRecommendationSystem {
         u1.displayInfo();
         re1.displayRecByFavDirect();
         re1.displayMostRatedMovies();
+
+        Input in = new Input();
+        in.addRating(u1,mv);
+
     }
+}
+
+class Input{
 
     public void addRating(User user,Vector<Movie> movie){
         Scanner in = new Scanner(System.in);
