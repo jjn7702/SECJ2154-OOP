@@ -219,8 +219,6 @@ public class Init {
             Vector<JCheckBox> isVegetarianFields) {
         Vector<Budget> tripBudgets = new Vector<>();
         Vector<Item> items = new Vector<>();
-        Campground campground = new Campground(campgroundNameField.getText(), campgroundDescriptionField.getText(),
-                Integer.parseInt(campgroundSitesAvailableField.getText()));
 
         String transportType = (String) transportTypeComboBox.getSelectedItem();
         if ("Miscellaneous".equals(transportType)) {
@@ -254,7 +252,8 @@ public class Init {
             tripBudgets.add(activities);
 
             CampingTrips trip = new CampingTrips(nameField.getText(), dateTime, tripBudgets,
-                    items, campground);
+                    items, campgroundNameField.getText(), campgroundDescriptionField.getText(),
+                    Integer.parseInt(campgroundSitesAvailableField.getText()));
             campingTrips.add(trip);
 
             showTrips();

@@ -5,19 +5,19 @@ class CampingTrips {
     private DateAndTime dateTime;
     private Vector<Budget> budget = new Vector<Budget>();
     private Vector<Item> item = new Vector<Item>();
-    private Campground campground = new Campground();
+    private Location campground = new Campground();
 
     public CampingTrips(String name, DateAndTime dateTime, Vector<Budget> tripBudgets,
-            Vector<Item> item, Campground campground) {
+            Vector<Item> item, String campName, String campDescription, int campSites) {
         this.name = name;
         this.dateTime = dateTime;
         this.budget = tripBudgets;
         this.item = item;
-        this.campground = campground;
+        this.campground = new Campground(campName, campDescription, campSites);
     };
 
     public Campground getCampground() {
-        return campground;
+        return (Campground) campground;
     }
 
     public String getName() {
