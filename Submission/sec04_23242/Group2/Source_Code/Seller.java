@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.io.*;
 
@@ -34,6 +33,7 @@ class Seller extends User {
             System.out.println("2) Delete Item");
             System.out.println("3) View Item");
             System.out.println("4) Edit Address");
+            System.out.println("5) User Menu");
             System.out.println("5) Exit");
             System.out.print("Option: ");
             choice = Integer.parseInt(inp.nextLine());
@@ -123,7 +123,7 @@ class Seller extends User {
                     System.out.println("Please enter the new address!");
                     System.out.print("Street: ");
                     String st = inp.nextLine();
-                    System.out.print("Zipcode: ");
+                    System.out.print("Town: ");
                     String zip = inp.nextLine();
                     System.out.print("State: ");
                     String s = inp.nextLine();
@@ -133,14 +133,19 @@ class Seller extends User {
                     store.setAdd(new Address(st, s, zip, c));
                     break;
                 }
+
+                case 5: {
+                    display();
+                }
                 default: {
                     saveData();
                 }
             }
-        } while (choice != 5);
+        } while (choice != 6);
     }
 
     public void display() {
+        System.out.println();
         System.out.println("Name: " + getName());
         System.out.println("Email: " + getEmail());
         System.out.println("Store managed: " + store.toString());
@@ -151,17 +156,19 @@ class Seller extends User {
             System.out.println("No Products Registered Yet!");
         } else {
             String filename = sid + ".csv";
-            Scanner inp = new Scanner(new File(filename));
-            inp.useDelimiter(",|\\n");
 
-            while (inp.hasNext()) {
-                String n = "", c = "";
-                n = inp.next().toLowerCase();
-                c = inp.nextLine().toUpperCase();
-                c = c.substring(1);
-                // System.out.println(n + c);
-                Category cat = Category.valueOf(c);
-                store.addItem(n, cat);
+            if (new File(filename).exists()) {
+                Scanner inp = new Scanner(new File(filename));
+                inp.useDelimiter(",|\\n");
+                while (inp.hasNext()) {
+                    String n = "", c = "";
+                    n = inp.next().toLowerCase();
+                    c = inp.nextLine().toUpperCase();
+                    c = c.substring(1);
+                    // System.out.println(n + c);
+                    Category cat = Category.valueOf(c);
+                    store.addItem(n, cat);
+                }
             }
         }
 
