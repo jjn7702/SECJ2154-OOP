@@ -12,8 +12,13 @@ public class Main {
         Vector<Category> categories = new Vector<>(); // Store category
 
         Scanner inp = new Scanner(new File("bank.txt"));
+        Scanner acc = new Scanner(new File("Account.txt"));
+        Scanner bud = new Scanner(new File("Budjet.txt"));
+        Scanner trans = new Scanner(new File("Transaction.txt"));
+        Scanner sav = new Scanner(new File("Saving.txt"));
         //Scanner trans = new Scanner(new File("Account.txt"));
-
+        categories.add(new ShoppingCategory(1));    
+        categories.add(new FoodCategory(2));
     
         Bank bank1 = null;
         Users user1 = null;
@@ -30,20 +35,64 @@ public class Main {
                 report.setUser(user1);
             }
         }
-
-        /*while (trans.hasNextLine()) {
-            String line = inp.nextLine();
+        while (acc.hasNextLine()) {
+            String line = acc.nextLine();
             String[] parts = line.split(" ");
-            if (parts.length == 3) {
-                String bankName = parts[0];
-                int id = Integer.parseInt(parts[1]);
-                String name = parts[2];
-                bank1 = new Bank(bankName);
-                user1 = new Users(id, name);
-                report.setUser(user1);
+            String name = parts[0];
+            double balance = Double.parseDouble(parts[1]);
+            Account acc1 = new Account(user1.getAccounts().size()+1, name, balance, bank1);
+            user1.addAccount(acc1);
+        }
+
+        while (bud.hasNextLine()) {
+            String line = bud.nextLine();
+            String[] parts = line.split(" ");
+            int id = Integer.parseInt(parts[0]);
+            double limit = Double.parseDouble(parts[1]);
+            int catID = Integer.parseInt(parts[2]);
+            if(catID == 1){
+                user1.getAccounts().get(id).addBudget(limit, categories.elementAt(0));
             }
-        }*/
-        //trans.close();
+            else if(catID == 2){
+                user1.getAccounts().get(id).addBudget(limit, categories.elementAt(1));
+            }
+        }
+
+        while (trans.hasNextLine()) {
+            String line = trans.nextLine();
+            String[] parts = line.split(" ");
+            int id = Integer.parseInt(parts[0]);
+            String des = parts[1];
+            String date = parts[2];
+            Date d = Date.valueOf(date);
+            double amount = Double.parseDouble(parts[3]);
+            int catID = Integer.parseInt(parts[4]);
+            if(catID == 1){
+                user1.getAccounts().get(id).addTransaction(id, des,amount ,d, categories.elementAt(0));
+
+            }
+            else if(catID == 2){
+                user1.getAccounts().get(id).addTransaction(id, des,amount ,d, categories.elementAt(1));
+
+            }
+        }
+
+        while (sav.hasNextLine()) {
+            String line = sav.nextLine();
+            String[] parts = line.split(" ");
+            int ID = Integer.parseInt(parts[0]);
+            String Name = parts[1];
+            double target = Double.parseDouble(parts[2]);
+            double current = Double.parseDouble(parts[3]);
+            String date = parts[4];
+            Date d = Date.valueOf(date);
+            Saving s = new Saving(ID, Name, target, current, d);
+            user1.getAccounts().get(ID).addSaving(s);
+        }
+
+        
+
+       
 
 
 
@@ -51,10 +100,11 @@ public class Main {
 
         
         inp.close();
+        acc.close();
+        bud.close();
+        trans.close();
+        sav.close();
 
-        // Create category instance 
-        categories.add(new ShoppingCategory(1));    
-        categories.add(new FoodCategory(2));
 
         Scanner scanner = new Scanner(System.in);
 
@@ -123,8 +173,7 @@ public class Main {
         String accountName = scanner.nextLine();
         System.out.print("Enter initial balance: ");
         double balance = scanner.nextDouble();
-        Account account = new Account(user.getAccounts().size() + 1, accountName, balance);
-        account.addBank(bank);
+        Account account = new Account(user.getAccounts().size() + 1, accountName, balance, bank);
         user.addAccount(account);
         System.out.println("Account added successfully.");
         account.displayInfo();
@@ -142,7 +191,7 @@ public class Main {
             account.deposit(amount);
             System.out.println("Money deposited successfully.");
             Date d = new Date(System.currentTimeMillis());
-            account.addTransaction(account.getTransactions().size() + 1, "DEPOSIT", amount, d,new Deposit(accountId) );
+            account.addTransaction(accountId, "DEPOSIT", amount, d,new Deposit(accountId) );
         } catch (AccountNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -171,14 +220,14 @@ public class Main {
                 System.out.print("Enter Shopping name:");
                 String Shop = scanner.nextLine();
                 ShoppingCategory s = new ShoppingCategory(accountId);
-                account.addTransaction(account.getTransactions().size() + 1, Shop, amount, d,s );
+                account.addTransaction(accountId, Shop, amount, d,s );
             }
             else if(cater == 2){
                 System.out.print("Enter Food name:");
                 String Food = scanner.nextLine();
                 FoodCategory s = new FoodCategory(accountId);
 
-                account.addTransaction(account.getTransactions().size() + 1,Food, amount, d,s );
+                account.addTransaction(accountId,Food, amount, d,s );
             }
             else{
                 System.out.println("NOT VALID");
@@ -300,7 +349,7 @@ public class Main {
             
             account.addTransaction(account.getTransactions().size() + 1, description, amount,d, category);
             
-                account.withdraw(amount);
+            account.withdraw(amount);
             }
             else {
                 throw new InsufficientFundsException("Insufficient funds for this transaction.");
