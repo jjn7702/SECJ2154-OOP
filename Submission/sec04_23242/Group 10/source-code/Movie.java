@@ -1,5 +1,6 @@
 //FARAH SYAHIRAH BINTI NOOR JA'AFAR (A23CS3008)
 
+
 import java.util.Vector;
 
 public class Movie {
@@ -14,6 +15,10 @@ public class Movie {
         this.title = title;
         this.director = director;
         this.movieTypes = movieTypes;
+        for(MovieType mt:movieTypes){
+            mt.addMovie(this);
+        }
+        this.director.addMovie(this);
     }
 
     public String getTitle(){
