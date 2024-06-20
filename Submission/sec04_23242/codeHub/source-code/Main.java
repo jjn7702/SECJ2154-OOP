@@ -38,10 +38,12 @@ public class Main {
         while (acc.hasNextLine()) {
             String line = acc.nextLine();
             String[] parts = line.split(" ");
-            String name = parts[0];
-            double balance = Double.parseDouble(parts[1]);
-            Account acc1 = new Account(user1.getAccounts().size()+1, name, balance, bank1);
+            int idAcc = Integer.parseInt(parts[0]);
+            String name = parts[1];
+            double balance = Double.parseDouble(parts[2]);
+            Account acc1 = new Account(user1.getAccounts().size()+1, name, balance);
             user1.addAccount(acc1);
+            user1.getAccounts().get(idAcc).addBank(bank1);
         }
 
         while (bud.hasNextLine()) {
@@ -173,12 +175,12 @@ public class Main {
         String accountName = scanner.nextLine();
         System.out.print("Enter initial balance: ");
         double balance = scanner.nextDouble();
-        Account account = new Account(user.getAccounts().size() + 1, accountName, balance, bank);
+        Account account = new Account(user.getAccounts().size() + 1, accountName, balance);
+        account.addBank(bank);
         user.addAccount(account);
         System.out.println("Account added successfully.");
         account.displayInfo();
         
-    }
 
     private static void depositMoney(Scanner scanner, Users user) {
         System.out.print("Enter account ID: ");
