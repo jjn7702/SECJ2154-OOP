@@ -23,6 +23,21 @@
 ## Problem Analysis <a name="problemanalysis"></a> 🕵🏻‍♀️🕵🏻‍♂️
  
 ## OO Concepts <a name="ooconcepts"></a> ✍🏼
+#### 1. Classes and Object
+
+Class
+  -  Blueprint that describes the structure and behavior shared by all objects of a specific  kind.
+  -  For this management system, we already decided to use 9 classes which consist of class Person,Coach,Manager,Athletes,Team,TrainingSession,Event,Sport and also SportsTeamManagement (main method).
+  -  Each class consists of their own attribute and method.
+	
+Object
+- Instances of classes created during runtime.
+- Each object has its own attributes and can perform methods defined in its class.
+
+#### 2. Constructor
+- Special kind of methods for creating instance of the class
+- Each class that we created have one constructor
+- Constructor are called when keyword ‘new’ is used to create object. 
 
 
 ## Design <a name="design"></a> 🎨
