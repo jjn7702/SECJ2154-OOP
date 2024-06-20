@@ -87,6 +87,14 @@ class Admin {
 }
 
 
+//class Library here
+
+
+//class RecommendationEngine here
+
+
+//class BookRecommendationSystem here aka public void static main here
+
 class faculty extends Book{ // contains specific books
 
     public faculty(String genre, String ref, double pages, String publisher , String author, String title){
@@ -126,9 +134,6 @@ public PG(String MatricID){
 class others {
 
 }
-
-
-
 
 public class BookRecommend{
     public static void main(String[] args) {
