@@ -96,6 +96,120 @@ public class GrocerySystem {
         }
     }
 
+    //Login Seller
+    public static Seller LoginSeller(ArrayList<Seller> s) {
+        System.out.println();
+        Scanner inp = new Scanner(System.in);
+        System.out.println("Press 1 to login!");
+        System.out.println("Press 2 for register!");
+        System.out.print("Option: ");
+        int opt = Integer.parseInt(inp.nextLine());
+        System.out.println();
+        if (opt == 1) {
+            boolean check = true;
+            do {
+                System.out.print("Please enter your Email: ");
+                String email = inp.nextLine();
+                System.out.print("Please enter your password: ");
+                String pass = inp.nextLine();
+                Seller atm = GetCurrentSeller(email, pass, s);
+                if (atm == null)
+                    check = true;
+                else
+                    return atm;
+            } while (!check);
+        } else {
+            System.out.print("Please enter your email: ");
+            String e = inp.nextLine().toLowerCase();
+            boolean email = true;
+            for (Seller x : s) {
+                if (x.getEmail().equals(e)) {
+                    email = false;
+                    break;
+                }
+            }
+
+            if (email) {
+                System.out.print("Please enter your name: ");
+                String n = inp.nextLine();
+                System.out.println("Please enter your Address");
+                System.out.print("Street: ");
+                String st = inp.nextLine();
+                System.out.print("Zipcode: ");
+                String z = inp.nextLine();
+                System.out.print("State: ");
+                String state = inp.nextLine();
+                System.out.print("Country: ");
+                String c = inp.nextLine();
+
+                System.out.print("Please enter your password: ");
+                String p = inp.nextLine();
+                boolean check = true;
+                do {
+                    System.out.print("Please re-enter your password: ");
+                    String g = inp.nextLine();
+                    if (p.equals(g))
+                        check = true;
+                    else
+                        check = false;
+                } while (!check);
+                System.out.print("Please enter your shop name: ");
+                String sh = inp.nextLine();
+                Address a = new Address(st, state, z, c);
+                Store st1 = new Store(sh, a);
+                Seller s1 = new Seller(e, p, n, st1);
+                s.add(s1);
+                return s1;
+            } else {
+                System.out.println("There is already a account with this email!");
+            }
+        }
+        return null;
+    }
+    
+        //Get Vurrent Seller
+    public static Seller GetCurrentSeller(String email, String pass, ArrayList<Seller> s) {
+        for (Seller x : s) {
+            if (x.getEmail().equals(email) && (x.getPassword().equals(pass))) {
+                return x;
+            }
+        }
+        return null;
+    }
+
+    public static void saveBuyerAndSeller(ArrayList<Seller> s, ArrayList<Buyer> b) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("User.csv"))) {
+            for (Buyer x : b) {
+                writer.print(x.getEmail().toLowerCase() + ",");
+                writer.print(x.getPassword() + ",");
+                writer.print(x.getName() + ",");
+                writer.print(x.getAdd().getStreet() + ",");
+                writer.print(x.getAdd().getState() + ",");
+                writer.print(x.getAdd().getZipcode() + ",");
+                writer.println(x.getAdd().getCountry());
+                x.saveData();
+            }
+        } catch (IOException e) {
+            System.out.println("Error : File not found");
+        }
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter("Seller.csv"))) {
+            for (Seller x : s) {
+                writer.print(x.getEmail().toLowerCase() + ",");
+                writer.print(x.getPassword() + ",");
+                writer.print(x.getName() + ",");
+                writer.print(x.getStore().getName() + ",");
+                writer.print(x.getStore().getAdd().getStreet() + ",");
+                writer.print(x.getStore().getAdd().getState() + ",");
+                writer.print(x.getStore().getAdd().getZipcode() + ",");
+                writer.println(x.getStore().getAdd().getCountry());
+                x.saveData();
+            }
+        } catch (IOException e) {
+            System.out.println("Error : File not found");
+        }
+    }
+
 }
 
 
