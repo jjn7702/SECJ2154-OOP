@@ -1,7 +1,4 @@
 //FARAH SYAHIRAH BINTI NOOR JA'AFAR (A23CS3008)
-
-package farah;
-
 import java.util.Vector;
 
 public class Director {

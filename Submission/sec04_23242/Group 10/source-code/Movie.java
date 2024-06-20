@@ -1,10 +1,6 @@
 //FARAH SYAHIRAH BINTI NOOR JA'AFAR (A23CS3008)
 
-package farah;
-
 import java.util.Vector;
-
-import project.Rating;
 
 public class Movie {
     private String id, title;
