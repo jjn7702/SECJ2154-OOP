@@ -148,7 +148,7 @@ public class Jemaah extends User implements userDisplay {
         System.out.println();
     }
 
-    public void display_jemaah() {
+    public void display() {
         System.out.println("========== JEMAAH CREDENTIALS ==========");
         System.out.println("Name : " + getName());
         System.out.println("Contact :" + getContact());
@@ -217,6 +217,7 @@ public class Jemaah extends User implements userDisplay {
                 System.out.println((i + 1) + ")" + ubat.get(i));
             }
         }
+        doctor.display();
         embassy.display();
         // dulu ada display embassy info & Doctor info, tapi guna polymorphism boleh
         // panggil terus di main
