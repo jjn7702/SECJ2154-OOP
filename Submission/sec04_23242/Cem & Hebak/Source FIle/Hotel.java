@@ -10,22 +10,22 @@ public class Hotel {
     private int totalRoom;
     Scanner inp = new Scanner(System.in);
 
-    // constructor untuk hotel di madinah and mekah
-    public Hotel(String hotelName, String address, double price, double distance_MasjidilHaram,
-            double distance_MasjidilNabawi) {
-        this.hotelName = hotelName;
-        this.address = address;
-        this.price = price;
-        this.roomSize = "Double Room";
-    }
+    // // constructor untuk hotel di madinah and mekah
+    // public Hotel(String hotelName, String address, double price, double distance_MasjidilHaram,
+    //         double distance_MasjidilNabawi) {
+    //     this.hotelName = hotelName;
+    //     this.address = address;
+    //     this.price = price;
+    //     this.roomSize = "Double Room";
+    // }
 
     // kenapa ada constructor ni?????
-    public Hotel(String hotelName, String address, double price, int totalRoom, double distance_MasjidilHaram,
-            double distance_MasjidilNabawi) {
+    public Hotel(String hotelName, String address, double price, int totalRoom, double distance_MasjidilHaram, double distance_MasjidilNabawi) {
         this.hotelName = hotelName;
         this.address = address;
         this.price = price;
         this.totalRoom = totalRoom;
+        this.roomSize = "Double Room";
         this.distance_MasjidilHaram = distance_MasjidilHaram;
         this.distance_MasjidilNabawi = distance_MasjidilNabawi;
     }
@@ -70,8 +70,8 @@ public class Hotel {
         System.out.printf("%-35s: %20s%n", "Address", address);
         System.out.printf("%-35s: %20.2f%n", "Price", price);
         System.out.printf("%-35s: %20s%n", "Room Size", roomSize);
-        System.out.printf("%-35s: %20.2f m%n", "Distance from Masjidil Haram", distance_MasjidilHaram);
-        System.out.printf("%-35s: %20.2f m%n", "Distance from Masjidil Nabawi", distance_MasjidilNabawi);
+        System.out.printf("%-35s: %20.2f km%n", "Distance from Masjidil Haram", distance_MasjidilHaram);
+        System.out.printf("%-35s: %20.2f km%n", "Distance from Masjidil Nabawi", distance_MasjidilNabawi);
         System.out.println("Standard check-in and check-out times:");
         System.out.printf("%-35s: %20s%n", "Check-in time", checkInTime);
         System.out.printf("%-35s: %20s%n", "Check-out time", checkOutTime);
