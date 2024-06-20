@@ -4,8 +4,8 @@ import java.io.*;
 public class ScholarshipApp {
     static Scanner inp = new Scanner(System.in);
     static int countAdmin = 0;
-    static Administrator ad = new Administrator();
-    static Student stu = new Student() ;
+    static Administrator ad = null ;
+    static Student stu = null ;
 
     public static void main(String[] args) throws IOException {
         int sID = 0000;
@@ -30,6 +30,9 @@ public class ScholarshipApp {
                 } else if (rs == 'N') {
                     stu = signInStudent(); // Ni function untuk tngok status je
                     int i=0 , j =0 ;
+
+                    if (stu == null)
+                        break ;
 
                     if (StudList.size() == 0){
                         StudList.add(stu) ;
@@ -107,25 +110,23 @@ public class ScholarshipApp {
                     }
                 }
 
+                if (StudList.isEmpty()) {
+                    System.out.println("There is no student applying the scholarship");
+                }
+
                 System.out.println("do you want to logout? (Y/N)");
                 char y = inp.next().toUpperCase().charAt(0);
                 if (y == 'Y') {
                     countAdmin--;
                     ad = null;
                 }
-                else{
-                    break ;
-                }
-                
-                if (StudList.isEmpty()) {
-                    System.out.println("There is no student applying the scholarship");
+                else if (y == 'N') {
                 }
 
             }
 
         } while (ad != null || StudList.size() > 0);
 
-        displayStudList(StudList);
 
         inp.close();
     }
@@ -229,9 +230,7 @@ public class ScholarshipApp {
 
                 fileScanner.close();
             }
-            Administrator fd = new Administrator(fname, lname, age, email, null, fileUsername, state, null, null, null);
-
-            return fd;
+            return  new Administrator(fname, lname, age, email, null, fileUsername, state, null, null, null) ;
             
         } 
         catch (FileNotFoundException e) {
@@ -285,8 +284,7 @@ public class ScholarshipApp {
             outFile.close();
             System.out.println("Student information saved successfully.");
 
-            Student stu = new Student(fname, lname, age, email, new Address(s, ci, st), matricsNu);
-            return stu;
+
         }
 
         catch (FileNotFoundException e) {
@@ -436,6 +434,9 @@ public class ScholarshipApp {
             for (Student k : sop) {
                 k.displayAllDetails();
             }
+            /*for (Student o : ad.getStudent()){
+                Print
+            }*/
         }
     }
 }

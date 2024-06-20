@@ -48,6 +48,10 @@ public class Administrator extends User {
             return false ;
     }
 
+    public ArrayList<Student> getStudent(){
+        return stud ;
+    }
+
     public Student getStudent(int i){
         return stud.get(i) ;
     }
