@@ -337,8 +337,24 @@ public class ScholarshipApp {
                 state = addressParts[2].trim();
 
                 fileScanner.close();
+                System.out.println("Choose your current program:") ;
+                System.out.println("[1] PREGRADUATE") ;
+                System.out.println("[2] UNDERGRADUATE") ;
+                System.out.println("[3] POSTGRADUATE") ;  
+                int ch = inp.nextInt() ;
+
+                Programs p ;
+
+                switch(ch){
+                    case 1 : p = Programs.PREGRADUATE ;
+                             break ;
+                    case 2 : p = Programs.UNDERGRADUATE ;
+                             break ;
+                    case 3 : p = Programs.POSTGRADUATE ;
+                }
 
                 Scholarship o = applyFromDisplayScholarship(stu, age);
+                StudentHistory st = insertStudentHistory() ;
 
                 Student stu = new Student(fname, lname, age, email, new Address(street, cityAndPostalCode, state),
                         matricsNu);

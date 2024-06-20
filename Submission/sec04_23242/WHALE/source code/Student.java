@@ -24,7 +24,7 @@ public class Student extends User {
         this.matricsNumber = matricsNumber;
         // this.major = major;
         // this.CGPA = CGPA;
-        
+        // this.scholarhsip = scholarship 
         // this.prog = prog;
         // this.studhist = studhist;
     }
