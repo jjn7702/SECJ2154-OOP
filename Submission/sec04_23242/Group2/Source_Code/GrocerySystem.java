@@ -167,7 +167,7 @@ public class GrocerySystem {
         return null;
     }
     
-        //Get Vurrent Seller
+        //Get Current Seller
     public static Seller GetCurrentSeller(String email, String pass, ArrayList<Seller> s) {
         for (Seller x : s) {
             if (x.getEmail().equals(email) && (x.getPassword().equals(pass))) {
