@@ -11,11 +11,11 @@ public class HajiUmrahApp {
                 SecureRandom randomNumberGenerator = new SecureRandom();
                 // randomNumberGenerator.nextInt(2);
 
-                Embassy pegawai1 = new Embassy("Muhammad Ali Bin Abu", "019-375 6551", "920102-01-9874",
-                                "zilman2345@gmail.com", "Setia Tropika", "Ketua Jabatan Imigresen", "JIM2013");
-                Embassy pegawai2 = new Embassy("Ahmad Aliff Bin Ali", "012-345 6789", "920101-01-1234",
+                Embassy pegawai1 = new Embassy("Muhammad Ali Bin Abu", "019-375 6551", "1",
+                                "zilman2345@gmail.com", "Setia Tropika", "Ketua Jabatan Imigresen", "JIM1");
+                Embassy pegawai2 = new Embassy("Ahmad Aliff Bin Ali", "012-345 6789", "2",
                                 "aliff.ali@gmail.com", "Taman Sri Andalas", "Timbalan Ketua Jabatan Imigresen",
-                                "JIM1223");
+                                "JIM2");
 
                 Doctor doctor1 = new Doctor("Ahmad Zairul Bin Iman", "012-345 6789", "111",
                                 "ahmad.ali@gmail.com", "Hospital Universiti Kuala Lumpur",
@@ -127,10 +127,8 @@ public class HajiUmrahApp {
                                                                                                 jemaah.get(i).chooseUmrahPackage();
                                                                                         } else if (choice4 == 3) {
 
-                                                                                        } else if (choice4 == 4) {
-
                                                                                         }
-                                                                                } while (choice3 != 4);
+                                                                                } while (choice4 != 4);
 
                                                                         }
                                                                 }
@@ -217,14 +215,20 @@ public class HajiUmrahApp {
                                                                                         }
 
                                                                                 }
-                                                                                System.out.println("========== LIST OF JEMAAH ==========");
-                                                                                for (int n = 0; n < jemaahWithDoctor.size();n++) { // Jemaah
-                                                                                                                            // or
-                                                                                                                            // User
-                                                                                                                            // kita
-                                                                                                                            // cuba
-                                                                                        System.out.println((n+1) + ") " + jemaahWithDoctor.get(n).getName());
-                                                                                  
+                                                                                System.out.println(
+                                                                                                "========== LIST OF JEMAAH ==========");
+                                                                                for (int n = 0; n < jemaahWithDoctor
+                                                                                                .size(); n++) { // Jemaah
+                                                                                                                // or
+                                                                                                                // User
+                                                                                                                // kita
+                                                                                                                // cuba
+                                                                                        System.out.println((n + 1)
+                                                                                                        + ") "
+                                                                                                        + jemaahWithDoctor
+                                                                                                                        .get(n)
+                                                                                                                        .getName());
+
                                                                                         // jemaahtry.display(); // dia
                                                                                         // akan
                                                                                         // panggil
@@ -233,15 +237,18 @@ public class HajiUmrahApp {
                                                                                         // and
                                                                                         // subclass
                                                                                         // display
-                                                                                }System.out.println();
-                                                                                System.out.print("[a] Press 0 for exit\n[b] pick number of jemaah [1-n]\n");
-                                                                                choice5 = inp.nextInt();
-                                                                                if(choice5 == 0){
-                                                                                    break;
                                                                                 }
-                                                                                else
-                                                                                    doktor.get(i).Medical_Application(jemaahWithDoctor.get(choice5-1));
-                                                                                
+                                                                                System.out.println();
+                                                                                System.out.print(
+                                                                                                "[a] Press 0 for exit\n[b] pick number of jemaah [1-n]\n");
+                                                                                choice5 = inp.nextInt();
+                                                                                if (choice5 == 0) {
+                                                                                        break;
+                                                                                } else
+                                                                                        doktor.get(i).Medical_Application(
+                                                                                                        jemaahWithDoctor.get(
+                                                                                                                        choice5 - 1));
+
                                                                         }
 
                                                                 } while (choice3 != 3);
@@ -277,7 +284,7 @@ public class HajiUmrahApp {
                                                                                         pegawai.get(k).display();
                                                                                         break;
                                                                                 case 2:
-                                                                                        
+
                                                                                         break;
                                                                                 default:
                                                                                         break;
