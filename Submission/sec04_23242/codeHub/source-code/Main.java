@@ -13,11 +13,11 @@ public class Main {
         Report report = new Report(null, 1.0); // rate set to be 1.0
         Vector<Category> categories = new Vector<>(); // Store category
 
-        Scanner inp = new Scanner(new File("bank.txt"));
-        Scanner acc = new Scanner(new File("Account.txt"));
-        Scanner bud = new Scanner(new File("Budjet.txt"));
-        Scanner trans = new Scanner(new File("Transaction.txt"));
-        Scanner sav = new Scanner(new File("Saving.txt"));
+        Scanner inp = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\bank.txt"));
+        Scanner acc = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Account.txt"));
+        Scanner bud = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Budjet.txt"));
+        Scanner trans = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Transaction.txt"));
+        Scanner sav = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Saving.txt"));
         //Scanner trans = new Scanner(new File("Account.txt"));
         categories.add(new ShoppingCategory(1));    
         categories.add(new FoodCategory(2));
@@ -94,21 +94,11 @@ public class Main {
             user1.getAccounts().get(ID).addSaving(s);
         }
 
-        
-
-       
-
-
-
-
-
-        
         inp.close();
         acc.close();
         bud.close();
         trans.close();
         sav.close();
-
 
         Scanner scanner = new Scanner(System.in);
 
@@ -132,6 +122,7 @@ public class Main {
                     break;
                 case 5:
                     report.displayAccountBalancesAndTransactions();
+                    screen.pauseScreen(scanner);
                     break;
                 case 6:
                     addBudget(scanner, user1, categories);
@@ -144,9 +135,10 @@ public class Main {
                     break;
                 case 9:
                     report.displayAllInfo();
+                    screen.pauseScreen(scanner);
                     break;
                 case 10:
-                    System.out.println("Exiting...");
+                    System.out.printf("%37s","Exiting...");
                     scanner.close();
                     return;
                 default:
@@ -160,21 +152,25 @@ public class Main {
     private static PauseScreen screen= new PauseScreen();
 
     private static void printMenu() {
-        System.out.println("\nMain Menu:");
-        System.out.println("1. Add Account");
-        System.out.println("2. Deposit Money");
-        System.out.println("3. Withdraw Money");
-        System.out.println("4. Change Currency");
-        System.out.println("5. Display Account Balances and Transactions");
-        System.out.println("6. Add Budget");
-        System.out.println("7. Add Saving");
-        System.out.println("8. Add Transaction");
-        System.out.println("9. Display All Information");
-        System.out.println("10. Exit");
-        System.out.print("Enter your choice: ");
+        screen.ClearScreen();
+        System.out.printf("%88s%n", "<<<<<<<PERSONAL FINANCE MANAGER>>>>>>>");
+        System.out.printf("%90s%n", "----------------(Main Menu)----------------");
+        System.out.printf("%60s%n","1. Add Account");
+        System.out.printf("%62s%n","2. Deposit Money");
+        System.out.printf("%63s%n","3. Withdraw Money");
+        System.out.printf("%64s%n","4. Change Currency");
+        System.out.printf("%90s%n","5. Display Account Balances and Transactions");
+        System.out.printf("%59s%n","6. Add Budget");
+        System.out.printf("%59s%n","7. Add Saving");
+        System.out.printf("%64s%n","8. Add Transaction");
+        System.out.printf("%72s%n","9. Display All Information");
+        System.out.printf("%54s%n","10. Exit");
+        System.out.printf("%90s%n%n","-------------------------------------------");
+        System.out.printf("%46s","Enter your choice: ");
     }
 
     private static void addAccount(Scanner scanner, Bank bank, Users user) {
+        screen.ClearScreen();
         System.out.print("Enter account name: ");
         String accountName = scanner.nextLine();
         System.out.print("Enter initial balance: ");
@@ -188,6 +184,7 @@ public class Main {
         
 
     private static void depositMoney(Scanner scanner, Users user) {
+        screen.ClearScreen();
         System.out.print("Enter account ID: ");
         int accountId = scanner.nextInt();
         System.out.print("Enter deposit amount: ");
@@ -205,6 +202,7 @@ public class Main {
     }
 
     private static void withdrawMoney(Scanner scanner, Users user) {
+        screen.ClearScreen();
         System.out.print("Enter account ID: ");
         int accountId = scanner.nextInt();
         System.out.print("Enter withdrawal amount: ");
@@ -252,6 +250,7 @@ public class Main {
     }
 
     private static void changeCurrency(Scanner scanner, Report moneyExchange) {
+        screen.ClearScreen();
         System.out.print("Enter new exchange rate (1 USD to target currency): ");
         double exchangeRate = scanner.nextDouble();
         moneyExchange.setExchangeRate(exchangeRate);
@@ -259,6 +258,7 @@ public class Main {
     }
 
     private static void addBudget(Scanner scanner, Users user, Vector<Category> categories) {
+        screen.ClearScreen();
         System.out.print("Enter account ID: ");
         int accountId = scanner.nextInt();
         System.out.print("Enter budget limit: ");
@@ -298,6 +298,7 @@ public class Main {
     }
 
     private static void addSaving(Scanner scanner, Users user) {
+        screen.ClearScreen();
         System.out.print("Enter account ID: ");
         int accountId = scanner.nextInt();
         System.out.print("Enter saving goal name: ");
@@ -326,6 +327,7 @@ public class Main {
     }
 
     private static void addTransaction(Scanner scanner, Users user, Vector<Category> categories) {
+        screen.ClearScreen();
         System.out.print("Enter account ID: ");
         int accountId = scanner.nextInt();
         scanner.nextLine(); // consume newline
