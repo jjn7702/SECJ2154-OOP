@@ -56,3 +56,17 @@ class FoodCategory extends Category {
         return amount * FOOD_TAX;
     }
 }
+
+class Deposit extends Category {
+    public Deposit(int id) {
+        super(id, "Deposit", "Deposit Money to Account");
+    }
+
+    public String getCategoryType() {
+        return "Deposit";
+    }
+
+    public double calculateTax(double amount) {
+        return 0;
+    }
+}

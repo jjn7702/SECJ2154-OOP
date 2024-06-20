@@ -1,6 +1,7 @@
 import java.util.*;
 import java.sql.Date;
 
+
 class Account {
     private int id;
     private String name;
@@ -10,6 +11,8 @@ class Account {
     private Vector<Transaction> transactions;
     private Vector<Budget> budgets;
     private Vector<Saving> savings;
+    Scanner scanner = new Scanner(System.in);
+
 
     public Account(int id, String name, double balance, Bank bank) {
         this.id = id;
@@ -83,8 +86,8 @@ class Account {
         budgets.remove(budget);
     }
 
-    public void addSaving(int id, String name, double targetAmount, double currentAmount, Date targetDate) {
-        savings.add(new Saving(id, name, targetAmount, currentAmount, targetDate));
+    public void addSaving(Saving s) {
+        savings.add(s);
     }
 
     public Budget getBudgetByCategory(Category category) {
@@ -99,7 +102,7 @@ class Account {
     public String getTransactionDetails() {
         double bal = balance * rate;
         StringBuilder details = new StringBuilder(
-                "Account ID: " + id + ", Name: " + name + ", Balance: " + bal + "\n");
+                "Account ID: " + id + ", Name: " + name + ", Balance: RM" + bal + "\n");
         for (Transaction transaction : transactions) {
             details.append(transaction.getDetails(rate)).append("\n");
         }

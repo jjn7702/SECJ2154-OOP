@@ -35,7 +35,7 @@ public class Report {
             System.out.println("Account Information:");
             System.out.println("ID: " + account.getId());
             System.out.println("Name: " + account.getName());
-            System.out.println("Balance: " + account.getBalance() * exchangeRate);
+            System.out.println("Balance: RM" + account.getBalance() * exchangeRate);
             System.out.println();
 
             System.out.println("Budget Information:");
@@ -46,8 +46,8 @@ public class Report {
             for (Saving saving : account.getSavings()) {
                 System.out.println("ID: " + saving.getId());
                 System.out.println("Name: " + saving.getName());
-                System.out.println("Target Amount: " + saving.getTargetAmount());
-                System.out.println("Current Amount: " + saving.getCurrentAmount());
+                System.out.println("Target Amount: RM" + saving.getTargetAmount());
+                System.out.println("Current Amount: RM" + saving.getCurrentAmount());
                 System.out.println("Target Date: " + saving.getTargetDate());
                 System.out.println();
             }
