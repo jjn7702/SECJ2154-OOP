@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 class Doctor extends User {
     private String hospital, position, doctor_Number;
@@ -87,14 +87,14 @@ class Doctor extends User {
             switch (choice) {
                 case 1:
                     // display jemaah info
-                    umat.display(); // JemaahInfo
+                    umat.display_info_jemaah(); // JemaahInfo
                     break;
                 case 2:
                     // Medical Application Approval
                     // 2 approve
                     // 1 failed
                     // 0 pending
-                    umat.display(); // JemaahInfo
+                    umat.display_info_jemaah(); // JemaahInfo
                     System.out.print("[1] Approve\n[2] Failed\nYour Choice: ");
                     int choice4 = inp.nextInt();
 
