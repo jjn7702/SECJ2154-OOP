@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-class Buyer extends User implements interfaceBuyer {
+class Buyer extends User implements InterfaceBuyer {
     private String id;
     private Cart cart;
     private Address add;
