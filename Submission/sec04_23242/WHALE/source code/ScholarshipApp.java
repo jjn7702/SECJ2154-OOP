@@ -444,6 +444,7 @@ public class ScholarshipApp {
                 System.out.println("Do you want to apply for this scholarship? (Y/N)");
                 char response = inp.next().toUpperCase().charAt(0);
                 if (response == 'Y') {
+                    student.setScholarship(Merits.get(scholarshipChoice)) ;
                     sid++; // Assuming Student class has getStudentId method
                     applyScholarship(student, sid);
                     System.out.println("Application successful.");
@@ -484,6 +485,7 @@ public class ScholarshipApp {
                 System.out.println("Do you want to apply for this scholarship? (Y/N)");
                 char response = inp.next().toUpperCase().charAt(0);
                 if (response == 'Y') {
+                    student.setScholarship(Needs.get(scholarshipChoice));
                     sid++; // Assuming Student class has getStudentId method
                     applyScholarship(student, sid);
                     System.out.println("Application successful.");
