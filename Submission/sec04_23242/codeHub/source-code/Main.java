@@ -182,6 +182,7 @@ public class Main {
         user.addAccount(account);
         System.out.println("Account added successfully.");
         account.displayInfo();
+    }
         
 
     private static void depositMoney(Scanner scanner, Users user) {
