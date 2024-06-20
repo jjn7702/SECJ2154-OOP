@@ -330,7 +330,7 @@ public class ScholarshipApp {
                 System.out.println("Login successful!");
 
                 // Read the remaining details
-                fname = fileScanner.next();
+                fname = fileScanner.next();     
                 lname = fileScanner.next();
                 age = fileScanner.nextInt();
                 email = fileScanner.nextLine();
