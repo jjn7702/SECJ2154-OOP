@@ -110,15 +110,19 @@ public class Main {
             switch (choice) {
                 case 1:
                     addAccount(scanner, bank1, user1);
+                    screen.pauseScreen(scanner);
                     break;
                 case 2:
                     depositMoney(scanner, user1);
+                    screen.pauseScreen(scanner);
                     break;
                 case 3:
                     withdrawMoney(scanner, user1);
+                    screen.pauseScreen(scanner);
                     break;
                 case 4:
                     changeCurrency(scanner, report);
+                    screen.pauseScreen(scanner);
                     break;
                 case 5:
                     report.displayAccountBalancesAndTransactions();
@@ -126,12 +130,15 @@ public class Main {
                     break;
                 case 6:
                     addBudget(scanner, user1, categories);
+                    screen.pauseScreen(scanner);
                     break;
                 case 7:
                     addSaving(scanner, user1);
+                    screen.pauseScreen(scanner);
                     break;
                 case 8:
                     addTransaction(scanner, user1, categories);
+                    screen.pauseScreen(scanner);
                     break;
                 case 9:
                     report.displayAllInfo();
@@ -152,7 +159,7 @@ public class Main {
     private static PauseScreen screen= new PauseScreen();
 
     private static void printMenu() {
-        screen.ClearScreen();
+        //screen.ClearScreen();
         System.out.printf("%88s%n", "<<<<<<<PERSONAL FINANCE MANAGER>>>>>>>");
         System.out.printf("%90s%n", "----------------(Main Menu)----------------");
         System.out.printf("%60s%n","1. Add Account");

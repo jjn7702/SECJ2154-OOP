@@ -2,6 +2,7 @@
  * Name: Vennise Ngoh Yan Leng
  * Matric ID: B23CS8032
  */
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -135,12 +136,23 @@ public class MovieRecommendationSystem {
             System.out.println("Here is the user info:");
             u1.displayInfo();
             u2.displayInfo();
-            System.out.print("Which user you wanted to test?(1 or 2):");
-            int userInt = in.nextInt();
-            while (userInt != 1 && userInt != 2) {
-                System.out.println("Invalid input.");
-                System.out.print("Which user you wanted to test?(1 or 2):");
-                userInt = in.nextInt();
+            System.out.print("Which user you wanted to test?(1 or 2):");            
+            boolean validInput = false;
+            int userInt=0;
+            while (!validInput) {
+                try {
+                    userInt = in.nextInt();
+                    if (userInt == 1 || userInt == 2) {
+                        validInput = true;
+                    } else {
+                        System.out.println("Invalid input. Please enter a number between 1 and 2.");
+                        System.out.print("Which user you wanted to test?(1 or 2):");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a number between 1 and 2.");
+                    System.out.print("Which user you wanted to test?(1 or 2):");
+                    in.next(); // Clear the invalid input
+                }
             }
             if (userInt == 1) {
                 user = u1;
@@ -148,21 +160,32 @@ public class MovieRecommendationSystem {
                 user = u2;
             }
 
-            int c = 1;
-            while (c > 1 || c < 3) {
-                // Choose action
-                System.out.println("");
-                System.out.println("Enter 1 to rate movie");
-                System.out.println("Enter 2 to add watced movie");
-                System.out.println("Enter 3 to show most rated movies");
-                System.out.println("Enter 4 to exit");
-                System.out.print("Choose your action for user " + user.getName() + ": ");
-                c = in.nextInt();
-                while (c < 1 || c > 4) {
-                    System.out.println("Invalid input");
-                    System.out.print("Choose your action for user " + user.getName() + ": ");
+            int c = 0;
+            while (c != 4) {  // Continue the loop until the user chooses to exit
+            // Choose action
+            System.out.println("");
+            System.out.println("Enter 1 to rate movie");
+            System.out.println("Enter 2 to add watched movie");
+            System.out.println("Enter 3 to show most rated movies");
+            System.out.println("Enter 4 to exit");
+            System.out.print("Choose your action for user " + user.getName() + ": ");
+
+            validInput = false;
+            while (!validInput) {
+                try {
                     c = in.nextInt();
+                    if (c >= 1 && c <= 4) {
+                        validInput = true;
+                    } else {
+                        System.out.println("Invalid input. Please enter a number between 1 and 4.");
+                        System.out.print("Choose your action for user " + user.getName() + ": ");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a number between 1 and 4.");
+                    System.out.print("Choose your action for user " + user.getName() + ": ");
+                    in.next(); // Clear the invalid input
                 }
+            }
                 // Make Action
                 switch (c) {
                     case 1:
@@ -177,7 +200,7 @@ public class MovieRecommendationSystem {
                         re.displayMostRatedMovies();
                         re.displayRecByFavDirect();
                         break;
-                    default:
+                    case 4:
                         System.out.println("Exit update mode.");
                         break;
                 }
@@ -202,7 +225,6 @@ class Input {
             System.out.print("Continue using this system? (Y/N):");
             select = in.next().toUpperCase();
         }
-        in.close();
         return select;
     }
 
@@ -210,14 +232,48 @@ class Input {
         Scanner in = new Scanner(System.in);
         // input rating with Anonymous
         System.out.print("Enter movie index :");
-        int movieIndex = in.nextInt();
+        boolean validInput = false;
+        int movieIndex=0;
+            while (!validInput) {
+                try {
+                     movieIndex = in.nextInt();
+                    if (movieIndex >= 1 && movieIndex <= 10) {
+                        validInput = true;
+                    } else {
+                        System.out.println("Invalid input. Please enter a number between 1 and 10.");
+                        System.out.print("Enter movie index :");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a number between 1 and 10.");
+                    System.out.print("Enter movie index :");
+                    in.next(); // Clear the invalid input
+                }
+            }
+
         System.out.print("Rate the movie from 0-4 :");
-        int rate = in.nextInt();
+        validInput = false;
+        int rate=0;
+            while (!validInput) {
+                try {
+                    rate = in.nextInt();
+                    if (rate >= 0 && rate <= 4) {
+                        validInput = true;
+                    } else {
+                        System.out.println("Invalid input. Please enter a number between 0 and 4.");
+                        System.out.print("Rate the movie from 0-4 :");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a number between 0 and 4.");
+                    System.out.print("Rate the movie from 0-4 :");
+                    in.next(); // Clear the invalid input
+                }
+            }
+
         System.out.print("Comment :");
-        String comment = in.nextLine();
+        String comment = in.next();
+
         System.out.print("Do you want to hide your name?(Y/N):");
         String select = in.next().toUpperCase();
-
         while (!(select.equals("Y") || select.equals("N"))) {
             System.out.println("Invalid input");
             System.out.print("Do you want to hide your name?(Y/N):");
@@ -233,7 +289,6 @@ class Input {
             user.getRating().lastElement().displayInfo();
         }
 
-        in.close();
     }
 
     public void addWatched(User user, Vector<Movie> movie) {
@@ -256,7 +311,6 @@ class Input {
             this.addRating(user, movie, movieIndex);
         }
 
-        in.close();
     }
 
     public void listMovie(Vector<Movie> movie) {
@@ -273,7 +327,7 @@ class Input {
         System.out.print("Rate the movie from 0-4 :");
         int rate = in.nextInt();
         System.out.print("Comment :");
-        String comment = in.nextLine();
+        String comment = in.next();
         System.out.print("Do you want to hide your name?(Y/N):");
         String select = in.next().toUpperCase();
 
@@ -292,6 +346,5 @@ class Input {
             user.getRating().lastElement().displayInfo();
         }
 
-        in.close();
     }
 }

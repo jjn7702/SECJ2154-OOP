@@ -216,16 +216,14 @@ public class HajiUmrahApp {
                                                                                         }
 
                                                                                 }
-                                                                                for (Jemaah jemaahtry : jemaahWithDoctor) { // Jemaah
+                                                                                System.out.println("========== LIST OF JEMAAH ==========");
+                                                                                for (int n = 0; n < jemaahWithDoctor.size();n++) { // Jemaah
                                                                                                                             // or
                                                                                                                             // User
                                                                                                                             // kita
                                                                                                                             // cuba
-                                                                                System.out.println("========== LIST OF JEMAAH ==========");
-                                                                                  for(int n = 0; n < jemaah.size();n++){
-                                                                                        System.out.println((n+1) + ") " + jemaah.get(n).getName());
-                                                                                  }
-                                                                                  System.out.println();
+                                                                                        System.out.println((n+1) + ") " + jemaahWithDoctor.get(n).getName());
+                                                                                  
                                                                                         // jemaahtry.display(); // dia
                                                                                         // akan
                                                                                         // panggil
@@ -234,11 +232,9 @@ public class HajiUmrahApp {
                                                                                         // and
                                                                                         // subclass
                                                                                         // display
-                                                                                }
-
-                                                                                // doktor.get(i).Medical_Application(
-                                                                                // jemaah10); camne nak check, the first
-                                                                                // jemaah yang ada mohon
+                                                                                }System.out.println();
+                                                                                System.out.print("Which jemaah you want to check :");
+                                                                                doktor.get(i).Medical_Application(jemaahWithDoctor.get(inp.nextInt()+1));
                                                                         }
 
                                                                 } while (choice3 != 3);
@@ -257,6 +253,8 @@ public class HajiUmrahApp {
                                                 System.out.print("Embassy ID: ");
                                                 ID = inp.nextLine();
                                                 break;
+
+                                                //Sini Login Embassy
                                         }
                                 }
                         }
