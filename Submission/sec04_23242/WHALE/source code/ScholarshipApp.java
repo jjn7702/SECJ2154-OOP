@@ -35,7 +35,7 @@ public class ScholarshipApp {
 
                 } else if (rs == 'N') {
                     stu = signInStudent(); // Ni function untuk tngok status je
-                    int i = 0, j = 0;
+                    int i = 0 ; 
 
                     if (StudList.size() == 0) {
                         StudList.add(stu);
@@ -45,7 +45,8 @@ public class ScholarshipApp {
                     for (Student st : StudList) {
                         if (st.equals(stu))
                             break;
-                        i++;
+                        else
+                            i++;
                     }
 
                     System.out.println("[0] Do you want to check the status of your apllication?");
@@ -78,20 +79,6 @@ public class ScholarshipApp {
                 } else {
                     System.out.println("Invalid choice. Please enter Y or N.");
                 }
-
-                // Call the applyFromDisplayScholarship method
-                /*
-                 * if (choice == 0) { // Assuming choice 0 is for students
-                 * Student student = signInStudent();
-                 * if (student != null) {
-                 * System.out.println("Do you want to apply for a scholarship? (Y/N)");
-                 * char apply = inp.next().toUpperCase().charAt(0);
-                 * if (apply == 'Y') {
-                 * applyFromDisplayScholarship(student, sID); // Assuming sID is the student ID
-                 * }
-                 * }
-                 * }
-                 */
             }
             if (choice == 1) {
                 System.out.println("Register? (Y/N)");
