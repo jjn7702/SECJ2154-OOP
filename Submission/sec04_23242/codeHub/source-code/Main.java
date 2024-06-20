@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
-import java.sql.Date;
+import java.util.*;
 
 
 public class Main {
@@ -38,6 +38,9 @@ public class Main {
         while(sav.hasNextLine()){
 
         }
+        inp.close();
+        trans.close();
+        sav.close();
 
 
 
