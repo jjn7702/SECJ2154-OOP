@@ -113,12 +113,7 @@ public enum Haji_Umrah_Package {
                 int counterFlight = 1;
                 int counterHotel = 1;
 
-                // for (Flight flight : flight_Ibadah) {
-                // System.out.println("========================= Flight " + counterFlight
-                // + " =========================");
-                // flight.display_Flight_Info();
-                // counterFlight++;
-                // }
+                
                 for (Hotel hotel : hotel_Ibadah) {
                         System.out.println("========================= Hotel " + counterHotel
                                         + " =========================");
