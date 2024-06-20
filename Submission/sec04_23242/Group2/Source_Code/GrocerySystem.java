@@ -63,6 +63,55 @@ public class GrocerySystem {
         } while (option != 3);
 
     }
+
+    //Read User
+    public static ArrayList<Buyer> ReadUser(Scanner inp) throws IOException {
+
+        inp.useDelimiter(",|\\n");
+        ArrayList<Buyer> Buyers = new ArrayList<>();
+        int num = 0;
+
+        while (inp.hasNext()) {
+            String e = "", p = "", n = "", st = "", state = "", zipcode = "", country = "";
+            e = inp.next();
+            p = inp.next();
+            n = inp.next();
+            st = inp.next();
+            state = inp.next();
+            zipcode = inp.next();
+            country = inp.nextLine();
+            country = country.substring(1);
+            Buyers.add(new Buyer(e, p, n, new Address(st, zipcode, state, country)));
+            Buyers.get(num).readCart();
+            num++;
+        }
+        return Buyers;
+    }
+
+    //Read Seller
+    public static ArrayList<Seller> ReadSeller(Scanner inp) throws IOException {
+
+        inp.useDelimiter(",|\\n");
+        ArrayList<Seller> s = new ArrayList<>();
+        int z = 0;
+
+        while (inp.hasNext()) {
+            String e = "", p = "", n = "", i = "", st = "", state = "", zipcode = "", country = "";
+            e = inp.next();
+            p = inp.next();
+            n = inp.next();
+            i = inp.next();
+            st = inp.next();
+            state = inp.next();
+            zipcode = inp.next();
+            country = inp.nextLine();
+            country = country.substring(1);
+            s.add(new Seller(e, p, n, new Store(i, new Address(st, zipcode, state, country))));
+            s.get(z).readItem();
+            z++;
+        }
+        return s;
+    }
     public static void saveBuyerAndSeller(ArrayList<Seller> s, ArrayList<Buyer> b) {
         try (PrintWriter writer = new PrintWriter(new FileWriter("User.csv"))) {
             for (Buyer x : b) {
