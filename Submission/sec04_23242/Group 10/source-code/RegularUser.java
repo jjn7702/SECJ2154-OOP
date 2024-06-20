@@ -1,4 +1,3 @@
-package project;
 
 /*
  * Name: Vennise Ngoh Yan Leng
