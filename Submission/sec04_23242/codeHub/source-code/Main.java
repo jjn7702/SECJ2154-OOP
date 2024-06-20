@@ -141,7 +141,7 @@ public class Main {
             account.deposit(amount);
             System.out.println("Money deposited successfully.");
             Date d = new Date(System.currentTimeMillis());
-            account.addTransaction(accountId, "DEPOSIT", amount, d,new Deposit(accountId) );
+            account.addTransaction(account.getTransactions().size() + 1, "DEPOSIT", amount, d,new Deposit(accountId) );
         } catch (AccountNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -170,14 +170,14 @@ public class Main {
                 System.out.print("Enter Shopping name:");
                 String Shop = scanner.nextLine();
                 ShoppingCategory s = new ShoppingCategory(accountId);
-                account.addTransaction(accountId, Shop, amount, d,s );
+                account.addTransaction(account.getTransactions().size() + 1, Shop, amount, d,s );
             }
             else if(cater == 2){
                 System.out.print("Enter Food name:");
                 String Food = scanner.nextLine();
                 FoodCategory s = new FoodCategory(accountId);
 
-                account.addTransaction(accountId,Food, amount, d,s );
+                account.addTransaction(account.getTransactions().size() + 1,Food, amount, d,s );
             }
             else{
                 System.out.println("NOT VALID");
