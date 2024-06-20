@@ -6,7 +6,7 @@ public enum Haji_Umrah_Package {
         // try from pc faiz
         // try 2
         // package 1 = haji ifrad (haji pastu umrah)
-        IFRAD("Haji and Umrah",
+        IFRAD("HAJI IFRAD",
 
                         new Vector<>(List.of(
                                         new Flight("AA", "31 May 2024", "31 May 2024", "0000", "0850", "KLIA",
@@ -24,7 +24,7 @@ public enum Haji_Umrah_Package {
                         15000),
 
         // package 2 = haji qiran (haji dan umrah serentak)
-        QIRAN("Haji and Umrah simultaneously",
+        QIRAN("HAJI QIRAN",
                         new Vector<>(List.of(
                                         new Flight("M302", "1 Jun 2024", "2 Jun 2024", "2250", "0740", "KLIA",
                                                         "Jeddah"),
@@ -38,7 +38,7 @@ public enum Haji_Umrah_Package {
                         20000),
 
         // package 3 = haji tamattuk (umrah dan haji)
-        TAMATTUK("Umrah and Haji",
+        TAMATTUK("HAJI TAMATTUK",
                         new Vector<>(List.of(
                                         new Flight("A129", "2 Jun 2024", "3 Jun 2024", "2220", "0710", "KLIA",
                                                         "Medinah"),
@@ -101,6 +101,7 @@ public enum Haji_Umrah_Package {
         }
 
         public void add_Pelancongan_Package(Pelancongan_Package p) {
+                //Pindah ni ke Jemaah class
                 plgPkg = p;
                 plgPkg.display_Pelancongan_info();
                 flight_Ibadah.remove(1);
@@ -111,7 +112,8 @@ public enum Haji_Umrah_Package {
         }
 
         public void Display_Pakej_Info() {
-                System.out.println("FROM CLASS HAJI UMRAH PACKAGE");
+                System.out.println("========================= Pakej " + ibadah
+                                + " =========================");
                 System.out.println("Ibadah: " + ibadah);
                 int counterFlight = 1;
                 int counterHotel = 1;
