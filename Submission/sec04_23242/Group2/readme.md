@@ -20,3 +20,19 @@ The grocery shopping assistant system is designed for two types of users: buyers
 ### <img src="Submission/sec04_23242/Group2/Image/Objective.png" width="5%" height="5%"> Objectives:
 The objective is to develop an interface that makes the grocery shopping experience as smooth as possible by enabling users to build and organize their grocery lists without difficulties. The system also helps in-store management since it will facilitate easy creation of stores for the sellers, store modification, and even the ability to delete a product or change certain aspects of their store. It is intended to improve the user experience by creating an efficient registration and login process for the customers and the sellers and incorporating security into the process. Also, it will intelligently recommend information through the creation of a recommendation system, where buyers will be provided with relevant local stores to visit on their location and the items in their cart. Cart features will be comprehensive including adding items to the cart, updating quantities, removing items, viewing the cart, and updating the address on the cart list.
 
+
+### <img src="Submission/sec04_23242/Group2/Image/Scope.png" width="3%" height="3%"> Scope:
+1. **User registration and Login:**
+Users need to be able to register or sign up for the page and then have the ability to log into an account while ensuring proper input of their data.
+2.  **Grocery List Management:**
+Allow the buyers to make, modify, and control their grocery lists in a way that lets them add products by categories, modify quantities of added products, and delete products from their cart.
+3. **Store Inventory Management:**
+Allow the sellers to arrange products for sale in their stores and let them add new products, remove products, display all products, and edit features such as the business address.
+4.  **Location-Based Store Recommendations:**
+Develop an option to suggest stores where buyers can purchase the product, based on the provided address that will indicate the stores around the designated area.
+
+
+### <img src="Submission/sec04_23242/Group2/Image/flowchart.png" width="5%" height="5%"> Flowchart
+
+![2](Submission/sec04_23242/Group2/Image/WorkflowOOP.png)
+
