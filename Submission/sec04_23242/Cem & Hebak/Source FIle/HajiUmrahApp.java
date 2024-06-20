@@ -87,6 +87,7 @@ public class HajiUmrahApp {
                 int choice2 = 0;
                 int choice3 = 0;
                 int choice4 = 0;
+                int choice5 = 0;
                 String IC, ID;
                 do {
                         System.out.print("[1] Log In\n[2] Exit\nYour Choice: ");
@@ -233,8 +234,14 @@ public class HajiUmrahApp {
                                                                                         // subclass
                                                                                         // display
                                                                                 }System.out.println();
-                                                                                System.out.print("Which jemaah you want to check :");
-                                                                                doktor.get(i).Medical_Application(jemaahWithDoctor.get(inp.nextInt()+1));
+                                                                                System.out.print("[a] Press 0 for exit\n[b] pick number of jemaah [1-n]\n");
+                                                                                choice5 = inp.nextInt();
+                                                                                if(choice5 == 0){
+                                                                                    break;
+                                                                                }
+                                                                                else
+                                                                                    doktor.get(i).Medical_Application(jemaahWithDoctor.get(choice5-1));
+                                                                                
                                                                         }
 
                                                                 } while (choice3 != 3);

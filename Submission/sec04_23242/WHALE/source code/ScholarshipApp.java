@@ -342,6 +342,7 @@ public class ScholarshipApp {
 
                 Student stu = new Student(fname, lname, age, email, new Address(street, cityAndPostalCode, state),
                         matricsNu);
+                        
                 return stu;
             } else {
                 System.out.println("Invalid username or password.");
