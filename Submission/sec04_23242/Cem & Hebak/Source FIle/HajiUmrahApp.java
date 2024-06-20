@@ -1,6 +1,6 @@
+import java.security.SecureRandom;
 import java.util.Scanner;
 import java.util.Vector;
-import java.security.SecureRandom;
 
 public class HajiUmrahApp {
         public static void main(String[] args) {
@@ -221,8 +221,11 @@ public class HajiUmrahApp {
                                                                                                                             // User
                                                                                                                             // kita
                                                                                                                             // cuba
-                                                                                        System.out.println(jemaahtry
-                                                                                                        .getName());
+                                                                                System.out.println("========== LIST OF JEMAAH ==========");
+                                                                                  for(int n = 0; n < jemaah.size();n++){
+                                                                                        System.out.println((n+1) + ") " + jemaah.get(n).getName());
+                                                                                  }
+                                                                                  System.out.println();
                                                                                         // jemaahtry.display(); // dia
                                                                                         // akan
                                                                                         // panggil
