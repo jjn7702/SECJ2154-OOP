@@ -2,18 +2,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
+import java.sql.Date;
+
 
 public class Main {
     public static void main(String[] args) throws IOException{
 
-        Bank bank = new Bank("MayBank");
-        int userid = 1; // set user id and will increase if there is more user
-        Users user = new Users(userid++, "abu");
-        Report report = new Report( 1.0); // rate set to be 1.0
-        report.setUser(user);     //association
+        Report report = new Report(null, 1.0); // rate set to be 1.0
         Vector<Category> categories = new Vector<>(); // Store category
 
         Scanner inp = new Scanner(new File("bank.txt"));
+        Scanner trans = new Scanner(new File("Transaction.txt"));
+        Scanner sav = new Scanner(new File("Saving.txt"));
     
         Bank bank1 = null;
         Users user1 = null;
@@ -27,12 +27,17 @@ public class Main {
                 String name = parts[2];
                 bank1 = new Bank(bankName);
                 user1 = new Users(id, name);
+                report.setUser(user1);
             }
         }
 
-        System.out.println(bank1.getName());
-        System.out.println(user1.getName());
-        System.out.println(user1.getId());
+        while(trans.hasNextLine()){
+
+        }
+
+        while(sav.hasNextLine()){
+
+        }
 
 
 
@@ -51,13 +56,13 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    addAccount(scanner, bank, user);
+                    addAccount(scanner, bank1, user1);
                     break;
                 case 2:
-                    depositMoney(scanner, user);
+                    depositMoney(scanner, user1);
                     break;
                 case 3:
-                    withdrawMoney(scanner, user);
+                    withdrawMoney(scanner, user1);
                     break;
                 case 4:
                     changeCurrency(scanner, report);
@@ -66,13 +71,13 @@ public class Main {
                     report.displayAccountBalancesAndTransactions();
                     break;
                 case 6:
-                    addBudget(scanner, user, categories);
+                    addBudget(scanner, user1, categories);
                     break;
                 case 7:
-                    addSaving(scanner, user);
+                    addSaving(scanner, user1);
                     break;
                 case 8:
-                    addTransaction(scanner, user, categories);
+                    addTransaction(scanner, user1, categories);
                     break;
                 case 9:
                     report.displayAllInfo();
