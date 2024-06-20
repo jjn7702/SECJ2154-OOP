@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.util.ArrayList;
+
 public abstract class User {
     private String password;
     private String email;
@@ -37,4 +40,29 @@ public abstract class User {
     }
 
     public abstract void display();
+
+    public abstract void assignId();
+
+    public void readCart() throws IOException {
+    }
+
+    public void BuyerInterface(ArrayList<Seller> s) {
+    }
+
+    public void GroceryList(ArrayList<Seller> s) throws IOException {
+    }
+
+    public Address getAdd() {
+        return null;
+    }
+
+    public void saveData() throws IOException {
+    }
+
+    public Store getStore() {
+        return null;
+    }
+
+    public void Manage() {
+    }
 }

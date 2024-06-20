@@ -49,6 +49,16 @@ public class Embassy extends User implements userDisplay {
         System.out.println();
     }
 
+    public void displayRingkas() {
+        System.out.println("========== EMBASSY CREDENTIALS ==========");
+        System.out.println("Name : " + getName());
+        System.out.println("Contact :" + getContact());
+        System.out.println("Email: " + getEmail());
+        System.out.println("Location: " + location);
+        System.out.println("Position: " + position);
+        System.out.println();
+    }
+
     public void updateUserInfo() {
 
         System.out.println("========== UPDATE CREDENTIALS ==========");

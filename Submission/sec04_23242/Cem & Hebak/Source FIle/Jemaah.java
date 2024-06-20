@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Vector;
 
 public class Jemaah extends User implements userDisplay {
     private String jemaahID;
@@ -10,6 +10,7 @@ public class Jemaah extends User implements userDisplay {
     private Vector<String> penyakit;
     private Vector<String> ubat;
     private Haji_Umrah_Package pakejIbadah;
+    private Pelancongan_Package plgPkg;
 
     public Jemaah(String name, String contact, String identification_Card, String email, String jemaahID, int age,
             Doctor doctor, Embassy embassy) {
@@ -141,10 +142,87 @@ public class Jemaah extends User implements userDisplay {
                 System.out.println((i + 1) + ")" + ubat.get(i));
             }
         }
-        doctor.display();
-        embassy.display();
+        if (pakejIbadah != null) {
+            pakejIbadah.Display_Pakej_Info();
+        }
+
+        doctor.displayRingkas();
+        embassy.displayRingkas();
         // dulu ada display embassy info & Doctor info, tapi guna polymorphism boleh
         // panggil terus di main
+        System.out.println();
+    }
+
+    public void displayRingkas() {
+        System.out.println("========== JEMAAH CREDENTIALS ==========");
+        System.out.println("Name : " + getName());
+        System.out.println("Contact :" + getContact());
+        System.out.println("Identification Card : " + getIdentification_Card());
+        System.out.println("Email: " + getEmail());
+        System.out.println("Jemaah ID: " + jemaahID);
+        System.out.println("Age: " + age);
+        String Health = "pending", Visa = "pending", Approval = "pending";
+
+        switch (approval_from_doctor) {
+            case 2:
+                Health = "Failed";
+                break;
+            case 1:
+                Health = "Approve";
+                break;
+            case 0:
+                Health = "Pending";
+                break;
+            default:
+                break;
+        }
+
+        switch (approval_from_embassy) {
+            case 2:
+                Visa = "Failed";
+                break;
+            case 1:
+                Visa = "Approve";
+                break;
+            case 0:
+                Visa = "Pending";
+                break;
+            default:
+                break;
+        }
+
+        if (approval_from_doctor == 1 && approval_from_embassy == 1) {
+            Approval = "Approve";
+        } else if (approval_from_doctor == 0 || approval_from_embassy == 0) {
+            Approval = "Pending";
+        } else {
+            Approval = "Failed";
+        }
+
+        System.out.println("Health: " + Health);
+        System.out.println("Visa: " + Visa);
+        System.out.println(Approval + " to perform ibadah");
+
+        System.out.printf("\n%10sDisease List\n\n", "");
+        if (penyakit.isEmpty()) {
+            System.out.println("None");
+        } else {
+
+            for (int i = 0; i < penyakit.size(); i++) {
+                System.out.println((i + 1) + ")" + penyakit.get(i));
+            }
+        }
+
+        System.out.printf("%10sPrescription List\n\n", "");
+        if (ubat.isEmpty()) {
+            System.out.println("None");
+        } else {
+
+            for (int i = 0; i < ubat.size(); i++) {
+                System.out.println((i + 1) + ")" + ubat.get(i));
+            }
+        }
+
         System.out.println();
     }
 
@@ -163,14 +241,51 @@ public class Jemaah extends User implements userDisplay {
     public void chooseUmrahPackage() {
 
         System.out.println("Please choose your ibadah package: ");
-        System.out.println("1) IFRAD = Haji dahulu dan Umrah kemudian");
-        System.out.println("2) QIRAN = Mengerjakan Haji dan Umrah serentak");
-        System.out.println("3) TAMATTUK = Umrah dahulu Haji kemudian");
-        System.out.println("4) HAJI Sahaja = Mengerjakan Haji sahaja");
-        System.out.println("5) UMRAH = Megerjakan Umrah sahaja");
-        System.out.println("Sila taip IFRAD, QIRAN, TAMATTUK, HAJI, UMRAH untuk pilih pakej ibadah anda");
+        System.out.println("1) IFRAD = Perform Hajj first Umrah later");
+        System.out.println("2) QIRAN = Perform Hajj and Umrah simultaneously");
+        System.out.println("3) TAMATTUK = Perform Umrah first Haji later");
+        System.out.println("4) HAJI Sahaja = Only Perform Hajj");
+        System.out.println("5) UMRAH = Only Perform Umrah");
+        System.out.println("Please type [ IFRAD, QIRAN, TAMATTUK, HAJI, UMRAH ] to choose your ibadah package");
         pakejIbadah = Haji_Umrah_Package.valueOf(inp.nextLine().toUpperCase());
         pakejIbadah.Display_Pakej_Info();
     }
+    public void add_Pelancongan_Package(Pelancongan_Package p) {
+        //Pindah ni ke Jemaah class
+        int choicePelancongan = 0;
+        String vacation;
+        System.out.println("Please choose your Vacation Package");
+        System.out.println("[1] Turki, Istanbul");
+        System.out.println("[2] Riyadh, Damma,");
+        System.out.println("[3] Doha, Dubai");
+        System.out.println("[4] Abu Dhabi, Sharjah");
+        System.out.println("[5] Kuwait City, Manama");
+        System.out.println("[1 - 5] Please Enter the number of package you interested");
+        switch (choicePelancongan) {
+            case 1:
+                vacation = "PACKAGE_1";
+                break;
+            case 2:
+                vacation = "PACKAGE_2";
+                break;
+            case 3:
+                vacation = "PACKAGE_3";
+                break;
+            case 4:
+                vacation = "PACKAGE_4";
+                break;
+            case 5:
+                vacation = "PACKAGE_5";
+                break;
+            default:
+                vacation = "";
+            System.out.println("Error!");
+                break;
+        }
+        plgPkg = Pelancongan_Package.valueOf(vacation);
+        plgPkg.display_Pelancongan_info();
+        
+        // tengok jemaah punya class camne pilih package haji umrah
+}
 
 }

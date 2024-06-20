@@ -11,14 +11,14 @@ class Buyer extends User implements interfaceBuyer {
         super(email, pass, name);
         cart = new Cart();
         add = a;
-        // System.out.println(getEmail() + getPassword());
         assignId();
     }
 
     public void display() {
+        System.out.println();
         System.out.println("Name: " + super.getName());
         System.out.println("Email: " + super.getEmail());
-        System.out.println("Id: " + getId());
+        System.out.println("Password: " + getPassword());
         System.out.println("Address: " + add.toString());
 
     }
@@ -42,11 +42,13 @@ class Buyer extends User implements interfaceBuyer {
 
         do {
             System.out.println("\n1) Add Item");
-            System.out.println("2) Edit Amount");
+            System.out.println("2) Edit Quantity");
             System.out.println("3) Delete Item");
             System.out.println("4) View Cart");
-            System.out.println("5) Exit");
-            System.out.print("Option: ");
+            System.out.println("5) Change Address");
+            System.out.println("6) User Menu");
+            System.out.println("7) Exit");
+            System.out.print("Option(1-7): ");
             choice = Integer.parseInt(in.nextLine());
 
             switch (choice) {
@@ -65,13 +67,32 @@ class Buyer extends User implements interfaceBuyer {
                 }
                 case 4: {
                     cart.displayCartFinal(sellers, add);
+                    break;
                 }
                 case 5: {
+                    System.out.println("Please enter the new address!");
+                    System.out.print("Street: ");
+                    String st = in.nextLine();
+                    System.out.print("Town: ");
+                    String zip = in.nextLine();
+                    System.out.print("State: ");
+                    String s = in.nextLine();
+                    System.out.print("Country: ");
+                    String c = in.nextLine();
+
+                    setAdd(new Address(st, s, zip, c));
+                    break;
+                }
+                case 6: {
+                    display();
+                    break;
+                }
+                default: {
                     break;
                 }
             }
 
-        } while (choice != 5);
+        } while (choice != 7);
     }
 
     public Cart getCCart() {
@@ -82,26 +103,33 @@ class Buyer extends User implements interfaceBuyer {
         return id;
     }
 
+    public void setAdd(Address a) {
+        add = a;
+    }
+
     public void readCart() throws IOException {
         String f = id + ".csv";
-        Scanner inp = new Scanner(new File(f));
 
-        if (cart.getCart() == null) {
-            System.out.println("No Cart yet!");
-        } else {
-            inp.useDelimiter(",|\\n");
+        if (new File(f).exists()) {
+            Scanner inp = new Scanner(new File(f));
+            if (cart.getCart() == null) {
+                System.out.println("No Cart yet!");
+            } else {
+                inp.useDelimiter(",|\\n");
 
-            while (inp.hasNext()) {
-                String n = "", c = "";
-                n = inp.next();
-                c = inp.next().toUpperCase();
-                String num = inp.nextLine();
-                num = num.substring(1);
-                int nz = Integer.parseInt(num);
-                Category cat = Category.valueOf(c);
-                cart.readItem(n, cat, nz);
+                while (inp.hasNext()) {
+                    String n = "", c = "";
+                    n = inp.next().toLowerCase();
+                    c = inp.next().toUpperCase();
+                    String num = inp.nextLine();
+                    num = num.substring(1);
+                    int nz = Integer.parseInt(num);
+                    Category cat = Category.valueOf(c);
+                    cart.readItem(n, cat, nz);
+                }
             }
         }
+
     }
 
     public void saveData() throws IOException {
@@ -123,7 +151,7 @@ class Buyer extends User implements interfaceBuyer {
     public void GroceryList(ArrayList<Seller> sellers) throws IOException {
         String filename = getName() + ".txt";
         int n = 0;
-        String g = null;
+        String[] gz = new String[sellers.size()];
 
         try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
             writer.printf("%-5s%-15s%-10s%-15s%s\n", "No.", "Item", "Category", "Amount", "Recomended Shop");
@@ -131,19 +159,29 @@ class Buyer extends User implements interfaceBuyer {
                 writer.printf("%d%-4s%-15s%-10s%-15d", (n + 1), ")", capitalizeFirstLetter(x.getName()),
                         x.getCategory(), cart.getAmount().get(n));
                 n++;
-                for (Seller s : sellers) {
+                int num = 0;
+                for (User s : sellers) {
                     for (int q = 0; q < s.getStore().getProducts().size(); q++)
-                        if (s.getStore().getAdd().getState().equals(add.getState())
+                        if (s.getStore().getAdd().getTown().equals(add.getTown())
                                 && (s.getStore().getProducts().get(q).contains(x))) {
-                            g = s.getStore().toString();
+                            gz[num] = s.getStore().toString();
+                            num++;
                         }
                 }
-                if (g != null) {
-                    writer.println(g);
-                } else {
-                    writer.println("-");
+                if (gz.length != 0) {
+                    for (int i = 0; i < num; i++) {
+                        if (gz[i] != null) {
+                            if (i == 0) {
+                                writer.print(gz[i]);
+                            } else {
+                                writer.printf("\n%45s%-1s", " ", gz[i]);
+                            }
+                        }
+                    }
                 }
-                g = null;
+                gz = new String[sellers.size()];
+                writer.println();
+                num = 0;
             }
         }
 
@@ -153,4 +191,3 @@ class Buyer extends User implements interfaceBuyer {
         return Character.toUpperCase(s.charAt(0)) + s.substring(1);
     }
 }
-

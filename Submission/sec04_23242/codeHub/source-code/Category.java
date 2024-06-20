@@ -1,6 +1,7 @@
 interface Taxable {
-    double FOOD_TAX = 0.08;
+    double FOOD_TAX = 0.05;
     double SHOP_TAX = 0.1;
+    double OTHER_TAX = 0.08;
     double calculateTax(double amount);
 }
 
@@ -68,5 +69,19 @@ class Deposit extends Category {
 
     public double calculateTax(double amount) {
         return 0;
+    }
+}
+
+class OtherCategory extends Category {
+    public OtherCategory(int id) {
+        super(id, "Other", "Other Transaction");
+    }
+
+    public String getCategoryType() {
+        return "Other";
+    }
+
+    public double calculateTax(double amount) {
+        return amount * OTHER_TAX;
     }
 }

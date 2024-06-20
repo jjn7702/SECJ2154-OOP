@@ -3,7 +3,7 @@ import java.util.Vector;
 
 public enum Pelancongan_Package {
 
-        Package_1(new Vector<>(List.of("Turki", "Istanbul")), "Ahmad Kamarul", 2500.00,
+        PACKAGE_1(new Vector<>(List.of("Turki", "Istanbul")), "Ahmad Kamarul", 2500.00,
                         new Vector<>(List.of(new Flight("Q32","19/7/2024","19/7/2024","0915","1315","King Abdul Aziz Airport","Istanbul International Airport"),
                                              new Flight("D23", "26/7/2024", "26/7/2024", "0500", "1300","Istanbul International Airport", "KLIA"))),
                         new Vector<>(List.of(new Hotel("Hotel Istana", "Dizambug,Turki", 200)))),

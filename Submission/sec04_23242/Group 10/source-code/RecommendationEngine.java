@@ -1,3 +1,4 @@
+package project;
 /*
  * Name: Vennise Ngoh Yan Leng
  * Matric ID: B23CS8032
@@ -50,6 +51,12 @@ public class RecommendationEngine {
         Vector<MovieType> movieTypes = new Vector<MovieType>();
         Vector<Integer> numOfMovieTypes = new Vector<Integer>();
         int highestNumber = 0;
+
+        //update on 21/6/2024 Vennise : add watched also counted as a reaction
+        for(Movie m:user.getWatchedMovie()){
+            highestRatedMovies.add(m);
+        }
+
         for (Movie m : highestRatedMovies) {
             for (MovieType mt : m.getMovieTypes()) {
                 if (!movieTypes.contains(mt)) {

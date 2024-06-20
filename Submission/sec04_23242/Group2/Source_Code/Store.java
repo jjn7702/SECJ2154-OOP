@@ -47,7 +47,7 @@ public class Store {
         return products.get(n);
     }
 
-        public void displayStore() {
+    public void displayStore() {
         int n = 0;
         System.out.printf("%-5s%-15s%-10s\n", "No.", "Item", "Category");
         for (Product p : products) {

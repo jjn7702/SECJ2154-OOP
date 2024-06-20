@@ -44,7 +44,7 @@ public class Report {
 
             System.out.println("Saving Information:");
             for (Saving saving : account.getSavings()) {
-                System.out.println("ID: " + saving.getId());
+                System.out.println("ID: " + (saving.getId()+1));
                 System.out.println("Name: " + saving.getName());
                 System.out.println("Target Amount: RM" + saving.getTargetAmount());
                 System.out.println("Current Amount: RM" + saving.getCurrentAmount());

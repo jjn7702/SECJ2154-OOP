@@ -1,8 +1,12 @@
-abstract class Scholarship {
+abstract class Scholarship implements ScholarshipRequirement{
     public String scholarsID ;
     protected int id = 0000 ;
     public String type ;
     private double cgp ;
+
+    public Scholarship(){
+        
+    }
 
     public Scholarship(String type, double c){
         this.type = type ;
