@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-class Buyer extends User implements InterfaceBuyer {
+class Buyer extends User implements interfaceBuyer {
     private String id;
     private Cart cart;
     private Address add;
@@ -117,8 +117,6 @@ class Buyer extends User implements InterfaceBuyer {
             } else {
                 inp.useDelimiter(",|\\n");
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 while (inp.hasNext()) {
                     String n = "", c = "";
                     n = inp.next().toLowerCase();
@@ -129,29 +127,6 @@ class Buyer extends User implements InterfaceBuyer {
                     Category cat = Category.valueOf(c);
                     cart.readItem(n, cat, nz);
                 }
-=======
-            while (inp.hasNext()) {
-                String n = "", c = "";
-                n = inp.next().toLowerCase();
-                c = inp.next().toUpperCase();
-                String num = inp.nextLine();
-                num = num.substring(1);
-                int nz = Integer.parseInt(num);
-                Category cat = Category.valueOf(c);
-                cart.readItem(n, cat, nz);
->>>>>>> cbcb59fb808cb51ff9534a819dc3f9e888b77fa4
-=======
-                while (inp.hasNext()) {
-                    String n = "", c = "";
-                    n = inp.next().toLowerCase();
-                    c = inp.next().toUpperCase();
-                    String num = inp.nextLine();
-                    num = num.substring(1);
-                    int nz = Integer.parseInt(num);
-                    Category cat = Category.valueOf(c);
-                    cart.readItem(n, cat, nz);
-                }
->>>>>>> 9cb3356c7cfcd673705549537f8a8162afdde9ac
             }
         }
 
@@ -184,13 +159,8 @@ class Buyer extends User implements InterfaceBuyer {
                 writer.printf("%d%-4s%-15s%-10s%-15d", (n + 1), ")", capitalizeFirstLetter(x.getName()),
                         x.getCategory(), cart.getAmount().get(n));
                 n++;
-<<<<<<< HEAD
-                int num = 0;
-                for (Seller s : sellers) {
-=======
                 int num = 0;
                 for (User s : sellers) {
->>>>>>> 9cb3356c7cfcd673705549537f8a8162afdde9ac
                     for (int q = 0; q < s.getStore().getProducts().size(); q++)
                         if (s.getStore().getAdd().getTown().equals(add.getTown())
                                 && (s.getStore().getProducts().get(q).contains(x))) {
@@ -221,12 +191,3 @@ class Buyer extends User implements InterfaceBuyer {
         return Character.toUpperCase(s.charAt(0)) + s.substring(1);
     }
 }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-
->>>>>>> cbcb59fb808cb51ff9534a819dc3f9e888b77fa4
-=======
->>>>>>> 9cb3356c7cfcd673705549537f8a8162afdde9ac
