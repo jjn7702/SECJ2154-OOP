@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Doctor extends User {
+public class Doctor extends User implements userDisplay {
     private String hospital, position, doctor_Number;
     protected Scanner inp = new Scanner(System.in);
 
@@ -51,6 +51,16 @@ class Doctor extends User {
         System.out.println();
     }
 
+    public void displayRingkas() {
+        System.out.println("========== DOCTOR CREDENTIALS ==========");
+        System.out.println("Name : " + getName());
+        System.out.println("Contact :" + getContact());
+        System.out.println("Email: " + getEmail());
+        System.out.println("Hospital: " + hospital);
+        System.out.println("Position: " + position);
+        System.out.println();
+    }
+
     public void updateUserInfo() {
 
         System.out.println("========== UPDATE CREDENTIALS ==========");
@@ -87,14 +97,14 @@ class Doctor extends User {
             switch (choice) {
                 case 1:
                     // display jemaah info
-                    umat.display_info_jemaah(); // JemaahInfo
+                    umat.displayRingkas(); // JemaahInfo
                     break;
                 case 2:
                     // Medical Application Approval
                     // 2 approve
                     // 1 failed
                     // 0 pending
-                    umat.display_info_jemaah(); // JemaahInfo
+                    umat.displayRingkas(); // JemaahInfo
                     System.out.print("[1] Approve\n[2] Failed\nYour Choice: ");
                     int choice4 = inp.nextInt();
 
