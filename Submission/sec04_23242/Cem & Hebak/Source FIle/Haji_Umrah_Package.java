@@ -20,7 +20,7 @@ public enum Haji_Umrah_Package {
                                                                                                              // always
                                                                                                              // in km
 
-                        new Kursus("A01", "9:00 AM", "12 May 2024", "DSI", "Panji"),
+                        "A01", "9:00 AM", "12 May 2024", "DSI", "Panji",
                         15000),
 
         // package 2 = haji qiran (haji dan umrah serentak)
@@ -34,7 +34,7 @@ public enum Haji_Umrah_Package {
                                                                                                          // hotel
                                                                                                          // constructor
                                         new Hotel("Al-Andalus Palace Hotel", "Medinah", 623, 0.32, 443.0))),
-                        new Kursus("A02", "12:00 PM", "12 May 2024", "DSI", "Don"),
+                        "A02", "12:00 PM", "12 May 2024", "DSI", "Don",
                         20000),
 
         // package 3 = haji tamattuk (umrah dan haji)
@@ -49,7 +49,7 @@ public enum Haji_Umrah_Package {
                                                                                                                 // hotel
                                                                                                                 // constructor
                                         new Hotel("Elaf Ajyad Hotel", "Mekkah", 354, 0.62, 436.60))),
-                        new Kursus("A03", "3:30 PM", "12 May 2024", "DSI", "Kazim"),
+                        "A03", "3:30 PM", "12 May 2024", "DSI", "Kazim",
                         15000),
 
         // package 4 = haji sahaja
@@ -62,7 +62,7 @@ public enum Haji_Umrah_Package {
                         new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 354, 0.62, 436.60))), // use 5-arg
                                                                                                            // hotel
                                                                                                            // constructor
-                        new Kursus("A04", "9:00 AM", "12 May 2024", "DSI", "Panji"),
+                        "A04", "9:00 AM", "12 May 2024", "DSI", "Panji",
                         10000),
 
         // package 5 = umrah sahaja
@@ -76,7 +76,7 @@ public enum Haji_Umrah_Package {
                                                                                                          // hotel
                                                                                                          // constructor
                                         new Hotel("Al-Andalus Palace Hotel", "Medinah", 623, 0.32, 443.0))),
-                        new Kursus("A05", "9:00 AM", "12 May 2024", "DSI", "Panji"),
+                        "A05", "9:00 AM", "12 May 2024", "DSI", "Panji",
                         5000);
 
         private String ibadah;
@@ -91,12 +91,11 @@ public enum Haji_Umrah_Package {
         private double price;
         Scanner inp = new Scanner(System.in);
 
-        private Haji_Umrah_Package(String ibadah, Vector<Flight> flight_Ibadah, Vector<Hotel> hotel_Ibadah,
-                        Kursus kursus_Ibadah, double price) {
+        private Haji_Umrah_Package(String ibadah, Vector<Flight> flight_Ibadah, Vector<Hotel> hotel_Ibadah, String kursusID, String time, String date,String kursusPlace, String nameUstaz, double price) {
                 this.ibadah = ibadah;
                 this.flight_Ibadah = flight_Ibadah;
                 this.hotel_Ibadah = hotel_Ibadah;
-                this.kursus_Ibadah = kursus_Ibadah;
+                kursus_Ibadah = new Kursus(kursusID, time, date, kursusPlace, nameUstaz);
                 this.price = price;
         }
 

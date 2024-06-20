@@ -263,10 +263,10 @@ public class HajiUmrahApp {
                                                 System.out.println("Enter your credentials");
                                                 System.out.print("Identification Card Number: ");
                                                 IC = inp.nextLine();
-                                                // inp.nextLine(); // clear buffer
+                                                inp.nextLine(); // clear buffer
                                                 System.out.print("Embassy ID: ");
                                                 ID = inp.nextLine();
-                                                inp.nextLine();
+                                                
 
                                                 for (int k = 0; k < pegawai.size(); k++) {
                                                         if(IC.equals(pegawai.get(k).getIdentification_Card()) && ID.equals(pegawai.get(k).getEmbassy_numberr())){
