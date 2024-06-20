@@ -157,6 +157,8 @@ public class Main {
     
     }
 
+    private static PauseScreen screen= new PauseScreen();
+
     private static void printMenu() {
         System.out.println("\nMain Menu:");
         System.out.println("1. Add Account");
@@ -211,14 +213,13 @@ public class Main {
         try {
             Account account = findAccountById(user.getAccounts(), accountId);
             account.withdraw(amount);
-            System.out.println("Money withdrawn successfully.");
             Date d = new Date(System.currentTimeMillis());
             System.out.println("PRESS 1 FOR SHOPPING");
             System.out.println("PRESS 2 FOR FOOD");
+            System.out.println("PRESS 3 FOR OTHER");
             int cater = scanner.nextInt();
 
             scanner.nextLine();
-
 
             if(cater == 1){
                 
@@ -231,8 +232,13 @@ public class Main {
                 System.out.print("Enter Food name:");
                 String Food = scanner.nextLine();
                 FoodCategory s = new FoodCategory(accountId);
-
                 account.addTransaction(accountId,Food, amount, d,s );
+            }
+            else if(cater == 3){
+                System.out.println("Enter other name:");
+                String Other = scanner.nextLine();
+                OtherCategory s = new OtherCategory(accountId);
+                account.addTransaction(accountId, Other, amount, d, s);
             }
             else{
                 System.out.println("NOT VALID");
@@ -241,9 +247,8 @@ public class Main {
         } catch (AccountNotFoundException | InsufficientFundsException e) {
             System.out.println(e.getMessage());
         }
-        PauseScreen s= new PauseScreen();
-        s.pauseScreen(scanner);
-        s.ClearScreen();
+        screen.pauseScreen(scanner);
+        screen.ClearScreen();
     }
 
     private static void changeCurrency(Scanner scanner, Report moneyExchange) {
