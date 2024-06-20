@@ -54,7 +54,7 @@ public class Rating {
     }
 
     public void displayInfo(){
-        System.out.printf("%-20s rating: %d\n",this.getUser().getName(),this.getRating());
+        System.out.printf("%-20s rated %-15s: %d\n",this.getUser().getName(),this.getMovie().getTitle(),this.getRating());
         System.out.println(this.getComment());
     }
 }
