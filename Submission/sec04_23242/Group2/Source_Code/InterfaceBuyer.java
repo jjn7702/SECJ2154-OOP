@@ -1,6 +1,6 @@
 import java.util.*;
 
-public interface interfaceBuyer {
+public interface InterfaceBuyer {
 
     void BuyerInterface(ArrayList<Seller> seller);
 }
