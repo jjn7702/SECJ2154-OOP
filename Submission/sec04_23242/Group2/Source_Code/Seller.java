@@ -34,7 +34,7 @@ class Seller extends User {
             System.out.println("3) View Item");
             System.out.println("4) Edit Address");
             System.out.println("5) User Menu");
-            System.out.println("5) Exit");
+            System.out.println("6) Exit");
             System.out.print("Option: ");
             choice = Integer.parseInt(inp.nextLine());
 
@@ -43,7 +43,7 @@ class Seller extends User {
                     System.out.print("\nPlease enter the name: ");
                     String name = inp.nextLine().toLowerCase();
                     System.out.print(
-                            "Please enter the Category [FRUITS(F), VEGETABLES(V), DAIRY(D), MEAT(M), BAKERY(B), SNACKS(S), OTHERS(O)]: ");
+                            "Please enter the Category [FRUITS(F), VEGETABLES(V), DAIRY(D), MEAT(M), BAKERY(B), SNACKS(S), OHTERS(O)]: ");
                     String cat = inp.nextLine().toUpperCase();
                     switch (cat) {
                         case "F": {

@@ -4,21 +4,19 @@ import java.util.*;
 public class GrocerySystem {
     public static void main(String[] args) throws IOException {
 
-        ArrayList<Buyer> users = new ArrayList<>();
+        ArrayList<User> users = new ArrayList<>();
         ArrayList<Seller> seller = new ArrayList<>();
         int option = 0;
         Scanner inp = new Scanner(System.in);
-        File f = new File("User.csv");
-        Scanner in = new Scanner(f);
+        Scanner in = new Scanner(new File("User.csv"));
         users = ReadUser(in);
-        in.close();
-        f = new File("Seller.csv");
-        in = new Scanner(f);
+        in = new Scanner(new File("Seller.csv"));
         seller = ReadSeller(in);
 
         do {
-            System.out.printf("%50s%s\n", " ", "Hello and Welcome to Grocery Shopping Assistant!");
-            System.out.printf("%50s%s\n", " ", "------------------------------------------------");
+            System.out.printf("%s\n", "------------------------------------------------");
+            System.out.printf("%s\n", "Hello and Welcome to Grocery Shopping Assistant!");
+            System.out.printf("%s\n", "------------------------------------------------");
             System.out.println("Press 1 is you want to make a grocery list!");
             System.out.println("Press 2 if you want to manage your store!");
             System.out.println("Press 3 to exit the system!");
@@ -27,7 +25,7 @@ public class GrocerySystem {
 
             switch (option) {
                 case 1: {
-                    Buyer now = null;
+                    User now = null;
                     now = LoginBuyer(users);
                     if (now == null) {
                         System.out.println("Please try again!");
@@ -41,7 +39,7 @@ public class GrocerySystem {
                     break;
                 }
                 case 2: {
-                    Seller now = null;
+                    User now = null;
                     now = LoginSeller(seller);
                     if (now == null)
                         System.out.println("Error");
@@ -53,9 +51,16 @@ public class GrocerySystem {
                     break;
                 }
 
-                default: {
+                case 3: {
                     saveBuyerAndSeller(seller, users);
                     System.out.println("Thank you for using our system!");
+                    System.exit(0);
+                    break;
+                }
+
+                default: {
+                    saveBuyerAndSeller(seller, users);
+                    System.out.println("Invalid Option");
                 }
                     break;
             }
@@ -64,11 +69,9 @@ public class GrocerySystem {
 
     }
 
-    //Read User
-    public static ArrayList<Buyer> ReadUser(Scanner inp) throws IOException {
-
+    public static ArrayList<User> ReadUser(Scanner inp) throws IOException {
         inp.useDelimiter(",|\\n");
-        ArrayList<Buyer> Buyers = new ArrayList<>();
+        ArrayList<User> Buyers = new ArrayList<>();
         int num = 0;
 
         while (inp.hasNext()) {
@@ -88,7 +91,6 @@ public class GrocerySystem {
         return Buyers;
     }
 
-    //Read Seller
     public static ArrayList<Seller> ReadSeller(Scanner inp) throws IOException {
 
         inp.useDelimiter(",|\\n");
@@ -96,7 +98,8 @@ public class GrocerySystem {
         int z = 0;
 
         while (inp.hasNext()) {
-            String e = "", p = "", n = "", i = "", st = "", state = "", zipcode = "", country = "";
+            String e = "", p = "", n = "", i = "", st = "", state = "", zipcode = "",
+                    country = "";
             e = inp.next();
             p = inp.next();
             n = inp.next();
@@ -106,47 +109,14 @@ public class GrocerySystem {
             zipcode = inp.next();
             country = inp.nextLine();
             country = country.substring(1);
-            s.add(new Seller(e, p, n, new Store(i, new Address(st, zipcode, state, country))));
+            s.add(new Seller(e, p, n, new Store(i, new Address(st, state, zipcode, country))));
             s.get(z).readItem();
             z++;
         }
         return s;
     }
-    public static void saveBuyerAndSeller(ArrayList<Seller> s, ArrayList<Buyer> b) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter("User.csv"))) {
-            for (Buyer x : b) {
-                writer.print(x.getEmail().toLowerCase() + ",");
-                writer.print(x.getPassword() + ",");
-                writer.print(x.getName() + ",");
-                writer.print(x.getAdd().getStreet() + ",");
-                writer.print(x.getAdd().getState() + ",");
-                writer.print(x.getAdd().getZipcode() + ",");
-                writer.println(x.getAdd().getCountry());
-                x.saveData();
-            }
-        } catch (IOException e) {
-            System.out.println("Error : File not found");
-        }
 
-        try (PrintWriter writer = new PrintWriter(new FileWriter("Seller.csv"))) {
-            for (Seller x : s) {
-                writer.print(x.getEmail().toLowerCase() + ",");
-                writer.print(x.getPassword() + ",");
-                writer.print(x.getName() + ",");
-                writer.print(x.getStore().getName() + ",");
-                writer.print(x.getStore().getAdd().getStreet() + ",");
-                writer.print(x.getStore().getAdd().getState() + ",");
-                writer.print(x.getStore().getAdd().getZipcode() + ",");
-                writer.println(x.getStore().getAdd().getCountry());
-                x.saveData();
-            }
-        } catch (IOException e) {
-            System.out.println("Error : File not found");
-        }
-    }
-
-        //Login Buyer
-    public static Buyer LoginBuyer(ArrayList<Buyer> b) {
+    public static User LoginBuyer(ArrayList<User> b) {
         Scanner inp = new Scanner(System.in);
         System.out.println();
         System.out.println("Press 1 to login!");
@@ -161,7 +131,7 @@ public class GrocerySystem {
                 String email = inp.nextLine();
                 System.out.print("Please enter your password: ");
                 String pass = inp.nextLine();
-                Buyer atm = GetCurrentUser(email, pass, b);
+                User atm = GetCurrentUser(email, pass, b);
                 if (atm == null)
                     check = true;
                 else
@@ -171,7 +141,7 @@ public class GrocerySystem {
             System.out.print("Please enter your email: ");
             String e = inp.nextLine().toLowerCase();
             boolean email = true;
-            for (Buyer x : b) {
+            for (User x : b) {
                 if (x.getEmail().equals(e)) {
                     email = false;
                     break;
@@ -184,7 +154,7 @@ public class GrocerySystem {
                 System.out.println("Please enter your Address");
                 System.out.print("Street: ");
                 String st = inp.nextLine();
-                System.out.print("Zipcode: ");
+                System.out.print("Town: ");
                 String z = inp.nextLine();
                 System.out.print("State: ");
                 String state = inp.nextLine();
@@ -214,9 +184,8 @@ public class GrocerySystem {
         return null;
     }
 
-    //Get Current User
-    public static Buyer GetCurrentUser(String email, String pass, ArrayList<Buyer> B) {
-        for (Buyer x : B) {
+    public static User GetCurrentUser(String email, String pass, ArrayList<User> B) {
+        for (User x : B) {
             if (x.getEmail().equals(email) && (x.getPassword().equals(pass))) {
                 return x;
             }
@@ -224,8 +193,7 @@ public class GrocerySystem {
         return null;
     }
 
-    //Login Seller
-    public static Seller LoginSeller(ArrayList<Seller> s) {
+    public static User LoginSeller(ArrayList<Seller> s) {
         System.out.println();
         Scanner inp = new Scanner(System.in);
         System.out.println("Press 1 to login!");
@@ -240,7 +208,7 @@ public class GrocerySystem {
                 String email = inp.nextLine();
                 System.out.print("Please enter your password: ");
                 String pass = inp.nextLine();
-                Seller atm = GetCurrentSeller(email, pass, s);
+                User atm = GetCurrentSeller(email, pass, s);
                 if (atm == null)
                     check = true;
                 else
@@ -250,7 +218,7 @@ public class GrocerySystem {
             System.out.print("Please enter your email: ");
             String e = inp.nextLine().toLowerCase();
             boolean email = true;
-            for (Seller x : s) {
+            for (User x : s) {
                 if (x.getEmail().equals(e)) {
                     email = false;
                     break;
@@ -263,7 +231,7 @@ public class GrocerySystem {
                 System.out.println("Please enter your Address");
                 System.out.print("Street: ");
                 String st = inp.nextLine();
-                System.out.print("Zipcode: ");
+                System.out.print("Town: ");
                 String z = inp.nextLine();
                 System.out.print("State: ");
                 String state = inp.nextLine();
@@ -283,7 +251,7 @@ public class GrocerySystem {
                 } while (!check);
                 System.out.print("Please enter your shop name: ");
                 String sh = inp.nextLine();
-                Address a = new Address(st, state, z, c);
+                Address a = new Address(st, z, state, c);
                 Store st1 = new Store(sh, a);
                 Seller s1 = new Seller(e, p, n, st1);
                 s.add(s1);
@@ -293,10 +261,9 @@ public class GrocerySystem {
             }
         }
         return null;
+
     }
 
-
-        //Get Current Seller
     public static Seller GetCurrentSeller(String email, String pass, ArrayList<Seller> s) {
         for (Seller x : s) {
             if (x.getEmail().equals(email) && (x.getPassword().equals(pass))) {
@@ -306,15 +273,15 @@ public class GrocerySystem {
         return null;
     }
 
-    public static void saveBuyerAndSeller(ArrayList<Seller> s, ArrayList<Buyer> b) {
+    public static void saveBuyerAndSeller(ArrayList<Seller> s, ArrayList<User> b) {
         try (PrintWriter writer = new PrintWriter(new FileWriter("User.csv"))) {
-            for (Buyer x : b) {
+            for (User x : b) {
                 writer.print(x.getEmail().toLowerCase() + ",");
                 writer.print(x.getPassword() + ",");
                 writer.print(x.getName() + ",");
                 writer.print(x.getAdd().getStreet() + ",");
+                writer.print(x.getAdd().getTown() + ",");
                 writer.print(x.getAdd().getState() + ",");
-                writer.print(x.getAdd().getZipcode() + ",");
                 writer.println(x.getAdd().getCountry());
                 x.saveData();
             }
@@ -329,8 +296,8 @@ public class GrocerySystem {
                 writer.print(x.getName() + ",");
                 writer.print(x.getStore().getName() + ",");
                 writer.print(x.getStore().getAdd().getStreet() + ",");
+                writer.print(x.getStore().getAdd().getTown() + ",");
                 writer.print(x.getStore().getAdd().getState() + ",");
-                writer.print(x.getStore().getAdd().getZipcode() + ",");
                 writer.println(x.getStore().getAdd().getCountry());
                 x.saveData();
             }
@@ -340,5 +307,3 @@ public class GrocerySystem {
     }
 
 }
-
-
