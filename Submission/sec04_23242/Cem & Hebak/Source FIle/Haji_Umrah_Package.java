@@ -13,12 +13,14 @@ public enum Haji_Umrah_Package {
                                                         "Jeddah"),
                                         new Flight("AA", "17 July 2024", "18 July 2024", "0000", "1115", "Medinah",
                                                         "KLIA"))),
-                        new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 350, 354, 0.62, 436.60), // use 5-arg
-                                                                                                         // hotel
-                                                                                                         // constructor
+                        new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 350, 354, 0.62, 436.60), // use
+                                                                                                              // 5-arg
+                                                                                                              // hotel
+                                                                                                              // constructor
                                         new Hotel("Al-Andalus Palace Hotel", "Medinah", 290, 623, 0.32, 443.0))), // distance
-                                                                                                             // always
-                                                                                                             // in km
+                                                                                                                  // always
+                                                                                                                  // in
+                                                                                                                  // km
 
                         "A01", "9:00 AM", "12 May 2024", "DSI", "Panji",
                         15000),
@@ -30,9 +32,10 @@ public enum Haji_Umrah_Package {
                                                         "Jeddah"),
                                         new Flight("A107", "18 July 2024", "18 July 2024", "0020", "1135", "Medinah",
                                                         "KLIA"))),
-                        new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 350, 354, 0.62, 436.60), // use 5-arg
-                                                                                                         // hotel
-                                                                                                         // constructor
+                        new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 350, 354, 0.62, 436.60), // use
+                                                                                                              // 5-arg
+                                                                                                              // hotel
+                                                                                                              // constructor
                                         new Hotel("Al-Andalus Palace Hotel", "Medinah", 290, 623, 0.32, 443.0))),
                         "A02", "12:00 PM", "12 May 2024", "DSI", "Don",
                         20000),
@@ -45,9 +48,9 @@ public enum Haji_Umrah_Package {
                                         new Flight("A315", "17 July 2024", "18 July 2024", "2350", "1105", "Jeddah",
                                                         "KLIA"))),
                         new Vector<>(List.of(new Hotel("Al-Andalus Palace Hotel", "Medinah", 290, 623, 0.32, 443.0), // use
-                                                                                                                // 5-arg
-                                                                                                                // hotel
-                                                                                                                // constructor
+                                                                                                                     // 5-arg
+                                                                                                                     // hotel
+                                                                                                                     // constructor
                                         new Hotel("Elaf Ajyad Hotel", "Mekkah", 350, 354, 0.62, 436.60))),
                         "A03", "3:30 PM", "12 May 2024", "DSI", "Kazim",
                         15000),
@@ -59,9 +62,10 @@ public enum Haji_Umrah_Package {
                                                         "Jeddah"),
                                         new Flight("M231", "18 July 2024", "19 July 2024", "2350", "1105", "Medinah",
                                                         "KLIA"))),
-                        new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 350, 354, 0.62, 436.60))), // use 5-arg
-                                                                                                           // hotel
-                                                                                                           // constructor
+                        new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 350, 354, 0.62, 436.60))), // use
+                                                                                                                // 5-arg
+                                                                                                                // hotel
+                                                                                                                // constructor
                         "A04", "9:00 AM", "12 May 2024", "DSI", "Panji",
                         10000),
 
@@ -72,9 +76,10 @@ public enum Haji_Umrah_Package {
                                                         "Mekkah"),
                                         new Flight("A315", "21 Dec 2024", "22 Dec 2024", "2350", "1105", "Medinah",
                                                         "KLIA"))),
-                        new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 350, 354, 0.62, 436.60), // use 5-arg
-                                                                                                         // hotel
-                                                                                                         // constructor
+                        new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 350, 354, 0.62, 436.60), // use
+                                                                                                              // 5-arg
+                                                                                                              // hotel
+                                                                                                              // constructor
                                         new Hotel("Al-Andalus Palace Hotel", "Medinah", 290, 623, 0.32, 443.0))),
                         "A05", "9:00 AM", "12 May 2024", "DSI", "Panji",
                         5000);
@@ -88,6 +93,7 @@ public enum Haji_Umrah_Package {
         // private Kursus kursus;
         private Kursus kursus_Ibadah;
         
+
         private double price;
         Scanner inp = new Scanner(System.in);
 
@@ -100,21 +106,19 @@ public enum Haji_Umrah_Package {
                 this.price = price;
         }
 
-        
-
         public void Display_Pakej_Info() {
-                System.out.println("========================= Pakej " + ibadah
+                System.out.println("========================= Package " + ibadah
                                 + " =========================");
                 System.out.println("Ibadah: " + ibadah);
                 int counterFlight = 1;
                 int counterHotel = 1;
 
-                for (Flight flight : flight_Ibadah) {
-                        System.out.println("========================= Flight " + counterFlight
-                                        + " =========================");
-                        flight.display_Flight_Info();
-                        counterFlight++;
-                }
+                // for (Flight flight : flight_Ibadah) {
+                // System.out.println("========================= Flight " + counterFlight
+                // + " =========================");
+                // flight.display_Flight_Info();
+                // counterFlight++;
+                // }
                 for (Hotel hotel : hotel_Ibadah) {
                         System.out.println("========================= Hotel " + counterHotel
                                         + " =========================");
@@ -125,8 +129,32 @@ public enum Haji_Umrah_Package {
                 kursus_Ibadah.Display_Kursus_info();
                 System.out.println("Jumlah: " + price);
 
+                for (Flight flight : flight_Ibadah) {
+                        System.out.println("========================= Flight " + counterFlight
+                                        + " =========================");
+                        flight.display_Flight_Info();
+                        counterFlight++;
+                }
         }
-        public Vector<Flight> getFlight(){
+
+        public void display_FlightHajiUmrah() {
+                int counterFlight = 1;
+                if (flight_Ibadah.size() == 0) {
+                        counterFlight = 0;
+                } 
+                else {
+                        for (Flight flight : flight_Ibadah) {
+                                System.out.println("========================= Flight " + counterFlight
+                                                + " =========================");
+                                flight.display_Flight_Info();
+                                counterFlight++;
+                        }
+                }
+                
+
+        }
+
+        public Vector<Flight> getFlight() {
                 return flight_Ibadah;
         }
 }

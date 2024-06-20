@@ -126,7 +126,7 @@ public class HajiUmrahApp {
                                                                                         } else if (choice4 == 2) {
                                                                                                 jemaah.get(i).chooseUmrahPackage();
                                                                                         } else if (choice4 == 3) {
-
+                                                                                                jemaah.get(i).add_Pelancongan_Package();
                                                                                         }
                                                                                 } while (choice4 != 4);
 

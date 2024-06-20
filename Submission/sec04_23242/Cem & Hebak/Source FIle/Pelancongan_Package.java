@@ -43,16 +43,19 @@ public enum Pelancongan_Package {
                 this.hotel_Pelancongan = hotel_Pelancongan;
         }
 
-        public void display_Pelancongan_info() {
+        public void display_Pelancongan_info(int counterFlight) {
+                
                 System.out.println("========= HOTEL INFO ==========");
                 System.out.println("Package: " + this.name());
                 System.out.println("Tour Guide: " + this.tour_Guide);
-                System.out.printf("Price: RM %.2f", this.price_Pelancongan);
+                System.out.printf("Price: RM %.2f\n", this.price_Pelancongan);
                 System.out.println("Places: " + this.places);
 
                 System.out.println("\nFlights:");
-                for (Flight flight : this.flight_Pelancongan) {
+                for (Flight flight : flight_Pelancongan) {
+                        System.out.println("========================= Flight " + counterFlight + " =========================");
                         flight.display_Flight_Info();
+                        counterFlight++;
                 }
 
                 System.out.println("\nHotels:");
@@ -62,6 +65,15 @@ public enum Pelancongan_Package {
 
                 System.out.println("===============================");
         }
+        // public void display_FlightsPelancongan(int counterFlight){
+                
+        //         for (Flight flight : flight_Pelancongan) {
+        //                 System.out.println("========================= Flight " + counterFlight
+        //                                 + " =========================");
+        //                 flight.display_Flight_Info();
+        //                 counterFlight++;
+        //         }
+        // }
 
         public void add_Hotel_Pelancongan(Hotel h) {
                 this.hotel_Pelancongan.add(h);

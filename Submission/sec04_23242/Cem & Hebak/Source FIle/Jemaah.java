@@ -144,7 +144,21 @@ public class Jemaah extends User implements userDisplay {
         }
         if (pakejIbadah != null) {
             pakejIbadah.Display_Pakej_Info();
+            // pakejIbadah.display_FlightHajiUmrah();
         }
+        if (plgPkg != null){
+            if(pakejIbadah != null){
+                plgPkg.display_Pelancongan_info(2);
+            }
+            else{
+                plgPkg.display_Pelancongan_info(1);
+            }
+            // plgPkg.display_Pelancongan_info();
+        }
+
+        
+        
+        
 
         doctor.displayRingkas();
         embassy.displayRingkas();
@@ -250,7 +264,7 @@ public class Jemaah extends User implements userDisplay {
         pakejIbadah = Haji_Umrah_Package.valueOf(inp.nextLine().toUpperCase());
         pakejIbadah.Display_Pakej_Info();
     }
-    public void add_Pelancongan_Package(Pelancongan_Package p) {
+    public void add_Pelancongan_Package() {
        
         int choicePelancongan = 0;
         String vacation;
@@ -261,6 +275,8 @@ public class Jemaah extends User implements userDisplay {
         System.out.println("[4] Abu Dhabi, Sharjah");
         System.out.println("[5] Kuwait City, Manama");
         System.out.println("[1 - 5] Please Enter the number of package you interested");
+        choicePelancongan = inp.nextInt();
+        inp.nextLine();
         switch (choicePelancongan) {
             case 1:
                 vacation = "PACKAGE_1";
@@ -283,9 +299,13 @@ public class Jemaah extends User implements userDisplay {
                 break;
         }
         plgPkg = Pelancongan_Package.valueOf(vacation);
-        plgPkg.display_Pelancongan_info();
+        plgPkg.display_Pelancongan_info(1);
         
-        pakejIbadah.getFlight().remove(1);
+        if(pakejIbadah.getFlight().size() != 0){
+            pakejIbadah.getFlight().remove(1);
+        }
+        //Tanya Faiz Boleh ke add pelancongan tanpa pergi HajiUmrah
+        
         
 }
 
