@@ -29,6 +29,10 @@ public class Administrator extends User {
     public void setJob(String j) {
         position = j;
     }
+    
+    public void setScholarshipAdmin(Scholarship sd){
+        scholar = sd ;
+    }
 
     public String getusername() {
         return username;

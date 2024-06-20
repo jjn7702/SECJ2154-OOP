@@ -9,7 +9,7 @@ import java.util.Vector;
 
 public class ScholarshipApp {
     static Scanner inp = new Scanner(System.in);
-    static int countAdmin = 0;
+    static int countAdmin = 0, countStudent = 0 ;
     static Administrator ad = null;
     static Student stu = null;
 
@@ -30,8 +30,8 @@ public class ScholarshipApp {
                 char rs = inp.next().toUpperCase().charAt(0);
 
                 if (rs == 'Y') {
-                    stu = registerStudent();
-                    StudList.add(stu);
+                    registerStudent();
+                    countStudent++ ;
 
                 } else if (rs == 'N') {
                     stu = signInStudent(); // Ni function untuk tngok status je
@@ -103,6 +103,7 @@ public class ScholarshipApp {
                         boolean evs = ad.evaluateStudent(StudList.get(i));
 
                         if (evs) {
+                            countStudent-- ;
                             ad.application.incrementStudent();
                         }
 
@@ -114,7 +115,7 @@ public class ScholarshipApp {
                 if (StudList.isEmpty()) {
                     System.out.println("There is no student applying the scholarship");
                 }
-
+ 
                 System.out.println("do you want to logout? (Y/N)");
                 char y = inp.next().toUpperCase().charAt(0);
                 if (y == 'Y') {
@@ -125,7 +126,7 @@ public class ScholarshipApp {
 
             }
 
-        } while (ad != null || StudList.size() > 0);
+        } while (countAdmin > 0  || countStudent > 0) ;
 
         inp.close();
     }
@@ -242,7 +243,7 @@ public class ScholarshipApp {
         return null;
     }
 
-    private static Student registerStudent() {
+    private static void registerStudent() {
         try {
             String fname = "", lname = "", email = "", address = "", street = "",
                     cityAndPostalCode = "", state = "", matricsNu = "";
@@ -291,8 +292,6 @@ public class ScholarshipApp {
             System.err.println("Error: Unable to create or write to the file.");
             e.printStackTrace();
         }
-
-        return null;
     }
 
     private static Student signInStudent() {
@@ -339,6 +338,8 @@ public class ScholarshipApp {
 
                 fileScanner.close();
 
+                Scholarship o = applyFromDisplayScholarship(stu, age);
+
                 Student stu = new Student(fname, lname, age, email, new Address(street, cityAndPostalCode, state),
                         matricsNu);
                         
@@ -377,7 +378,7 @@ public class ScholarshipApp {
         return sid;
     }
 
-    private static void applyFromDisplayScholarship(Student student, int sid) {
+    private static Scholarship applyFromDisplayScholarship(Student student, int sid) {
         ArrayList<meritBased> Merits = new ArrayList<>();
         ArrayList<needBased> Needs = new ArrayList<>();
 
@@ -433,6 +434,8 @@ public class ScholarshipApp {
                 char response = inp.next().toUpperCase().charAt(0);
                 if (response == 'Y') {
                     student.setScholarship(Merits.get(scholarshipChoice)) ;
+
+                    ad.setScholarshipAdmin(Merits.get(scholarshipChoice)) ;
                     sid++; // Assuming Student class has getStudentId method
                     applyScholarship(student, sid);
                     System.out.println("Application successful.");
