@@ -263,12 +263,13 @@ public class HajiUmrahApp {
                                                 System.out.println("Enter your credentials");
                                                 System.out.print("Identification Card Number: ");
                                                 IC = inp.nextLine();
-                                                inp.nextLine(); // clear buffer
+                                                // inp.nextLine(); // clear buffer
                                                 System.out.print("Embassy ID: ");
                                                 ID = inp.nextLine();
+                                                inp.nextLine();
 
                                                 for (int k = 0; k < pegawai.size(); k++) {
-                                                        if(IC.equals(pegawai.get(k).getIdentification_Card())){
+                                                        if(IC.equals(pegawai.get(k).getIdentification_Card()) && ID.equals(pegawai.get(k).getEmbassy_numberr())){
                                                                 do{
                                                                         System.out.println("Hi Mr. " + pegawai.get(k).getName());
                                                                         System.out.println(
@@ -284,7 +285,27 @@ public class HajiUmrahApp {
                                                                                         pegawai.get(k).display();
                                                                                         break;
                                                                                 case 2:
-
+                                                                                        Vector<Jemaah> JemaahWithEmbassy = new Vector<>();
+                                                                                        for (int j = 0; j < jemaah.size(); j++) {
+                                                                                                if (jemaah.get(j).getEmbassy() == pegawai.get(k)) {
+                                                                                                        JemaahWithEmbassy.add(jemaah.get(j));
+                                                                                                }
+                                                                                        }
+                                                                                        System.out.println("========== LIST OF JEMAAH ==========");
+                                                                                        for (int j = 0; j < JemaahWithEmbassy.size(); j++) {
+                                                                                                System.out.println((j+1) + ") " + JemaahWithEmbassy.get(j).getName());
+                                                                                        }
+                                                                                        System.out.println();
+                                                                                        System.out.print("[a] Press 0 for Exit \n[b] Press number of jemaah [1 - " + JemaahWithEmbassy.size() +"]\n");
+                                                                                        choice5 = inp.nextInt();
+                                                                                        switch (choice5) {
+                                                                                                case 0:
+                                                                                                        break;
+                                                                                        
+                                                                                                default:
+                                                                                                        pegawai.get(k).Visa_Application(JemaahWithEmbassy.get(choice5 - 1));;
+                                                                                                        break;
+                                                                                        }
                                                                                         break;
                                                                                 default:
                                                                                         break;
