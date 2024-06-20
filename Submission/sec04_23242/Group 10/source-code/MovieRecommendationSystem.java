@@ -129,7 +129,7 @@ public class MovieRecommendationSystem {
         // ----------------- OUTPUT START -----------------------
         System.out.println("\nWELCOME FOR USING OUR MOVIE RECOMMANDATION SYSTEM");
         String systemLoop = "Y";
-        while (systemLoop == "Y") {
+        while (systemLoop.equals("Y")) {
             // Select User
             User user = new User("", "");
             System.out.println("");
@@ -225,6 +225,7 @@ class Input {
             System.out.print("Continue using this system? (Y/N):");
             select = in.next().toUpperCase();
         }
+        
         return select;
     }
 

@@ -4,6 +4,10 @@ abstract class Scholarship implements ScholarshipRequirement{
     public String type ;
     private double cgp ;
 
+    public Scholarship(){
+        
+    }
+
     public Scholarship(String type, double c){
         this.type = type ;
         cgp = c ;
