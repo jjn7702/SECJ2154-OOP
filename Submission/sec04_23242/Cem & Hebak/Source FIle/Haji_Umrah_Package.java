@@ -126,4 +126,7 @@ public enum Haji_Umrah_Package {
                 System.out.println("Jumlah: " + price);
 
         }
+        public Vector<Flight> getFlight(){
+                return flight_Ibadah;
+        }
 }

@@ -251,7 +251,7 @@ public class Jemaah extends User implements userDisplay {
         pakejIbadah.Display_Pakej_Info();
     }
     public void add_Pelancongan_Package(Pelancongan_Package p) {
-        //Pindah ni ke Jemaah class
+       
         int choicePelancongan = 0;
         String vacation;
         System.out.println("Please choose your Vacation Package");
@@ -285,7 +285,8 @@ public class Jemaah extends User implements userDisplay {
         plgPkg = Pelancongan_Package.valueOf(vacation);
         plgPkg.display_Pelancongan_info();
         
-        // tengok jemaah punya class camne pilih package haji umrah
+        pakejIbadah.getFlight().remove(1);
+        
 }
 
 }
