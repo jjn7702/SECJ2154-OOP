@@ -31,12 +31,11 @@ public class ScholarshipApp {
                     stu = signInStudent(); // Ni function untuk tngok status je
                     int i=0 , j =0 ;
 
-                    if (stu == null)
-                        break ;
 
                     if (StudList.size() == 0){
                         StudList.add(stu) ;
                     }
+                    displayStudList(StudList) ;
 
                     for (Student st : StudList) {
                         if(st.equals(stu))
@@ -46,11 +45,11 @@ public class ScholarshipApp {
 
                     System.out.println("[0] Do you want to check the status of your apllication?");
                     System.out.println("[1] Do you want to apply for a scholarship??");
-                    int ap = inp.nextInt() ;
+                    int ap = 0 ;
 
                     try {
                         ap = inp.nextInt() ;
-                        break;}
+                    }
                       catch (InputMismatchException e) {
                         System.out.println("Invalid Input. Please Enter a Number!");
                         inp.nextLine();
@@ -238,7 +237,7 @@ public class ScholarshipApp {
 
                 fileScanner.close();
             }
-            return  new Administrator(fname, lname, age, email, null, fileUsername, state, null, null, null) ;
+            return  new Administrator(fname, lname, age, email, new Address(street, cityAndPostalCode, state), fileUsername, state, null, null, null) ;
             
         } 
         catch (FileNotFoundException e) {
@@ -349,7 +348,7 @@ public class ScholarshipApp {
 
                 fileScanner.close();
 
-                Student stu = new Student(fname, lname, age, email, null, matricsNu);
+                Student stu = new Student(fname, lname, age, email, new Address(street, cityAndPostalCode, state), matricsNu) ;
                 return stu;
             } else {
                 System.out.println("Invalid username or password.");
@@ -390,9 +389,6 @@ public class ScholarshipApp {
         ArrayList<needBased> Needs = new ArrayList<>() ;
 
         try {
-            System.out.println("Select type of scholarship to apply:");
-            System.out.println("[1] Merit Based");
-            System.out.println("[2] Need Based");
             int choice = 0;
 
             while(true){
@@ -415,9 +411,9 @@ public class ScholarshipApp {
                 Scanner fileScanner = new Scanner(file);
                 while (fileScanner.hasNextLine()) {
                     String type = fileScanner.nextLine() ;
-                    double cgp = fileScanner.nextDouble() ;
-                    double all = fileScanner.nextDouble() ;
-                    fileScanner.nextLine() ;
+                    double cgp = Double.parseDouble(fileScanner.nextLine()) ;
+                    double all = Double.parseDouble(fileScanner.nextLine()) ;
+                    //fileScanner.nextLine() ;
                     Merits.add(new meritBased(all, type, cgp)) ;
                 }
                 fileScanner.close();
@@ -442,6 +438,7 @@ public class ScholarshipApp {
                 System.out.println("Do you want to apply for this scholarship? (Y/N)");
                 char response = inp.next().toUpperCase().charAt(0);
                 if (response == 'Y') {
+                    student.setScholarship(Merits.get(scholarshipChoice)) ;
                     sid++; // Assuming Student class has getStudentId method
                     applyScholarship(student, sid);
                     System.out.println("Application successful.");
@@ -454,8 +451,8 @@ public class ScholarshipApp {
                 Scanner fileScanner = new Scanner(file);
                 while (fileScanner.hasNextLine()) {
                     String type = fileScanner.nextLine() ;
-                    double cgp = fileScanner.nextDouble() ;
-                    double all = fileScanner.nextDouble() ;
+                    double cgp = Double.parseDouble(fileScanner.nextLine()) ;
+                    double all = Double.parseDouble(fileScanner.nextLine()) ;
                     fileScanner.nextLine() ;
                     Needs.add(new needBased(all, type, cgp)) ;
                 }
@@ -481,6 +478,7 @@ public class ScholarshipApp {
                 System.out.println("Do you want to apply for this scholarship? (Y/N)");
                 char response = inp.next().toUpperCase().charAt(0);
                 if (response == 'Y') {
+                    
                     sid++; // Assuming Student class has getStudentId method
                     applyScholarship(student, sid);
                     System.out.println("Application successful.");

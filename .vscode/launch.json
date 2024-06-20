@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ScholarshipApp",
+            "request": "launch",
+            "mainClass": "ScholarshipApp",
+            "projectName": "SECJ2154-OOP_e5fd2e29"
+        },
+        {
+            "type": "java",
             "name": "HajiUmrahApp",
             "request": "launch",
             "mainClass": "HajiUmrahApp",
