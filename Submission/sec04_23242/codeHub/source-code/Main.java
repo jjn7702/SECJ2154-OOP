@@ -203,6 +203,8 @@ public class Main {
         String name = scanner.nextLine();
         System.out.print("Enter target amount: ");
         double targetAmount = scanner.nextDouble();
+        System.out.print("Enter current amount: ");
+        double currentAmount = scanner.nextDouble();
         System.out.print("Enter target date (in milliseconds): ");
         long targetDateMillis = scanner.nextLong();
         Date targetDate = new Date(targetDateMillis);
@@ -211,7 +213,7 @@ public class Main {
             Account account = findAccountById(user.getAccounts(), accountId);
             // Saving saving = new Saving(user.getAccounts().size() + 1, name, targetAmount, targetDate);
             //composition
-            account.addSaving(user.getAccounts().size() + 1, name, targetAmount, targetDate);
+            account.addSaving(user.getAccounts().size() + 1, name, targetAmount, currentAmount, targetDate);
             System.out.println("Saving goal added successfully.");
         } catch (AccountNotFoundException e) {
             System.out.println(e.getMessage());
