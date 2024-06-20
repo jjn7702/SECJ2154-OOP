@@ -50,7 +50,6 @@ public class ScholarshipApp {
                     }
 
                     System.out.println("[0] Do you want to check the status of your apllication?");
-                    System.out.println("[1] Do you want to apply for a scholarship??");
                     int ap = 0;
 
                     try {
@@ -68,9 +67,6 @@ public class ScholarshipApp {
                                 System.out.println("Your application has approved. We will display the information");
                                 StudList.get(i).displayAllDetails();
                             }
-                            break;
-                        case 1:
-                            applyFromDisplayScholarship(StudList.get(i), sID); // Assuming sID is the student ID
                             break;
                         default:
                             System.out.println("Invalid choice. Please enter 0 or 1");
@@ -354,7 +350,7 @@ public class ScholarshipApp {
                 }
 
                 Scholarship o = applyFromDisplayScholarship(stu, age);
-                StudentHistory st = insertStudentHistory() ;
+                // StudentHistory st = insertStudentHistory() ;
 
                 Student stu = new Student(fname, lname, age, email, new Address(street, cityAndPostalCode, state),
                         matricsNu);
