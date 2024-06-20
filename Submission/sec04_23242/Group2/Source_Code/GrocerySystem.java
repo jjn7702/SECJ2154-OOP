@@ -96,6 +96,85 @@ public class GrocerySystem {
         }
     }
 
+        //Login Buyer
+    public static Buyer LoginBuyer(ArrayList<Buyer> b) {
+        Scanner inp = new Scanner(System.in);
+        System.out.println();
+        System.out.println("Press 1 to login!");
+        System.out.println("Press 2 for register!");
+        System.out.print("Option: ");
+        int opt = Integer.parseInt(inp.nextLine());
+        System.out.println();
+        if (opt == 1) {
+            boolean check = true;
+            do {
+                System.out.print("Please enter your Email: ");
+                String email = inp.nextLine();
+                System.out.print("Please enter your password: ");
+                String pass = inp.nextLine();
+                Buyer atm = GetCurrentUser(email, pass, b);
+                if (atm == null)
+                    check = true;
+                else
+                    return atm;
+            } while (check);
+        } else {
+            System.out.print("Please enter your email: ");
+            String e = inp.nextLine().toLowerCase();
+            boolean email = true;
+            for (Buyer x : b) {
+                if (x.getEmail().equals(e)) {
+                    email = false;
+                    break;
+                }
+            }
+
+            if (email) {
+                System.out.print("Please enter your name: ");
+                String n = inp.nextLine();
+                System.out.println("Please enter your Address");
+                System.out.print("Street: ");
+                String st = inp.nextLine();
+                System.out.print("Zipcode: ");
+                String z = inp.nextLine();
+                System.out.print("State: ");
+                String state = inp.nextLine();
+                System.out.print("Country: ");
+                String c = inp.nextLine();
+
+                System.out.print("Please enter your password: ");
+                String p = inp.nextLine();
+                boolean check = true;
+                do {
+                    System.out.print("Please re-enter your password: ");
+                    String g = inp.nextLine();
+                    if (p.equals(g))
+                        check = true;
+                    else
+                        check = false;
+                } while (!check);
+
+                Address a = new Address(st, state, z, c);
+                Buyer b1 = new Buyer(e, p, n, a);
+                b.add(b1);
+                return b1;
+            } else {
+                System.out.println("There is already a account with this email!");
+            }
+        }
+        return null;
+    }
+
+    //Get Current User
+    public static Buyer GetCurrentUser(String email, String pass, ArrayList<Buyer> B) {
+        for (Buyer x : B) {
+            if (x.getEmail().equals(email) && (x.getPassword().equals(pass))) {
+                return x;
+            }
+        }
+        return null;
+    }
+
     //Login Seller
     public static Seller LoginSeller(ArrayList<Seller> s) {
         System.out.println();
@@ -166,7 +245,8 @@ public class GrocerySystem {
         }
         return null;
     }
-    
+
+
         //Get Current Seller
     public static Seller GetCurrentSeller(String email, String pass, ArrayList<Seller> s) {
         for (Seller x : s) {
