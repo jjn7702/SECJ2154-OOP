@@ -123,7 +123,8 @@ public class Main {
         String accountName = scanner.nextLine();
         System.out.print("Enter initial balance: ");
         double balance = scanner.nextDouble();
-        Account account = new Account(user.getAccounts().size() + 1, accountName, balance, bank);
+        Account account = new Account(user.getAccounts().size() + 1, accountName, balance);
+        account.addBank(bank);
         user.addAccount(account);
         System.out.println("Account added successfully.");
         account.displayInfo();
