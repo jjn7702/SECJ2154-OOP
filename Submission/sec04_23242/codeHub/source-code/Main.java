@@ -1,3 +1,8 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.Vector;
+
 public class Main {
     public static void main(String[] args) throws IOException{
 
@@ -9,29 +14,25 @@ public class Main {
         Vector<Category> categories = new Vector<>(); // Store category
 
         Scanner inp = new Scanner(new File("bank.txt"));
-        Vector<Customer> customers = new Vector<>();
+    
+        Bank bank1 = null;
+        Users user1 = null;
 
-        while (inp.hasNext()) {
-            String bankName = inp.next();
-            Bank b = Bank.valueOf(bankName);
-            int numOfPersons = inp.nextInt();
-            String name = inp.nextLine();
-
-            Customer cNull = null; //check dlu kalau ada nama sama
-            for (Customer c : customers) {
-                if (c.getName().equals(name)) {
-                    cNull = c;
-                    break;
-                }
+        while (inp.hasNextLine()) {
+            String line = inp.nextLine();
+            String[] parts = line.split(" ");
+            if (parts.length == 3) {
+                String bankName = parts[0];
+                int id = Integer.parseInt(parts[1]);
+                String name = parts[2];
+                bank1 = new Bank(bankName);
+                user1 = new Users(id, name);
             }
-
-            if (cNull == null) { //customer(s) kosong,then create new object
-                cNull = new Customer(name, numOfPersons);
-                customers.add(cNull);
-            }
-            cNull.buy(p);
         }
-        inp.close();
+
+        System.out.println(bank1.getName());
+        System.out.println(user1.getName());
+        System.out.println(user1.getId());
 
 
 
