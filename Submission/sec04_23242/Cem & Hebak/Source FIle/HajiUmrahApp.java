@@ -253,6 +253,8 @@ public class HajiUmrahApp {
                                                 System.out.print("Embassy ID: ");
                                                 ID = inp.nextLine();
                                                 break;
+
+                                                //Sini Login Embassy
                                         }
                                 }
                         }
