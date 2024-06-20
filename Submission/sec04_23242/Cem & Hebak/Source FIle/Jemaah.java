@@ -141,14 +141,18 @@ public class Jemaah extends User implements userDisplay {
                 System.out.println((i + 1) + ")" + ubat.get(i));
             }
         }
-        doctor.display();
-        embassy.display();
+        if (pakejIbadah != null) {
+            pakejIbadah.Display_Pakej_Info();
+        }
+
+        doctor.displayRingkas();
+        embassy.displayRingkas();
         // dulu ada display embassy info & Doctor info, tapi guna polymorphism boleh
         // panggil terus di main
         System.out.println();
     }
 
-    public void display_info_jemaah() {
+    public void displayRingkas() {
         System.out.println("========== JEMAAH CREDENTIALS ==========");
         System.out.println("Name : " + getName());
         System.out.println("Contact :" + getContact());
@@ -217,8 +221,7 @@ public class Jemaah extends User implements userDisplay {
                 System.out.println((i + 1) + ")" + ubat.get(i));
             }
         }
-        // dulu ada display embassy info & Doctor info, tapi guna polymorphism boleh
-        // panggil terus di main
+
         System.out.println();
     }
 
@@ -236,13 +239,13 @@ public class Jemaah extends User implements userDisplay {
 
     public void chooseUmrahPackage() {
 
-        System.out.println("Please choose your package for Ibadah: ");
-        System.out.println("1) IFRAD = Perform Hajj First and Umrah later (After Hajj)");
-        System.out.println("2) QIRAN = Perform Hajj and Umrah simultaneously");
-        System.out.println("3) TAMATTUK = Perform Umrah First and Hajj later");
-        System.out.println("4) HAJI Sahaja = Perform Hajj only");
-        System.out.println("5) UMRAH = Perform Umrah only");
-        System.out.println("Please type [ IFRAD, QIRAN, TAMATTUK, HAJI, UMRAH ] to choose your ibadah package");
+        System.out.println("Please choose your ibadah package: ");
+        System.out.println("1) IFRAD = Haji dahulu dan Umrah kemudian");
+        System.out.println("2) QIRAN = Mengerjakan Haji dan Umrah serentak");
+        System.out.println("3) TAMATTUK = Umrah dahulu Haji kemudian");
+        System.out.println("4) HAJI Sahaja = Mengerjakan Haji sahaja");
+        System.out.println("5) UMRAH = Megerjakan Umrah sahaja");
+        System.out.println("Sila taip IFRAD, QIRAN, TAMATTUK, HAJI, UMRAH untuk pilih pakej ibadah anda");
         pakejIbadah = Haji_Umrah_Package.valueOf(inp.nextLine().toUpperCase());
         pakejIbadah.Display_Pakej_Info();
     }
