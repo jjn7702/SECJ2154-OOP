@@ -425,21 +425,22 @@ public class ScholarshipApp {
                 inp.nextLine(); // consume the newline character
                 if (scholarshipChoice < 0 || scholarshipChoice >= Merits.size()) {
                     System.out.println("Invalid choice.");
-                    return;
                 }
 
                 System.out.println("You have selected: " + Merits.get(scholarshipChoice).type);
                 System.out.println("Do you want to apply for this scholarship? (Y/N)");
                 char response = inp.next().toUpperCase().charAt(0);
                 if (response == 'Y') {
-                    student.setScholarship(Merits.get(scholarshipChoice)) ;
+                    //student.setScholarship(Merits.get(scholarshipChoice)) ;
 
-                    ad.setScholarshipAdmin(Merits.get(scholarshipChoice)) ;
+                    //ad.setScholarshipAdmin(Merits.get(scholarshipChoice)) ;
                     sid++; // Assuming Student class has getStudentId method
-                    applyScholarship(student, sid);
+                    //applyScholarship(student, sid);
                     System.out.println("Application successful.");
+                    return Merits.get(scholarshipChoice) ;
                 } else {
                     System.out.println("Application cancelled.");
+                    return null ;
                 }
             } else if (choice == 2) {
                 File file = new File("Submission\\sec04_23242\\WHALE\\source code\\needScholarshp.txt");
@@ -468,7 +469,6 @@ public class ScholarshipApp {
                 inp.nextLine(); // consume the newline character
                 if (scholarshipChoice < 0 || scholarshipChoice >= Needs.size()) {
                     System.out.println("Invalid choice.");
-                    return;
                 }
 
                 System.out.println("You have selected: " + Needs.get(scholarshipChoice).type);
@@ -479,11 +479,13 @@ public class ScholarshipApp {
                     sid++; // Assuming Student class has getStudentId method
                     applyScholarship(student, sid);
                     System.out.println("Application successful.");
+                    return Needs.get(scholarshipChoice) ;
                 } else {
                     System.out.println("Application cancelled.");
                 }
             } else {
                 System.out.println("Invalid choice.");
+                return null ;
             }
 
         } catch (FileNotFoundException e) {
@@ -491,6 +493,7 @@ public class ScholarshipApp {
         } catch (NumberFormatException e) {
             System.out.println("Invalid format in scholarship file.");
         }
+        return null ;
     }
 
     private static void displayStudList(Vector<Student> sop) {
