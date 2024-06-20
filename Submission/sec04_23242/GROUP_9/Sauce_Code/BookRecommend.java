@@ -3,15 +3,21 @@ public String getMatricID();
 
 }
 
-class Book{ // stores or get book data 
-protected String genre;
-protected String ref;
-protected double pages;
-protected String publisher;
-protected String author;
-protected String title;
+//class UG implements User here
 
-    public Book(String genre, String ref, double pages, String publisher , String author, String title){
+//class PG implements User here
+
+class Book{ // stores or get book data 
+  // Encapsulation: Private fields to hide data from outside access
+    private String genre;
+    private String ref;
+    private double pages;
+    private String publisher;
+    private String author;
+    private String title;
+
+    // Constructor to initialize the book details
+    public Book(String genre, String ref, double pages, String publisher, String author, String title) {
         this.genre = genre;
         this.ref = ref;
         this.pages = pages;
@@ -19,16 +25,75 @@ protected String title;
         this.author = author;
         this.title = title;
     }
-}
 
-class admin extends Book{ // add or remove book
+    // Getter methods to provide controlled access to private fields
+    public String getGenre() {
+        return genre;
+    }
 
-    public admin(String genre, String ref, double pages, String publisher , String author, String title){
-        super(genre, ref, pages, publisher, author, title);
-        
+    public String getRef() {
+        return ref;
+    }
+
+    public double getPages() {
+        return pages;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "genre='" + genre + '\'' +
+                ", ref='" + ref + '\'' +
+                ", pages=" + pages +
+                ", publisher='" + publisher + '\'' +
+                ", author='" + author + '\'' +
+                ", title='" + title + '\'' +
+                '}';
     }
 }
 
+class Admin {
+    // Composition: Admin 'has a' list of books. Admin's lifecycle does not depend on books
+    private List<Book> books;
+
+    public Admin() {
+        this.books = new ArrayList<>();
+    }
+
+    // Encapsulation: Controlling how books are added or removed
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
+    public void removeBook(Book book) {
+        books.remove(book);
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+}
+
+
+//class Library here
+
+
+//class RecommendationEngine here
+
+
+//class BookRecommendationSystem here aka public void static main here
 
 class faculty extends Book{ // contains specific books
 
@@ -69,9 +134,6 @@ public PG(String MatricID){
 class others {
 
 }
-
-
-
 
 public class BookRecommend{
     public static void main(String[] args) {
