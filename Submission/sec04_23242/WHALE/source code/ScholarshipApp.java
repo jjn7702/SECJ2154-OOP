@@ -4,8 +4,8 @@ import java.io.*;
 public class ScholarshipApp {
     static Scanner inp = new Scanner(System.in);
     static int countAdmin = 0;
-    static Administrator ad;
-    static Student stu;
+    static Administrator ad = new Administrator();
+    static Student stu = new Student() ;
 
     public static void main(String[] args) throws IOException {
         int sID = 0000;
@@ -84,9 +84,11 @@ public class ScholarshipApp {
                     registerAdministrator();
                     countAdmin++;
                 } else if (rs == 'N') {
-                    ad = signInAdministrator();
-                    if (countAdmin == 0)
-                        countAdmin++;
+                    ad = signInAdministrator() ;
+
+                    // ad.getusername() ;
+                    if (ad == null)
+                        break ;
                 } else {
                     System.out.println("Invalid choice. Please enter Y or N.");
                 }
@@ -111,11 +113,14 @@ public class ScholarshipApp {
                     countAdmin--;
                     ad = null;
                 }
-           
-            }
+                else{
+                    break ;
+                }
+                
+                if (StudList.isEmpty()) {
+                    System.out.println("There is no student applying the scholarship");
+                }
 
-            if (StudList.isEmpty()) {
-                System.out.println("There is no student applying the scholarship");
             }
 
         } while (ad != null || StudList.size() > 0);
@@ -227,7 +232,10 @@ public class ScholarshipApp {
             Administrator fd = new Administrator(fname, lname, age, email, null, fileUsername, state, null, null, null);
 
             return fd;
-        } catch (FileNotFoundException e) {
+            
+        } 
+        catch (FileNotFoundException e) {
+            System.out.println("There is no information about you") ;
             // If file is not found, continue to next authentication attempt
         }
 
