@@ -70,7 +70,7 @@ class Account {
     }
 
     public void addTransaction(int id, String name, double balance, Date date, Category category) {
-        Transaction obj = new Transaction(id, name, balance, null);
+        Transaction obj = new Transaction(id, name, balance, date, category);
         transactions.add(obj);
         obj.setCategory(category);    
     }

@@ -1,18 +1,20 @@
 import java.sql.Date;
+import java.time.LocalDate;
 
 
 class Transaction {
     private int id;
     private String description;
     private double amount;
-    private Date date;
+    private LocalDate date;
     private Category category;
 
-    public Transaction(int id, String description, double amount, Date date) {
+    public Transaction(int id, String description, double amount, LocalDate date,Category category) {
         this.id = id;
         this.description = description;
         this.amount = amount;
         this.date = date;
+        this.category = category;
     }
 
     public int getId() {
@@ -27,7 +29,7 @@ class Transaction {
         return amount;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
