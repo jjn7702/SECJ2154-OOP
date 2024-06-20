@@ -21,7 +21,7 @@ _Don't forget to hit the :star: if you like this repo._
 | 4 | [Group 4](../sec04_23242/Group4/readme.md) | <a href="../sec04_23242/Group4/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 5 | [JAVACADAVRA](../sec04_23242/JAVACADAVRA/readme.md) | <a href="../sec04_23242/JAVACADAVRA/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 6 | [CodeHub](../sec04_23242/codeHub) | <a href="../sec04_23242/codeHub" ><img src="/./images/CodeHubLogo.png" width="38px" height="38px" ></a> |
-| 7 | [Group 7](../sec04_23242/Group%207/readme.md) | <a href="../sec04_23242/Group7/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
+| 7 | [Group 7](../sec04_23242/Group%207/readme.md) | <a href="../sec04_23242/Group%207/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 8 | [Group 8](../sec04_23242/Group8/readme.md) | <a href="../sec04_23242/Group8/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 9 | [Group 9](../sec04_23242/Group9/readme.md) | <a href="../sec04_23242/Group9/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
 | 10 | [Group 10](../sec04_23242/Group7/readme.md) | <a href="../sec04_23242/Group10/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
