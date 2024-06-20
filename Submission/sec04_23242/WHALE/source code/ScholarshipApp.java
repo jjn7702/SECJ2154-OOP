@@ -235,6 +235,8 @@ public class ScholarshipApp {
     }
 
     private static Student registerStudent() {
+        boolean validInput = false;
+       
         try {
             String fname = "", lname = "", email = "", address = "", street = "",
                     cityAndPostalCode = "", state = "", matricsNu = "";
@@ -245,9 +247,17 @@ public class ScholarshipApp {
             fname = inp.next();
             System.out.print("LAST NAME:\t");
             lname = inp.next();
-            System.out.print("CURRENT AGE:\t");
-            age = inp.nextInt();
-            inp.nextLine(); // Consume newline
+            while (!validInput) {
+                System.out.print("CURRENT AGE:\t");
+                try {
+                    age = inp.nextInt();
+                    inp.nextLine();
+                    validInput = true;
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a valid integer.");
+                    inp.nextLine();
+                }
+            }
             System.out.print("EMAIL:\t");
             email = inp.nextLine();
 
