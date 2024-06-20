@@ -221,13 +221,16 @@ public class HajiUmrahApp {
                                                                                                                             // User
                                                                                                                             // kita
                                                                                                                             // cuba
-                                                                                        jemaahtry.display(); // dia akan
-                                                                                                             // panggil
-                                                                                                             // semua
-                                                                                                             // super
-                                                                                                             // and
-                                                                                                             // subclass
-                                                                                                             // display
+                                                                                        System.out.println(jemaahtry
+                                                                                                        .getName());
+                                                                                        // jemaahtry.display(); // dia
+                                                                                        // akan
+                                                                                        // panggil
+                                                                                        // semua
+                                                                                        // super
+                                                                                        // and
+                                                                                        // subclass
+                                                                                        // display
                                                                                 }
 
                                                                                 // doktor.get(i).Medical_Application(
