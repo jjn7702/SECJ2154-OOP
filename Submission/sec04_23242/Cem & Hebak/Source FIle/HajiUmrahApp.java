@@ -153,6 +153,8 @@ public class HajiUmrahApp {
                                                                 age = inp.nextInt();
                                                                 inp.nextLine();// clear buffer
                                                                 jemaahID = "J" + (jemaah.size() + 1);
+                                                                System.out.print("Here your jemaah ID (for login purpose): " + jemaahID);
+                                                                System.out.println("\n");
 
                                                                 Jemaah newJemaah = new Jemaah(name, contact,
                                                                                 identification_Card, email, jemaahID,
