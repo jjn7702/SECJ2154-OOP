@@ -2,13 +2,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
-<<<<<<< Updated upstream
-import java.util.*;
-
-=======
 import java.time.LocalDate;
 import java.util.Date;
->>>>>>> Stashed changes
+
 
 public class Main {
     public static void main(String[] args) throws IOException{
@@ -48,21 +44,13 @@ public class Main {
                 report.setUser(user1);
             }
         }
-<<<<<<< Updated upstream
-
-        while(sav.hasNextLine()){
-
-        }
         inp.close();
         trans.close();
-        sav.close();
 
 
 
-=======
-        inp.close();
-        trans.close();
->>>>>>> Stashed changes
+
+
         
 
 
