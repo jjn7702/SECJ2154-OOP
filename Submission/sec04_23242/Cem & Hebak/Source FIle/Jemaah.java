@@ -72,7 +72,7 @@ public class Jemaah extends User implements userDisplay {
     }
 
     // Interface
-    public void display_doc() {
+    public void display() {
         System.out.println("========== JEMAAH CREDENTIALS ==========");
         System.out.println("Name : " + getName());
         System.out.println("Contact :" + getContact());
@@ -142,81 +142,6 @@ public class Jemaah extends User implements userDisplay {
             }
         }
         doctor.display();
-        embassy.display();
-        // dulu ada display embassy info & Doctor info, tapi guna polymorphism boleh
-        // panggil terus di main
-        System.out.println();
-    }
-
-    public void display_jemaah() {
-        System.out.println("========== JEMAAH CREDENTIALS ==========");
-        System.out.println("Name : " + getName());
-        System.out.println("Contact :" + getContact());
-        System.out.println("Identification Card : " + getIdentification_Card());
-        System.out.println("Email: " + getEmail());
-        System.out.println("Jemaah ID: " + jemaahID);
-        System.out.println("Age: " + age);
-        String Health = "pending", Visa = "pending", Approval = "pending";
-
-        switch (approval_from_doctor) {
-            case 2:
-                Health = "Failed";
-                break;
-            case 1:
-                Health = "Approve";
-                break;
-            case 0:
-                Health = "Pending";
-                break;
-            default:
-                break;
-        }
-
-        switch (approval_from_embassy) {
-            case 2:
-                Visa = "Failed";
-                break;
-            case 1:
-                Visa = "Approve";
-                break;
-            case 0:
-                Visa = "Pending";
-                break;
-            default:
-                break;
-        }
-
-        if (approval_from_doctor == 1 && approval_from_embassy == 1) {
-            Approval = "Approve";
-        } else if (approval_from_doctor == 0 || approval_from_embassy == 0) {
-            Approval = "Pending";
-        } else {
-            Approval = "Failed";
-        }
-
-        System.out.println("Health: " + Health);
-        System.out.println("Visa: " + Visa);
-        System.out.println(Approval + " to perform ibadah");
-
-        System.out.printf("\n%10sDisease List\n\n", "");
-        if (penyakit.isEmpty()) {
-            System.out.println("None");
-        } else {
-
-            for (int i = 0; i < penyakit.size(); i++) {
-                System.out.println((i + 1) + ")" + penyakit.get(i));
-            }
-        }
-
-        System.out.printf("%10sPrescription List\n\n", "");
-        if (ubat.isEmpty()) {
-            System.out.println("None");
-        } else {
-
-            for (int i = 0; i < ubat.size(); i++) {
-                System.out.println((i + 1) + ")" + ubat.get(i));
-            }
-        }
         embassy.display();
         // dulu ada display embassy info & Doctor info, tapi guna polymorphism boleh
         // panggil terus di main
