@@ -10,6 +10,7 @@ public class Jemaah extends User implements userDisplay {
     private Vector<String> penyakit;
     private Vector<String> ubat;
     private Haji_Umrah_Package pakejIbadah;
+    private Pelancongan_Package plgPkg;
 
     public Jemaah(String name, String contact, String identification_Card, String email, String jemaahID, int age,
             Doctor doctor, Embassy embassy) {
@@ -249,5 +250,42 @@ public class Jemaah extends User implements userDisplay {
         pakejIbadah = Haji_Umrah_Package.valueOf(inp.nextLine().toUpperCase());
         pakejIbadah.Display_Pakej_Info();
     }
+    public void add_Pelancongan_Package(Pelancongan_Package p) {
+        //Pindah ni ke Jemaah class
+        int choicePelancongan = 0;
+        String vacation;
+        System.out.println("Please choose your Vacation Package");
+        System.out.println("[1] Turki, Istanbul");
+        System.out.println("[2] Riyadh, Damma,");
+        System.out.println("[3] Doha, Dubai");
+        System.out.println("[4] Abu Dhabi, Sharjah");
+        System.out.println("[5] Kuwait City, Manama");
+        System.out.println("[1 - 5] Please Enter the number of package you interested");
+        switch (choicePelancongan) {
+            case 1:
+                vacation = "PACKAGE_1";
+                break;
+            case 2:
+                vacation = "PACKAGE_2";
+                break;
+            case 3:
+                vacation = "PACKAGE_3";
+                break;
+            case 4:
+                vacation = "PACKAGE_4";
+                break;
+            case 5:
+                vacation = "PACKAGE_5";
+                break;
+            default:
+                vacation = "";
+            System.out.println("Error!");
+                break;
+        }
+        plgPkg = Pelancongan_Package.valueOf(vacation);
+        plgPkg.display_Pelancongan_info();
+        
+        // tengok jemaah punya class camne pilih package haji umrah
+}
 
 }
