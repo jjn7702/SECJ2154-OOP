@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -13,7 +15,7 @@ public class Main {
 
         Report report = new Report(null, 1.0); // rate set to be 1.0
         Vector<Category> categories = new Vector<>(); // Store category
-
+        Scanner scanner = new Scanner(System.in);
         Scanner inp = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\bank.txt"));
         Scanner acc = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Account.txt"));
         Scanner bud = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Budjet.txt"));
@@ -24,6 +26,28 @@ public class Main {
     
         Bank bank1 = null;
         Users user1 = null;
+
+                BufferedReader br = new BufferedReader(new FileReader("bank.txt"));
+            if (br.readLine() == null) {
+                System.out.println("Errors no Bank, and file empty");
+                System.out.print("Enter Bank name: ");
+                String bname = scanner.nextLine();
+                System.out.print("Enter Your ID: ");
+                int id = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("Enter Your Name: ");
+                String name = scanner.nextLine();
+                bank1 = new Bank(bname);
+                user1 = new Users(id, name);
+                report.setUser(user1);
+
+                try (FileWriter writer = new FileWriter("bank.txt", false)) {
+                    writer.write(bank1.getName() + " " + user1.getId() + " " + user1.getName() + "\n");
+                }
+            }
+            br.close();
+
+
 
         while (inp.hasNextLine()) {
             String line = inp.nextLine();
@@ -100,7 +124,7 @@ public class Main {
         trans.close();
         sav.close();
 
-        Scanner scanner = new Scanner(System.in);
+
 
         while (true) {
             printMenu();
