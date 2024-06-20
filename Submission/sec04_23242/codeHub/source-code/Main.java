@@ -299,9 +299,12 @@ public class Main {
         double targetAmount = scanner.nextDouble();
         System.out.print("Enter current amount: ");
         double currentAmount = scanner.nextDouble();
-        System.out.print("Enter target date (in milliseconds): ");
-        long targetDateMillis = scanner.nextLong();
-        Date targetDate = new Date(targetDateMillis);
+        System.out.print("Enter target date (YYYY-MM-DD): ");
+        scanner.nextLine();
+        String targetDateString = scanner.nextLine();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse(targetDateString, formatter);
+        Date targetDate = Date.valueOf(localDate);
 
         try {
             Account account = findAccountById(user.getAccounts(), accountId);
