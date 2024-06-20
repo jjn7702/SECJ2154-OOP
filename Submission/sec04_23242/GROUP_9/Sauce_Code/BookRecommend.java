@@ -3,10 +3,29 @@ public String getMatricID();
 
 }
 
-//class UG implements User here
+class Undergraduate implements User{
+  private String matricID;
 
-//class PG implements User here
+  public Undergraduate(String matricID){
+    this.matricID = matricID;
+  }
 
+  public String getMatricID(）{
+    return matricID;
+  }
+  
+class Postgraduate implements User{
+  private String matricID;
+
+  public Postgraduate(String matricID){
+    this.matricID = matricID;
+  }
+
+  public String getMatricID(){
+    this.matricID = matricID;
+  }
+}
+  
 class Book{ // stores or get book data 
   // Encapsulation: Private fields to hide data from outside access
     private String genre;
@@ -87,10 +106,85 @@ class Admin {
 }
 
 
-//class Library here
+class Library{
+  private Admin admin;
+  private List<Book> books; //Showing Aggregation
 
+  public Library(){
+    this.admin = new Admin();
+    this.books = admin.getBooks();
+  }
 
-//class RecommendationEngine here
+  public void addBook(Book book){
+    admin.addBook(book);
+  }
+
+  public void removeBook(Book book){
+    admin.removeBook(book);
+  }
+
+  public List<BookM getBooks(){
+    return books;
+  }
+}
+
+class RecommendationEngine{ 
+    // Composition: RecommendationEngine 'has a' list of books. RecommendationEngine's lifecycle does not depend on books
+  private List<Book> books;
+
+  public RecommendationEngine(List<Book> books){
+    this.books = books;
+  }
+
+  public void recommendByGenre(String genre){
+    for (Book book : books){
+      if (book.getGenre().equalsIgnoreCase(genre)){
+        System.out.println(book);
+      }
+    }
+  }
+
+  public void recommendByRef(String ref){
+    for (Book book : books){
+      if (book.getRef().equalsIgnoreCase(ref)){
+        System.out.println(book);
+      }
+    }
+  }
+
+  public void recommendByPages(double pages){
+    for (Book book : books){
+      if (book.getPages() <= pages){
+        System.out.println(book);
+      }
+    }
+  }
+
+  public void recommendByPublisher(string publisher){
+    for (Book book : books) {
+            if (book.getPublisher().equalsIgnoreCase(publisher)) {
+                System.out.println(book);
+            }
+        }
+    }
+
+    public void recommendByAuthor(String author) {
+        for (Book book : books) {
+            if (book.getAuthor().equalsIgnoreCase(author)) {
+                System.out.println(book);
+            }
+        }
+    }
+
+    public void recommendByTitle(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                System.out.println(book);
+            }
+        }
+    }
+}
+
 
 
 //class BookRecommendationSystem here aka public void static main here
