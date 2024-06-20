@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
@@ -18,7 +19,6 @@ public class Main {
         Scanner bud = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Budjet.txt"));
         Scanner trans = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Transaction.txt"));
         Scanner sav = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Saving.txt"));
-        //Scanner trans = new Scanner(new File("Account.txt"));
         categories.add(new ShoppingCategory(1));    
         categories.add(new FoodCategory(2));
     
@@ -147,6 +147,12 @@ public class Main {
                 case 10:
                     System.out.printf("%37s","Exiting...");
                     scanner.close();
+                    writeBankFile(bank1, user1);
+                    writeAccountFile(user1);
+                    writeBudgetFile(user1, categories);
+                    writeTransactionFile(user1);
+                    writeSavingFile(user1);
+
                     return;
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -154,6 +160,51 @@ public class Main {
         }
 
     
+    }
+
+       private static void writeBankFile(Bank bank, Users user) throws IOException {
+        try (FileWriter writer = new FileWriter("bank.txt", false)) {
+            writer.write(bank.getName() + " " + user.getId() + " " + user.getName() + "\n");
+        }
+    }
+
+    private static void writeAccountFile(Users user) throws IOException {
+        try (FileWriter writer = new FileWriter("account.txt", false)) {
+            for (Account account : user.getAccounts()) {
+                writer.write((account.getId()-1) + " " + account.getName() + " " + account.getBalance() + "\n");
+            }
+        }
+    }
+
+    private static void writeBudgetFile(Users user, Vector<Category> categories) throws IOException {
+        try (FileWriter writer = new FileWriter("budjet.txt", false)) {
+            for (Account account : user.getAccounts()) {
+                for (Budget budget : account.getBudgets()) {
+                    writer.write((account.getId()-1) + " " + budget.getLimit() + " " + (categories.indexOf(budget.getCategory()) + 1) + "\n");
+                }
+            }
+        }
+    }
+
+    private static void writeTransactionFile(Users user) throws IOException {
+        try (FileWriter writer = new FileWriter("Transaction.txt", false)) {
+            for (Account account : user.getAccounts()) {
+                for (Transaction transaction : account.getTransactions()) {
+                    writer.write((transaction.getId()) + " " + transaction.getDescription() + " " +transaction.getDate() + " " + transaction.getAmount() + " " + transaction.getCategoryId() + "\n");
+                }
+            }
+        }
+    }
+    
+
+    private static void writeSavingFile(Users user) throws IOException {
+        try (FileWriter writer = new FileWriter("saving.txt", false)) {
+            for (Account account : user.getAccounts()) {
+                for (Saving saving : account.getSavings()) {
+                    writer.write((account.getId()-1) + " " + saving.getName() + " " + saving.getTargetAmount() + " " + saving.getCurrentAmount() + " " + saving.getTargetDate() + "\n");
+                }
+            }
+        }
     }
 
     private static PauseScreen screen= new PauseScreen();

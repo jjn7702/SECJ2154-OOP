@@ -46,4 +46,16 @@ class Transaction {
         return "Transaction ID: " + id + ", Description: " + description + ", Amount: RM" + (amount * rate) + ", Date: " + date
                 + ", Category: " + category.getName();
     }
+
+    public int getCategoryId(){
+        if(category.getName().equals("Shopping")){
+            return 1;
+        }
+        else if(category.getName().equals("Food")){
+        return 2;
+        }
+        else{
+            return 3;
+        }
+    }
 }
