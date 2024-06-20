@@ -1,4 +1,5 @@
 import java.util.*;
+import java.sql.Date;
 
 class Account {
     private int id;
@@ -82,8 +83,8 @@ class Account {
         budgets.remove(budget);
     }
 
-    public void addSaving(int id, String name, double targetAmount, Date targetDate) {
-        savings.add(new Saving(id, name, targetAmount, targetDate));
+    public void addSaving(int id, String name, double targetAmount, double currentAmount, Date targetDate) {
+        savings.add(new Saving(id, name, targetAmount, currentAmount, targetDate));
     }
 
     public Budget getBudgetByCategory(Category category) {
