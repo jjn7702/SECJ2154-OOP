@@ -3,18 +3,18 @@ import java.util.ArrayList;
 public class Volunteer extends User {
   private String skills;
   private String availability;
-  private ArrayList<Application> application;
+  private ArrayList<Application> applications;
 
 public Volunteer(String name,String email,String password,String skills,String availability){
   super(name,email,password);
   this.skills = skills;
   this.availability = availability;
-  this.application = new ArrayList<>();
+  this.applications = new ArrayList<>();
 }
 
 public void applyForOpportunity(Opportunity opportunity) {
   Application application = new Application(this,opportunity);
-  application.add(application);
+  applications.add(application);
   opportunity.addApplication(application);
   System.out.println(getName() + " applied for opportunity: " +opportunity.getTitle());
 }
