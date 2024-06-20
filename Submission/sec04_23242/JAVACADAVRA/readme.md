@@ -1,4 +1,4 @@
-# Sports Team Management - Project
+# Sports Team Manager System - Project
 
 ## Appendix :red_circle:
 
