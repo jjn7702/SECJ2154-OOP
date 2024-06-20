@@ -240,12 +240,12 @@ public class Jemaah extends User implements userDisplay {
     public void chooseUmrahPackage() {
 
         System.out.println("Please choose your ibadah package: ");
-        System.out.println("1) IFRAD = Haji dahulu dan Umrah kemudian");
-        System.out.println("2) QIRAN = Mengerjakan Haji dan Umrah serentak");
-        System.out.println("3) TAMATTUK = Umrah dahulu Haji kemudian");
-        System.out.println("4) HAJI Sahaja = Mengerjakan Haji sahaja");
-        System.out.println("5) UMRAH = Megerjakan Umrah sahaja");
-        System.out.println("Sila taip IFRAD, QIRAN, TAMATTUK, HAJI, UMRAH untuk pilih pakej ibadah anda");
+        System.out.println("1) IFRAD = Perform Hajj first Umrah later");
+        System.out.println("2) QIRAN = Perform Hajj and Umrah simultaneously");
+        System.out.println("3) TAMATTUK = Perform Umrah first Haji later");
+        System.out.println("4) HAJI Sahaja = Only Perform Hajj");
+        System.out.println("5) UMRAH = Only Perform Umrah");
+        System.out.println("Please type [ IFRAD, QIRAN, TAMATTUK, HAJI, UMRAH ] to choose your ibadah package");
         pakejIbadah = Haji_Umrah_Package.valueOf(inp.nextLine().toUpperCase());
         pakejIbadah.Display_Pakej_Info();
     }
