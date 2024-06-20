@@ -29,4 +29,11 @@ public class User {
     public String getEmail(){
         return email ;
     }
+    public void display(){
+        System.out.println("First Name: "+ fName);
+        System.out.println("Last Name: "+ lName);
+        System.out.println("Age: "+age);
+        System.out.println("Email: "+email);
+        System.out.println("Address: "+add);
+    }
 }
