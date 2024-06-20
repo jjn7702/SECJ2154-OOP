@@ -133,7 +133,7 @@ public class Cart {
             System.out.printf("%d%-4s%-15s%-10s%-10d", (n + 1), ")", capitalizeFirstLetter(x.getName()),
                     x.getCategory(), amount.get(n));
             int num = 0;
-            for (Seller s : sellers) {
+            for (User s : sellers) {
                 for (int q = 0; q < s.getStore().getProducts().size(); q++)
                     if (s.getStore().getAdd().getState().equals(a.getState())
                             && (s.getStore().getProducts().get(q).contains(x))) {
