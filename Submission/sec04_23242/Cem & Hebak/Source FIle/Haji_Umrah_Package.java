@@ -75,13 +75,8 @@ public enum Haji_Umrah_Package {
                         new Vector<>(List.of(new Hotel("Elaf Ajyad Hotel", "Mekkah", 350, 354, 0.62, 436.60), // use 5-arg
                                                                                                          // hotel
                                                                                                          // constructor
-<<<<<<< HEAD
                                         new Hotel("Al-Andalus Palace Hotel", "Medinah", 290, 623, 0.32, 443.0))),
                         new Kursus("A05", "9:00 AM", "12 May 2024", "DSI", "Panji"),
-=======
-                                        new Hotel("Al-Andalus Palace Hotel", "Medinah", 623, 0.32, 443.0))),
-                        "A05", "9:00 AM", "12 May 2024", "DSI", "Panji",
->>>>>>> 25445377b354544b934034eac425a9c751c0f3d7
                         5000);
 
         private String ibadah;
