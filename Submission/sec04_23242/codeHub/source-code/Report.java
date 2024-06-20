@@ -2,7 +2,8 @@ public class Report {
     private Users user;
     private double exchangeRate; // change currency rate
 
-    public Report( double exchangeRate) {
+    public Report(Users user ,double exchangeRate) {
+        this.user = user;
         this.exchangeRate = exchangeRate;
     }
 
