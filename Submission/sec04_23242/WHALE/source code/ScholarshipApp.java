@@ -48,6 +48,14 @@ public class ScholarshipApp {
                     System.out.println("[1] Do you want to apply for a scholarship??");
                     int ap = inp.nextInt() ;
 
+                    try {
+                        ap = inp.nextInt() ;
+                        break;}
+                      catch (InputMismatchException e) {
+                        System.out.println("Invalid Input. Please Enter a Number!");
+                        inp.nextLine();
+                    }
+
                     switch (ap) {
                         case 0: if (StudList.get(i).getScholarship() == null){
                                     System.out.println("Your application is not approved yet. Check again later") ;
@@ -236,6 +244,8 @@ public class ScholarshipApp {
         catch (FileNotFoundException e) {
             System.out.println("There is no information about you") ;
             // If file is not found, continue to next authentication attempt
+            System.err.println("Error: Unable to create or write to the file.");
+            e.printStackTrace();
         }
 
         return null;
@@ -383,7 +393,21 @@ public class ScholarshipApp {
             System.out.println("Select type of scholarship to apply:");
             System.out.println("[1] Merit Based");
             System.out.println("[2] Need Based");
-            int choice = inp.nextInt();
+            int choice = 0;
+
+            while(true){
+                System.out.println("Select type of scholarship to apply:");
+                System.out.println("[1] Merit Based");
+                System.out.println("[2] Need Based");
+                try {
+                    choice = inp.nextInt();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid Input! Please Enter a Number!");
+                    inp.nextLine();
+                }
+            }
+            
             File file;
             
             if (choice == 1) {

@@ -1,18 +1,13 @@
 import java.util.Scanner;
 
-public class PauseScreen {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+class PauseScreen {
 
-        System.out.println("This is some initial content.");
-        
-        // Pause and wait for the user to press Enter
-        pauseScreen(scanner);
-        
-        System.out.println("This is new content displayed after pressing Enter.");
+    public void ClearScreen(){
+        System.out.print("\033[H\033[2J");  
+        System.out.flush(); 
     }
+    public void pauseScreen(Scanner scanner) {
 
-    public static void pauseScreen(Scanner scanner) {
         System.out.println("Press Enter to continue...");
         scanner.nextLine();  // Waits for the user to press Enter
     }

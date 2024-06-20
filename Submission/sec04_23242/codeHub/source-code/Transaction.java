@@ -1,15 +1,16 @@
 import java.sql.Date;
-import java.time.LocalDate;
+import java.util.*;
 
 
 class Transaction {
     private int id;
     private String description;
     private double amount;
-    private LocalDate date;
+    private Date date;
     private Category category;
+    Scanner scan = new Scanner(System.in);
 
-    public Transaction(int id, String description, double amount, LocalDate date,Category category) {
+    public Transaction(int id, String description, double amount, Date date,Category category) {
         this.id = id;
         this.description = description;
         this.amount = amount;
@@ -29,7 +30,7 @@ class Transaction {
         return amount;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -42,7 +43,7 @@ class Transaction {
     }
     
     public String getDetails(double rate) {
-        return "Transaction ID: " + id + ", Description: " + description + ", Amount: " + (amount * rate) + ", Date: " + date
+        return "Transaction ID: " + id + ", Description: " + description + ", Amount: RM" + (amount * rate) + ", Date: " + date
                 + ", Category: " + category.getName();
     }
 }

@@ -20,7 +20,11 @@ class meritBased extends Scholarship{
         return allowance ;
     }
 
-    public void display(){
-        
+    public void display() {
+        System.out.println("Scholarship Details:");
+        System.out.println("Scholarship ID: " + scholarsID);
+        System.out.println("Type: " + type);
+        System.out.println("CGPA: " + getCgp());
+        System.out.println("Allowance: $" + allowance);
     }
 }
