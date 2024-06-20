@@ -2,8 +2,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
-import java.time.LocalDate;
-import java.util.Date;
+import java.sql.Date;
 
 
 public class Main {
@@ -13,7 +12,7 @@ public class Main {
         Vector<Category> categories = new Vector<>(); // Store category
 
         Scanner inp = new Scanner(new File("bank.txt"));
-        Scanner trans = new Scanner(new File("Account.txt"));
+        //Scanner trans = new Scanner(new File("Account.txt"));
 
     
         Bank bank1 = null;
@@ -32,7 +31,7 @@ public class Main {
             }
         }
 
-        while (trans.hasNextLine()) {
+        /*while (trans.hasNextLine()) {
             String line = inp.nextLine();
             String[] parts = line.split(" ");
             if (parts.length == 3) {
@@ -43,16 +42,15 @@ public class Main {
                 user1 = new Users(id, name);
                 report.setUser(user1);
             }
-        }
-        inp.close();
-        trans.close();
+        }*/
+        //trans.close();
 
 
 
 
 
         
-
+        inp.close();
 
         // Create category instance 
         categories.add(new ShoppingCategory(1));    
@@ -101,6 +99,8 @@ public class Main {
                     System.out.println("Invalid choice. Please try again.");
             }
         }
+
+    
     }
 
     private static void printMenu() {
@@ -140,6 +140,8 @@ public class Main {
             Account account = findAccountById(user.getAccounts(), accountId);
             account.deposit(amount);
             System.out.println("Money deposited successfully.");
+            Date d = new Date(System.currentTimeMillis());
+            account.addTransaction(accountId, "DEPOSIT", amount, d,new Deposit(accountId) );
         } catch (AccountNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -155,9 +157,38 @@ public class Main {
             Account account = findAccountById(user.getAccounts(), accountId);
             account.withdraw(amount);
             System.out.println("Money withdrawn successfully.");
+            Date d = new Date(System.currentTimeMillis());
+            System.out.println("PRESS 1 FOR SHOPPING");
+            System.out.println("PRESS 2 FOR FOOD");
+            int cater = scanner.nextInt();
+
+            scanner.nextLine();
+
+
+            if(cater == 1){
+                
+                System.out.print("Enter Shopping name:");
+                String Shop = scanner.nextLine();
+                ShoppingCategory s = new ShoppingCategory(accountId);
+                account.addTransaction(accountId, Shop, amount, d,s );
+            }
+            else if(cater == 2){
+                System.out.print("Enter Food name:");
+                String Food = scanner.nextLine();
+                FoodCategory s = new FoodCategory(accountId);
+
+                account.addTransaction(accountId,Food, amount, d,s );
+            }
+            else{
+                System.out.println("NOT VALID");
+            }
+            System.out.println("Money withdrawn successfully.");
         } catch (AccountNotFoundException | InsufficientFundsException e) {
             System.out.println(e.getMessage());
         }
+        PauseScreen s= new PauseScreen();
+        s.pauseScreen(scanner);
+        s.ClearScreen();
     }
 
     private static void changeCurrency(Scanner scanner, Report moneyExchange) {
@@ -222,9 +253,9 @@ public class Main {
 
         try {
             Account account = findAccountById(user.getAccounts(), accountId);
-            // Saving saving = new Saving(user.getAccounts().size() + 1, name, targetAmount, targetDate);
+            Saving saving = new Saving(user.getAccounts().size() + 1, name, targetAmount,currentAmount, targetDate);
             //composition
-            account.addSaving(user.getAccounts().size() + 1, name, targetAmount, currentAmount, targetDate);
+            account.addSaving(saving);
             System.out.println("Saving goal added successfully.");
         } catch (AccountNotFoundException e) {
             System.out.println(e.getMessage());
@@ -263,7 +294,10 @@ public class Main {
                 }
             }
             if (account.getBalance() >= amount) {
-            account.addTransaction(account.getTransactions().size() + 1, description, amount, new Date(), category);
+
+            Date d = new Date(System.currentTimeMillis());
+            
+            account.addTransaction(account.getTransactions().size() + 1, description, amount,d, category);
             
                 account.withdraw(amount);
             }
