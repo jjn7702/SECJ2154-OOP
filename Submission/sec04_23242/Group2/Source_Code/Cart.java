@@ -1,7 +1,5 @@
 import java.util.*;
 
-import javax.swing.event.InternalFrameEvent;
-
 public class Cart {
     private ArrayList<Product> cart;
     private ArrayList<Integer> amount;
@@ -13,10 +11,13 @@ public class Cart {
 
     public void addItem() {
         Scanner inp = new Scanner(System.in);
-        System.out.print("\nPlease enter the item: ");
+        System.out.println("\n********");
+        System.out.println("Add Item");
+        System.out.println("********");
+        System.out.print("Please enter the item: ");
         String n = inp.nextLine().toLowerCase();
         System.out.print(
-                "Please enter the Category [FRUITS(F), VEGETABLES(V), DAIRY(D), MEAT(M), BAKERY(B), SNACKS(S), OTHERS(O)]: ");
+                "Please enter the Category [FRUITS(F), VEGETABLES(V), DAIRY(D), MEAT(M), BAKERY(B), SNACKS(S), OHTERS(O)]: ");
         String c = inp.nextLine().toUpperCase();
         switch (c) {
             case "F": {
@@ -62,7 +63,7 @@ public class Cart {
         } else {
             for (Product x : cart) {
                 if (x.getName().equals(n) && x.getCategory() == ca) {
-                    System.out.println("Item already exusts in List!");
+                    System.out.println("Item already exists in List!");
                     check = true;
                     break;
                 }
@@ -83,10 +84,11 @@ public class Cart {
     public void EditItem() {
         Scanner inp = new Scanner(System.in);
         displayCart();
+        System.out.println("Edit Quantity");
         System.out.print("Please choose the index of item to edit: ");
         int s = Integer.parseInt(inp.nextLine());
-        if (cart.size() <= s) {
-            System.out.print("Please enter the new amount: ");
+        if ((s - 1) <= cart.size()) {
+            System.out.print("Please enter the new quantity: ");
             int n = Integer.parseInt(inp.nextLine());
             // inp.close();
             amount.set((s - 1), n);
@@ -102,10 +104,13 @@ public class Cart {
         Scanner put = new Scanner(System.in);
         System.out.print("\nPlease enter the item you want to delete: ");
         int s = Integer.parseInt(put.nextLine());
-        cart.remove(s - 1);
-        amount.remove(s - 1);
-        displayCart();
-
+        if (s <= cart.size()) {
+            cart.remove(s - 1);
+            amount.remove(s - 1);
+            displayCart();
+        } else {
+            System.out.println("Invalid option!");
+        }
     }
 
     public void displayCart() {
@@ -119,26 +124,38 @@ public class Cart {
 
     public void displayCartFinal(ArrayList<Seller> sellers, Address a) {
         int n = 0;
-        String g = null;
+        String[] gz = new String[sellers.size()];
 
-        System.out.printf("%-5s%-15s%-10s%-15s%s\n", "No.", "Item", "Category", "Amount", "Recomended Shop");
+        System.out.printf("%-5s%-15s%-10s%-10s%s\n", "No.", "Item", "Category", "Amount", "Recomended Shop");
         for (Product x : cart) {
-            System.out.printf("%d%-4s%-15s%-10s%-15d", (n + 1), ")", capitalizeFirstLetter(x.getName()),
+            System.out.println(
+                    "------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf("%d%-4s%-15s%-10s%-10d", (n + 1), ")", capitalizeFirstLetter(x.getName()),
                     x.getCategory(), amount.get(n));
-            n++;
+            int num = 0;
             for (Seller s : sellers) {
                 for (int q = 0; q < s.getStore().getProducts().size(); q++)
                     if (s.getStore().getAdd().getState().equals(a.getState())
                             && (s.getStore().getProducts().get(q).contains(x))) {
-                        g = s.getStore().toString();
+                        gz[num] = s.getStore().toString();
+                        num++;
                     }
             }
-            if (g != null) {
-                System.out.println(g);
-            } else {
-                System.out.println(" ");
+            if (gz.length != 0) {
+                for (int i = 0; i < num; i++) {
+                    if (gz[i] != null) {
+                        if (i == 0) {
+                            System.out.print(gz[i]);
+                        } else {
+                            System.out.printf("\n%40s%-1s", " ", gz[i]);
+                        }
+                    }
+                }
             }
-            g = null;
+            gz = new String[sellers.size()];
+            System.out.println();
+            n++;
+            num = 0;
         }
     }
 
