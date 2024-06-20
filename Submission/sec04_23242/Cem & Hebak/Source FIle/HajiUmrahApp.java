@@ -252,6 +252,32 @@ public class HajiUmrahApp {
                                                 inp.nextLine(); // clear buffer
                                                 System.out.print("Embassy ID: ");
                                                 ID = inp.nextLine();
+
+                                                for (int k = 0; k < pegawai.size(); k++) {
+                                                        if(IC.equals(pegawai.get(k).getIdentification_Card())){
+                                                                do{
+                                                                        System.out.println("Hi Mr. " + pegawai.get(k).getName());
+                                                                        System.out.println(
+                                                                                        "========== Embassy Menu ==========");
+                                                                        System.out.println("[1] Show Embassy "
+                                                                                        + pegawai.get(k).getName()
+                                                                                        + " info");
+                                                                        System.out.println(
+                                                                                        "[2] Visa Application Business\n[3] Exit\nYour choice: ");
+                                                                        choice3 = inp.nextInt();
+                                                                        switch (choice3) {
+                                                                                case 1:
+                                                                                        pegawai.get(k).display();
+                                                                                        break;
+                                                                                case 2:
+                                                                                        
+                                                                                        break;
+                                                                                default:
+                                                                                        break;
+                                                                        }
+                                                                }while(choice3 != 3);
+                                                        }
+                                                }
                                                 break;
 
                                                 //Sini Login Embassy
