@@ -11,7 +11,6 @@ class Buyer extends User implements interfaceBuyer {
         super(email, pass, name);
         cart = new Cart();
         add = a;
-        // System.out.println(getEmail() + getPassword());
         assignId();
     }
 
@@ -42,11 +41,12 @@ class Buyer extends User implements interfaceBuyer {
 
         do {
             System.out.println("\n1) Add Item");
-            System.out.println("2) Edit Amount");
+            System.out.println("2) Edit Quantity");
             System.out.println("3) Delete Item");
             System.out.println("4) View Cart");
-            System.out.println("5) Exit");
-            System.out.print("Option: ");
+            System.out.println("5) Change Address");
+            System.out.println("6) Exit");
+            System.out.print("Option(1-6): ");
             choice = Integer.parseInt(in.nextLine());
 
             switch (choice) {
@@ -65,13 +65,28 @@ class Buyer extends User implements interfaceBuyer {
                 }
                 case 4: {
                     cart.displayCartFinal(sellers, add);
+                    break;
                 }
                 case 5: {
+                    System.out.println("Please enter the new address!");
+                    System.out.print("Street: ");
+                    String st = in.nextLine();
+                    System.out.print("Zipcode: ");
+                    String zip = in.nextLine();
+                    System.out.print("State: ");
+                    String s = in.nextLine();
+                    System.out.print("Country: ");
+                    String c = in.nextLine();
+
+                    setAdd(new Address(st, s, zip, c));
+                    break;
+                }
+                default: {
                     break;
                 }
             }
 
-        } while (choice != 5);
+        } while (choice != 6);
     }
 
     public Cart getCCart() {
@@ -80,6 +95,10 @@ class Buyer extends User implements interfaceBuyer {
 
     public String getId() {
         return id;
+    }
+
+    public void setAdd(Address a) {
+        add = a;
     }
 
     public void readCart() throws IOException {
@@ -93,7 +112,7 @@ class Buyer extends User implements interfaceBuyer {
 
             while (inp.hasNext()) {
                 String n = "", c = "";
-                n = inp.next();
+                n = inp.next().toLowerCase();
                 c = inp.next().toUpperCase();
                 String num = inp.nextLine();
                 num = num.substring(1);
@@ -153,4 +172,5 @@ class Buyer extends User implements interfaceBuyer {
         return Character.toUpperCase(s.charAt(0)) + s.substring(1);
     }
 }
+
 
