@@ -98,6 +98,7 @@ public class HajiUmrahApp {
                                 System.out.print("[1] Log In\n[2] Exit\nYour Choice: ");
                                 choice1 = inp.nextInt();
                                 if (choice1 == 1) {
+                                        
                                         System.out.println("\n========================================"); 
                                         System.out.printf("%27s\n", "Who are you ?"); 
                                         System.out.println("========================================");
@@ -157,7 +158,7 @@ public class HajiUmrahApp {
                                                                                                 } else if (choice4 == 3){
                                                                                                         jemaah.get(i).updateUserInfo();
                                                                                                 }
-                                                                                        } while (choice4 != 3);
+                                                                                        } while (choice4 != 3 && choice4 != 4);
 
                                                                                 }
                                                                         }
@@ -432,6 +433,7 @@ public class HajiUmrahApp {
                                                                         "Invalid choice. Please enter a number within the range.\n");
                                                         break;
                                         }
+                                        
                                 }
 
                                 else if (choice1 != 2) {
