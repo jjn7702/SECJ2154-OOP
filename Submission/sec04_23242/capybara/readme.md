@@ -20,7 +20,7 @@
 | :-------------: |:-------------:| :-----:|
 | Megat      | Init & CampingTrips | UI & Exception Handling |
 | Arif      |   Transportation & Budget   |   Aggregation & Inheritance |
-| Danial | DateAndTime & Activities      |   Aggregation & Inheritance |
+| Danial | DateAndTime & Activities      |   Aggregation & Inheritance & Exception Handling|
 | Kugan | Item & Food      |  Aggregation & Inheritance |
 | Ainn | Location & Campground      |    Polymorphism (Abstract) & Composition|
 
