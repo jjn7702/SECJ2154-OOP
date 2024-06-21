@@ -68,9 +68,9 @@ public class ScholarshipApp {
                                 System.out.println("There is no administrator signed in. Please wait");
                             }
 
-                            else if (StudList.contains(stu)) {
+                            else if (ad.getStudentRej().contains(stu)) {
                                 System.out.println("Your application is not approved.");
-                            } else {
+                            } else if (ad.getStudentApro().contains(stu)){
                                 System.out.println("Your application has approved. We will display the information");
                                 StudList.get(i).displayAllDetails();
                             }
@@ -136,12 +136,17 @@ public class ScholarshipApp {
                         displayStudList(StudList);
                     }
 
-                    for (Student l : ad.getStudent()) { // Will display the list of the student that have been approved
+                    for (Student l : ad.getStudentApro()) { // Will display the list of the student that have been approved
+                        l.displayAllDetails();
+                    }
+
+                    for (Student l : ad.getStudentRej()) { // Will display the list of the student that have been rejected
                         l.displayAllDetails();
                     }
 
 
-                    writeFile(ad.getStudent()) ; // Write the approved student into output file
+                    writeFileApro(ad.getStudentApro()) ; // Write the approved student into output file
+                    writeFileRej(ad.getStudentRej()) ; // Write the rejected student into output file
 
                     System.out.println("do you want to logout? (Y/N)");
                     char y = inp.next().toUpperCase().charAt(0);
@@ -325,6 +330,8 @@ public class ScholarshipApp {
         String us = inp.next();
         System.out.print("ENTER YOUR PASSWORD:\t");
         String pass = inp.next();
+        System.out.print("ENTER YOUR PARENTS THRESHOLD:\t");
+        double th = inp.nextDouble() ;
         String fileUsername = "", filePassword = "", fname = "", lname = "", email = "", address = "", street = "",
                 cityAndPostalCode = "", state = "", matricsNu = "";
         int age = 0;
@@ -409,7 +416,7 @@ public class ScholarshipApp {
                     StudentHistory st = insertStudentHistory();
 
                     Student stu = new Student(fname, lname, age, email, new Address(street, cityAndPostalCode, state),
-                            matricsNu, majors, cgpa, p, st);
+                            matricsNu, majors, cgpa, p, st, th) ;
 
                     return stu;
                 }
@@ -595,8 +602,38 @@ public class ScholarshipApp {
         }
     }
 
-    private static void writeFile(ArrayList<Student> s){
+    private static void writeFileApro(ArrayList<Student> s){
         try (PrintWriter writer = new PrintWriter(new PrintWriter("ApprovedStudent.txt"))) {
+            for(Student o: s){
+                writer.write("Student Details:\n");
+                writer.write("Full Name: " + o.getfName() + " " + o.getlName()) ;
+                writer.write("Age: " + o.getAge() + "\n");
+                writer.write("Email: " + o.getEmail() + "\n");
+                writer.write("Address: " + o.getAdd().toString() + "\n");
+                writer.write("Matrics Number: " + o.getMatricsNumber() + "\n");
+                writer.write("Major: " + o.getMajor() + "\n");
+                writer.write("CGPA: " + o.getCgpa() + "\n");
+                writer.write("Program: " + o.getPrograms() + "\n");
+                
+                writer.write("\nScholarship Details:\n");
+                writer.write("Type: " + o.getScholarship().getType() + "\n");
+                writer.write("CGPA: " + o.getScholarship().getCgp() + "\n");
+                writer.write("Allowance: $" + o.getScholarship().getAllowance() + "\n");
+                
+                writer.write("\nStudent History Details:\n");
+                writer.write("Last Program: " + o.getStudentHistory().lastProgram() + "\n");
+                writer.write("CGPA: " + o.getStudentHistory().getCgpa() + "\n");
+                writer.write("Majors: " + o.getStudentHistory().getMajors() + "\n") ;
+            }
+        } 
+        catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+
+    }
+
+    private static void writeFileRej(ArrayList<Student> s){
+        try (PrintWriter writer = new PrintWriter(new PrintWriter("RejectedStudent.txt"))) {
             for(Student o: s){
                 writer.write("Student Details:\n");
                 writer.write("Full Name: " + o.getfName() + " " + o.getlName()) ;

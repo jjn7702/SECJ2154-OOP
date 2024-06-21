@@ -1,0 +1,18 @@
+Student Details:
+Full Name: Ultraman taroAge: 2000
+Email: 	ultraBrothers@gmail.com
+Address: cahaya, Planet, m78
+Matrics Number: A                   
+Major: sddf
+CGPA: 2.0
+Program: UNDERGRADUATE
+
+Scholarship Details:
+Type: KHAZANAH GLOBAL SCHOLARSHIP
+CGPA: 3.75
+Allowance: $6000.0
+
+Student History Details:
+Last Program: PREGRADUATE
+CGPA: 3.0
+Majors: dsfdds

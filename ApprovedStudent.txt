@@ -1,0 +1,18 @@
+Student Details:
+Full Name: HAZIM SDNSAge: 19
+Email: 	DSKLFNEMdskm
+Address: sa, me l;, 
+Matrics Number: Ad,w2ed2            
+Major: fhfhfh
+CGPA: 3.5
+Program: UNDERGRADUATE
+
+Scholarship Details:
+Type: PTPTN
+CGPA: 3.0
+Allowance: $7000.0
+
+Student History Details:
+Last Program: PREGRADUATE
+CGPA: 3.9
+Majors: dgdgf
