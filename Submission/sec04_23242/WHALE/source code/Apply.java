@@ -1,6 +1,10 @@
 public class Apply {
     private int studCount;
 
+    public Apply(){
+        
+    }
+
     public Apply(int studCount) {
         this.studCount = studCount;
     }
