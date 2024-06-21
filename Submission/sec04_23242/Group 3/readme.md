@@ -44,7 +44,17 @@ Welcome to Nutrition Tracker System !
 4. Exit
 Choose an option:
 ~~~
-------Admin Menu------
+------Admin Login & Menu------
+~~~
++----------------------+----------+
+|      A D M I N   L O G I N      |
++----------------------+----------+
+
+Enter username: Chan
+Enter password: 0040
+
+------Admin login successful!------
+~~~
 ~~~
        A D M I N   M E N U
 +----------------------+----------+
@@ -54,6 +64,55 @@ Choose an option:
 3. Delete Regular User
 4. Logout
 Choose an option:
+~~~
+------User Login & Menu------
+~~~
+         U S E R   M E N U
++----------------------+----------+
+
+1. Enter Meal
+2. View Meals
+3. Edit Meal
+4. Logout
+Choose an option:
+~~~
+------User Meal Analysis------
+~~~
++-------------------+
+| User Info         |
++-------------------+
+| Name: Sini        |
+| Age : 22          |
+| BMI : 19.10       |
++-------------------+
+
++------------+------------+----------------------+----------+
+| Date       | Meal Type  | Food Item            | Calories |
++------------+------------+----------------------+----------+
+| 2024-06-11 | Breakfast  | Apple                | 52       |
+|            |            | Toast                | 75       |
+|            | Lunch      | Sandwich             | 250      |
+|            |            | Soup                 | 150      |
+|            | Dinner     | Pizza                | 285      |
+|            |            | GrilledChicken       | 335      |
+|            | Snack      | GranolaBar           | 150      |
++------------+------------+----------------------+----------+
+| 2024-06-11 | Total      |                      | 1297     |
+| 2024-06-11 | Recommend  |                      | 1613     |
+| 2024-06-11 | Status     |                      | Under    |
++------------+------------+----------------------+----------+
+| 2024-06-12 | Breakfast  | NasiLemak            | 280      |
+|            |            | Yogurt               | 100      |
+|            | Lunch      | Sushi                | 200      |
+|            |            | Salad                | 150      |
+|            | Dinner     | Pasta                | 300      |
+|            |            | Steak                | 679      |
+|            | Snack      | ChocolateBar         | 210      |
++------------+------------+----------------------+----------+
+| 2024-06-12 | Total      |                      | 1919     |
+| 2024-06-12 | Recommend  |                      | 1613     |
+| 2024-06-12 | Status     |                      | Exceeded |
++------------+------------+----------------------+----------+
 ~~~
 🍏🥦🥑
 
