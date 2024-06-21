@@ -30,7 +30,7 @@
 
 🍏🥦🥑
 ## 🥗 𝐒𝐲𝐬𝐭𝐞𝐦 𝐏𝐫𝐞𝐯𝐢𝐞𝐰 🥗
-------Main Page------
+------**Main Page**------
 ~~~
 Welcome to Nutrition Tracker System !
 
@@ -44,7 +44,7 @@ Welcome to Nutrition Tracker System !
 4. Exit
 Choose an option:
 ~~~
-------Admin Login & Menu------
+------**Admin Login & Menu**------
 ~~~
 +----------------------+----------+
 |      A D M I N   L O G I N      |
@@ -65,7 +65,17 @@ Enter password: 0040
 4. Logout
 Choose an option:
 ~~~
-------User Login & Menu------
+------**User Login & Menu**------
+~~~
++----------------------+----------+
+|      U S E R     L O G I N      |
++----------------------+----------+
+
+Enter username: Sini
+Enter password: 0810
+
+------User login successful!------
+~~~
 ~~~
          U S E R   M E N U
 +----------------------+----------+
@@ -76,7 +86,7 @@ Choose an option:
 4. Logout
 Choose an option:
 ~~~
-------User Meal Analysis------
+------**User Meal Analysis**------
 ~~~
 +-------------------+
 | User Info         |
