@@ -86,7 +86,7 @@ public enum Haji_Umrah_Package {
                         5000);
 
         private String ibadah;
-        // private Flight depart;
+        // private Flight depart; nak buang
         private Vector<Flight> flight_Ibadah;
         // private Hotel h1;
         private Vector<Hotel> hotel_Ibadah;
