@@ -7,15 +7,13 @@
 
 <img align= "center"  width=80% src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp">
 
-## 🚪Anywhere Door🚪 
-- [Features](#features)
-- [System Preview](#system-preview)
-- [OOP Concepts](#oop-concepts)
-- [FlowChart](#flowchart)
-- [Class Diagram](#class-diagram)
+## Anywhere Door
+🚪- [Features](#Features)
+🚪- [System Preview](#System-Preview)
+🚪- [OOP Concepts](#Oop-concepts)
+🚪- [FlowChart](#Flowchart)
+🚪- [Class Diagram](#class-diagram)
 
-
-🍏🥦🥑
 
 ##  🥗 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 🥗
 <img align="right" width=30% src="https://img.freepik.com/premium-vector/eat-healthy-food-cartoon-hand-drawn-doodle-self-care-awareness-drawing-clip-art-icon-illustration_66976-559.jpg">
