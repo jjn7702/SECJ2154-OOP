@@ -90,18 +90,19 @@ public class Main {
         while (trans.hasNextLine()) {
             String line = trans.nextLine();
             String[] parts = line.split(" ");
-            int id = Integer.parseInt(parts[0]);
-            String des = parts[1];
-            String date = parts[2];
+            int uid = Integer.parseInt(parts[0]);
+            int id = Integer.parseInt(parts[1]);
+            String des = parts[2];
+            String date = parts[3];
             Date d = Date.valueOf(date);
-            double amount = Double.parseDouble(parts[3]);
-            int catID = Integer.parseInt(parts[4]);
+            double amount = Double.parseDouble(parts[4]);
+            int catID = Integer.parseInt(parts[5]);
             if(catID == 1){
-                user1.getAccounts().get(id).addTransaction(id, des,amount ,d, categories.elementAt(0));
+                user1.getAccounts().get(uid).addTransaction(id, des,amount ,d, categories.elementAt(0));
 
             }
             else if(catID == 2){
-                user1.getAccounts().get(id).addTransaction(id, des,amount ,d, categories.elementAt(1));
+                user1.getAccounts().get(uid).addTransaction(id, des,amount ,d, categories.elementAt(1));
 
             }
         }
@@ -218,7 +219,7 @@ public class Main {
         try (FileWriter writer = new FileWriter("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Transaction.txt", false)) {
             for (Account account : user.getAccounts()) {
                 for (Transaction transaction : account.getTransactions()) {
-                    writer.write((transaction.getId()) + " " + transaction.getDescription() + " " +transaction.getDate() + " " + transaction.getAmount() + " " + transaction.getCategoryId() + "\n");
+                    writer.write((account.getId()-1) + " " + transaction.getDescription() + " " +transaction.getDate() + " " + transaction.getAmount() + " " + transaction.getCategoryId() + "\n");
                 }
             }
         }
