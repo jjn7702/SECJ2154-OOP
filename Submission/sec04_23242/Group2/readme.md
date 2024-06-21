@@ -1,7 +1,7 @@
 # 🛒 Grocery Shopping Assistant
 > Grocery List Made Easier
 
-![GroceryShoppingDulu](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Images/60d0fd6b94550d0d6f57131e3dcdf1fa.gif)
+<img alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Images/60d0fd6b94550d0d6f57131e3dcdf1fa.gif">
 
 ## Table of Contents
 [Synopsis](#synopsis)           
