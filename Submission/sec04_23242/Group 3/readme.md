@@ -3,7 +3,7 @@
 Ⓦⓔⓛⓒⓞⓜⓔ ⓣⓞ ⓝⓤⓣⓡⓘⓣⓘⓞⓝ ⓣⓡⓐⓒⓚⓔⓡ ⓢⓨⓢⓣⓔⓜ !!
 
 
-> This system helps you keep track of your daily food intake, monitor your nutritional goals, and maintain a balanced diet.
+> This system helps you keep track of your daily food intake, monitor your nutritional goals, and maintain a balanced diet. 🫐
 
 <img align= "center"  width=80% src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp">
 
@@ -11,19 +11,19 @@
 ## 🥗 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 🥗
 <img align="right" width=30% src="https://img.freepik.com/premium-vector/eat-healthy-food-cartoon-hand-drawn-doodle-self-care-awareness-drawing-clip-art-icon-illustration_66976-559.jpg">
 
-📊 Daily Tracking: Log your daily meals and snacks.
+📊 **Daily Tracking**: Log your daily meals and snacks.
 
-⚖️ BMI Calculation: Calculate your Body Mass Index (BMI) to monitor your health and fitness progress.
+⚖️ **BMI Calculation**: Calculate your Body Mass Index (BMI) to monitor your health and fitness progress.
 
-📝 Meal Recording: Users can log their meals, including meal type, date, and food items.
+📝 **Meal Recording**: Users can log their meals, including meal type, date, and food items.
 
-✏️ Meal Editing: Easily edit your logged meals to ensure accurate tracking.
+✏️ **Meal Editing**: Easily edit your logged meals to ensure accurate tracking.
 
-📈 Meal Reports: View your meals over date with visual reports.
+📈 **Meal Reports**: View your meals over date with visual reports.
 
-👥 User Management: Admins can view food items, manage users, and delete user accounts.
+👥 **User Management**: Admins can view food items, manage users, and delete user accounts.
 
-🔒 Secure Login: Both admin and regular users can securely log in to access their personalized features.
+🔒 **Secure Login**: Both admin and regular users can securely log in to access their personalized features.
 
 --
 
