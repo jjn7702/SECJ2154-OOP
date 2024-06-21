@@ -10,7 +10,7 @@ class Undergraduate implements User{
     this.matricID = matricID;
   }
 
-  public String getMatricID(）{
+  public String getMatricID(){
     return matricID;
   }
   
@@ -22,7 +22,7 @@ class Postgraduate implements User{
   }
 
   public String getMatricID(){
-    this.matricID = matricID;
+     return matricID;
   }
 }
   
