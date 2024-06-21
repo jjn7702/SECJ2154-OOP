@@ -289,6 +289,7 @@ public class Jemaah extends User implements userDisplay {
                 break;
         }
         plgPkg = Pelancongan_Package.valueOf(vacation);
+        plgPkg.choose_Hotel_Room();
         plgPkg.display_Pelancongan_info();
 
         if (pakejIbadah.getFlight().size() != 0) {
