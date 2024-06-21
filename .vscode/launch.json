@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "cuba",
+      "request": "launch",
+      "mainClass": "cuba",
+      "projectName": "SECJ2154-OOP_1b948572"
+    },
+    {
+      "type": "java",
       "name": "GrocerySystem",
       "request": "launch",
       "mainClass": "GrocerySystem",
