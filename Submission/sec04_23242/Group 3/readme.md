@@ -2,10 +2,9 @@
 
 𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓷𝓾𝓽𝓻𝓲𝓽𝓲𝓸𝓷 𝓽𝓻𝓪𝓬𝓴𝓮𝓻 𝓼𝔂𝓼𝓽𝓮𝓶 ! 
 
-This application helps you keep track of your daily food intake, monitor your nutritional goals, and maintain a balanced diet.
+> This system helps you keep track of your daily food intake, monitor your nutritional goals, and maintain a balanced diet.
 
-<iframe src="https://giphy.com/embed/j6SbdhHBWfz8SttRAJ" width="480" height="300" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/stickers/makeitgrain-nutricion-ucv-nutricionucv-j6SbdhHBWfz8SttRAJ">via GIPHY</a></p>
-
+<img align= "left"  src= "https://cdn1.byjus.com/wp-content/uploads/blog/2022/04/07125252/Food_Banner-1.gif">
 
 # 🥗 Features
 
