@@ -13,7 +13,6 @@ public class ScholarshipApp {
     static Student stu = null;
 
     public static void main(String[] args) throws IOException {
-        int sID = 0000;
         Vector<Student> StudList = new Vector<Student>(); // Insert the student that have been registered for
                                                           // scholarship
 
@@ -30,7 +29,7 @@ public class ScholarshipApp {
 
                 if (rs == 'Y') {
                     stu = registerStudent();
-
+                    StudList.add(stu) ;
                 } 
                 else if (rs == 'N') {
                     stu = signInStudent(StudList); // Ni function untuk tngok status je
@@ -390,7 +389,7 @@ public class ScholarshipApp {
 
                 Student p = new Student() ;
 
-                p.se
+                return p ;
             } else {
                 System.out.println("Invalid username or password.");
             }
