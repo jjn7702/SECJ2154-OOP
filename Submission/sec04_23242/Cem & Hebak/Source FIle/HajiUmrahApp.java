@@ -279,7 +279,7 @@ public class HajiUmrahApp {
                                                                                                 + doktor.get(i).getName()
                                                                                                 + " info");
                                                                                 System.out.print(
-                                                                                                "[2] Medical Application Business\n[3] Exit\nYour choice: ");
+                                                                                                "[2] Medical Application Business\n[3] Update Doctor Information\n[4] Exit\nYour choice: ");
                                                                                 choice3 = inp.nextInt();
 
                                                                                 if (choice3 == 1) {
@@ -356,6 +356,8 @@ public class HajiUmrahApp {
                                                                                                                 "Invalid choice, please enter a number within the range.\n");
                                                                                         }
 
+                                                                                } else if(choice3 == 3){
+                                                                                        doktor.get(i).updateUserInfo();
                                                                                 }
 
                                                                         } while (choice3 != 3);
@@ -399,7 +401,7 @@ public class HajiUmrahApp {
                                                                                                 + pegawai.get(k).getName()
                                                                                                 + " info");
                                                                                 System.out.print(
-                                                                                                "[2] Visa Application Business\n[3] Exit\nYour choice: ");
+                                                                                                "[2] Visa Application Business\n[3] Update Embassy Information\n[4] ExitYour choice: ");
                                                                                 choice3 = inp.nextInt();
                                                                                 switch (choice3) {
                                                                                         case 1:
@@ -457,6 +459,9 @@ public class HajiUmrahApp {
                                                                                                         System.out.println(
                                                                                                                         "Invalid choice, please enter a number within the range.\n");
                                                                                                 }
+                                                                                                break;
+                                                                                        case 3: 
+                                                                                                pegawai.get(k).updateUserInfo();
                                                                                                 break;
                                                                                         default:
                                                                                                 break;
