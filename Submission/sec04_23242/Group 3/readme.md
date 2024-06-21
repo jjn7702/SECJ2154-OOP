@@ -4,7 +4,8 @@
 
 > This system helps you keep track of your daily food intake, monitor your nutritional goals, and maintain a balanced diet.
 
-<img align= "left"  src= "[https://cdn1.byjus.com/wp-content/uploads/blog/2022/04/07125252/Food_Banner-1.gif](https://cdn1.byjus.com/wp-content/uploads/blog/2022/04/07125252/Food_Banner-1.gif)">
+<img align= "center"  width=80% src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp">
+
 
 # 🥗 Features
 
@@ -24,5 +25,6 @@
 
 
 ## 🥗 OOP concepts
+
 ## 🥗 FlowChart
 ## 🥗 Class Diagram
