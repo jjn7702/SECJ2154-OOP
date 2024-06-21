@@ -14,12 +14,12 @@ public class Student extends User {
 
     }
 
-    public Student(String fn, String ln, int a, String em, Address add, String matricsNumber, String major, double CGPA, Scholarship scholarship, Programs prog, StudentHistory studhist) {
+    public Student(String fn, String ln, int a, String em, Address add, String matricsNumber, String major, double CGPA, Programs prog, StudentHistory studhist) {
         super(fn, ln, a, em, add);
         this.matricsNumber = matricsNumber;
         this.major = major;
         this.CGPA = CGPA;
-        this.scholarship = scholarship;
+        scholarship = new meritBased() ;
         this.prog = prog;
         this.studhist = studhist;
     }
@@ -31,6 +31,14 @@ public class Student extends User {
 
     public void setCgpa(double CGPA) {
         this.CGPA = CGPA;
+    }
+
+    public String getFname(){
+        return fName ;
+    }
+
+    public void RegisterScholarship(Scholarship sc){
+        scholarship = sc ;
     }
 
     public Scholarship getScholarship() {
