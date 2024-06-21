@@ -152,6 +152,7 @@ public class HajiUmrahApp {
                                                                                                 System.out.print(
                                                                                                                 "\n[1] Show Jemaah Info\n[2] Haji and Umrah package\n[3] Update Jemaah Info\n[4] Exit\nYour choice: ");
                                                                                                 choice4 = inp.nextInt();
+                                                                                                inp.nextLine();
                                                                                                 if (choice4 == 1) {
                                                                                                         jemaah.get(i).display();
                                                                                                 } else if (choice4 == 2) {
