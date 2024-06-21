@@ -8,7 +8,7 @@
 <img align= "center"  width=80% src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp">
 
 
-🥦🥦🥦
+🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦
 
 ##  🥗 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 🥗
 <img align="right" width=30% src="https://img.freepik.com/premium-vector/eat-healthy-food-cartoon-hand-drawn-doodle-self-care-awareness-drawing-clip-art-icon-illustration_66976-559.jpg">
@@ -28,7 +28,7 @@
 🔒 **Secure Login**: Both admin and regular users can securely log in to access their personalized features.
 
 
-🥦🥦🥦
+🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦
 
 ## 🥗 𝐎𝐎𝐏 𝐂𝐨𝐧𝐜𝐞𝐩𝐭𝐬 🥗
 ### 🔐Encapsulation and data hiding 
@@ -193,12 +193,13 @@ private static void adminLogin(DatabaseManager dbManager, Scanner scanner) {
 ~~~
 One of the exception handling we had in our developed system. The exception we try to handle is the user entering an invalid input of username and password. If the user entered the username and password which is not matched with the database, an error message “Invalid admin credentials” will be displayed to the user to indicates their invalid inputs.
 
-🥦🥦🥦
+🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦
 
 ## 🥗 𝐅𝐥𝐨𝐰𝐂𝐡𝐚𝐫𝐭 🥗
 abcd
 
-🥦🥦🥦
+🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦
+
 
 ## 🥗 𝐂𝐥𝐚𝐬𝐬 𝐃𝐢𝐚𝐠𝐫𝐚𝐦 🥗
 abcd
