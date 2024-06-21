@@ -113,12 +113,6 @@ public enum Haji_Umrah_Package {
                 int counterFlight = 1;
                 int counterHotel = 1;
 
-                for (Hotel hotel : hotel_Ibadah) {
-                        System.out.println("========================= Hotel " + counterHotel
-                                        + " =========================");
-                        hotel.display_Hotel_Ibadah_Info();
-                        counterHotel++;
-                }
                 System.out.println("========================= Kursus Haji =========================");
                 kursus_Ibadah.Display_Kursus_info();
 
@@ -127,6 +121,13 @@ public enum Haji_Umrah_Package {
                                         + " =========================");
                         flight.display_Flight_Info();
                         counterFlight++;
+                }
+                
+                for (Hotel hotel : hotel_Ibadah) {
+                        System.out.println("========================= Hotel " + counterHotel
+                                        + " =========================");
+                        hotel.display_Hotel_Ibadah_Info();
+                        counterHotel++;
                 }
         }
 
