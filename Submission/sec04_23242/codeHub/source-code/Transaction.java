@@ -42,8 +42,8 @@ class Transaction {
         this.category = category;
     }
     
-    public String getDetails(double rate) {
-        return "Transaction ID: " + id + ", Description: " + description + ", Amount: RM" + (amount * rate) + ", Date: " + date
+    public String getDetails() {
+        return "Transaction ID: " + id + ", Description: " + description + ", Amount: RM" + ", Date: " + date
                 + ", Category: " + category.getName();
     }
 
