@@ -1,6 +1,6 @@
 # 🍏Nutrition Tracker System
 
-Welcome to the Nutrition Tracker System! 
+𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓷𝓾𝓽𝓻𝓲𝓽𝓲𝓸𝓷 𝓽𝓻𝓪𝓬𝓴𝓮𝓻 𝓼𝔂𝓼𝓽𝓮𝓶 ! 
 
 This application helps you keep track of your daily food intake, monitor your nutritional goals, and maintain a balanced diet.
 
