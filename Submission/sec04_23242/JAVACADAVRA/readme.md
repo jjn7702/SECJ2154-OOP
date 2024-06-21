@@ -1,18 +1,5 @@
 # Sports Team Manager - Project
 
-## Appendix :red_circle:
-
-- [Overview of The Project](#overview)
-- [Objective](#objective)
-- [Synopsis](#synopsis)
-- [Problem Analysis](#problemanalysis)
-- [OO Concepts](#ooconcepts)
-- [Design](#design)
-- [Design Description](#designdescription)
-- [User Manual/Guide](#usermanual)
-- [Similarity report](#report)
-- [Findings](#findings)
-
 ## Overview of The Project <a name="overview"></a> :heavy_check_mark:
 ## Objective <a name="objective"></a> 🧠
   The main objective for developing the Sports Team management system is
@@ -62,9 +49,19 @@ Object
 - Allows part objects to exist independently of the whole object.
 
 #### 7. Inheritance 
-#### 8. Polymorphism 
-#### 9. Exception Handling
+- Inheritance implements the “is-a” relationship that consists of superclass(general class) and subclass(specialized class).
+- Process which a new class is created from anothe class.
+- Allow subclass to inherits the attributes and methods of the superclass.
+- As an example, ‘Person’ is a superclass that allow other classes such as ‘Coach’, ‘Manager’ and ‘Athlete’ to inherit all the attributes and methods.
 
+#### 8. Polymorphism 
+- Polymorphism  is when the same method call can lead to different behaviors.
+- Allows methods to be overridden.
+- Polymorphism also uses dynamic binding that determines the method to be invoked during runtime based on the object type not the reference type.
+- ‘getInfo()’ method can lead to different behaviors depending on which it is invoked. As an example, if it is called by object ‘Coach’, it will return name, gender, age, experience and expertise. Meanwhile, if it is called by object ‘Manager’, it will return name, gender, age and office.
+
+#### 9. Exception Handling
+- 
 
 ## Design <a name="design"></a> 🎨
 #### Flowchart
