@@ -78,7 +78,7 @@ public enum Pelancongan_Package {
                         flight.display_Flight_Info();
                         counterFlight++;
                 }
-                
+
                 System.out.println("\nHotels:");
                 System.out.println("========================= Hotel " + counterHotel
                                 + " =========================");
@@ -97,6 +97,7 @@ public enum Pelancongan_Package {
                                         + " =========================");
                         hotel.chooseRoomSize();
                         // price_Pelancongan += hotel.chooseRoomSize();
+                        price_Pelancongan += hotel.getPrice();
                         counterHotel++;
 
                 }
