@@ -141,7 +141,7 @@ public class HajiUmrahApp {
                                                                                                 if (choice4 == 1) {
                                                                                                         jemaah.get(i).display();
                                                                                                 } else if (choice4 == 2) {
-                                                                                                        jemaah.get(i).chooseIbadahPackage();
+                                                                                                        jemaah.get(i).chooseUmrahPackage();
                                                                                                         System.out.println("\n========================================");
                                                                                                         System.out.printf("%30s\n", "Pelancongan Package");
                                                                                                         System.out.println("========================================");
@@ -379,7 +379,7 @@ public class HajiUmrahApp {
                                                                                                 }
                                                                                                 System.out.println("\n========================================");
                                                                                                 System.out.printf("%27s\n", "List Of Jemaah");
-                                                                                        S       ystem.out.println("========================================");
+                                                                                                System.out.println("========================================");
                                                                                                 for (int j = 0; j < JemaahWithEmbassy
                                                                                                                 .size(); j++) {
                                                                                                         System.out.println(
