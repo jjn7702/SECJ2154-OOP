@@ -13,10 +13,9 @@ public class Administrator extends User {
     public Administrator() {
     }
 
-    public Administrator(String fn, String ln, int a, String em, Address add, String username, String position) {
+    public Administrator(String fn, String ln, int a, String em, Address add, String username) {
         super(fn, ln, a, em, add);
         this.username = username;
-        this.position = position;
         stud = new ArrayList<>();
         // this.scholar = sc ;
         this.application = new Apply();
@@ -64,7 +63,7 @@ public class Administrator extends User {
 
     @Override
     public String toString() {
-        return super.toString() + " Admin username: " + username + "\nPosition: " + position;
+        return super.toString() + " Admin username: " + username ;
     }
 
     @Override

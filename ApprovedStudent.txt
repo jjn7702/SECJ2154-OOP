@@ -1,0 +1,18 @@
+Student Details:
+Full Name: HAZIM SDNSAge: 19
+Email: 	DSKLFNEMdskm
+Address: sa, me l;, 
+Matrics Number: Ad,w2ed2            
+Major: dgfgfg
+CGPA: 4.0
+Program: PREGRADUATE
+
+Scholarship Details:
+  Type: MAJLIS AMANAH RAKYAT (MARA)
+  CGPA: 3.5
+  Allowance: $15000.0
+
+Student History Details:
+  Last Program: PREGRADUATE
+  CGPA: 3.6
+  Majors: dfgfdgfg

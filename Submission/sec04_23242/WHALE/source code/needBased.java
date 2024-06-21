@@ -1,15 +1,11 @@
 class needBased extends Scholarship{
-    private double allowance ;
-    private double threshold ;
 
     public needBased(){
-        
+
     }
 
     public needBased(double all, String st, double cg, double th){
-        super(st, cg) ;
-        allowance = all ;
-        threshold = th;
+        super(st, cg, all, th) ;
     }
 
     public boolean isEligible(Student st){
@@ -20,19 +16,16 @@ class needBased extends Scholarship{
             return false ;
     }
 
-    public double getAllowance(){
-        return allowance ;
-    }
-    
-    public double getThres(){
-        return threshold ;
-    }
 
     public void display(){
         System.out.println("Scholarship Details:");
         System.out.println("Type: " + type);
         System.out.println("CGPA: " + getCgp());
-        System.out.println("Family Threshold: " + threshold);
-        System.out.println("Allowance: " + allowance);
+        System.out.println("Family Threshold: " + getThres());
+        System.out.println("Allowance: " + getAllowance());
+    }
+
+    public String toString(){
+        return "Type: " + type + "\nCGPA: " + getCgp() + "\nAllowance: " + getAllowance() + "\nFamily Threshold: " + getThres() ;
     }
 }

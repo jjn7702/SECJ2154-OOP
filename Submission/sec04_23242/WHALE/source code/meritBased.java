@@ -1,13 +1,11 @@
 class meritBased extends Scholarship{
-    private double allowance ;
 
     public meritBased(){
 
     }
 
-    public meritBased(double all, String st, double cg){
-        super(st, cg) ;
-        allowance = all ;
+    public meritBased(double all, String st, double cg, double th){
+        super(st, cg, all, th) ;
     }
 
     public boolean isEligible(Student st){
@@ -18,14 +16,14 @@ class meritBased extends Scholarship{
             return false ;
     }
 
-    public double getAllowance(){
-        return allowance ;
-    }
-
     public void display() {
         System.out.println("Scholarship Details:");
         System.out.println("Type: " + type);
         System.out.println("CGPA: " + getCgp());
-        System.out.println("Allowance: RM" + allowance);
+        System.out.println("Allowance: RM" + getAllowance());
+    }
+
+    public String toString(){
+        return "Type: " + type + "\nCGPA: " + getCgp() + "\nAllowance: " + getAllowance() ;
     }
 }
