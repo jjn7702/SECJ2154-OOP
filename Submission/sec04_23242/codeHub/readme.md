@@ -1,8 +1,8 @@
-
 <h1 align="center">
 💸 Personal Finance Manager 💸
 </h1>
-project description
+
+## Description 📝
 
 ## Project design 📚
 class diagram
