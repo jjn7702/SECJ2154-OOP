@@ -8,9 +8,9 @@ public class GrocerySystem {
         ArrayList<Seller> seller = new ArrayList<>();
         int option = 0;
         Scanner inp = new Scanner(System.in);
-        Scanner in = new Scanner(new File("User.csv"));
+        Scanner in = new Scanner(new File("/workspaces/SECJ2154-OOP/Submission/sec04_23242/Group2/Source_Code/user.csv"));
         users = ReadUser(in);
-        in = new Scanner(new File("Seller.csv"));
+        in = new Scanner(new File("/workspaces/SECJ2154-OOP/Submission/sec04_23242/Group2/Source_Code/Seller.csv"));
         seller = ReadSeller(in);
 
         do {
@@ -80,11 +80,11 @@ public class GrocerySystem {
             p = inp.next();
             n = inp.next();
             st = inp.next();
-            state = inp.next();
             zipcode = inp.next();
+            state = inp.next();
             country = inp.nextLine();
             country = country.substring(1);
-            Buyers.add(new Buyer(e, p, n, new Address(st, zipcode, state, country)));
+            Buyers.add(new Buyer(e, p, n, new Address(st, state,zipcode,country)));
             Buyers.get(num).readCart();
             num++;
         }
@@ -105,8 +105,8 @@ public class GrocerySystem {
             n = inp.next();
             i = inp.next();
             st = inp.next();
-            state = inp.next();
             zipcode = inp.next();
+            state = inp.next();
             country = inp.nextLine();
             country = country.substring(1);
             s.add(new Seller(e, p, n, new Store(i, new Address(st, state, zipcode, country))));
@@ -251,7 +251,7 @@ public class GrocerySystem {
                 } while (!check);
                 System.out.print("Please enter your shop name: ");
                 String sh = inp.nextLine();
-                Address a = new Address(st, z, state, c);
+                Address a = new Address(st, state,z, c);
                 Store st1 = new Store(sh, a);
                 Seller s1 = new Seller(e, p, n, st1);
                 s.add(s1);
@@ -274,7 +274,7 @@ public class GrocerySystem {
     }
 
     public static void saveBuyerAndSeller(ArrayList<Seller> s, ArrayList<User> b) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter("User.csv"))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("/workspaces/SECJ2154-OOP/Submission/sec04_23242/Group2/Source_Code/user.csv"))) {
             for (User x : b) {
                 writer.print(x.getEmail().toLowerCase() + ",");
                 writer.print(x.getPassword() + ",");
@@ -289,7 +289,7 @@ public class GrocerySystem {
             System.out.println("Error : File not found");
         }
 
-        try (PrintWriter writer = new PrintWriter(new FileWriter("Seller.csv"))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("/workspaces/SECJ2154-OOP/Submission/sec04_23242/Group2/Source_Code/Seller.csv"))) {
             for (Seller x : s) {
                 writer.print(x.getEmail().toLowerCase() + ",");
                 writer.print(x.getPassword() + ",");

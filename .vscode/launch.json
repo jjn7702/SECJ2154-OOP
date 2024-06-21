@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "GrocerySystem",
+      "request": "launch",
+      "mainClass": "GrocerySystem",
+      "projectName": "SECJ2154-OOP_9825a15c"
+    },
+    {
+      "type": "java",
       "name": "ScholarshipApp",
       "request": "launch",
       "mainClass": "ScholarshipApp",
