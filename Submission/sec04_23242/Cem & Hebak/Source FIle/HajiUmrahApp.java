@@ -119,16 +119,25 @@ public class HajiUmrahApp {
                                                                                                                         +
                                                                                                                         jemaah.get(i).getName());
                                                                                         System.out.print(
-                                                                                                        "[1] Show jemaah info\n[2] Haji and Umrah package\n[3] Pelancongan package\n[4] Exit\nYour choice: ");
+                                                                                                        "[1] Show jemaah info\n[2] Haji and Umrah package\n[3] Exit\nYour choice: ");
                                                                                         choice4 = inp.nextInt();
                                                                                         if (choice4 == 1) {
                                                                                                 jemaah.get(i).display();
                                                                                         } else if (choice4 == 2) {
                                                                                                 jemaah.get(i).chooseUmrahPackage();
-                                                                                        } else if (choice4 == 3) {
-                                                                                                jemaah.get(i).add_Pelancongan_Package();
+                                                                                                System.out.print(
+                                                                                                                "[1] Add pelancongan package\n[2] Exit\nYour choice: ");
+                                                                                                choice5 = inp.nextInt();
+                                                                                                inp.nextLine(); // clear
+                                                                                                                // buffer
+                                                                                                if (choice5 == 1) {
+                                                                                                        jemaah.get(i).add_Pelancongan_Package();
+
+                                                                                                } else {
+                                                                                                        break;
+                                                                                                }
                                                                                         }
-                                                                                } while (choice4 != 4);
+                                                                                } while (choice4 != 3);
 
                                                                         }
                                                                 }
@@ -153,7 +162,9 @@ public class HajiUmrahApp {
                                                                 age = inp.nextInt();
                                                                 inp.nextLine();// clear buffer
                                                                 jemaahID = "J" + (jemaah.size() + 1);
-                                                                System.out.print("Here your jemaah ID (for login purpose): " + jemaahID);
+                                                                System.out.print(
+                                                                                "Here your jemaah ID (for login purpose): "
+                                                                                                + jemaahID);
                                                                 System.out.println("\n");
 
                                                                 Jemaah newJemaah = new Jemaah(name, contact,
@@ -242,7 +253,9 @@ public class HajiUmrahApp {
                                                                                 }
                                                                                 System.out.println();
                                                                                 System.out.print(
-                                                                                                "[a] Press 0 for exit\n[b] pick number of jemaah [1-n]\n");
+                                                                                                "[0] Exit\n[1 -" + (jemaahWithDoctor
+                                                                                                                .size())
+                                                                                                                + "] Pick jemaah \n");
                                                                                 choice5 = inp.nextInt();
                                                                                 if (choice5 == 0) {
                                                                                         break;
@@ -269,15 +282,17 @@ public class HajiUmrahApp {
                                                 ID = inp.nextLine();
 
                                                 for (int k = 0; k < pegawai.size(); k++) {
-                                                        if(IC.equals(pegawai.get(k).getIdentification_Card()) && ID.equals(pegawai.get(k).getEmbassy_numberr())){
-                                                                do{
-                                                                        System.out.println("Hi Mr. " + pegawai.get(k).getName());
+                                                        if (IC.equals(pegawai.get(k).getIdentification_Card()) && ID
+                                                                        .equals(pegawai.get(k).getEmbassy_numberr())) {
+                                                                do {
+                                                                        System.out.println("Hi Mr. "
+                                                                                        + pegawai.get(k).getName());
                                                                         System.out.println(
                                                                                         "========== Embassy Menu ==========");
                                                                         System.out.println("[1] Show Embassy "
                                                                                         + pegawai.get(k).getName()
                                                                                         + " info");
-                                                                        System.out.println(
+                                                                        System.out.print(
                                                                                         "[2] Visa Application Business\n[3] Exit\nYour choice: ");
                                                                         choice3 = inp.nextInt();
                                                                         switch (choice3) {
@@ -286,36 +301,54 @@ public class HajiUmrahApp {
                                                                                         break;
                                                                                 case 2:
                                                                                         Vector<Jemaah> JemaahWithEmbassy = new Vector<>();
-                                                                                        for (int j = 0; j < jemaah.size(); j++) {
-                                                                                                if (jemaah.get(j).getEmbassy() == pegawai.get(k)) {
-                                                                                                        JemaahWithEmbassy.add(jemaah.get(j));
+                                                                                        for (int j = 0; j < jemaah
+                                                                                                        .size(); j++) {
+                                                                                                if (jemaah.get(j)
+                                                                                                                .getEmbassy() == pegawai
+                                                                                                                                .get(k)) {
+                                                                                                        JemaahWithEmbassy
+                                                                                                                        .add(jemaah.get(j));
                                                                                                 }
                                                                                         }
-                                                                                        System.out.println("========== LIST OF JEMAAH ==========");
-                                                                                        for (int j = 0; j < JemaahWithEmbassy.size(); j++) {
-                                                                                                System.out.println((j+1) + ") " + JemaahWithEmbassy.get(j).getName());
+                                                                                        System.out.println(
+                                                                                                        "========== LIST OF JEMAAH ==========");
+                                                                                        for (int j = 0; j < JemaahWithEmbassy
+                                                                                                        .size(); j++) {
+                                                                                                System.out.println((j
+                                                                                                                + 1)
+                                                                                                                + ") "
+                                                                                                                + JemaahWithEmbassy
+                                                                                                                                .get(j)
+                                                                                                                                .getName());
                                                                                         }
                                                                                         System.out.println();
-                                                                                        System.out.print("[a] Press 0 for Exit \n[b] Press number of jemaah [1 - " + JemaahWithEmbassy.size() +"]\n");
+                                                                                        System.out.print(
+                                                                                                        "[a] Press 0 for Exit \n[b] Press number of jemaah [1 - "
+                                                                                                                        + JemaahWithEmbassy
+                                                                                                                                        .size()
+                                                                                                                        + "]\n");
                                                                                         choice5 = inp.nextInt();
                                                                                         switch (choice5) {
                                                                                                 case 0:
                                                                                                         break;
-                                                                                        
+
                                                                                                 default:
-                                                                                                        pegawai.get(k).Visa_Application(JemaahWithEmbassy.get(choice5 - 1));;
+                                                                                                        pegawai.get(k).Visa_Application(
+                                                                                                                        JemaahWithEmbassy
+                                                                                                                                        .get(choice5 - 1));
+                                                                                                        ;
                                                                                                         break;
                                                                                         }
                                                                                         break;
                                                                                 default:
                                                                                         break;
                                                                         }
-                                                                }while(choice3 != 3);
+                                                                } while (choice3 != 3);
                                                         }
                                                 }
                                                 break;
 
-                                                //Sini Login Embassy
+                                                // Sini Login Embassy
                                         }
                                 }
                         }
