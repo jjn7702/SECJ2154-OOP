@@ -245,7 +245,7 @@ public class Jemaah extends User implements userDisplay {
         setIdentification_Card(inp.nextLine());
         System.out.print("Email: ");
         setEmail(inp.nextLine());
-        System.out.print("Age: );
+        System.out.print("Age: ");
         setAge(inp.nextInt());
     }
 
