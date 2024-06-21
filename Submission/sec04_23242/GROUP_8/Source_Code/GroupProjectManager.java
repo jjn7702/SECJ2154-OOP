@@ -41,7 +41,7 @@ public class GroupProjectManager {
                     editProject(inp);
                     break;
                 case 4:
-                    // deleteProject(inp);
+                    deleteProject(inp);
                     break;
                 case 5:
                     System.out.println("Exiting...");
@@ -262,7 +262,12 @@ public class GroupProjectManager {
                         System.out.print("Enter new project ID (or press Enter to keep the current name): ");
                         String projectID = inp.nextLine();
                         if (!projectID.isEmpty()) {
-                            project.setProjectID(projectID);                       }
+                            project.setProjectID(projectID);                   
+                            
+                            System.out.println("╔═══════════════════════════════════════════╗");
+                            System.out.println("║      Project ID edited successfully!      ║");
+                            System.out.println("╚═══════════════════════════════════════════╝");    
+                        }
                         break;
 
                     case 2:
@@ -271,6 +276,10 @@ public class GroupProjectManager {
                         String projectName = inp.nextLine();
                         if (!projectName.isEmpty()) {
                             project.setTitle(projectName);
+                            
+                            System.out.println("╔════════════════════════════════════════════╗");
+                            System.out.println("║      Project name edited successfully!     ║");
+                            System.out.println("╚════════════════════════════════════════════╝");
                         }
                         break;
     
@@ -280,6 +289,10 @@ public class GroupProjectManager {
                         String projectDescription = inp.nextLine();
                         if (!projectDescription.isEmpty()) {
                             project.setDescription(projectDescription);
+
+                            System.out.println("╔════════════════════════════════════════════╗");
+                            System.out.println("║  Project description edited successfully!  ║");
+                            System.out.println("╚════════════════════════════════════════════╝");
                         }
                         break;
     
@@ -307,10 +320,6 @@ public class GroupProjectManager {
                         System.out.println("Invalid choice. Please try again.");
                 }
             }
-    
-            System.out.println("╔═══════════════════════════════╗");
-            System.out.println("║  Project edited successfully! ║");
-            System.out.println("╚═══════════════════════════════╝");
         } else {
             System.out.println("Invalid project number.");
         }
@@ -383,11 +392,15 @@ public class GroupProjectManager {
     }
     
     private static void editMilestones(Scanner inp, Project project) {
-        System.out.println("Milestones:");
+        System.out.println("\n╔══════════════════════════════════════════╗");
+        System.out.println("║                Milestones                ║");
+        System.out.println("╚══════════════════════════════════════════╝");
+    
         for (int i = 0; i < project.getMilestone().size(); i++) {
             Milestone milestone = project.getMilestone().get(i);
             System.out.printf("%d. %s (ID: %s)\n", i + 1, milestone.getMilestoneName(), milestone.getMilestoneID());
         }
+    
         System.out.print("Enter the number of the milestone to edit (or 0 to skip): ");
         int milestoneIndex = inp.nextInt() - 1;
         inp.nextLine(); // Consume newline
@@ -395,29 +408,55 @@ public class GroupProjectManager {
         if (milestoneIndex >= 0 && milestoneIndex < project.getMilestone().size()) {
             Milestone milestone = project.getMilestone().get(milestoneIndex);
     
-            System.out.println("Editing milestone: " + milestone.getMilestoneName());
-    
+            System.out.println("\n╔══════════════════════════════════════════╗");
+            System.out.println("║          Editing Milestone               ║");
+            System.out.println("╚══════════════════════════════════════════╝");
+            
+            System.out.println("\n╔══════════════════════════════════════════╗");
+            System.out.println("║ Current milestone name: " + milestone.getMilestoneName() + " ║");
+            System.out.println("╚══════════════════════════════════════════╝");
             System.out.print("Enter new milestone name (or press Enter to keep the current name): ");
             String milestoneName = inp.nextLine();
             if (!milestoneName.isEmpty()) {
                 milestone.setMilestoneName(milestoneName);
+    
+                System.out.println("╔══════════════════════════════════════════╗");
+                System.out.println("║   Milestone name edited successfully!    ║");
+                System.out.println("╚══════════════════════════════════════════╝");
             }
     
+            System.out.println("\n╔══════════════════════════════════════════╗");
+            System.out.println("║ Current milestone description: " + milestone.getMilestoneDescription() + " ║");
+            System.out.println("╚══════════════════════════════════════════╝");
             System.out.print("Enter new milestone description (or press Enter to keep the current description): ");
             String milestoneDescription = inp.nextLine();
             if (!milestoneDescription.isEmpty()) {
                 milestone.setMilestoneDescription(milestoneDescription);
+    
+                System.out.println("╔══════════════════════════════════════════╗");
+                System.out.println("║ Milestone description edited successfully ║");
+                System.out.println("╚══════════════════════════════════════════╝");
             }
     
+            System.out.println("\n╔══════════════════════════════════════════╗");
+            System.out.println("║ Current milestone deadline: " + milestone.getDeadline().getDueDate() + " ║");
+            System.out.println("╚══════════════════════════════════════════╝");
             System.out.print("Enter new milestone deadline (or press Enter to keep the current deadline): ");
             String milestoneDeadline = inp.nextLine();
             if (!milestoneDeadline.isEmpty()) {
                 Deadline deadline = new Deadline(milestoneDeadline);
                 milestone.setDeadline(deadline);
+    
+                System.out.println("╔══════════════════════════════════════════╗");
+                System.out.println("║ Milestone deadline edited successfully!  ║");
+                System.out.println("╚══════════════════════════════════════════╝");
             }
     
             // Edit tasks within the selected milestone
-            System.out.println("Tasks:");
+            System.out.println("\n╔══════════════════════════════════════════╗");
+            System.out.println("║                Tasks                     ║");
+            System.out.println("╚══════════════════════════════════════════╝");
+    
             for (int j = 0; j < milestone.getTask().size(); j++) {
                 Task task = milestone.getTask().get(j);
                 System.out.printf("%d. %s (Deadline: %s)\n", j + 1, task.getName(), task.getDeadline().getDueDate());
@@ -429,36 +468,59 @@ public class GroupProjectManager {
             if (taskIndex >= 0 && taskIndex < milestone.getTask().size()) {
                 Task task = milestone.getTask().get(taskIndex);
     
-                System.out.println("Editing task: " + task.getName());
+                System.out.println("\n╔══════════════════════════════════════════╗");
+                System.out.println("║              Editing Task                ║");
+                System.out.println("╚══════════════════════════════════════════╝");
     
+                System.out.println("\n╔══════════════════════════════════════════╗");
+                System.out.printf("║ Current task name: %-35s║", task.getName());
+                System.out.println("╚══════════════════════════════════════════╝");
                 System.out.print("Enter new task name (or press Enter to keep the current name): ");
                 String newTaskName = inp.nextLine();
                 if (!newTaskName.isEmpty()) {
                     task.setName(newTaskName);
+    
+                    System.out.println("╔══════════════════════════════════════════╗");
+                    System.out.println("║    Task name edited successfully!        ║");
+                    System.out.println("╚══════════════════════════════════════════╝");
                 }
     
+                System.out.println("\n╔══════════════════════════════════════════╗");
+                System.out.println("║ Current task deadline: " + task.getDeadline().getDueDate() + " ║");
+                System.out.println("╚══════════════════════════════════════════╝");
                 System.out.print("Enter new task deadline (or press Enter to keep the current deadline): ");
                 String taskDeadline = inp.nextLine();
                 if (!taskDeadline.isEmpty()) {
                     Deadline deadline = new Deadline(taskDeadline);
                     task.setDeadline(deadline);
+    
+                    System.out.println("╔══════════════════════════════════════════╗");
+                    System.out.println("║    Task deadline edited successfully!    ║");
+                    System.out.println("╚══════════════════════════════════════════╝");
                 }
     
                 System.out.print("Edit task status (1 - Completed, 2 - In Progress, Enter - Skip): ");
                 String statusChoice = inp.nextLine();
                 if (!statusChoice.isEmpty()) {
                     task.setStatus(statusChoice);
+    
+                    System.out.println("╔══════════════════════════════════════════╗");
+                    System.out.println("║    Task status edited successfully!      ║");
+                    System.out.println("╚══════════════════════════════════════════╝");
                 }
             }
         }
     }
+
     
     private static void editReport(Scanner inp, Project project) {
         if (project.getReport() == null) {
             System.out.print("This project doesn't have a report. Would you like to add one? (yes/no): ");
             String addReportResponse = inp.nextLine();
             if (addReportResponse.equalsIgnoreCase("yes")) {
-                System.out.println("Add Report:");
+                System.out.println("\n╔══════════════════════════════════════════╗");
+                System.out.println("║                Add Report                ║");
+                System.out.println("╚══════════════════════════════════════════╝");
     
                 System.out.print("Enter report ID: ");
                 String reportID = inp.nextLine();
@@ -472,18 +534,25 @@ public class GroupProjectManager {
                 Report report = new Report(reportID, reportTitle, reportContent, reportSubmissionDate);
                 project.setReport(report);
     
-                System.out.println("Report added successfully!");
+                System.out.println("╔══════════════════════════════════════════╗");
+                System.out.println("║        Report added successfully!        ║");
+                System.out.println("╚══════════════════════════════════════════╝");
     
                 // Add review to the newly added report
                 System.out.print("Would you like to add a review to this report? (yes/no): ");
                 String addReviewResponse = inp.nextLine();
+    
                 if (addReviewResponse.equalsIgnoreCase("yes")) {
-                    System.out.println("Add Review:");
+                    System.out.println("\n╔══════════════════════════════════════════╗");
+                    System.out.println("║                Add Review                ║");
+                    System.out.println("╚══════════════════════════════════════════╝");
     
                     System.out.print("Enter review ID: ");
                     String reviewID = inp.nextLine();
+    
                     System.out.print("Enter review comments: ");
                     String reviewComments = inp.nextLine();
+                    
                     System.out.print("Enter review rating (1-5): ");
                     int reviewRating = inp.nextInt();
                     inp.nextLine(); // Consume newline
@@ -491,7 +560,9 @@ public class GroupProjectManager {
                     Review review = new Review(reviewID, reviewComments, reviewRating);
                     report.setReview(review);
     
-                    System.out.println("Review added successfully!");
+                    System.out.println("╔══════════════════════════════════════════╗");
+                    System.out.println("║        Review added successfully!        ║");
+                    System.out.println("╚══════════════════════════════════════════╝");
                 }
             }
         } else {
@@ -504,6 +575,10 @@ public class GroupProjectManager {
             String reportTitle = inp.nextLine();
             if (!reportTitle.isEmpty()) {
                 report.setTitle(reportTitle);
+    
+                System.out.println("╔═══════════════════════════════════════════╗");
+                System.out.println("║     Report title edited successfully!     ║");
+                System.out.println("╚═══════════════════════════════════════════╝");
             }
     
             System.out.println("Current report content: " + report.getContent());
@@ -511,28 +586,27 @@ public class GroupProjectManager {
             String reportContent = inp.nextLine();
             if (!reportContent.isEmpty()) {
                 report.setContent(reportContent);
+    
+                System.out.println("╔═══════════════════════════════════════════╗");
+                System.out.println("║    Report content edited successfully!    ║");
+                System.out.println("╚═══════════════════════════════════════════╝");
             }
-    
-            System.out.println("Current report submission date: " + report.getSubmissionDate());
-            System.out.print("Enter new report submission date (or press Enter to keep the current date): ");
-            String reportSubmissionDate = inp.nextLine();
-            if (!reportSubmissionDate.isEmpty()) {
-                report.setSubmissionDate(reportSubmissionDate);
-            }
-    
-            System.out.println("Report edited successfully!");
-    
+
             // Add or edit review within the report
             if (report.getReview() == null) {
-                System.out.print("This report doesn't have a review. Would you like to add one? (yes/no): ");
+                System.out.print("This report doesn't have a review. Would you like to add one? (Yes/No): ");
                 String addReviewResponse = inp.nextLine();
                 if (addReviewResponse.equalsIgnoreCase("yes")) {
-                    System.out.println("Add Review:");
+                    System.out.println("\n╔══════════════════════════════════════════╗");
+                    System.out.println("║                Add Review                ║");
+                    System.out.println("╚══════════════════════════════════════════╝");
     
                     System.out.print("Enter review ID: ");
                     String reviewID = inp.nextLine();
+    
                     System.out.print("Enter review comments: ");
                     String reviewComments = inp.nextLine();
+    
                     System.out.print("Enter review rating (1-5): ");
                     int reviewRating = inp.nextInt();
                     inp.nextLine(); // Consume newline
@@ -540,7 +614,9 @@ public class GroupProjectManager {
                     Review review = new Review(reviewID, reviewComments, reviewRating);
                     report.setReview(review);
     
-                    System.out.println("Review added successfully!");
+                    System.out.println("╔══════════════════════════════════════════╗");
+                    System.out.println("║        Review added successfully!        ║");
+                    System.out.println("╚══════════════════════════════════════════╝");
                 }
             } else {
                 Review review = report.getReview();
@@ -551,6 +627,10 @@ public class GroupProjectManager {
                 String reviewID = inp.nextLine();
                 if (!reviewID.isEmpty()) {
                     review.setReviewID(reviewID);
+    
+                    System.out.println("╔══════════════════════════════════════════╗");
+                    System.out.println("║      Review ID edited successfully!      ║");
+                    System.out.println("╚══════════════════════════════════════════╝");
                 }
     
                 System.out.println("Current review comments: " + review.getComments());
@@ -558,6 +638,10 @@ public class GroupProjectManager {
                 String reviewComments = inp.nextLine();
                 if (!reviewComments.isEmpty()) {
                     review.setComment(reviewComments);
+    
+                    System.out.println("╔═══════════════════════════════════════════╗");
+                    System.out.println("║    Review comment edited successfully!    ║");
+                    System.out.println("╚═══════════════════════════════════════════╝");
                 }
     
                 System.out.println("Current review rating: " + review.getRating());
@@ -566,321 +650,170 @@ public class GroupProjectManager {
                 if (!reviewRatingInput.isEmpty()) {
                     int reviewRating = Integer.parseInt(reviewRatingInput);
                     review.setRating(reviewRating);
-                }
     
-                System.out.println("Review edited successfully!");
+                    System.out.println("╔══════════════════════════════════════════╗");
+                    System.out.println("║    Review rating edited successfully!    ║");
+                    System.out.println("╚══════════════════════════════════════════╝");
+                }
             }
         }
     }
-    
 
-    // private static void editProject(Scanner inp) {
-    //     System.out.println("╔═════════════════════════════════════╗");
-    //     System.out.println("║             Edit Project            ║");
-    //     System.out.println("╚═════════════════════════════════════╝");
+    private static void deleteProject(Scanner inp) {
+        System.out.println("╔═════════════════════════════════════╗");
+        System.out.println("║             Delete Project          ║");
+        System.out.println("╚═════════════════════════════════════╝");
     
-    //     // Project List
-    //     System.out.println("╔════════════════════════════════════╗");
-    //     System.out.println("║            Project List            ║");
-    //     System.out.println("╠════════════════════════════════════╣");
+        // Project List
+        System.out.println("╔════════════════════════════════════╗");
+        System.out.println("║            Project List            ║");
+        System.out.println("╠════════════════════════════════════╣");
     
-    //     for (int i = 0; i < projects.size(); i++) {
-    //         System.out.printf("║  %d) %-30s ║\n", i + 1, projects.get(i).getTitle());
-    //     }
-    //     System.out.println("╚════════════════════════════════════╝");
+        for (int i = 0; i < projects.size(); i++) {
+            System.out.printf("║  %d) %-30s ║\n", i + 1, projects.get(i).getTitle());
+        }
+        System.out.println("╚════════════════════════════════════╝");
     
-    //     System.out.print("Enter the number of the project to edit: ");
-    //     int projectIndex = inp.nextInt() - 1;
-    //     inp.nextLine(); // Consume newline
+        System.out.print("Enter the number of the project to delete: ");
+        int projectIndex = inp.nextInt() - 1;
+        inp.nextLine(); // Consume newline
     
-    //     if (projectIndex >= 0 && projectIndex < projects.size()) {
-    //         Project project = projects.get(projectIndex);
+        if (projectIndex >= 0 && projectIndex < projects.size()) {
+            Project project = projects.get(projectIndex);
     
-    //         System.out.println("╔══════════════════════════════════════════════════════════╗");
-    //         System.out.printf("║    %-50s    ║\n", "Editing Project: " + project.getTitle());
-    //         System.out.println("╚══════════════════════════════════════════════════════════╝");
-
-    //         // Edit project info
-    //         System.out.println("Current project name: " + project.getTitle());
-    //         System.out.print("Enter new project name (or press Enter to keep the current name): ");
-    //         String projectName = inp.nextLine();
-    //         if (!projectName.isEmpty()) {
-    //             project.setTitle(projectName);
-    //         }
+            System.out.println("╔══════════════════════════════════════════════════════════╗");
+            System.out.printf("║    %-50s    ║\n", "Deleting Project: " + project.getTitle());
+            System.out.println("╚══════════════════════════════════════════════════════════╝");
     
-    //         System.out.println("Current project description: " + project.getDescription());
-    //         System.out.print("Enter new project description (or press Enter to keep the current description): ");
-    //         String projectDescription = inp.nextLine();
-    //         if (!projectDescription.isEmpty()) {
-    //             project.setDescription(projectDescription);
-    //         }
+            System.out.println("Select the item to delete:");
+            System.out.println("1. Delete Milestone");
+            System.out.println("2. Delete Task");
+            System.out.println("3. Delete Team Member");
+            System.out.println("4. Delete the whole project");
+            System.out.println("0. Cancel");
     
-    //         // Edit instructor info
-    //         Instructor instructor = project.getInstructor();
+            System.out.print("Enter your choice: ");
+            int choice = inp.nextInt();
+            inp.nextLine(); // Consume newline
     
-    //         System.out.println("Current instructor name: " + instructor.getName());
-    //         System.out.print("Enter new instructor name (or press Enter to keep the current name): ");
-    //         String instructorName = inp.nextLine();
-    //         if (!instructorName.isEmpty()) {
-    //             instructor.setName(instructorName);
-    //         }
+            switch (choice) {
+                case 1:
+                    deleteMilestone(inp, project);
+                    break;
+                case 2:
+                    deleteTask(inp, project);
+                    break;
+                case 3:
+                    deleteTeamMember(inp, project.getTeam());
+                    break;
+                case 4:
+                    projects.remove(projectIndex);
+                    System.out.println("╔══════════════════════════════════════════╗");
+                    System.out.println("║        Project deleted successfully!     ║");
+                    System.out.println("╚══════════════════════════════════════════╝");
+                    break;
+                case 0:
+                    System.out.println("Deletion canceled.");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } else {
+            System.out.println("Invalid project number.");
+        }
+    }
     
-    //         System.out.println("Current instructor email: " + instructor.getEmail());
-    //         System.out.print("Enter new instructor email (or press Enter to keep the current email): ");
-    //         String instructorEmail = inp.nextLine();
-    //         if (!instructorEmail.isEmpty()) {
-    //             instructor.setEmail(instructorEmail);
-    //         }
+    private static void deleteMilestone(Scanner inp, Project project) {
+        System.out.println("\n╔══════════════════════════════════════════╗");
+        System.out.println("║                Milestones                ║");
+        System.out.println("╚══════════════════════════════════════════╝");
     
-    //         System.out.println("Current instructor employee number: " + instructor.getEmpNum());
-    //         System.out.print("Enter new instructor employee number (or press Enter to keep the current number): ");
-    //         String instructorNumber = inp.nextLine();
-    //         if (!instructorNumber.isEmpty()) {
-    //             instructor.setEmpNum(instructorNumber);
-    //         }
+        for (int i = 0; i < project.getMilestone().size(); i++) {
+            Milestone milestone = project.getMilestone().get(i);
+            System.out.printf("%d. %s (ID: %s)\n", i + 1, milestone.getMilestoneName(), milestone.getMilestoneID());
+        }
     
-    //         // Edit team info
-    //         Team team = project.getTeam();
+        System.out.print("Enter the number of the milestone to delete (or 0 to cancel): ");
+        int milestoneIndex = inp.nextInt() - 1;
+        inp.nextLine(); // Consume newline
     
-    //         System.out.println("Current team name: " + team.getTeamName());
-    //         System.out.print("Enter new team name (or press Enter to keep the current name): ");
-    //         String teamName = inp.nextLine();
-    //         if (!teamName.isEmpty()) {
-    //             team.setTeamName(teamName);
-    //         }
+        if (milestoneIndex >= 0 && milestoneIndex < project.getMilestone().size()) {
+            project.getMilestone().remove(milestoneIndex);
+            System.out.println("╔══════════════════════════════════════════╗");
+            System.out.println("║       Milestone deleted successfully!    ║");
+            System.out.println("╚══════════════════════════════════════════╝");
+        } else {
+            System.out.println("Invalid milestone number.");
+        }
+    }
     
-    //         // Display team members and edit specific member
-    //         System.out.println("Team members:");
-    //         for (int i = 0; i < team.getMembers().size(); i++) {
-    //             Student student = team.getMembers().get(i);
-    //             System.out.printf("%d. %s (Matric Number: %s)\n", i + 1, student.getName(), student.getMatricsNum());
-    //         }
-    //         System.out.print("Enter the number of the team member to edit (or 0 to skip): ");
-    //         int memberIndex = inp.nextInt() - 1;
-    //         inp.nextLine(); // Consume newline
+    private static void deleteTask(Scanner inp, Project project) {
+        System.out.println("\n╔══════════════════════════════════════════╗");
+        System.out.println("║          Select Milestone                ║");
+        System.out.println("╚══════════════════════════════════════════╝");
     
-    //         if (memberIndex >= 0 && memberIndex < team.getMembers().size()) {
-    //             Student student = team.getMembers().get(memberIndex);
+        for (int i = 0; i < project.getMilestone().size(); i++) {
+            Milestone milestone = project.getMilestone().get(i);
+            System.out.printf("%d. %s (ID: %s)\n", i + 1, milestone.getMilestoneName(), milestone.getMilestoneID());
+        }
     
-    //             System.out.println("Editing student: " + student.getName());
+        System.out.print("Enter the number of the milestone containing the task to delete (or 0 to cancel): ");
+        int milestoneIndex = inp.nextInt() - 1;
+        inp.nextLine(); // Consume newline
     
-    //             System.out.print("Enter new student name (or press Enter to keep the current name): ");
-    //             String studentName = inp.nextLine();
-    //             if (!studentName.isEmpty()) {
-    //                 student.setName(studentName);
-    //             }
+        if (milestoneIndex >= 0 && milestoneIndex < project.getMilestone().size()) {
+            Milestone milestone = project.getMilestone().get(milestoneIndex);
     
-    //             System.out.print("Enter new student email (or press Enter to keep the current email): ");
-    //             String studentEmail = inp.nextLine();
-    //             if (!studentEmail.isEmpty()) {
-    //                 student.setEmail(studentEmail);
-    //             }
+            System.out.println("\n╔══════════════════════════════════════════╗");
+            System.out.println("║                Tasks                     ║");
+            System.out.println("╚══════════════════════════════════════════╝");
     
-    //             System.out.print("Enter new student role (or press Enter to keep the current role): ");
-    //             String studentRole = inp.nextLine();
-    //             if (!studentRole.isEmpty()) {
-    //                 student.setRole(studentRole);
-    //             }
-    //         }
+            for (int j = 0; j < milestone.getTask().size(); j++) {
+                Task task = milestone.getTask().get(j);
+                System.out.printf("%d. %s (Deadline: %s)\n", j + 1, task.getName(), task.getDeadline().getDueDate());
+            }
     
-    //         // Edit milestones
-    //         System.out.println("Milestones:");
-    //         for (int i = 0; i < project.getMilestone().size(); i++) {
-    //             Milestone milestone = project.getMilestone().get(i);
-    //             System.out.printf("%d. %s (ID: %s)\n", i + 1, milestone.getMilestoneName(), milestone.getMilestoneID());
-    //         }
-    //         System.out.print("Enter the number of the milestone to edit (or 0 to skip): ");
-    //         int milestoneIndex = inp.nextInt() - 1;
-    //         inp.nextLine(); // Consume newline
+            System.out.print("Enter the number of the task to delete (or 0 to cancel): ");
+            int taskIndex = inp.nextInt() - 1;
+            inp.nextLine(); // Consume newline
     
-    //         if (milestoneIndex >= 0 && milestoneIndex < project.getMilestone().size()) {
-    //             Milestone milestone = project.getMilestone().get(milestoneIndex);
+            if (taskIndex >= 0 && taskIndex < milestone.getTask().size()) {
+                milestone.getTask().remove(taskIndex);
+                System.out.println("╔══════════════════════════════════════════╗");
+                System.out.println("║          Task deleted successfully!      ║");
+                System.out.println("╚══════════════════════════════════════════╝");
+            } else {
+                System.out.println("Invalid task number.");
+            }
+        } else {
+            System.out.println("Invalid milestone number.");
+        }
+    }
     
-    //             System.out.println("Editing milestone: " + milestone.getMilestoneName());
+    private static void deleteTeamMember(Scanner inp, Team team) {
+        System.out.println("\n╔══════════════════════════════════════════╗");
+        System.out.println("║             Team Members                 ║");
+        System.out.println("╚══════════════════════════════════════════╝");
     
-    //             System.out.print("Enter new milestone name (or press Enter to keep the current name): ");
-    //             String milestoneName = inp.nextLine();
-    //             if (!milestoneName.isEmpty()) {
-    //                 milestone.setMilestoneName(milestoneName);
-    //             }
+        for (int i = 0; i < team.getMembers().size(); i++) {
+            Student student = team.getMembers().get(i);
+            System.out.printf("%d. %s (Matric Number: %s)\n", i + 1, student.getName(), student.getMatricsNum());
+        }
     
-    //             System.out.print("Enter new milestone description (or press Enter to keep the current description): ");
-    //             String milestoneDescription = inp.nextLine();
-    //             if (!milestoneDescription.isEmpty()) {
-    //                 milestone.setMilestoneDescription(milestoneDescription);
-    //             }
+        System.out.print("Enter the number of the team member to delete (or 0 to cancel): ");
+        int memberIndex = inp.nextInt() - 1;
+        inp.nextLine(); // Consume newline
     
-    //             System.out.print("Enter new milestone deadline (or press Enter to keep the current deadline): ");
-    //             String milestoneDeadline = inp.nextLine();
-    //             if (!milestoneDeadline.isEmpty()) {
-    //                 Deadline deadline = new Deadline(milestoneDeadline);
-    //                 milestone.setDeadline(deadline);
-    //             }
+        if (memberIndex >= 0 && memberIndex < team.getMembers().size()) {
+            team.getMembers().remove(memberIndex);
+            System.out.println("╔══════════════════════════════════════════╗");
+            System.out.println("║      Team member deleted successfully!   ║");
+            System.out.println("╚══════════════════════════════════════════╝");
+        } else {
+            System.out.println("Invalid team member number.");
+        }
+    }
     
-    //             // Edit tasks within the selected milestone
-    //             System.out.println("Tasks:");
-    //             for (int j = 0; j < milestone.getTask().size(); j++) {
-    //                 Task task = milestone.getTask().get(j);
-    //                 System.out.printf("%d. %s (Deadline: %s)\n", j + 1, task.getName(), task.getDeadline().getDueDate());
-    //             }
-    //             System.out.print("Enter the number of the task to edit (or 0 to skip): ");
-    //             int taskIndex = inp.nextInt() - 1;
-    //             inp.nextLine(); // Consume newline
-    
-    //             if (taskIndex >= 0 && taskIndex < milestone.getTask().size()) {
-    //                 Task task = milestone.getTask().get(taskIndex);
-    
-    //                 System.out.println("Editing task: " + task.getName());
-    
-    //                 System.out.print("Enter new task name (or press Enter to keep the current name): ");
-    //                 String newTaskName = inp.nextLine();
-    //                 if (!newTaskName.isEmpty()) {
-    //                     task.setName(newTaskName);
-    //                 }
-    
-    //                 System.out.print("Enter new task deadline (or press Enter to keep the current deadline): ");
-    //                 String taskDeadline = inp.nextLine();
-    //                 if (!taskDeadline.isEmpty()) {
-    //                     Deadline deadline = new Deadline(taskDeadline);
-    //                     task.setDeadline(deadline);
-    //                 }
-
-    //                 System.out.print("Edit task status (1 - Completed, 2 - In Progress, Enter - Skip): ");
-    //                 String statusChoice = inp.nextLine();
-
-    //                 task.setStatus(statusChoice);
-
-    //             }
-    //         }
-    
-    //         // Add or edit report
-    //         if (project.getReport() == null) {
-    //             System.out.print("This project doesn't have a report. Would you like to add one? (yes/no): ");
-    //             String addReportResponse = inp.nextLine();
-    //             if (addReportResponse.equalsIgnoreCase("yes")) {
-    //                 System.out.println("Add Report:");
-    
-    //                 System.out.print("Enter report ID: ");
-    //                 String reportID = inp.nextLine();
-    //                 System.out.print("Enter report title: ");
-    //                 String reportTitle = inp.nextLine();
-    //                 System.out.print("Enter report content: ");
-    //                 String reportContent = inp.nextLine();
-    //                 System.out.print("Enter report submission date: ");
-    //                 String reportSubmissionDate = inp.nextLine();
-    
-    //                 Report report = new Report(reportID, reportTitle, reportContent, reportSubmissionDate);
-    //                 project.setReport(report);
-    
-    //                 System.out.println("Report added successfully!");
-    
-    //                 // Add review to the newly added report
-    //                 System.out.print("Would you like to add a review to this report? (yes/no): ");
-    //                 String addReviewResponse = inp.nextLine();
-    //                 if (addReviewResponse.equalsIgnoreCase("yes")) {
-    //                     System.out.println("Add Review:");
-    
-    //                     System.out.print("Enter review ID: ");
-    //                     String reviewID = inp.nextLine();
-    //                     System.out.print("Enter review comments: ");
-    //                     String reviewComments = inp.nextLine();
-    //                     System.out.print("Enter review rating (1-5): ");
-    //                     int reviewRating = inp.nextInt();
-    //                     inp.nextLine(); // Consume newline
-    
-    //                     Review review = new Review(reviewID, reviewComments, reviewRating);
-    //                     report.setReview(review);
-    
-    //                     System.out.println("Review added successfully!");
-    //                 }
-    //             }
-    //         } else {
-    //             Report report = project.getReport();
-    
-    //             System.out.println("Edit Report:");
-    //             System.out.println("Current report ID: " + report.getReportID());
-    //             System.out.println("Current report title: " + report.getTitle());
-    //             System.out.print("Enter new report title (or press Enter to keep the current title): ");
-    //             String reportTitle = inp.nextLine();
-    //             if (!reportTitle.isEmpty()) {
-    //                 report.setTitle(reportTitle);
-    //             }
-    
-    //             System.out.println("Current report content: " + report.getContent());
-    //             System.out.print("Enter new report content (or press Enter to keep the current content): ");
-    //             String reportContent = inp.nextLine();
-    //             if (!reportContent.isEmpty()) {
-    //                 report.setContent(reportContent);
-    //             }
-    
-    //             System.out.println("Current report submission date: " + report.getSubmissionDate());
-    //             System.out.print("Enter new report submission date (or press Enter to keep the current date): ");
-    //             String reportSubmissionDate = inp.nextLine();
-    //             if (!reportSubmissionDate.isEmpty()) {
-    //                 report.setSubmissionDate(reportSubmissionDate);
-    //             }
-    
-    //             System.out.println("Report edited successfully!");
-    
-    //             // Add or edit review within the report
-    //             if (report.getReview() == null) {
-    //                 System.out.print("This report doesn't have a review. Would you like to add one? (yes/no): ");
-    //                 String addReviewResponse = inp.nextLine();
-    //                 if (addReviewResponse.equalsIgnoreCase("yes")) {
-    //                     System.out.println("Add Review:");
-    
-    //                     System.out.print("Enter review ID: ");
-    //                     String reviewID = inp.nextLine();
-    //                     System.out.print("Enter review comments: ");
-    //                     String reviewComments = inp.nextLine();
-    //                     System.out.print("Enter review rating (1-5): ");
-    //                     int reviewRating = inp.nextInt();
-    //                     inp.nextLine(); // Consume newline
-    
-    //                     Review review = new Review(reviewID, reviewComments, reviewRating);
-    //                     report.setReview(review);
-    
-    //                     System.out.println("Review added successfully!");
-    //                 }
-    //             } else {
-    //                 Review review = report.getReview();
-    
-    //                 System.out.println("Edit Review:");
-    //                 System.out.println("Current review ID: " + review.getReviewID());
-    //                 System.out.print("Enter new review ID (or press Enter to keep the current ID): ");
-    //                 String reviewID = inp.nextLine();
-    //                 if (!reviewID.isEmpty()) {
-    //                     review.setReviewID(reviewID);
-    //                 }
-    
-    //                 System.out.println("Current review comments: " + review.getComments());
-    //                 System.out.print("Enter new review comments (or press Enter to keep the current comments): ");
-    //                 String reviewComments = inp.nextLine();
-    //                 if (!reviewComments.isEmpty()) {
-    //                     review.setComment(reviewComments);
-    //                 }
-    
-    //                 System.out.println("Current review rating: " + review.getRating());
-    //                 System.out.print("Enter new review rating (1-5) (or press Enter to keep the current rating): ");
-    //                 String reviewRatingInput = inp.nextLine();
-    //                 if (!reviewRatingInput.isEmpty()) {
-    //                     int reviewRating = Integer.parseInt(reviewRatingInput);
-    //                     review.setRating(reviewRating);
-    //                 }
-    
-    //                 System.out.println("Review edited successfully!");
-    //             }
-    //         }
-    
-    //         System.out.println("╔═══════════════════════════════╗");
-    //         System.out.println("║  Project edited successfully! ║");
-    //         System.out.println("╚═══════════════════════════════╝");
-    //     } else {
-    //         System.out.println("Invalid project number.");
-    //     }
-    // }
-
-
 
     //DUMMY DATA
     private static void addDummyData() {
