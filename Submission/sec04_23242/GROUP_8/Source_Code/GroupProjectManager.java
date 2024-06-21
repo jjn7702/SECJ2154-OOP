@@ -472,7 +472,7 @@ public class GroupProjectManager {
             break;
         case 2:
             System.out.println("Enter new Project Name: ");
-            projectToEdit.setName(input.nextLine());
+            projectToEdit.setTitle(input.nextLine());
             break;
         case 3:
             System.out.println("Enter new Project Description: ");
@@ -495,7 +495,7 @@ public class GroupProjectManager {
     switch (choice) {
         case 1:
             System.out.println("Enter new Instructor ID: ");
-            instructor.setInstructorID(input.nextLine());
+            instructor.setEmpNum(input.nextLine());
             break;
         case 2:
             System.out.println("Enter new Instructor Name: ");
