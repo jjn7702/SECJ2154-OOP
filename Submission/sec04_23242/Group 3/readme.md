@@ -7,8 +7,8 @@
 
 <img align= "center"  width=80% src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp">
 
-🍏🥦🥑
-## 🥗 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 🥗
+🍏🍏🍏
+##  𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 
 <img align="right" width=30% src="https://img.freepik.com/premium-vector/eat-healthy-food-cartoon-hand-drawn-doodle-self-care-awareness-drawing-clip-art-icon-illustration_66976-559.jpg">
 
 📊 **Daily Tracking**: Log your daily meals and snacks.
