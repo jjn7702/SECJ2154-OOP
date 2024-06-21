@@ -79,10 +79,7 @@ public enum Pelancongan_Package {
                         System.out.println(i + 1 + ") " + places.get(i));
                 }
 
-<<<<<<< HEAD
-                
-                
-=======
+
                 for (Flight flight : flight_Pelancongan) {
                         System.out.println("========================= Flight " + counterFlight
                                         + " =========================");
@@ -90,7 +87,7 @@ public enum Pelancongan_Package {
                         counterFlight++;
                 }
 
->>>>>>> ee153c9844d8fdb92cd90d83af2d53dde183d3e0
+
                 System.out.println("\nHotels:");
                 System.out.println("========================= Hotel " + counterHotel
                                 + " =========================");
