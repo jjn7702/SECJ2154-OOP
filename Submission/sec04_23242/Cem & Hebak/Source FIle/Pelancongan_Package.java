@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Scanner;
 import java.util.Vector;
 
 public enum Pelancongan_Package {
@@ -48,6 +49,7 @@ public enum Pelancongan_Package {
         private double price_Pelancongan;
         private Vector<Flight> flight_Pelancongan;
         private Vector<Hotel> hotel_Pelancongan;
+        Scanner inp = new Scanner(System.in);
 
         private Pelancongan_Package(Vector<String> places, String tour_Guide, double price_Pelancongan,
                         Vector<Flight> flight_Pelancongan, Vector<Hotel> hotel_Pelancongan) {
@@ -76,7 +78,7 @@ public enum Pelancongan_Package {
                         flight.display_Flight_Info();
                         counterFlight++;
                 }
-
+                
                 System.out.println("\nHotels:");
                 System.out.println("========================= Hotel " + counterHotel
                                 + " =========================");
@@ -93,7 +95,7 @@ public enum Pelancongan_Package {
                 for (Hotel hotel : hotel_Pelancongan) {
                         System.out.println("========================= Hotel " + counterHotel
                                         + " =========================");
-                        hotel.display_Hotel_Info();
+                        hotel.chooseRoomSize();
                         // price_Pelancongan += hotel.chooseRoomSize();
                         counterHotel++;
 

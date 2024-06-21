@@ -1,22 +1,14 @@
 public class Report {
     private Users user;
-    private double exchangeRate; // change currency rate
 
-    public Report(Users user ,double exchangeRate) {
+    public Report(Users user) {
         this.user = user;
-        this.exchangeRate = exchangeRate;
     }
 
     public void setUser(Users user) {
         this.user = user;
     }
 
-    public void setExchangeRate(double exchangeRate) {
-        this.exchangeRate = exchangeRate;
-        for (Account account : user.getAccounts()) {
-            account.setRate(exchangeRate);
-        }
-    }
 
     public void displayAccountBalancesAndTransactions() {
         for (Account account : user.getAccounts()) {
@@ -35,7 +27,7 @@ public class Report {
             System.out.println("Account Information:");
             System.out.println("ID: " + account.getId());
             System.out.println("Name: " + account.getName());
-            System.out.println("Balance: RM" + account.getBalance() * exchangeRate);
+            System.out.println("Balance: RM" + account.getBalance());
             System.out.println();
 
             System.out.println("Budget Information:");

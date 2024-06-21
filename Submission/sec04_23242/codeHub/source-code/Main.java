@@ -13,14 +13,14 @@ import java.time.format.DateTimeFormatter;
 public class Main {
     public static void main(String[] args) throws IOException{
 
-        Report report = new Report(null, 1.0); // rate set to be 1.0
+        Report report = new Report(null); // rate set to be 1.0
         Vector<Category> categories = new Vector<>(); // Store category
         Scanner scanner = new Scanner(System.in);
-        Scanner inp = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\bank.txt"));
-        Scanner acc = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Account.txt"));
-        Scanner bud = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Budjet.txt"));
-        Scanner trans = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Transaction.txt"));
-        Scanner sav = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Saving.txt"));
+        Scanner inp = new Scanner(new File("bank.txt"));
+        Scanner acc = new Scanner(new File("Account.txt"));
+        Scanner bud = new Scanner(new File("Budjet.txt"));
+        Scanner trans = new Scanner(new File("Transaction.txt"));
+        Scanner sav = new Scanner(new File("Saving.txt"));
         categories.add(new ShoppingCategory(1));    
         categories.add(new FoodCategory(2));
     
@@ -145,30 +145,26 @@ public class Main {
                     screen.pauseScreen(scanner);
                     break;
                 case 4:
-                    changeCurrency(scanner, report);
-                    screen.pauseScreen(scanner);
-                    break;
-                case 5:
                     report.displayAccountBalancesAndTransactions();
                     screen.pauseScreen(scanner);
                     break;
-                case 6:
+                case 5:
                     addBudget(scanner, user1, categories);
                     screen.pauseScreen(scanner);
                     break;
-                case 7:
+                case 6:
                     addSaving(scanner, user1);
                     screen.pauseScreen(scanner);
                     break;
-                case 8:
+                case 7:
                     addTransaction(scanner, user1, categories);
                     screen.pauseScreen(scanner);
                     break;
-                case 9:
+                case 8:
                     report.displayAllInfo();
                     screen.pauseScreen(scanner);
                     break;
-                case 10:
+                case 9:
                     System.out.printf("%37s","Exiting...");
                     scanner.close();
                     writeBankFile(bank1, user1);
@@ -240,13 +236,12 @@ public class Main {
         System.out.printf("%60s%n","1. Add Account");
         System.out.printf("%62s%n","2. Deposit Money");
         System.out.printf("%63s%n","3. Withdraw Money");
-        System.out.printf("%64s%n","4. Change Currency");
-        System.out.printf("%90s%n","5. Display Account Balances and Transactions");
-        System.out.printf("%59s%n","6. Add Budget");
-        System.out.printf("%59s%n","7. Add Saving");
-        System.out.printf("%64s%n","8. Add Transaction");
-        System.out.printf("%72s%n","9. Display All Information");
-        System.out.printf("%54s%n","10. Exit");
+        System.out.printf("%90s%n","4. Display Account Balances and Transactions");
+        System.out.printf("%59s%n","5. Add Budget");
+        System.out.printf("%59s%n","6. Add Saving");
+        System.out.printf("%64s%n","7. Add Transaction");
+        System.out.printf("%72s%n","8. Display All Information");
+        System.out.printf("%53s%n","9. Exit");
         System.out.printf("%90s%n%n","-------------------------------------------");
         System.out.printf("%46s","Enter your choice: ");
     }
@@ -329,14 +324,6 @@ public class Main {
         }
         screen.pauseScreen(scanner);
         screen.ClearScreen();
-    }
-
-    private static void changeCurrency(Scanner scanner, Report moneyExchange) {
-        screen.ClearScreen();
-        System.out.print("Enter new exchange rate (1 USD to target currency): ");
-        double exchangeRate = scanner.nextDouble();
-        moneyExchange.setExchangeRate(exchangeRate);
-        System.out.println("Exchange rate updated successfully.");
     }
 
     private static void addBudget(Scanner scanner, Users user, Vector<Category> categories) {

@@ -6,7 +6,6 @@ class Account {
     private int id;
     private String name;
     private double balance;
-    private double rate;
     private Bank bank;
     private Vector<Transaction> transactions;
     private Vector<Budget> budgets;
@@ -21,7 +20,6 @@ class Account {
         this.transactions = new Vector<>();
         this.budgets = new Vector<>();
         this.savings = new Vector<>();
-        rate = 1;
     }
 
     public int getId() {
@@ -50,10 +48,6 @@ class Account {
 
     public Vector<Saving> getSavings() {
         return savings;
-    }
-
-    public void setRate(double rate) {
-        this.rate = rate;
     }
     
     // association to bank class
@@ -100,11 +94,10 @@ class Account {
     }
     
     public String getTransactionDetails() {
-        double bal = balance * rate;
         StringBuilder details = new StringBuilder(
-                "Account ID: " + id + ", Name: " + name + ", Balance: RM" + bal + "\n");
+                "Account ID: " + id + ", Name: " + name + ", Balance: RM" + balance + "\n");
         for (Transaction transaction : transactions) {
-            details.append(transaction.getDetails(rate)).append("\n");
+            details.append(transaction.getDetails()).append("\n");
         }
         return details.toString();
     }
@@ -118,7 +111,7 @@ class Account {
 
     public void displayInfo() {
         System.out.printf("%-15s%-15s%-5s\n" , "Account ID", "Name", "Balance");
-        System.out.printf("%-15s%-15s%-5.2f\n", id,name,balance * rate);
+        System.out.printf("%-15s%-15s%-5.2f\n", id,name,balance);
     }
     public void addBank(Bank bank){
         this.bank = bank;
