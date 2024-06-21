@@ -382,15 +382,26 @@ public class ScholarshipApp {
                 char rs = inp.next().toUpperCase().charAt(0);
 
                 if (rs == 'Y') {
-                    for (Student u : so) {
-                        if (u.getEmail().equals(email)) {
-                            return u;
-                        }
 
-                        else {
-
+                    for (int i = 0; i < so.size(); i++) {
+                        if (so.get(i).getEmail().equals(email)) {
+                            return so.get(i);
+                        } else {
+                            i--;
                         }
                     }
+
+                    /*
+                     * for (Student u : so) {
+                     * if (u.getEmail().equals(email)) {
+                     * return u;
+                     * }
+                     * 
+                     * else {
+                     * 
+                     * }
+                     * }
+                     */
                 }
 
                 else if (rs == 'N') {
