@@ -25,6 +25,8 @@
 
 🔒 Secure Login: Both admin and regular users can securely log in to access their personalized features.
 
+--
+
 ## 🥗 OOP concepts
 ### 🔐Encapsulation and data hiding 
 ~~~
