@@ -25,7 +25,8 @@
 | Ainn | Location & Campground      |    Polymorphism (Abstract) & Composition|
 
 ## 🌊 Flow Chart
-[<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F3J7o59rMRz1gzDfU6gQPCt%2FUntitled%3Fnode-id%3D36-231%26t%3DJMRM3HNuEghZAO73-1" allowfullscreen></iframe>](https://www.figma.com/design/3J7o59rMRz1gzDfU6gQPCt/Untitled?node-id=36-231&t=DweUjVM8g4mDDA2k-1)
+<img width="7648" alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/assets/77981155/48acb731-da8e-44a4-9896-f37f5d3a868a">
+
 
 ## 🛠️ Technical Implementation
 
