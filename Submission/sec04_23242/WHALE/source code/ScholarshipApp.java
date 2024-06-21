@@ -1,5 +1,7 @@
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -133,6 +135,8 @@ public class ScholarshipApp {
                     else {
                         displayStudList(StudList);
                     }
+
+                    writeFile(StudList) ;
 
                     System.out.println("do you want to logout? (Y/N)");
                     char y = inp.next().toUpperCase().charAt(0);
@@ -454,8 +458,9 @@ public class ScholarshipApp {
                     if (!fileScanner.hasNextLine())
                         break;
                     double all = Double.parseDouble(fileScanner.nextLine().trim());
-                    Merits.add(new meritBased(all, type, cgp));
+                    Merits.add(new meritBased(all, type, cgp, 0));
                 }
+                
                 fileScanner.close();
 
                 System.out.println("Merit-Based Scholarships Available:");
@@ -585,11 +590,36 @@ public class ScholarshipApp {
             for (Student k : sop) {
                 k.displayAllDetails();
             }
-            /*
-             * for (Student o : ad.getStudent()){
-             * Print
-             * }
-             */
         }
+    }
+
+    private static void writeFile(Vector<Student> s){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("ApprovedStudent.txt"))) {
+            for(Student o: s){
+                writer.write("Student Details:\n");
+                writer.write("Full Name: " + o.getfName() + " " + o.getlName()) ;
+                writer.write("Age: " + o.getAge() + "\n");
+                writer.write("Email: " + o.getEmail() + "\n");
+                writer.write("Address: " + o.getAdd().toString() + "\n");
+                writer.write("Matrics Number: " + o.getMatricsNumber() + "\n");
+                writer.write("Major: " + o.getMajor() + "\n");
+                writer.write("CGPA: " + o.getCgpa() + "\n");
+                writer.write("Program: " + o.getPrograms() + "\n");
+                
+                writer.write("\nScholarship Details:\n");
+                writer.write("  Type: " + o.getScholarship().getType() + "\n");
+                writer.write("  CGPA: " + o.getScholarship().getCgp() + "\n");
+                writer.write("  Allowance: $" + o.getScholarship().getAllowance() + "\n");
+                
+                writer.write("\nStudent History Details:\n");
+                writer.write("  Last Program: " + o.getStudentHistory().lastProgram() + "\n");
+                writer.write("  CGPA: " + o.getStudentHistory().getCgpa() + "\n");
+                writer.write("  Majors: " + o.getStudentHistory().getMajors() + "\n") ;
+            }
+        } 
+        catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+
     }
 }

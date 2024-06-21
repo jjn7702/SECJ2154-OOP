@@ -59,12 +59,19 @@ public class Student extends User {
         scholarship = sc;
     }
 
+    public String getPrograms(){
+        return prog.name() ;
+    }
     public Scholarship getScholarship() {
         return scholarship;
     }
 
     public String getMatricsNumber() {
         return matricsNumber;
+    }
+
+    public StudentHistory getStudentHistory(){
+        return studhist ;
     }
 
     public String getMajor() {
@@ -81,8 +88,7 @@ public class Student extends User {
 
     @Override
     public String toString() {
-        return super.toString() + " Matrics Number: " + matricsNumber + " Major: " + major + " CGPA: " + CGPA
-                + " Scholarship: " + scholarship + " Program: " + prog + " Student History: " + studhist;
+        return super.toString() + "\nMatrics Number: " + matricsNumber + "\nMajor: " + major + "\nCGPA: " + CGPA ;
     }
 
     @Override

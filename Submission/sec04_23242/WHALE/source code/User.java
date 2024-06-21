@@ -41,7 +41,7 @@ public class User {
     // public methods
     @Override
     public String toString() {
-        return fName + " " + lName + " " + age + " " + email + " " + add;
+        return "Full Name: " + fName + " " + lName + "\nAge: " + age + "\nEmail: " + email + "\nAddress: " + add.toString() ;
     }
 
     public Address getAdd() {
