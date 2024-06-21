@@ -97,7 +97,7 @@ public class Embassy extends User implements userDisplay {
             System.out.println("[2] Visa Application Approval");
             System.out.print("[3] Exit\nYour Choice: ");
             choice = inp.nextInt();
-
+            inp.nextLine();
             if (choice == 1) {
                 Umat.displayRingkas(); // JemaahInfo
             } else if (choice == 2) {
@@ -107,6 +107,7 @@ public class Embassy extends User implements userDisplay {
                 Umat.displayRingkas(); // JemaahInfo
                 System.out.print("[1] Approve\n[2] Failed\nYour Choice: ");
                 choice2 = inp.nextInt();
+                // inp.nextLine();
                 Umat.setApproval_from_embassy(choice2);
             }
         } while (choice != 3);

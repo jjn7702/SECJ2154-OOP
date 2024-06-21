@@ -401,8 +401,9 @@ public class HajiUmrahApp {
                                                                                                 + pegawai.get(k).getName()
                                                                                                 + " info");
                                                                                 System.out.print(
-                                                                                                "[2] Visa Application Business\n[3] Update Embassy Information\n[4] ExitYour choice: ");
+                                                                                                "[2] Visa Application Business\n[3] Update Embassy Information\n[4] Exit\nYour choice: ");
                                                                                 choice3 = inp.nextInt();
+                                                                                inp.nextLine();
                                                                                 switch (choice3) {
                                                                                         case 1:
                                                                                                 pegawai.get(k).display();
