@@ -1,14 +1,14 @@
 # 🛒 Grocery Shopping Assistant
 
 ## Table of Contents
-- [Synopsis](#-synopsis)
-- [Objectives](#-objectives)
-- [Scope](#-Scope)
-- [Flowchart](#-flowchart)
-- [Object Oriented Concepts](#-Object-Oriented-Concepts)
-- [Class Diagram](#-class-diagram)
-- [User Guide](#-Findings)
-- [Finding](#-Finding)
+- [Synopsis](##-synopsis)
+- [Objectives](##-objectives)
+- [Scope](##-Scope)
+- [Flowchart](##-flowchart)
+- [Object Oriented Concepts](##-Object-Oriented-Concepts)
+- [Class Diagram](##-class-diagram)
+- [User Guide](##-Findings)
+- [Finding](##-Finding)
 
 
 ##  Synopsis 📝
@@ -30,7 +30,7 @@ Allow the sellers to arrange products for sale in their stores and let them add 
 Develop an option to suggest stores where buyers can purchase the product, based on the provided address that will indicate the stores around the designated area.
 
 
-### Flowchart 
+## Flowchart 
 ![](Submission/sec04_23242/Group2/Image/WorkflowOOP.png)
 
 ##  Class Diagram
