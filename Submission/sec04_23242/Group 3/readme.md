@@ -124,6 +124,34 @@ Choose an option:
 | 2024-06-12 | Status     |                      | Exceeded |
 +------------+------------+----------------------+----------+
 ~~~
+------**Meal overview & Edit**------
+~~~
+Enter the date of the meal you want to edit (yyyy-mm-dd): 2024-06-13
+
+Meals on 2024-06-13:
+
+Meal: Breakfast
+Date: 2024-06-13
+ - Banana: 89 calories
+ - Oatmeal: 150 calories
+
+Meal: Lunch
+Date: 2024-06-13
+ - Burger: 500 calories
+ - Noodles: 200 calories
+
+Meal: Dinner
+Date: 2024-06-13
+ - Lasagna: 350 calories
+ - StirFry: 400 calories
+
+Meal: Snack
+Date: 2024-06-13
+ - FruitSalad: 120 calories
+ - Nuts: 175 calories
+
+Enter the meal type to edit:
+~~~
 ------**User Registration**------
 ~~~
 +----------------------+----------+
