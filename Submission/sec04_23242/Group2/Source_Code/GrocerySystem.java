@@ -42,7 +42,7 @@ public class GrocerySystem {
                     User now = null;
                     now = LoginSeller(seller);
                     if (now == null)
-                        System.out.println("Error");
+                        System.out.println("Invalid Credentials\nPlease try again");
                     else
                         now.Manage();
                     saveBuyerAndSeller(seller, users);
