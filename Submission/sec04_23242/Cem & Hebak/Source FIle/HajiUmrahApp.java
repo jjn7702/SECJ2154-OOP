@@ -200,7 +200,7 @@ public class HajiUmrahApp {
                                                         IC = inp.nextLine();
                                                         System.out.print("Doctor ID: ");
                                                         ID = inp.nextLine();
-                                                        boolean = false;
+                                                        boolean found = false;
                                                         for (int i = 0; i < doktor.size(); i++) {
                                                                 if (IC.equals(doktor.get(i).getIdentification_Card()) && ID
                                                                                 .equals(doktor.get(i).getDoctor_Number())) { // check
