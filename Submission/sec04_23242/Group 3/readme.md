@@ -30,7 +30,7 @@
 
 🍏🥦🥑
 ## 🥗 𝐒𝐲𝐬𝐭𝐞𝐦 𝐏𝐫𝐞𝐯𝐢𝐞𝐰 🥗
-------**Main Page**------
+### ------**Main Page**------
 ~~~
 Welcome to Nutrition Tracker System !
 
@@ -44,7 +44,7 @@ Welcome to Nutrition Tracker System !
 4. Exit
 Choose an option:
 ~~~
-------**Admin Login & Menu**------
+### ------**Admin Login & Menu**------
 ~~~
 +----------------------+----------+
 |      A D M I N   L O G I N      |
@@ -65,7 +65,7 @@ Enter password: 0040
 4. Logout
 Choose an option:
 ~~~
-------**User Login & Menu**------
+### ------**User Login & Menu**------
 ~~~
 +----------------------+----------+
 |      U S E R     L O G I N      |
@@ -86,7 +86,7 @@ Enter password: 0810
 4. Logout
 Choose an option:
 ~~~
-------**BMI calculation &  Meal Analysis**------
+### ------**BMI calculation &  Meal Analysis**------
 ~~~
 +-------------------+
 | User Info         |
@@ -124,7 +124,7 @@ Choose an option:
 | 2024-06-12 | Status     |                      | Exceeded |
 +------------+------------+----------------------+----------+
 ~~~
-------**Meal overview & Edit**------
+### ------**Meal overview & Edit**------
 ~~~
 Enter the date of the meal you want to edit (yyyy-mm-dd): 2024-06-13
 
@@ -152,7 +152,7 @@ Date: 2024-06-13
 
 Enter the meal type to edit:
 ~~~
-------**User Registration**------
+### ------**User Registration**------
 ~~~
 +----------------------+----------+
 |         R E G I S T E R         |
