@@ -30,7 +30,7 @@
 
 🍏🥦🥑
 ## 🥗 𝐒𝐲𝐬𝐭𝐞𝐦 𝐏𝐫𝐞𝐯𝐢𝐞𝐰 🥗
-Main Page
+------Main Page------
 ~~~
 Welcome to Nutrition Tracker System !
 
@@ -42,6 +42,17 @@ Welcome to Nutrition Tracker System !
 2. Regular User Login
 3. Register
 4. Exit
+Choose an option:
+~~~
+------Admin Menu------
+~~~
+       A D M I N   M E N U
++----------------------+----------+
+
+1. View Food Items
+2. View User List
+3. Delete Regular User
+4. Logout
 Choose an option:
 ~~~
 🍏🥦🥑
