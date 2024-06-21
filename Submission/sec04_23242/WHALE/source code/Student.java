@@ -35,11 +35,7 @@ public class Student extends User {
     }
 
     public void setCgpa(double CGPA) {
-
-    }
-
-    public void setScholarship(Scholarship scholarship) {
-        this.scholarship = scholarship;
+        this.CGPA = CGPA ;
     }
 
     public Scholarship getScholarship() {

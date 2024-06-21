@@ -4,14 +4,12 @@ public class Doctor extends User implements userDisplay {
     private String hospital, position, doctor_Number;
     protected Scanner inp = new Scanner(System.in);
 
-    // name, contact, identification_Card, email;
     public Doctor(String name, String contact, String identification_Card, String email, String hospital,
             String position, String doctor_Number) {
         super(name, contact, identification_Card, email);
         this.hospital = hospital;
         this.position = position;
         this.doctor_Number = doctor_Number;
-        // try from faiz pc visual studio code
     }
 
     public String getHospital() {
@@ -90,7 +88,7 @@ public class Doctor extends User implements userDisplay {
         int choice, choice2;
 
         do {
-
+            System.out.println("=========== MEDICAL APPLICATION " + umat.getName().toUpperCase() + " ===========");
             System.out.print(
                     "[1] Check Medical Application\n[2] Medical Application Approval\n[3] State Disease\n[4] Prescribe Medication\n[5] Exit\nYour Choice: ");
             choice = inp.nextInt();
@@ -118,7 +116,7 @@ public class Doctor extends User implements userDisplay {
                     inp.nextLine();
                     do {
 
-                        System.out.println("Please State the Jemaah Disease:");
+                        System.out.print("Please State the Jemaah Disease: ");
                         String input_Penyakit = inp.nextLine();
                         umat.setPenyakit(input_Penyakit);
                         System.out.print("[1] to continue\n[2] to exit\nYour Choice: ");
@@ -133,10 +131,10 @@ public class Doctor extends User implements userDisplay {
                     inp.nextLine();
                     do {
 
-                        System.out.println("Please State the Jemaah Medicine:");
+                        System.out.print("Please State the Jemaah Medicine:");
                         String input_Medicine = inp.nextLine();
                         umat.setUbat(input_Medicine);
-                        System.out.println("[1] to continue\n[2] to exit\nYour Choice: ");
+                        System.out.print("[1] to continue\n[2] to exit\nYour Choice: ");
                         choice2 = inp.nextInt();
                         inp.nextLine();
 

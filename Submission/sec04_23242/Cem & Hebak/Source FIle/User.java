@@ -46,7 +46,7 @@ public abstract class User { // using abstarct
     // Interface
     public void display() {
 
-    }
+    }  //iman : ni tulis apa
 
     public abstract void updateUserInfo();
 

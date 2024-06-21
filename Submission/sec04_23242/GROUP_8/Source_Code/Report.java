@@ -1,52 +1,42 @@
-import java.util.ArrayList;
-import java.util.List;
-
-class Report {
+public class Report {
     private String reportID;
+    private String title;
     private String content;
-    private Project project;
-    private List<Review> reviews;
+    private String submissionDate;
+    private Review review;
 
-    
-
-    public Report(String reportID, String content, Project project) {
+    public Report(String reportID, String title, String content, String submissionDate) {
         this.reportID = reportID;
+        this.title = title;
         this.content = content;
-        this.project = project;
-        this.reviews = new ArrayList<>();
-
+        this.submissionDate = submissionDate;
     }
 
     public String getReportID() {
         return reportID;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public String getContent() {
         return content;
+    }
+
+    public String getSubmissionDate() {
+        return submissionDate;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void setContent(String content) {
         this.content = content;
     }
 
-    public void setReportID(String reportID) {
-        this.reportID = reportID;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void addReview(Review review) {
-        reviews.add(review);
-    }
-
-    public List<Review> getReviews() {
-        return reviews;
-    }
-
-    @Override
-    public String toString() {
-        return "Report ID: " + reportID + "\nContent: " + content + "\nReviews: " + reviews.size();
+    public void setSubmissionDate(String submissionDate) {
+        this.submissionDate = submissionDate;
     }
 }

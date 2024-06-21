@@ -1,24 +1,30 @@
 import java.util.*;
 
 class Project {
-    private int projectID;
+    private String projectID;
     private String title;
     private String description;
 
     private Vector<Milestone> milestone;
     private Report report;
     private Team team;
+    private Instructor instructor;
 
-    public Project(int id, String title, String desc, Report report, Team team) {
-        this.projectID = id;
+    public Project() { 
+        this.milestone = new Vector<>();
+    }
+
+    public Project(String projectID, String title, String desc, Report report, Team team, Instructor instructor) {
+        this.projectID = projectID;
         this.title = title;
         this.description = desc;
         this.milestone = new Vector<>();
         this.report = report;
         this.team = team; // Composition: Project "has a" Team
+        this.instructor = instructor;
     }
 
-    public int getProjectID() {
+    public String getProjectID() {
         return projectID;
     }
 
@@ -26,28 +32,27 @@ class Project {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getDescription() {
         return description;
     }
 
-<<<<<<< Updated upstream
-    public void setDescription(String description) {
-        this.description = description;
+    public void setProjectID(String pID) {
+        projectID = pID;
     }
 
-    public void addTask(Task task) {
-        tasks.add(task);
-=======
+    public void setTitle(String t) {
+        title = t;
+    }
+
+    public void setDescription(String d) {
+        description = d;
+    }
+
     public void addMilestone(Milestone m) {
         milestone.add(m);
->>>>>>> Stashed changes
     }
 
-    public void removeTask(Milestone m) {
+    public void removeMilestone(Milestone m) {
         milestone.remove(m);
     }
 
@@ -63,6 +68,10 @@ class Project {
         this.report = report;
     }
 
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
     public Team getTeam() {
         return team;
     }
@@ -76,59 +85,76 @@ class Project {
     }
 
     public void printProjectDetails() {
-        int taskCount = 1;
-        int milestoneCount = 1;
+        System.out.printf("\n╔═%s═╗", "═══════════════════════════════════════════════════════════════════════════════════════════════════════════════");
+        System.out.printf("\n║ %111s ║", "");
+        System.out.printf("\n║  %-1s: %-104s ║", projectID, title); 
+        System.out.printf("\n║ %111s ║", ""); 
+        System.out.printf("\n╠═%s═╣", "═══════════════════════════════════════════════════════════════════════════════════════════════════════════════");
+        System.out.printf("\n║ %111s ║", "");
+        
+        // Team Info
+        System.out.printf("\n║ ╔═%s═╗ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════════════");
+        System.out.printf("\n║ ║ %-107s ║ ║", "");
+        System.out.printf("\n║ ║ %-107s ║ ║", "Team Information");
+        System.out.printf("\n║ ║ %-107s ║ ║", "");
+        System.out.printf("\n║ ╠═%s═╣ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════════════");
+        System.out.printf("\n║ ║ %-17s: %-88s ║ ║", "Team Name", team.getTeamName());
+        System.out.printf("\n║ ║ %-107s ║ ║", "                                                                      ");
+        
+        // Assuming Instructor details should be provided, but since Instructor object is not directly linked to Project, we can omit it or mock it.
+        System.out.printf("\n║ ║ %-17s: %-88s ║ ║", "Instructor Name", instructor.getName()); // Placeholder for Instructor Name
+        System.out.printf("\n║ ║ %-17s: %-88s ║ ║", "Instructor ID", instructor.getEmpNum()); // Placeholder for Instructor ID
+        System.out.printf("\n║ ║ %-107s ║ ║", "                                                                      ");
+        System.out.printf("\n║ ║ %-107s ║ ║", "Team Members: ");
+        System.out.printf("\n║ ║ ╔═%s═╗ ║ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════════");
+        System.out.printf("\n║ ║ ║  %-30s ║ %-12s ║ %-35s ║ %-16s ║ ║ ║", "Name", "Matrics No.", "Email", "Role");
+        System.out.printf("\n║ ║ ╠═%s═╣ ║ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════════");
 
-        System.out.printf("\n╔═%-70s═╗", "══════════════════════════════════════════════════════════════════════════");
-        System.out.printf("\n║  %-1s: %-67s  ║", projectID, title);  
-        System.out.printf("\n╠═%-70s═╣", "══════════════════════════════════════════════════════════════════════════");
-        System.out.printf("\n║ ╔═%-63s═╗ ║", "════════════════════════════════════════════════════════════════════");
-
-        for(Milestone m: getMilestone()){
-            System.out.printf("\n║ ╔═%-63s═╗ ║", "════════════════════════════════════════════════════════════════════");
-            System.out.printf("\n║ ║  %-1s %d: %-52s  ║ ║", "Milestone", milestoneCount, m.getName());
-            System.out.printf("\n║ ╠═%-66s═╣ ║", "════════════════════════════════════════════════════════════════════");
-            for(Task t: m.getTask()){
-                System.out.printf("\n║ ║  %-1s %d: %-52s  ║ ║", "Task", taskCount, t.getName());
-            }  
+        // Loop through team members
+        for (Student member : team.getMembers()) {
+            System.out.printf("\n║ ║ ║  %-30s ║ %-12s ║ %-35s ║ %-16s ║ ║ ║", 
+                member.getName(), 
+                member.getMatricsNum(), 
+                member.getEmail(), 
+                member.getRole());
         }
-             
-        System.out.printf("\n║  %-10s: %-67s  ║", "Email", getEmail());     
-        System.out.printf("\n║  %-10s: %-67s  ║", "Matrics No", matricsNumber);     
-        System.out.printf("\n║  %-10s: %-67s  ║", "Role", role);     
-        System.out.printf("\n╚═%-40s═╝", "══════════════════════════════════════════");
 
-        // System.out.println("╔═══════════════════════════════════════════════════════════════════╗");
-        // System.out.println("║ Project ID: " + projectID);
-        // System.out.println("║ Title: " + title);
-        // System.out.println("║ Description: " + description + "\n");
-        // System.out.println("║ Tasks:");
-        // for (Milestone task : tasks) {
-        //     System.out.println("║   Milestone No: " + task.getTaskID() + " Milestone Name: " + task.getTaskName() + " Status: "
-        //             + task.getStatus());
-        //     if (task.getDeadline() != null) {
-        //         System.out.println("║   Deadline: " + task.getDeadline().getDueDate() + "\n");
-        //     }
-        // }
-        // if (report != null) {
-        //     System.out.println("║ Report ID: " + report.getReportID());
-        //     System.out.println("║ Content: " + report.getContent());
-        //     List<Review> reviews = report.getReviews();
-        //     if (!reviews.isEmpty()) {
-        //         System.out.println("\n║ Reviews:");
-        //         for (Review review : reviews) {
-        //             System.out.println("║   " + review);
-        //         }
-        //     } else {
-        //         System.out.println("║ No reviews yet.");
-        //     }
-        // }
-        // if (team != null) {
-        //     System.out.println("\n║ Team: " + team.getTeamName());
-        //     for (Student member : team.getMembers()) {
-        //         System.out.printf("║   Member Name: %-9sEmail: %20s\n" ,member.getName(), member.getEmail());
-        //     }
-        // }
-        // System.out.println("╚═════════════════════════════════════════════════════════════════════╝");
+        System.out.printf("\n║ ║ ╚═%s═╝ ║ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════════");
+        System.out.printf("\n║ ╚═%s═╝ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════════════");
+        
+        // Milestone Info
+        System.out.printf("\n║ ╔═%s═╗ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════════════");
+        System.out.printf("\n║ ║ %-107s ║ ║", "");
+        System.out.printf("\n║ ║ %-107s ║ ║", "Milestones Information");
+        System.out.printf("\n║ ║ %-107s ║ ║", "");
+        System.out.printf("\n║ ╠═%s═╣ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════════════");
+
+        int milestoneCount = 1;
+        for (Milestone ms : milestone) {
+            System.out.printf("\n║ ║ ╔═%s═╗ ║ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════════");
+            System.out.printf("\n║ ║ ║ Milestone #%-92d ║ ║ ║", milestoneCount++);
+            System.out.printf("\n║ ║ ╠═%s═╣ ║ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════════");
+            System.out.printf("\n║ ║ ║ %-17s: %-84s ║ ║ ║", "ID", ms.getMilestoneID());
+            System.out.printf("\n║ ║ ║ %-17s: %-84s ║ ║ ║", "Name", ms.getMilestoneName());
+            System.out.printf("\n║ ║ ║ %-17s: %-84s ║ ║ ║", "Description", ms.getMilestoneDescription());
+            System.out.printf("\n║ ║ ║ ╔═%s═╗ ║ ║ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════");
+            System.out.printf("\n║ ║ ║ ║  %-98s ║ ║ ║ ║", "Tasks");
+            System.out.printf("\n║ ║ ║ ╠═%s═╣ ║ ║ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════");
+
+            int taskCount = 1;
+            for (Task task : ms.getTask()) {
+                System.out.printf("\n║ ║ ║ ║  %-1d) %-79s ║  %-12s ║ ║ ║ ║", 
+                    taskCount++, 
+                    task.getName(), 
+                    task.getStatus());
+            }
+
+            System.out.printf("\n║ ║ ║ ╚═%s═╝ ║ ║ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════");
+            System.out.printf("\n║ ║ ╚═%s═╝ ║ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════════");
+        }
+
+        System.out.printf("\n║ ╚═%s═╝ ║", "═══════════════════════════════════════════════════════════════════════════════════════════════════════════");
+        System.out.printf("\n║ %111s ║", "");
+        System.out.printf("\n╚═%s═╝", "═══════════════════════════════════════════════════════════════════════════════════════════════════════════════");
     }
 }
