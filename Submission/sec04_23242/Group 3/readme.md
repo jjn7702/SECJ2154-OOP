@@ -8,14 +8,18 @@
 <img align= "center"  width=80% src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp">
 
 ## Anywhere Door
-🚪- [Features](#Features)
-🚪- [System Preview](#System-Preview)
-🚪- [OOP Concepts](#Oop-concepts)
-🚪- [FlowChart](#Flowchart)
-🚪- [Class Diagram](#class-diagram)
+🚪- [Features](#-features)
+
+🚪- [System Preview](#-system-preview)
+
+🚪- [OOP Concepts](#-oop-concepts)
+
+🚪- [FlowChart](#-flowchart)
+
+🚪- [Class Diagram](#-class-diagram)
 
 
-##  🥗 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 🥗
+##  🥗 Features 🥗
 <img align="right" width=30% src="https://img.freepik.com/premium-vector/eat-healthy-food-cartoon-hand-drawn-doodle-self-care-awareness-drawing-clip-art-icon-illustration_66976-559.jpg">
 
 📊 **Daily Tracking**: Log your daily meals and snacks.
@@ -34,7 +38,7 @@
 
 
 🍏🥦🥑
-## 🥗 𝐒𝐲𝐬𝐭𝐞𝐦 𝐏𝐫𝐞𝐯𝐢𝐞𝐰 🥗
+## 🥗 System Preview 🥗
 ### ------**Main Page**------
 ~~~
 Welcome to Nutrition Tracker System !
@@ -175,7 +179,7 @@ Enter height (cm): 189
 ~~~
 🍏🥦🥑
 
-## 🥗 𝐎𝐎𝐏 𝐂𝐨𝐧𝐜𝐞𝐩𝐭𝐬 🥗
+## 🥗 OOP Concepts 🥗
 ### 🔐Encapsulation and data hiding 
 ~~~
 public class RegularUser extends User {
@@ -340,13 +344,13 @@ One of the exception handling we had in our developed system. The exception we t
 
 🍏🥦🥑
 
-## 🥗 𝐅𝐥𝐨𝐰𝐂𝐡𝐚𝐫𝐭 🥗
+## 🥗 FlowChart 🥗
 abcd
 
 🍏🥦🥑
 
 
-## 🥗 𝐂𝐥𝐚𝐬𝐬 𝐃𝐢𝐚𝐠𝐫𝐚𝐦 🥗
+## 🥗 Class Diagram 🥗
 abcd
 
 
