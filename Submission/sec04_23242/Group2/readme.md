@@ -1,14 +1,11 @@
 # 🛒 Grocery Shopping Assistant
 
 ## Table of Contents
-- [Synopsis](##-synopsis)
-- [Objectives](##-objectives)
-- [Scope](##-Scope)
-- [Flowchart](##-flowchart)
-- [Object Oriented Concepts](##-Object-Oriented-Concepts)
-- [Class Diagram](##-class-diagram)
-- [User Guide](##-Findings)
-- [Finding](##-Finding)
+[Synopsis](#-Synopsis)           
+[Objectives](#-Objectives)            
+[Scope](#-Scope)                      
+[Flow Chart](#flowchart)
+[Class Diagram](#-class-diagram)
 
 
 ##  Synopsis 📝
