@@ -43,12 +43,12 @@ public class ScholarshipApp {
                         StudList.add(stu);
                     }
 
-                    for (Student st : StudList) { // Return the index of the ubject student
+                    /*for (Student st : ad.getStudentApro()) { // Return the index of the ubject student
                         if (st.equals(stu))
                             break;
                         else
                             i++;
-                    }
+                    }*/
 
                     System.out.println("[0] Do you want to check the status of your apllication?");
                     System.out.println("[1] Do you want to apply the scholarship?");
@@ -61,18 +61,21 @@ public class ScholarshipApp {
                         inp.nextLine();
                     }
 
-
                     switch (ap) {
                         case 0:
                             if (ad == null) { 
                                 System.out.println("There is no administrator signed in. Please wait");
                             }
 
-                            else if (ad.getStudentRej().contains(stu)) {
+                            else if (StudList.contains(stu)) {
                                 System.out.println("Your application is not approved.");
+
                             } else if (ad.getStudentApro().contains(stu)){
                                 System.out.println("Your application has approved. We will display the information");
                                 StudList.get(i).displayAllDetails();
+                            }
+                            else{
+                                System.out.println("Your application is being approved.") ;
                             }
                             break;
                         case 1:
@@ -330,8 +333,6 @@ public class ScholarshipApp {
         String us = inp.next();
         System.out.print("ENTER YOUR PASSWORD:\t");
         String pass = inp.next();
-        System.out.print("ENTER YOUR PARENTS THRESHOLD:\t");
-        double th = inp.nextDouble() ;
         String fileUsername = "", filePassword = "", fname = "", lname = "", email = "", address = "", street = "",
                 cityAndPostalCode = "", state = "", matricsNu = "";
         int age = 0;
@@ -416,7 +417,7 @@ public class ScholarshipApp {
                     StudentHistory st = insertStudentHistory();
 
                     Student stu = new Student(fname, lname, age, email, new Address(street, cityAndPostalCode, state),
-                            matricsNu, majors, cgpa, p, st, th) ;
+                            matricsNu, majors, cgpa, p, st) ;
 
                     return stu;
                 }
@@ -442,6 +443,9 @@ public class ScholarshipApp {
             int choice = 0;
 
             while (true) {
+                System.out.print("ENTER YOUR PARENTS THRESHOLD:\t");
+                double th = inp.nextDouble() ;
+                student.setThreshold(th) ;
                 System.out.println("Select type of scholarship to apply:");
                 System.out.println("[1] Merit Based");
                 System.out.println("[2] Need Based");
@@ -519,9 +523,10 @@ public class ScholarshipApp {
 
                 System.out.println("Need-Based Scholarships Available:");
                 for (int i = 0; i < Needs.size(); i++) {
-                    System.out.println("[" + (i + 1) + "] " + Needs.get(i).type);
-                    System.out.println("  CGPA Required: " + Needs.get(i).getCgp());
-                    System.out.println("  Allowance: " + Needs.get(i).getAllowance());
+                    System.out.println("[" + (i + 1) + "] " + Needs.get(i).type) ;
+                    System.out.println("  CGPA Required: " + Needs.get(i).getCgp()) ;
+                    System.out.println("  Allowance: " + Needs.get(i).getAllowance()) ;
+                    System.out.println("  Threshold: " + Needs.get(i).getThres()) ;
                 }
 
                 System.out.println("Enter the number of the scholarship you want to apply for:");

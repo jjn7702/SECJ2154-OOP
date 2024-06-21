@@ -9,7 +9,7 @@ class needBased extends Scholarship{
     }
 
     public boolean isEligible(Student st){
-        if (st.getThreshold() >= ScholarshipRequirement.threshold){
+        if (st.getThreshold() <= ScholarshipRequirement.threshold){
             return true ;
         }
         else

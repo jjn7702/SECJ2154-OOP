@@ -15,14 +15,13 @@ public class Student extends User {
     }
 
     public Student(String fn, String ln, int a, String em, Address add, String matricsNumber, String major, double CGPA,
-            Programs prog, StudentHistory studhist, double thresh) {
+            Programs prog, StudentHistory studhist) {
         super(fn, ln, a, em, add);
         this.matricsNumber = matricsNumber;
         this.major = major;
         this.CGPA = CGPA;
         scholarship = new meritBased();
         this.prog = prog;
-        threshold = thresh ;
         this.studhist = studhist;
     }
 

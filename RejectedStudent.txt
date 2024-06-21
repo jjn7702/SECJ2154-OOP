@@ -1,18 +1,18 @@
 Student Details:
-Full Name: Ultraman taroAge: 2000
-Email: 	ultraBrothers@gmail.com
-Address: cahaya, Planet, m78
-Matrics Number: A                   
-Major: sddf
-CGPA: 2.0
+Full Name: HAZIM SDNSAge: 19
+Email: 	DSKLFNEMdskm
+Address: sa, me l;, 
+Matrics Number: Ad,w2ed2            
+Major: dfdfd
+CGPA: 4.0
 Program: UNDERGRADUATE
 
 Scholarship Details:
-Type: KHAZANAH GLOBAL SCHOLARSHIP
-CGPA: 3.75
-Allowance: $6000.0
+Type: YAYASAN PENERAJU PENDIDIKAN BUMIPUTERA SCHOOLARSHIP
+CGPA: 3.0
+Allowance: $10000.0
 
 Student History Details:
 Last Program: PREGRADUATE
-CGPA: 3.0
-Majors: dsfdds
+CGPA: 4.0
+Majors: dgsdg
