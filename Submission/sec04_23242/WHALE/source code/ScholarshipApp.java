@@ -130,7 +130,7 @@ public class ScholarshipApp {
 
                 System.out.println("do you want to logout? (Y/N)");
                 char y = inp.next().toUpperCase().charAt(0);
-                
+
                 if (y == 'Y') {
                     ad = null;
                 } 
@@ -357,7 +357,7 @@ public class ScholarshipApp {
 
                 if(rs == 'Y'){
                     for(Student u : so){
-                        if(u.getEmail() == email){
+                        if(u.getEmail().equals(email)){
                             return u ;
                         }
 
