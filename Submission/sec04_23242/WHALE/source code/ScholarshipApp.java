@@ -32,13 +32,16 @@ public class ScholarshipApp {
 
                 if (rs == 'Y') {
                     registerStudent();
-                    countStu++;
 
                 } else if (rs == 'N') {
                     stu = signInStudent(StudList); // Ni function untuk tngok status je
                     int i = 0;
 
                     if (StudList.size() == 0) {
+                        StudList.add(stu);
+                    }
+
+                    if (!StudList.contains(stu)) {
                         StudList.add(stu);
                     }
 
@@ -66,8 +69,8 @@ public class ScholarshipApp {
                                 System.out.println("There is no administrator signed in. Please wait");
                             }
 
-                            else if (ad.getStudent(i).getScholarship() == null) {
-                                System.out.println("Your application is not approved yet. Check again later");
+                            else if (StudList.contains(stu)) {
+                                System.out.println("Your application is not approved.");
                             } else {
                                 System.out.println("Your application has approved. We will display the information");
                                 StudList.get(i).displayAllDetails();
