@@ -92,6 +92,9 @@ public class HajiUmrahApp {
                 String IC, ID;
                 do {
                         try {
+                                System.out.println("========================================");
+                                System.out.println("Haji Umrah Booking System by Cem & Hebak");
+                                System.out.println("========================================");
                                 System.out.print("[1] Log In\n[2] Exit\nYour Choice: ");
                                 choice1 = inp.nextInt();
                                 if (choice1 == 1) {
