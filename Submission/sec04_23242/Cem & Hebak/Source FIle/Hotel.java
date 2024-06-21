@@ -63,6 +63,7 @@ public class Hotel {
             System.out.print((i + 1) + ") ");
             System.out.printf("%-20sRM %.2f%n", jenisBilik[i][0], jenisBilik[i][1]);
         }
+        System.out.println("=========================================================");
         System.out.print("[1 - 10] Choose your room\nYour choice: ");
         choice = (inp.nextInt() - 1);
 
@@ -89,7 +90,7 @@ public class Hotel {
         System.out.printf("%-35s: %20s%n", "Hotel", hotelName);
         System.out.printf("%-35s: %20s%n", "Address", address);
         System.out.printf("%-35s: %20s%n", "Room Size", roomSize);
-        System.out.printf("%-35s: %18.2f%n", "Room Price (RM)", price);
+        System.out.printf("%-35s: %20.2f%n", "Room Price (RM)", price);
         System.out.println("Standard check-in and check-out times:");
         System.out.printf("%-35s: %20s%n", "Check-in time", checkInTime);
         System.out.printf("%-35s: %20s%n", "Check-out time", checkOutTime);
