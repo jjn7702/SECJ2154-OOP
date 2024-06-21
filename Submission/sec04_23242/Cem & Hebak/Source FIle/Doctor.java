@@ -84,7 +84,7 @@ public class Doctor extends User implements userDisplay {
         System.out.print("Please enter your credentials: \nName: ");
 
         setName(inp.nextLine());
-        System.out.print("Contact :");
+        System.out.print("Contact : ");
         setContact(inp.nextLine());
         System.out.print("Identification Card : ");
         setIdentification_Card(inp.nextLine());
@@ -107,7 +107,9 @@ public class Doctor extends User implements userDisplay {
         int choice, choice2;
 
         do {
-            System.out.println("=========== MEDICAL APPLICATION " + umat.getName().toUpperCase() + " ===========");
+            System.out.println("\n=============================================");
+            System.out.printf("%s %10s\n", "MEDICAL APPLICATION" ,umat.getName().toUpperCase());
+            System.out.println("=============================================");
             System.out.print(
                     "[1] Check Medical Application\n[2] Medical Application Approval\n[3] State Disease\n[4] Prescribe Medication\n[5] Exit\nYour Choice: ");
             choice = inp.nextInt();
@@ -150,7 +152,7 @@ public class Doctor extends User implements userDisplay {
                     inp.nextLine();
                     do {
 
-                        System.out.print("Please State the Jemaah Medicine:");
+                        System.out.print("Please State the Jemaah Medicine: ");
                         String input_Medicine = inp.nextLine();
                         umat.setUbat(input_Medicine);
                         System.out.print("[1] to continue\n[2] to exit\nYour Choice: ");
