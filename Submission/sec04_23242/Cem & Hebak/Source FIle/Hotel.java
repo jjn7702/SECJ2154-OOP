@@ -41,7 +41,7 @@ public class Hotel {
         this.totalRoom = totalRoom;
     }
 
-    public double getPrice(){
+    public double getPrice() {
         return price;
     }
 
