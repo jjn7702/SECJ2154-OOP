@@ -22,7 +22,6 @@ This application helps you keep track of your daily food intake, monitor your nu
 🔒 Secure Login: Both admin and regular users can securely log in to access their personalized features.
 
 
-## OOP concepts
-## OOP concepts
-## FlowChart
-## Class Diagram
+## 🥗 OOP concepts
+## 🥗 FlowChart
+## 🥗 Class Diagram
