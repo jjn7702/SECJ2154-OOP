@@ -260,11 +260,11 @@ public class Jemaah extends User implements userDisplay {
         String vacation;
         System.out.println("==================== Tour Packages ====================");
         System.out.println("Please choose your Vacation Package");
-        System.out.printf("%-35s: %20s%n","[1] Turki, Istanbul","2500.00");
-        System.out.printf("%-35s: %20s%n","[2] Riyadh, Damma","3000.00");
-        System.out.printf("%-35s: %20s%n","[3] Doha, Dubai","3500.00");
-        System.out.printf("%-35s: %20s%n","[4] Abu Dhabi, Sharjah","2800.00");
-        System.out.printf("%-35s: %20s%n","[5] Kuwait City, Manama","4000.00");
+        System.out.printf("%-35s: %20s%n","[1] Turki, Istanbul (RM)","2500.00");
+        System.out.printf("%-35s: %20s%n","[2] Riyadh, Damma (RM)","3000.00");
+        System.out.printf("%-35s: %20s%n","[3] Doha, Dubai (RM)","3500.00");
+        System.out.printf("%-35s: %20s%n","[4] Abu Dhabi, Sharjah (RM)","2800.00");
+        System.out.printf("%-35s: %20s%n","[5] Kuwait City, Manama (RM)","4000.00");
         System.out.println("=========================================================");
         System.out.println("[1 - 5] Please Enter the number of package you interested");
         choicePelancongan = inp.nextInt();
