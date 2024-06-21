@@ -222,6 +222,9 @@ public class HajiUmrahApp {
                                                         break;
                                                 }
                                                 case 2: {
+                                                        System.out.println("\n========================================");
+                                                        System.out.printf("%25s\n", "Doctor Login");
+                                                        System.out.println("========================================");
                                                         System.out.println("Enter your credentials");
                                                         System.out.print("Identification Card Number: ");
                                                         IC = inp.nextLine();
@@ -240,16 +243,13 @@ public class HajiUmrahApp {
                                                                         // tak
                                                                         found = true;
                                                                         do {
-
-                                                                                System.out.println("Hi Dr. "
-                                                                                                + doktor.get(i).getName());
-                                                                                System.out.println(
-                                                                                                "========== Doctor Menu ==========");
-                                                                                System.out.println("[1] Show Dr. "
-                                                                                                + doktor.get(i).getName()
-                                                                                                + " info");
-                                                                                System.out.println(
-                                                                                                "[2] Medical Application Business\n[3] Exit\nYour choice: ");
+                                                                                System.out.println("\n========================================"); //()
+                                                                                System.out.printf("%25s\n", "Doctor Menu"); // ()
+                                                                                System.out.println("========================================");                
+                                                                                System.out.println("Hi Dr. " + doktor.get(i).getName());
+                                                                                
+                                                                                System.out.println("\n[1] Show Dr. " + doktor.get(i).getName() + " info");
+                                                                                System.out.print("[2] Medical Application Business\n[3] Exit\nYour choice: ");
                                                                                 choice3 = inp.nextInt();
 
                                                                                 if (choice3 == 1) {
@@ -333,6 +333,9 @@ public class HajiUmrahApp {
                                                         break;
                                                 }
                                                 case 3: {
+                                                        System.out.println("\n========================================");
+                                                        System.out.printf("%25s\n", "Embassy Login");
+                                                        System.out.println("========================================");
                                                         System.out.println("Enter your credentials");
                                                         System.out.print("Identification Card Number: ");
                                                         IC = inp.nextLine();
@@ -347,11 +350,11 @@ public class HajiUmrahApp {
                                                                                                                 .getEmbassy_numberr())) {
                                                                         found = true;
                                                                         do {
-                                                                                System.out.println("Hi Mr. "
-                                                                                                + pegawai.get(k).getName());
-                                                                                System.out.println(
-                                                                                                "========== Embassy Menu ==========");
-                                                                                System.out.println("[1] Show Embassy "
+                                                                                System.out.println("\n========================================"); //()
+                                                                                System.out.printf("%25s\n", "Embassy Menu"); // ()
+                                                                                System.out.println("========================================");
+                                                                                System.out.println("Hi Mr. " + pegawai.get(k).getName());
+                                                                                System.out.println("\n[1] Show Embassy "
                                                                                                 + pegawai.get(k).getName()
                                                                                                 + " info");
                                                                                 System.out.print(
