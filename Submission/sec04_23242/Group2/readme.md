@@ -7,8 +7,6 @@
 - [Flowchart](#-flowchart)
 - [Object Oriented Concepts](#-Object-Oriented-Concepts)
 - [Class Diagram](#-class-diagram)
-- [Class Pacman](#-Class-Pacman)
-- [Class Ghost](#-Class-Ghost)
 - [User Guide](#-Findings)
 - [Finding](#-Finding)
 
