@@ -31,11 +31,24 @@ public class Task {
 
     //This setter's parameter is int because it will ask the user's input 
     //based on the number they chose on the list of actions in main.
-    public void setStatus(int intStatus) {
-        if(intStatus == 1) 
-            status = "Completed"; 
-        else 
-            if(intStatus == 2) 
-                status = "In progress"; 
+    public void setStatus(String intStatus) {
+        switch (intStatus) {
+            case "1":
+                status = "Completed"; 
+            
+            case "2": 
+                status = "In Progress";
+
+            case "":
+                System.out.println("Skipping task status edit.");
+
+            default:
+                System.out.println("Invalid input. Task status unchanged");
+        }
     }
 }
+
+//     public void setStatus(String s) {
+//         status = s;
+//     }
+// }
