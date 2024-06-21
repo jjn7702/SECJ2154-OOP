@@ -4,7 +4,7 @@
 
 > This system helps you keep track of your daily food intake, monitor your nutritional goals, and maintain a balanced diet.
 
-<img align= "left"  width=60% src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp"><br>
+<img align= "center"  width=80% src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp">
 
 
 # 🥗 Features
