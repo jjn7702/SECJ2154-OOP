@@ -147,5 +147,3 @@ public class Doctor extends User implements userDisplay {
 
     }
 }
-message.txt
-6 KB
