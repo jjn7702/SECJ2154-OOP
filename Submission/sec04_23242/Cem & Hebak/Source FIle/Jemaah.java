@@ -257,7 +257,7 @@ public class Jemaah extends User implements userDisplay {
         System.out.println("[3] TAMATTUK = Perform Umrah first Haji later");
         System.out.println("[4] HAJI Sahaja = Only Perform Hajj");
         System.out.println("[5] UMRAH = Only Perform Umrah");
-        System.out.println("Please type [ IFRAD, QIRAN, TAMATTUK, HAJI, UMRAH ] to choose your ibadah package");
+        System.out.println("\nPlease type [ IFRAD, QIRAN, TAMATTUK, HAJI, UMRAH ] to choose your ibadah package");
         System.out.println("Package: ");
         pakejIbadah = Haji_Umrah_Package.valueOf(inp.nextLine().toUpperCase());
         pakejIbadah.Display_Pakej_Info();
@@ -267,9 +267,7 @@ public class Jemaah extends User implements userDisplay {
 
         int choicePelancongan = 0;
         String vacation;
-        System.out.println("\n========================================"); //()
-        System.out.printf("%27s\n", "Tour Packages"); // ()
-        System.out.println("========================================"); // ()
+        System.out.println("==================== Tour Packages ====================");
         System.out.println("Please choose your Vacation Package");
         System.out.printf("%-35s: %20s%n","[1] Turki, Istanbul (RM)","2500.00");
         System.out.printf("%-35s: %20s%n","[2] Riyadh, Damma (RM)","3000.00");

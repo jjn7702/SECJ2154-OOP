@@ -276,8 +276,9 @@ public class HajiUmrahApp {
                                                                                                 }
 
                                                                                         }
-                                                                                        System.out.println(
-                                                                                                        "========== LIST OF JEMAAH ==========");
+                                                                                        System.out.println("\n========================================");
+                                                                                        System.out.printf("%27s\n", "List Of Jemaah");
+                                                                                        System.out.println("========================================");
                                                                                         for (int n = 0; n < jemaahWithDoctor
                                                                                                         .size(); n++) { // Jemaah
                                                                                                                         // or
@@ -306,6 +307,7 @@ public class HajiUmrahApp {
                                                                                                         "[0] Exit\n[1 -" + (jemaahWithDoctor
                                                                                                                         .size())
                                                                                                                         + "] Pick jemaah \n");
+                                                                                        System.out.print("Jemaah Number: ");
                                                                                         choice5 = inp.nextInt();
                                                                                         try {
                                                                                                 if (choice5 == 0) {
@@ -375,8 +377,9 @@ public class HajiUmrahApp {
                                                                                                                                 .add(jemaah.get(j));
                                                                                                         }
                                                                                                 }
-                                                                                                System.out.println(
-                                                                                                                "========== LIST OF JEMAAH ==========");
+                                                                                                System.out.println("\n========================================");
+                                                                                                System.out.printf("%27s\n", "List Of Jemaah");
+                                                                                        S       ystem.out.println("========================================");
                                                                                                 for (int j = 0; j < JemaahWithEmbassy
                                                                                                                 .size(); j++) {
                                                                                                         System.out.println(
@@ -393,6 +396,7 @@ public class HajiUmrahApp {
                                                                                                                                 + JemaahWithEmbassy
                                                                                                                                                 .size()
                                                                                                                                 + "]\n");
+                                                                                                System.out.print("Jemaah Number: ");
                                                                                                 choice5 = inp.nextInt();
                                                                                                 try {
                                                                                                         switch (choice5) {
