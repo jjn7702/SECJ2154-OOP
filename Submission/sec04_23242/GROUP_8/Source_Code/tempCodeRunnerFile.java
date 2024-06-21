@@ -12,6 +12,10 @@ public class GroupProjectManager {
     public static void main(String[] args) {
         System.out.println("\tWELCOME TO GROUP MANAGEMENT SYSTEM");
 
+        System.out.println("╔═════════════════════════════════════════════╗");
+        System.out.println("║       Group Project Management System       ║");
+        System.out.println("╚═════════════════════════════════════════════╝");
+
         Instructor instr1 = new Instructor("Lizawati", "lizawati@instructor.utm.my", "CS8493");
         Team team1 = new Team("Team Alpha");
         Report report1 = null; // Placeholder, modify as per the actual constructor of Report class
@@ -91,13 +95,16 @@ public class GroupProjectManager {
         Scanner inp = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\nList of Actions\n");
-            System.out.println("1) View Project List");
-            System.out.println("2) Add New Project");
-            System.out.println("3) Edit Project");
-            System.out.println("4) Delete Project");
-            System.out.println("5) Exit");
-            System.out.println("\nSelect your choice: ");
+            System.out.println("\n\n\n╔════════════════════════════════════╗");
+            System.out.printf("║     %5s%s%-8s   ║\n", "", "List Of Actions", "");
+            System.out.println("╠════════════════════════════════════╣");
+            System.out.println("║  1) View Project Details           ║");
+            System.out.println("║  2) Add New Project                ║");
+            System.out.println("║  3) Edit Project                   ║");
+            System.out.println("║  4) Delete Project                 ║");
+            System.out.println("║  5) Exit                           ║");
+            System.out.println("╚════════════════════════════════════╝");
+            System.out.println("Select your choice: ");
             int choice = inp.nextInt();
             inp.nextLine(); // Consume newline
 
@@ -124,14 +131,23 @@ public class GroupProjectManager {
     }
 
     private static void viewProjectList(Scanner inp) {
+        System.out.println();
+
         if (projects.isEmpty()) {
-            System.out.println("No projects available.");
+            System.out.println("╔════════════════════════════════════╗");
+            System.out.println("║       No projects available.       ║");
+            System.out.println("╚════════════════════════════════════╝");
             return;
         }
 
+        System.out.println("╔════════════════════════════════════╗");
+        System.out.printf("║    %7s%s%-8s    ║\n", "", "Project Lists", "");
+        System.out.println("╠════════════════════════════════════╣");
+        
         for (int i = 0; i < projects.size(); i++) {
-            System.out.printf("%d) %s\n", i + 1, projects.get(i).getTitle());
+            System.out.printf("║  %d) %-30s ║\n", i + 1, projects.get(i).getTitle());
         }
+        System.out.println("╚════════════════════════════════════╝");
 
         System.out.println("Select a project to view details (enter number): ");
         int projectIndex = inp.nextInt() - 1;
@@ -147,34 +163,34 @@ public class GroupProjectManager {
     //ADD FUNCTION FIXED
     private static void addNewProject(Scanner inp) {
         //Project Info
-        System.out.println("╔═══════════════════╗");
-        System.out.println("║  Add New Project  ║");
-        System.out.println("╚═══════════════════╝");
+        System.out.println("\n╔═════════════════════════╗");
+        System.out.println("║     Add New Project     ║");
+        System.out.println("╚═════════════════════════╝");
 
         System.out.println("Enter project ID: ");
         String projectId = inp.nextLine();
 
-        System.out.println("Enter project name: ");
+        System.out.println("\nEnter project name: ");
         String projectName = inp.nextLine();
 
-        System.out.println("Enter project description: ");
+        System.out.println("\nEnter project description: ");
         String projectDescription = inp.nextLine();
 
         //Instructor Info
-        System.out.println("Enter instructor name: ");
+        System.out.println("\nEnter instructor name: ");
         String instructorName = inp.nextLine();
 
-        System.out.println("Enter instructor email: ");
+        System.out.println("\nEnter instructor email: ");
         String instructorEmail = inp.nextLine();
 
-        System.out.println("Enter instructor employee number: ");
+        System.out.println("\nEnter instructor employee number: ");
         String instructorNumber = inp.nextLine();
 
         Instructor instructor = new Instructor(instructorName, instructorEmail, instructorNumber);
 
-        System.out.println("╔════════════════════╗");
-        System.out.println("║  Team Information  ║");
-        System.out.println("╚════════════════════╝");
+        System.out.println("\n\n╔══════════════════════════╗");
+        System.out.println("║     Team Information     ║");
+        System.out.println("╚══════════════════════════╝");
 
         //Team Info
         System.out.println("Enter team name: ");
@@ -186,30 +202,35 @@ public class GroupProjectManager {
         Report report = null; // Placeholder, could be added with more details
         Project project = new Project(projectId, projectName, projectDescription, report, team, instructor);
 
-        System.out.println("Enter number of team members: ");
+        System.out.println("\nEnter number of team members: ");
         int numMembers = inp.nextInt();
         inp.nextLine(); // Consume newline
 
         for (int i = 0; i < numMembers; i++) {
+
+            System.out.println("\n╔═════════════════════════╗");
+            System.out.printf("║        Member #%-1d     ║", (i + 1));
+            System.out.println("\n╚═════════════════════════╝");
+
             System.out.println("Enter student name: ");
             String studentName = inp.nextLine();
 
-            System.out.println("Enter student matric number: ");
+            System.out.println("\nEnter student matric number: ");
             String matricNumber = inp.nextLine();
 
-            System.out.println("Enter student email: ");
+            System.out.println("\nEnter student email: ");
             String studentEmail = inp.nextLine();
 
-            System.out.println("Enter student role: ");
+            System.out.println("\nEnter student role: ");
             String studentRole = inp.nextLine();
 
             Student student = new Student(matricNumber, studentName, studentEmail, studentRole);
             team.addMember(student);
         }
 
-        System.out.println("╔═════════════════════════╗");
-        System.out.println("║  Milestone Information  ║");
-        System.out.println("╚═════════════════════════╝");
+        System.out.println("\n╔═══════════════════════════╗");
+        System.out.println("║   Milestone Information   ║");
+        System.out.println("╚═══════════════════════════╝");
 
         //Milestone Info
         System.out.println("Enter number of milestones: ");
@@ -221,38 +242,38 @@ public class GroupProjectManager {
 
         for (int i = 0; i < numMilestones; i++) {
             
-            System.out.println("╔════════════════════════╗");
+            System.out.println("\n╔════════════════════════╗");
             System.out.printf("║      Milestone #%-1d      ║", (i + 1));
             System.out.println("\n╚════════════════════════╝");
 
             System.out.println("Enter milestone ID: ");
             String milestoneID = inp.nextLine();
 
-            System.out.println("Enter milestone name: ");
+            System.out.println("\nEnter milestone name: ");
             String milestoneName = inp.nextLine();
 
-            System.out.println("Enter milestone description: ");
+            System.out.println("\nEnter milestone description: ");
             String milestoneDescription = inp.nextLine();
 
-            System.out.println("Enter milestone deadline: ");
+            System.out.println("\nEnter milestone deadline: ");
             String milestoneDeadline = inp.nextLine();
 
             Deadline deadlineMilestone = new Deadline(milestoneDeadline);
             Milestone milestone = new Milestone(milestoneID, milestoneName, milestoneDescription, deadlineMilestone);
 
-            System.out.println("Enter number of tasks: ");
+            System.out.println("\nEnter number of tasks: ");
             int numTasks = inp.nextInt();
             inp.nextLine(); // Consume newline
 
             for (int j = 0; j < numTasks; j++) {
-                System.out.println("╔════════════════════════╗");
+                System.out.println("\n╔════════════════════════╗");
                 System.out.printf("║      Task #%-1d           ║", (j + 1));
                 System.out.println("\n╚════════════════════════╝");
 
                 System.out.println("Enter task name: ");
                 String taskName = inp.nextLine();
 
-                System.out.println("Enter milestone deadline: ");
+                System.out.println("\nEnter milestone deadline: ");
                 String taskDeadline = inp.nextLine();
 
                 Deadline deadlineTask = new Deadline(taskDeadline);
@@ -274,6 +295,8 @@ public class GroupProjectManager {
         System.out.println("╔══════════════════╗");
         System.out.println("║  Edit Project    ║");
         System.out.println("╚══════════════════╝");
+
+
     
         System.out.println("Enter the project ID of the project you want to edit: ");
         String projectId = inp.nextLine();
