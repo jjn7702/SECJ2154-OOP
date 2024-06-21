@@ -87,7 +87,7 @@ class Project {
     public void printProjectDetails() {
         System.out.printf("\n╔═%s═╗", "═══════════════════════════════════════════════════════════════════════════════════════════════════════════════");
         System.out.printf("\n║ %111s ║", "");
-        System.out.printf("\n║  %-1s: %-104s║", projectID, title); 
+        System.out.printf("\n║  %-1s: %-104s ║", projectID, title); 
         System.out.printf("\n║ %111s ║", ""); 
         System.out.printf("\n╠═%s═╣", "═══════════════════════════════════════════════════════════════════════════════════════════════════════════════");
         System.out.printf("\n║ %111s ║", "");
