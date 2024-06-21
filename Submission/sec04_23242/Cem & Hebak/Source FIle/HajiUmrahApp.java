@@ -128,7 +128,7 @@ public class HajiUmrahApp {
                                                                                                                                 +
                                                                                                                                 jemaah.get(i).getName());
                                                                                                 System.out.print(
-                                                                                                                "[1] Show jemaah info\n[2] Haji and Umrah package\n[3] Exit\nYour choice: ");
+                                                                                                                "[1] Show Jemaah Info\n[2] Haji and Umrah package\n[3] Update Jemaah Info\n[4] Exit\nYour choice: ");
                                                                                                 choice4 = inp.nextInt();
                                                                                                 if (choice4 == 1) {
                                                                                                         jemaah.get(i).display();
@@ -145,6 +145,8 @@ public class HajiUmrahApp {
                                                                                                         } else {
                                                                                                                 break;
                                                                                                         }
+                                                                                                } else if (choice4 == 3){
+                                                                                                        jemaah.get(i).updateUserInfo();
                                                                                                 }
                                                                                         } while (choice4 != 3);
 
