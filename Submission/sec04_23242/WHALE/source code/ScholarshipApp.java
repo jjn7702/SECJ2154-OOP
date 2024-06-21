@@ -1,13 +1,5 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
-import java.util.Vector;
+import java.util.* ;
+import java.io.* ;
 
 public class ScholarshipApp {
     static Scanner inp = new Scanner(System.in);
@@ -23,7 +15,14 @@ public class ScholarshipApp {
             System.out.println("Are you a Student or an Administrator?");
 
             System.out.print("[0]\tStudent\n[1]\tAdministrator\n");
+
+            while(!inp.hasNextInt()){
+                System.out.println("Invalid input. Please enter 0 or 1") ;
+                inp.next() ;
+                System.out.print("[0]\tStudent\n[1]\tAdministrator\n") ;
+            }
             int choice = inp.nextInt();
+
 
             if (choice == 0) { // Student Menu
                 System.out.println("Register? (Y/N)");
@@ -61,6 +60,7 @@ public class ScholarshipApp {
                         System.out.println("Invalid Input. Please Enter a Number!");
                         inp.nextLine();
                     }
+
 
                     switch (ap) {
                         case 0:
@@ -153,6 +153,8 @@ public class ScholarshipApp {
 
                 }
             }
+
+
 
         } while (ad != null || !StudList.isEmpty()); //If there is a student in the list or the administrator in not logged out, the system will keep going 
 
@@ -580,7 +582,7 @@ public class ScholarshipApp {
         StudentHistory newHistory = new StudentHistory(lp, cgpa, majors);
         System.out.println("Student history inserted successfully.");
 
-        scanner.close() ;
+        //scanner.close() ;
         return newHistory;
 
     }

@@ -4,7 +4,8 @@ public class Administrator extends User {
     // Private attributes
     public String username;
     private String position;
-    private ArrayList<Student> stud;
+    private ArrayList<Student> studaprove ;
+    private ArrayList<Student> studrej ;
     // private Scholarship scholar;
     public Apply application;
 
@@ -16,7 +17,8 @@ public class Administrator extends User {
     public Administrator(String fn, String ln, int a, String em, Address add, String username) {
         super(fn, ln, a, em, add);
         this.username = username;
-        stud = new ArrayList<>();
+        studaprove = new ArrayList<>();
+        studrej = new ArrayList<>();
         // this.scholar = sc ;
         this.application = new Apply();
     }
@@ -45,16 +47,21 @@ public class Administrator extends User {
 
     public boolean evaluateStudent(Student st, Scholarship scholar) {
         if (scholar.isEligible(st) == true) {
-            stud.add(st);
+            studaprove.add(st);
             return true;
         }
 
-        else
+        else{
+            studrej.add(st) ;
             return false;
+        }
     }
 
-    public ArrayList<Student> getStudent() {
-        return stud;
+    public ArrayList<Student> getStudentApro() {
+        return studaprove;
+    }
+    public ArrayList<Student> getStudentRej() {
+        return studrej;
     }
 
     public Student getStudent(int i) {
