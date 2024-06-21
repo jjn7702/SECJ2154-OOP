@@ -30,7 +30,7 @@
 
 🍏🥦🥑
 ## 🥗 𝐒𝐲𝐬𝐭𝐞𝐦 𝐏𝐫𝐞𝐯𝐢𝐞𝐰 🥗
-------**Main Page**------
+<h2 style="color:darkgreen;">------Main Page------</h2>
 ~~~
 Welcome to Nutrition Tracker System !
 
