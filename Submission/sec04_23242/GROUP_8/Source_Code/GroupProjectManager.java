@@ -356,40 +356,66 @@ public class GroupProjectManager {
             team.setTeamName(teamName);
         }
     
-        // Display team members and edit specific member
-        System.out.println("Team members:");
-        for (int i = 0; i < team.getMembers().size(); i++) {
-            Student student = team.getMembers().get(i);
-            System.out.printf("%d. %s (Matric Number: %s)\n", i + 1, student.getName(), student.getMatricsNum());
-        }
-        System.out.print("Enter the number of the team member to edit (or 0 to skip): ");
-        int memberIndex = inp.nextInt() - 1;
+        System.out.println("Would you like to (1) Add team members or (2) Edit team information?");
+        System.out.print("Enter your choice: ");
+        int choice = inp.nextInt();
         inp.nextLine(); // Consume newline
     
-        if (memberIndex >= 0 && memberIndex < team.getMembers().size()) {
-            Student student = team.getMembers().get(memberIndex);
+        if (choice == 1) {
+            // Add team members
+            System.out.print("How many team members would you like to add? ");
+            int numNewMembers = inp.nextInt();
+            inp.nextLine(); // Consume newline
     
-            System.out.println("Editing student: " + student.getName());
+            for (int i = 0; i < numNewMembers; i++) {
+                System.out.print("Enter name of new team member: ");
+                String newMemberName = inp.nextLine();
+                System.out.print("Enter email of new team member: ");
+                String newMemberEmail = inp.nextLine();
+                System.out.print("Enter role of new team member: ");
+                String newMemberRole = inp.nextLine();
+                System.out.print("Enter matric number of new team member: ");
+                String newMemberMatricNum = inp.nextLine();
     
-            System.out.print("Enter new student name (or press Enter to keep the current name): ");
-            String studentName = inp.nextLine();
-            if (!studentName.isEmpty()) {
-                student.setName(studentName);
+                Student newMember = new Student(newMemberName, newMemberEmail, newMemberRole, newMemberMatricNum);
+                team.addMember(newMember);
             }
-    
-            System.out.print("Enter new student email (or press Enter to keep the current email): ");
-            String studentEmail = inp.nextLine();
-            if (!studentEmail.isEmpty()) {
-                student.setEmail(studentEmail);
+        } else if (choice == 2) {
+            // Edit existing team members
+            System.out.println("Team members:");
+            for (int i = 0; i < team.getMembers().size(); i++) {
+                Student student = team.getMembers().get(i);
+                System.out.printf("%d. %s (Matric Number: %s)\n", i + 1, student.getName(), student.getMatricsNum());
             }
+            System.out.print("Enter the number of the team member to edit (or 0 to skip): ");
+            int memberIndex = inp.nextInt() - 1;
+            inp.nextLine(); // Consume newline
     
-            System.out.print("Enter new student role (or press Enter to keep the current role): ");
-            String studentRole = inp.nextLine();
-            if (!studentRole.isEmpty()) {
-                student.setRole(studentRole);
+            if (memberIndex >= 0 && memberIndex < team.getMembers().size()) {
+                Student student = team.getMembers().get(memberIndex);
+    
+                System.out.println("Editing student: " + student.getName());
+    
+                System.out.print("Enter new student name (or press Enter to keep the current name): ");
+                String studentName = inp.nextLine();
+                if (!studentName.isEmpty()) {
+                    student.setName(studentName);
+                }
+    
+                System.out.print("Enter new student email (or press Enter to keep the current email): ");
+                String studentEmail = inp.nextLine();
+                if (!studentEmail.isEmpty()) {
+                    student.setEmail(studentEmail);
+                }
+    
+                System.out.print("Enter new student role (or press Enter to keep the current role): ");
+                String studentRole = inp.nextLine();
+                if (!studentRole.isEmpty()) {
+                    student.setRole(studentRole);
+                }
             }
         }
-    }
+    }    
     
     private static void editMilestones(Scanner inp, Project project) {
         System.out.println("\n╔══════════════════════════════════════════╗");
