@@ -91,28 +91,36 @@ public class HajiUmrahApp {
                 int choice5 = 0;
                 String IC, ID;
                 do {
-                        try{
+                        try {
                                 System.out.print("[1] Log In\n[2] Exit\nYour Choice: ");
                                 choice1 = inp.nextInt();
                                 if (choice1 == 1) {
-                                        System.out.print("Who are you?\n[1] Jemaah\n[2] Doctor\n[3] Embassy\nYour choice: ");
+                                        System.out.print(
+                                                        "Who are you?\n[1] Jemaah\n[2] Doctor\n[3] Embassy\nYour choice: ");
                                         choice2 = inp.nextInt();
                                         inp.nextLine(); // clear buffer
                                         switch (choice2) {
                                                 case 1: {
-                                                        System.out.println("[1] Log in as jemaah\n[2] Register new jemaah");
+                                                        System.out.println(
+                                                                        "[1] Log in as jemaah\n[2] Register new jemaah");
                                                         choice3 = inp.nextInt();
                                                         inp.nextLine();// clear buffer
                                                         switch (choice3) {
                                                                 case 1: {
                                                                         System.out.println("Enter your credentials");
-                                                                        System.out.print("Identification Card Number: ");
+                                                                        System.out.print(
+                                                                                        "Identification Card Number: ");
                                                                         IC = inp.nextLine();
                                                                         System.out.print("Jemaah ID: ");
                                                                         ID = inp.nextLine();
-                                                                        boolean found = false; // Exception handling purpose
+                                                                        boolean found = false; // Exception handling
+                                                                                               // purpose
                                                                         for (int i = 0; i < jemaah.size(); i++) {
-                                                                                if (IC.equals(jemaah.get(i).getIdentification_Card()) && ID.equals(jemaah.get(i).getJemaahID())) {
+                                                                                if (IC.equals(jemaah.get(i)
+                                                                                                .getIdentification_Card())
+                                                                                                && ID.equals(jemaah
+                                                                                                                .get(i)
+                                                                                                                .getJemaahID())) {
                                                                                         found = true;
                                                                                         do {
                                                                                                 System.out.println(
@@ -142,15 +150,18 @@ public class HajiUmrahApp {
 
                                                                                 }
                                                                         }
-                                                                        if(!found){
-                                                                                System.out.println("Invalid credentials, please try again.\n");
+                                                                        if (!found) {
+                                                                                System.out.println(
+                                                                                                "Invalid credentials, please try again.\n");
                                                                         }
                                                                         break;
 
                                                                 }
                                                                 case 2: {// create new jemaah and insert dalam vector
-                                                                        try{
-                                                                                String name, contact, identification_Card, email,
+                                                                        try {
+                                                                                String name, contact,
+                                                                                                identification_Card,
+                                                                                                email,
                                                                                                 jemaahID;
                                                                                 int age;
                                                                                 System.out.println(
@@ -159,7 +170,8 @@ public class HajiUmrahApp {
                                                                                 name = inp.nextLine();
                                                                                 System.out.print("Contact: ");
                                                                                 contact = inp.nextLine();
-                                                                                System.out.print("Identification Card : ");
+                                                                                System.out.print(
+                                                                                                "Identification Card : ");
                                                                                 identification_Card = inp.nextLine();
                                                                                 System.out.print("Email: ");
                                                                                 email = inp.nextLine();
@@ -172,8 +184,10 @@ public class HajiUmrahApp {
                                                                                                                 + jemaahID);
                                                                                 System.out.println("\n");
 
-                                                                                Jemaah newJemaah = new Jemaah(name, contact,
-                                                                                                identification_Card, email, jemaahID,
+                                                                                Jemaah newJemaah = new Jemaah(name,
+                                                                                                contact,
+                                                                                                identification_Card,
+                                                                                                email, jemaahID,
                                                                                                 age,
                                                                                                 doktor.get(randomNumberGenerator
                                                                                                                 .nextInt(2)),
@@ -181,14 +195,16 @@ public class HajiUmrahApp {
                                                                                                                 .nextInt(2)));
                                                                                 jemaah.add(newJemaah);
 
-                                                                        }catch (InputMismatchException e){
-                                                                                System.out.println("Invalid input, please enter the correct data.\n");
+                                                                        } catch (InputMismatchException e) {
+                                                                                System.out.println(
+                                                                                                "Invalid input, please enter the correct data.\n");
                                                                                 inp.nextLine();
                                                                         }
                                                                         break;
                                                                 }
-                                                                default: 
-                                                                        System.out.println("Invalid choice, please enter a number within a range.\n");
+                                                                default:
+                                                                        System.out.println(
+                                                                                        "Invalid choice, please enter a number within a range.\n");
                                                                         break;
                                                         }
 
@@ -200,10 +216,12 @@ public class HajiUmrahApp {
                                                         IC = inp.nextLine();
                                                         System.out.print("Doctor ID: ");
                                                         ID = inp.nextLine();
-                                                        boolean = false;
+                                                        boolean found = false;
                                                         for (int i = 0; i < doktor.size(); i++) {
-                                                                if (IC.equals(doktor.get(i).getIdentification_Card()) && ID
-                                                                                .equals(doktor.get(i).getDoctor_Number())) { // check
+                                                                if (IC.equals(doktor.get(i).getIdentification_Card())
+                                                                                && ID
+                                                                                                .equals(doktor.get(i)
+                                                                                                                .getDoctor_Number())) { // check
                                                                         // IC
                                                                         // and
                                                                         // ID
@@ -224,8 +242,9 @@ public class HajiUmrahApp {
                                                                                 choice3 = inp.nextInt();
 
                                                                                 if (choice3 == 1) {
-                                                                                        doktor.get(i).display(); // dulu guna
-                                                                                                                // dooktor.get(i).display_doctor_info()
+                                                                                        doktor.get(i).display(); // dulu
+                                                                                                                 // guna
+                                                                                                                 // dooktor.get(i).display_doctor_info()
                                                                                 } else if (choice3 == 2) {
                                                                                         Vector<Jemaah> jemaahWithDoctor = new Vector<>();
 
@@ -234,9 +253,11 @@ public class HajiUmrahApp {
                                                                                                 if (jemaah.get(j)
                                                                                                                 .getDoctor() == doktor
                                                                                                                                 .get(i)) {
-                                                                                                        // if jemaah ni dengan
+                                                                                                        // if jemaah ni
+                                                                                                        // dengan
                                                                                                         // doctor
-                                                                                                        // ni, dia masuk dalam
+                                                                                                        // ni, dia masuk
+                                                                                                        // dalam
                                                                                                         // vector
                                                                                                         // jemaahwithDoctor
                                                                                                         jemaahWithDoctor.add(
@@ -252,13 +273,15 @@ public class HajiUmrahApp {
                                                                                                                         // User
                                                                                                                         // kita
                                                                                                                         // cuba
-                                                                                                System.out.println((n + 1)
+                                                                                                System.out.println((n
+                                                                                                                + 1)
                                                                                                                 + ") "
                                                                                                                 + jemaahWithDoctor
                                                                                                                                 .get(n)
                                                                                                                                 .getName());
 
-                                                                                                // jemaahtry.display(); // dia
+                                                                                                // jemaahtry.display();
+                                                                                                // // dia
                                                                                                 // akan
                                                                                                 // panggil
                                                                                                 // semua
@@ -273,25 +296,28 @@ public class HajiUmrahApp {
                                                                                                                         .size())
                                                                                                                         + "] Pick jemaah \n");
                                                                                         choice5 = inp.nextInt();
-                                                                                        try{
+                                                                                        try {
                                                                                                 if (choice5 == 0) {
                                                                                                         break;
-                                                                                                } else{
+                                                                                                } else {
                                                                                                         doktor.get(i).Medical_Application(
                                                                                                                         jemaahWithDoctor.get(
                                                                                                                                         choice5 - 1));
                                                                                                 }
-                                                                                        }catch (IndexOutOfBoundsException e){
-                                                                                                System.out.println("Invalid choice, please enter a number within the range.\n");
+                                                                                        } catch (IndexOutOfBoundsException e) {
+                                                                                                System.out.println(
+                                                                                                                "Invalid choice, please enter a number within the range.\n");
                                                                                         }
 
                                                                                 }
 
                                                                         } while (choice3 != 3);
-                                                                } 
+                                                                }
 
-                                                        }if (!found){
-                                                                System.out.println("Invalid credentials, please try again.\n");
+                                                        }
+                                                        if (!found) {
+                                                                System.out.println(
+                                                                                "Invalid credentials, please try again.\n");
                                                         }
                                                         break;
                                                 }
@@ -304,8 +330,10 @@ public class HajiUmrahApp {
                                                         boolean found = false;
 
                                                         for (int k = 0; k < pegawai.size(); k++) {
-                                                                if (IC.equals(pegawai.get(k).getIdentification_Card()) && ID
-                                                                                .equals(pegawai.get(k).getEmbassy_numberr())) {
+                                                                if (IC.equals(pegawai.get(k).getIdentification_Card())
+                                                                                && ID
+                                                                                                .equals(pegawai.get(k)
+                                                                                                                .getEmbassy_numberr())) {
                                                                         found = true;
                                                                         do {
                                                                                 System.out.println("Hi Mr. "
@@ -337,12 +365,13 @@ public class HajiUmrahApp {
                                                                                                                 "========== LIST OF JEMAAH ==========");
                                                                                                 for (int j = 0; j < JemaahWithEmbassy
                                                                                                                 .size(); j++) {
-                                                                                                        System.out.println((j
-                                                                                                                        + 1)
-                                                                                                                        + ") "
-                                                                                                                        + JemaahWithEmbassy
-                                                                                                                                        .get(j)
-                                                                                                                                        .getName());
+                                                                                                        System.out.println(
+                                                                                                                        (j
+                                                                                                                                        + 1)
+                                                                                                                                        + ") "
+                                                                                                                                        + JemaahWithEmbassy
+                                                                                                                                                        .get(j)
+                                                                                                                                                        .getName());
                                                                                                 }
                                                                                                 System.out.println();
                                                                                                 System.out.print(
@@ -351,7 +380,7 @@ public class HajiUmrahApp {
                                                                                                                                                 .size()
                                                                                                                                 + "]\n");
                                                                                                 choice5 = inp.nextInt();
-                                                                                                try{
+                                                                                                try {
                                                                                                         switch (choice5) {
                                                                                                                 case 0:
                                                                                                                         break;
@@ -362,8 +391,9 @@ public class HajiUmrahApp {
                                                                                                                                                         .get(choice5 - 1));
                                                                                                                         break;
                                                                                                         }
-                                                                                                }catch(IndexOutOfBoundsException e){
-                                                                                                        System.out.println("Invalid choice, please enter a number within the range.\n");
+                                                                                                } catch (IndexOutOfBoundsException e) {
+                                                                                                        System.out.println(
+                                                                                                                        "Invalid choice, please enter a number within the range.\n");
                                                                                                 }
                                                                                                 break;
                                                                                         default:
@@ -372,31 +402,34 @@ public class HajiUmrahApp {
                                                                         } while (choice3 != 3);
                                                                 }
                                                         }
-                                                        if(!found){
-                                                                System.out.println("Invalid credentials, please try again.\n");
+                                                        if (!found) {
+                                                                System.out.println(
+                                                                                "Invalid credentials, please try again.\n");
                                                         }
                                                         break;
                                                         // Sini Login Embassy
                                                 }
                                                 default:
-                                                        System.out.println("Invalid choice. Please enter a number within the range.\n");
+                                                        System.out.println(
+                                                                        "Invalid choice. Please enter a number within the range.\n");
                                                         break;
                                         }
                                 }
 
-                                else if (choice1 != 2){
+                                else if (choice1 != 2) {
                                         System.out.println("Invalid choice. Please enter a number within the range.\n");
                                 }
-                        } catch(InputMismatchException e){
+                        } catch (InputMismatchException e) {
                                 System.out.println("Invalid input, please enter a valid number.\n");
                                 inp.nextLine();
-                        } catch(Exception e){
+                        } catch (Exception e) {
                                 System.out.println("An uxpected error occured: " + e.getMessage());
                                 inp.nextLine();
                         }
                         // } catch (IndexOutOfBoundsException e) {
-                        //     System.out.println("Invalid choice, please enter a number within the range.");
-                        //     inp.nextLine(); // clear buffer
+                        // System.out.println("Invalid choice, please enter a number within the
+                        // range.");
+                        // inp.nextLine(); // clear buffer
                         // }
 
                 } while (choice1 != 2);
