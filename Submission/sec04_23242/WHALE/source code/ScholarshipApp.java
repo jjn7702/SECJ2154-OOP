@@ -9,7 +9,7 @@ import java.util.Vector;
 
 public class ScholarshipApp {
     static Scanner inp = new Scanner(System.in);
-    static int countAdmin = 0, countStudent = 0 ;
+    static int countAdmin = 0, countStudent = 0;
     static Administrator ad = null;
     static Student stu = null;
 
@@ -31,11 +31,11 @@ public class ScholarshipApp {
 
                 if (rs == 'Y') {
                     registerStudent();
-                    countStudent++ ;
+                    countStudent++;
 
                 } else if (rs == 'N') {
                     stu = signInStudent(); // Ni function untuk tngok status je
-                    int i = 0 ; 
+                    int i = 0;
 
                     if (StudList.size() == 0) {
                         StudList.add(stu);
@@ -96,10 +96,10 @@ public class ScholarshipApp {
                 if (StudList.size() > 0) {
                     for (int i = 0; i < StudList.size(); i++) {
                         StudList.get(i).displayAllDetails();
-                        boolean evs = ad.evaluateStudent(StudList.get(i), StudList.get(i).getScholarship()) ;
+                        boolean evs = ad.evaluateStudent(StudList.get(i), StudList.get(i).getScholarship());
 
                         if (evs) {
-                            countStudent-- ;
+                            countStudent--;
                             ad.application.incrementStudent();
                         }
 
@@ -111,7 +111,7 @@ public class ScholarshipApp {
                 if (StudList.isEmpty()) {
                     System.out.println("There is no student applying the scholarship");
                 }
- 
+
                 System.out.println("do you want to logout? (Y/N)");
                 char y = inp.next().toUpperCase().charAt(0);
                 if (y == 'Y') {
@@ -122,7 +122,7 @@ public class ScholarshipApp {
 
             }
 
-        } while ((countAdmin > 0  || countStudent > 0) || (ad != null || StudList.size() > 0)) ;
+        } while ((countAdmin > 0 || countStudent > 0) || (ad != null || StudList.size() > 0));
 
         inp.close();
     }
@@ -333,28 +333,39 @@ public class ScholarshipApp {
                 state = addressParts[2].trim();
 
                 fileScanner.close();
-                System.out.println("Choose your current program:") ;
-                System.out.println("[1] PREGRADUATE") ;
-                System.out.println("[2] UNDERGRADUATE") ;
-                System.out.println("[3] POSTGRADUATE") ;  
-                int ch = inp.nextInt() ;
+                System.out.println("Choose your current program:");
+                System.out.println("[1] PREGRADUATE");
+                System.out.println("[2] UNDERGRADUATE");
+                System.out.println("[3] POSTGRADUATE");
+                int ch = inp.nextInt();
 
-                Programs p ;
+                System.out.println("Enter the CGPA: ");
+                double cgpa = inp.nextDouble();
+                inp.nextLine(); // consume the newline character
 
-                switch(ch){
-                    case 1 : p = Programs.PREGRADUATE ;
-                             break ;
-                    case 2 : p = Programs.UNDERGRADUATE ;
-                             break ;
-                    case 3 : p = Programs.POSTGRADUATE ;
+                // Get majors
+                System.out.println("Enter the majors: ");
+                String majors = inp.nextLine();
+
+                Programs p = Programs.UNDERGRADUATE;
+
+                switch (ch) {
+                    case 1:
+                        p = Programs.PREGRADUATE;
+                        break;
+                    case 2:
+                        p = Programs.UNDERGRADUATE;
+                        break;
+                    case 3:
+                        p = Programs.POSTGRADUATE;
                 }
 
                 Scholarship o = applyFromDisplayScholarship(stu, age);
-                // StudentHistory st = insertStudentHistory() ;
+                StudentHistory st = insertStudentHistory();
 
                 Student stu = new Student(fname, lname, age, email, new Address(street, cityAndPostalCode, state),
-                        matricsNu);
-                        
+                        matricsNu, majors, cgpa, o, p, st);
+
                 return stu;
             } else {
                 System.out.println("Invalid username or password.");
@@ -444,16 +455,16 @@ public class ScholarshipApp {
                 System.out.println("Do you want to apply for this scholarship? (Y/N)");
                 char response = inp.next().toUpperCase().charAt(0);
                 if (response == 'Y') {
-                    //student.setScholarship(Merits.get(scholarshipChoice)) ;
+                    // student.setScholarship(Merits.get(scholarshipChoice)) ;
 
-                    //ad.setScholarshipAdmin(Merits.get(scholarshipChoice)) ;
+                    // ad.setScholarshipAdmin(Merits.get(scholarshipChoice)) ;
                     sid++; // Assuming Student class has getStudentId method
-                    //applyScholarship(student, sid);
+                    // applyScholarship(student, sid);
                     System.out.println("Application successful.");
-                    return Merits.get(scholarshipChoice) ;
+                    return Merits.get(scholarshipChoice);
                 } else {
                     System.out.println("Application cancelled.");
-                    return null ;
+                    return null;
                 }
             } else if (choice == 2) {
                 File file = new File("Submission\\sec04_23242\\WHALE\\source code\\needScholarshp.txt");
@@ -491,17 +502,17 @@ public class ScholarshipApp {
                 System.out.println("Do you want to apply for this scholarship? (Y/N)");
                 char response = inp.next().toUpperCase().charAt(0);
                 if (response == 'Y') {
-                    //student.setScholarship(Needs.get(scholarshipChoice));
+                    // student.setScholarship(Needs.get(scholarshipChoice));
                     sid++; // Assuming Student class has getStudentId method
                     applyScholarship(student, sid);
                     System.out.println("Application successful.");
-                    return Needs.get(scholarshipChoice) ;
+                    return Needs.get(scholarshipChoice);
                 } else {
                     System.out.println("Application cancelled.");
                 }
             } else {
                 System.out.println("Invalid choice.");
-                return null ;
+                return null;
             }
 
         } catch (FileNotFoundException e) {
@@ -509,7 +520,46 @@ public class ScholarshipApp {
         } catch (NumberFormatException e) {
             System.out.println("Invalid format in scholarship file.");
         }
-        return null ;
+        return null;
+    }
+
+    public static StudentHistory insertStudentHistory() {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get last program
+        System.out.println("Choose your last program:");
+        System.out.println("[1] PREGRADUATE");
+        System.out.println("[2] UNDERGRADUATE");
+        System.out.println("[3] POSTGRADUATE");
+        int ch = inp.nextInt();
+        Programs lp = Programs.UNDERGRADUATE;
+
+        switch (ch) {
+            case 1:
+                lp = Programs.PREGRADUATE;
+                break;
+            case 2:
+                lp = Programs.UNDERGRADUATE;
+                break;
+            case 3:
+                lp = Programs.POSTGRADUATE;
+        }
+
+        // Get CGPA
+        System.out.println("Enter the last Program CGPA: ");
+        double cgpa = scanner.nextDouble();
+        scanner.nextLine(); // consume the newline character
+
+        // Get majors
+        System.out.println("Enter the last Program majors: ");
+        String majors = scanner.nextLine();
+
+        // Create a new StudentHistory object and add it to the list
+        StudentHistory newHistory = new StudentHistory(lp, cgpa, majors);
+        System.out.println("Student history inserted successfully.");
+
+        return newHistory;
+
     }
 
     private static void displayStudList(Vector<Student> sop) {
