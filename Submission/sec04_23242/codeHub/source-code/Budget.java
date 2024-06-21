@@ -34,7 +34,8 @@ public class Budget {
     }
 
     public void display() {
-        System.out.println("Budget for " + category.getCategoryType() + ":>");
-        System.out.println("Budget used : " + currentExpense + "/ " + limit);
+        System.out.printf("%30s%-20s%-20s|\n","|", category.getCategoryType(), currentExpense+"/"+limit);
+        //System.out.println("Budget for " + category.getCategoryType() + ":>");
+        //System.out.println("Budget used : " + currentExpense + "/ " + limit);
     }
 }

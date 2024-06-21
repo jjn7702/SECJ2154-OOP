@@ -1,3 +1,4 @@
+
 package GroupProject;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class Meal {
     }
 
     public void displayMealDetails() {
-        System.out.println("Meal: " + type);
+        System.out.println("\nMeal: " + type);
         System.out.println("Date: " + date);
         for (FoodItem item : foodItems) {
             System.out.println(" - " + item.getName() + ": " + item.getCalories() + " calories");

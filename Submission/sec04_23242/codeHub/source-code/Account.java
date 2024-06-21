@@ -93,20 +93,32 @@ class Account {
         return null;
     }
     
-    public String getTransactionDetails() {
-        StringBuilder details = new StringBuilder(
-                "Account ID: " + id + ", Name: " + name + ", Balance: RM" + balance + "\n");
+    public void getTransactionDetails() {
+       
+        System.out.printf("%30s%s\n", "<",
+                "===================================================================>");
+                System.out.printf("%30s%-20s%-20s%-15s%-10s  |\n","|", "Transaction ID", "Description", "Amount(RM)", "Date");
         for (Transaction transaction : transactions) {
-            details.append(transaction.getDetails()).append("\n");
+            System.out.printf("%30s%-20s%-20s%-15.2f%-10s  |\n","|", transaction.getId(), transaction.getDescription(), transaction.getAmount(), transaction.getDate());
         }
-        return details.toString();
+        System.out.printf("%30s%s\n", "<",
+                "===================================================================>");
+        
     }
 
     public void displayBudget() {
+        System.out.printf("%30s%s\n", "<",
+                "=========================================>");
+
+        System.out.printf("%30s%-20s%-20s|\n","|", "Category Type", "Progress");
         for (Budget budget : budgets) {
             budget.display();
-            System.out.println();
+            //System.out.println();
         }
+        System.out.printf("%30s%s\n", "<",
+                "=========================================>");
+        
+
     }
 
     public void displayInfo() {

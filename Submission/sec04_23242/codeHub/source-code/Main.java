@@ -16,18 +16,19 @@ public class Main {
         Report report = new Report(null); // rate set to be 1.0
         Vector<Category> categories = new Vector<>(); // Store category
         Scanner scanner = new Scanner(System.in);
-        Scanner inp = new Scanner(new File("bank.txt"));
-        Scanner acc = new Scanner(new File("Account.txt"));
-        Scanner bud = new Scanner(new File("Budjet.txt"));
-        Scanner trans = new Scanner(new File("Transaction.txt"));
-        Scanner sav = new Scanner(new File("Saving.txt"));
+        Scanner inp = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\bank.txt"));
+        Scanner acc = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Account.txt"));
+        Scanner bud = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Budjet.txt"));
+        Scanner trans = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Transaction.txt"));
+        Scanner sav = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Saving.txt"));
         categories.add(new ShoppingCategory(1));    
         categories.add(new FoodCategory(2));
+        categories.add(new OtherCategory(3));
     
         Bank bank1 = null;
         Users user1 = null;
 
-                BufferedReader br = new BufferedReader(new FileReader("bank.txt"));
+                BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\bank.txt"));
             if (br.readLine() == null) {
                 System.out.println("Errors no Bank, and file empty");
                 System.out.print("Enter Bank name: ");
@@ -41,7 +42,7 @@ public class Main {
                 user1 = new Users(id, name);
                 report.setUser(user1);
 
-                try (FileWriter writer = new FileWriter("bank.txt", false)) {
+                try (FileWriter writer = new FileWriter("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\bank.txt", false)) {
                     writer.write(bank1.getName() + " " + user1.getId() + " " + user1.getName() + "\n");
                 }
             }
@@ -124,8 +125,6 @@ public class Main {
         trans.close();
         sav.close();
 
-
-
         while (true) {
             printMenu();
             int choice = scanner.nextInt();
@@ -133,36 +132,46 @@ public class Main {
 
             switch (choice) {
                 case 1:
+                    screen.ClearScreen();
                     addAccount(scanner, bank1, user1);
+                    scanner.nextLine();
                     screen.pauseScreen(scanner);
                     break;
                 case 2:
+                    screen.ClearScreen();
                     depositMoney(scanner, user1);
+                    scanner.nextLine();
                     screen.pauseScreen(scanner);
                     break;
                 case 3:
+                    screen.ClearScreen();
                     withdrawMoney(scanner, user1);
                     screen.pauseScreen(scanner);
                     break;
                 case 4:
+                    screen.ClearScreen();
                     report.displayAccountBalancesAndTransactions();
-                    screen.pauseScreen(scanner);
+                    //screen.pauseScreen(scanner);
                     break;
                 case 5:
+                    screen.ClearScreen();
                     addBudget(scanner, user1, categories);
                     screen.pauseScreen(scanner);
                     break;
                 case 6:
+                    screen.ClearScreen();
                     addSaving(scanner, user1);
                     screen.pauseScreen(scanner);
                     break;
                 case 7:
+                    screen.ClearScreen();
                     addTransaction(scanner, user1, categories);
                     screen.pauseScreen(scanner);
                     break;
                 case 8:
+                    screen.ClearScreen();
                     report.displayAllInfo();
-                    screen.pauseScreen(scanner);
+                    //screen.pauseScreen(scanner);
                     break;
                 case 9:
                     System.out.printf("%37s","Exiting...");
@@ -179,17 +188,16 @@ public class Main {
             }
         }
 
-    
     }
 
        private static void writeBankFile(Bank bank, Users user) throws IOException {
-        try (FileWriter writer = new FileWriter("bank.txt", false)) {
+        try (FileWriter writer = new FileWriter("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\bank.txt", false)) {
             writer.write(bank.getName() + " " + user.getId() + " " + user.getName() + "\n");
         }
     }
 
     private static void writeAccountFile(Users user) throws IOException {
-        try (FileWriter writer = new FileWriter("account.txt", false)) {
+        try (FileWriter writer = new FileWriter("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Account.txt", false)) {
             for (Account account : user.getAccounts()) {
                 writer.write((account.getId()-1) + " " + account.getName() + " " + account.getBalance() + "\n");
             }
@@ -197,7 +205,7 @@ public class Main {
     }
 
     private static void writeBudgetFile(Users user, Vector<Category> categories) throws IOException {
-        try (FileWriter writer = new FileWriter("budjet.txt", false)) {
+        try (FileWriter writer = new FileWriter("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Budjet.txt", false)) {
             for (Account account : user.getAccounts()) {
                 for (Budget budget : account.getBudgets()) {
                     writer.write((account.getId()-1) + " " + budget.getLimit() + " " + (categories.indexOf(budget.getCategory()) + 1) + "\n");
@@ -207,7 +215,7 @@ public class Main {
     }
 
     private static void writeTransactionFile(Users user) throws IOException {
-        try (FileWriter writer = new FileWriter("Transaction.txt", false)) {
+        try (FileWriter writer = new FileWriter("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Transaction.txt", false)) {
             for (Account account : user.getAccounts()) {
                 for (Transaction transaction : account.getTransactions()) {
                     writer.write((transaction.getId()) + " " + transaction.getDescription() + " " +transaction.getDate() + " " + transaction.getAmount() + " " + transaction.getCategoryId() + "\n");
@@ -218,7 +226,7 @@ public class Main {
     
 
     private static void writeSavingFile(Users user) throws IOException {
-        try (FileWriter writer = new FileWriter("saving.txt", false)) {
+        try (FileWriter writer = new FileWriter("C:\\Users\\User\\Documents\\GitHub\\SECJ2154-OOP\\Submission\\sec04_23242\\codeHub\\source-code\\Saving.txt", false)) {
             for (Account account : user.getAccounts()) {
                 for (Saving saving : account.getSavings()) {
                     writer.write((account.getId()-1) + " " + saving.getName() + " " + saving.getTargetAmount() + " " + saving.getCurrentAmount() + " " + saving.getTargetDate() + "\n");
@@ -230,7 +238,7 @@ public class Main {
     private static PauseScreen screen= new PauseScreen();
 
     private static void printMenu() {
-        //screen.ClearScreen();
+        screen.ClearScreen();
         System.out.printf("%88s%n", "<<<<<<<PERSONAL FINANCE MANAGER>>>>>>>");
         System.out.printf("%90s%n", "----------------(Main Menu)----------------");
         System.out.printf("%60s%n","1. Add Account");
@@ -247,7 +255,7 @@ public class Main {
     }
 
     private static void addAccount(Scanner scanner, Bank bank, Users user) {
-        screen.ClearScreen();
+        System.out.printf("%50s%n","***********ADD ACCOUNT***********");
         System.out.print("Enter account name: ");
         String accountName = scanner.nextLine();
         System.out.print("Enter initial balance: ");
@@ -255,13 +263,15 @@ public class Main {
         Account account = new Account(user.getAccounts().size() + 1, accountName, balance);
         account.addBank(bank);
         user.addAccount(account);
-        System.out.println("Account added successfully.");
+        System.out.println("\nAccount added successfully.\n");
+        System.out.printf("%31s%n%n","---------Account Details---------");
         account.displayInfo();
+        System.out.println("");
     }
         
 
     private static void depositMoney(Scanner scanner, Users user) {
-        screen.ClearScreen();
+        System.out.printf("%50s%n","***********DEPOSIT MONEY***********");
         System.out.print("Enter account ID: ");
         int accountId = scanner.nextInt();
         System.out.print("Enter deposit amount: ");
@@ -270,7 +280,7 @@ public class Main {
         try {
             Account account = findAccountById(user.getAccounts(), accountId);
             account.deposit(amount);
-            System.out.println("Money deposited successfully.");
+            System.out.println("\nMoney deposited successfully...\n");
             Date d = new Date(System.currentTimeMillis());
             account.addTransaction(accountId, "DEPOSIT", amount, d,new Deposit(accountId) );
         } catch (AccountNotFoundException e) {
@@ -279,38 +289,40 @@ public class Main {
     }
 
     private static void withdrawMoney(Scanner scanner, Users user) {
-        screen.ClearScreen();
+        System.out.printf("%50s%n","**********WITHDRAW MONEY**********");
         System.out.print("Enter account ID: ");
         int accountId = scanner.nextInt();
+        scanner.nextLine();
         System.out.print("Enter withdrawal amount: ");
         double amount = scanner.nextDouble();
+        scanner.nextLine();
 
         try {
             Account account = findAccountById(user.getAccounts(), accountId);
             account.withdraw(amount);
             Date d = new Date(System.currentTimeMillis());
-            System.out.println("PRESS 1 FOR SHOPPING");
+            System.out.println("\nPRESS 1 FOR SHOPPING");
             System.out.println("PRESS 2 FOR FOOD");
             System.out.println("PRESS 3 FOR OTHER");
+            System.out.print("-> ");
             int cater = scanner.nextInt();
-
             scanner.nextLine();
 
             if(cater == 1){
                 
-                System.out.print("Enter Shopping name:");
+                System.out.print("\nEnter Shopping name: ");
                 String Shop = scanner.nextLine();
                 ShoppingCategory s = new ShoppingCategory(accountId);
                 account.addTransaction(accountId, Shop, amount, d,s );
             }
             else if(cater == 2){
-                System.out.print("Enter Food name:");
+                System.out.print("\nEnter Food name: ");
                 String Food = scanner.nextLine();
                 FoodCategory s = new FoodCategory(accountId);
                 account.addTransaction(accountId,Food, amount, d,s );
             }
             else if(cater == 3){
-                System.out.println("Enter other name:");
+                System.out.print("\nEnter other name: ");
                 String Other = scanner.nextLine();
                 OtherCategory s = new OtherCategory(accountId);
                 account.addTransaction(accountId, Other, amount, d, s);
@@ -318,26 +330,26 @@ public class Main {
             else{
                 System.out.println("NOT VALID");
             }
-            System.out.println("Money withdrawn successfully.");
+            System.out.println("\nMoney withdrawn successfully...");
         } catch (AccountNotFoundException | InsufficientFundsException e) {
-            System.out.println(e.getMessage());
+           System.out.println(e.getMessage());
         }
-        screen.pauseScreen(scanner);
-        screen.ClearScreen();
     }
 
     private static void addBudget(Scanner scanner, Users user, Vector<Category> categories) {
-        screen.ClearScreen();
+        System.out.printf("%50s%n","***********ADD BUDGET***********");
         System.out.print("Enter account ID: ");
         int accountId = scanner.nextInt();
         System.out.print("Enter budget limit: ");
         double limit = scanner.nextDouble();
         scanner.nextLine(); // consume newline
-        System.out.print("Choose category: ");
+        System.out.println("Choose category: ");
         for (Category category : categories) {
-            System.out.println(category.getId() + ". " + category.getName());
+            System.out.println(category.getId() + ". " + category.getCategoryType());
         }
+        System.out.print("-> ");
         int categoryId = scanner.nextInt();
+        scanner.nextLine();
 
         try {
             Account account = findAccountById(user.getAccounts(), accountId);
@@ -346,7 +358,7 @@ public class Main {
             //check only one budget for a category if want to make a new one will be reset
             Budget existingBudget = account.getBudgetByCategory(category);
             if (existingBudget != null) {
-                System.out.println("A budget already exists for the category " + category.getName() + ".");
+                System.out.println("A budget already exists for the category " + category.getCategoryType() + ".");
                 System.out.print("Do you want to delete the existing budget and set a new one? (yes/no): ");
                 scanner.nextLine(); // consume newline
                 String confirm = scanner.nextLine();
@@ -356,18 +368,16 @@ public class Main {
                 } else {
                     account.removeBudget(existingBudget);
                 }
-            }
-
-            
+            }   
             account.addBudget(limit, category);
-            System.out.println("Budget added successfully.");
+            System.out.println("\nBudget added successfully...\n");
         } catch (AccountNotFoundException | CategoryNotFoundException e) {
             System.out.println(e.getMessage());
         }
     }
 
     private static void addSaving(Scanner scanner, Users user) {
-        screen.ClearScreen();
+        System.out.printf("%50s%n","***********ADD SAVING***********");
         System.out.print("Enter account ID: ");
         int accountId = scanner.nextInt();
         System.out.print("Enter saving goal name: ");
@@ -389,14 +399,14 @@ public class Main {
             Saving saving = new Saving(user.getAccounts().size() + 1, name, targetAmount,currentAmount, targetDate);
             //composition
             account.addSaving(saving);
-            System.out.println("Saving goal added successfully.");
+            System.out.println("\nSaving goal added successfully...\n");
         } catch (AccountNotFoundException e) {
             System.out.println(e.getMessage());
         }
     }
 
     private static void addTransaction(Scanner scanner, Users user, Vector<Category> categories) {
-        screen.ClearScreen();
+        System.out.printf("%53s%n","**********ADD TRANSACTION**********");
         System.out.print("Enter account ID: ");
         int accountId = scanner.nextInt();
         scanner.nextLine(); // consume newline
@@ -404,12 +414,13 @@ public class Main {
         String description = scanner.nextLine();
         System.out.print("Enter transaction amount: ");
         double amount = scanner.nextDouble();
-        System.out.print("Choose category: ");
+        System.out.println("Choose category: ");
         for (Category category : categories) {
-            System.out.println(category.getId() + ". " + category.getName());
+            System.out.println(category.getId() + ". " + category.getCategoryType());
         }
+        System.out.print("-> ");
         int categoryId = scanner.nextInt();
-
+        scanner.nextLine();
         try {
             Account account = findAccountById(user.getAccounts(), accountId);
             Category category = findCategoryById(categories, categoryId);
@@ -441,7 +452,7 @@ public class Main {
             if (budget != null) {
                 budget.setCurrentExpense(budget.getCurrentExpense() + amount);
             }
-            System.out.println("Transaction added successfully.");
+            System.out.println("\nTransaction added successfully...\n");
         } catch (AccountNotFoundException | InsufficientFundsException | CategoryNotFoundException e) {
             System.out.println(e.getMessage());
         }
