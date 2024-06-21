@@ -23,8 +23,6 @@
 👥 User Management: Admins can view food items, manage users, and delete user accounts.
 
 🔒 Secure Login: Both admin and regular users can securely log in to access their personalized features.
-
-
 <img align="right" width=30% src="https://img.freepik.com/premium-vector/eat-healthy-food-cartoon-hand-drawn-doodle-self-care-awareness-drawing-clip-art-icon-illustration_66976-559.jpg">
 
 ## 🥗 OOP concepts
