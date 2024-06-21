@@ -4,6 +4,8 @@
 
 This application helps you keep track of your daily food intake, monitor your nutritional goals, and maintain a balanced diet.
 
+<iframe src="https://giphy.com/embed/j6SbdhHBWfz8SttRAJ" width="480" height="300" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/stickers/makeitgrain-nutricion-ucv-nutricionucv-j6SbdhHBWfz8SttRAJ">via GIPHY</a></p>
+
 
 # 🥗 Features
 
