@@ -131,6 +131,7 @@ public class ScholarshipApp {
                                                                                                              // scholarship
                                 StudList.remove(i);
                                 ad.application.incrementStudent();
+                                i--;
                             } else if (rs == 'N') {
                                 evs = false;
                             }

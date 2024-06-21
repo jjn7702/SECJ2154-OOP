@@ -1,18 +1,18 @@
 Student Details:
-Full Name: Ultraman taroAge: 2000
-Email: 	ultraBrothers@gmail.com
-Address: cahaya, Planet, m78
-Matrics Number: A                   
-Major: math
+Full Name: apip paanAge: 21
+Email: 	q@q.q
+Address: qwe, asd, zxc
+Matrics Number: A22ED1234           
+Major: 4
 CGPA: 1.0
 Program: POSTGRADUATE
 
 Scholarship Details:
-Type: PTPTN
-CGPA: 3.0
-Allowance: $7000.0
+Type: null
+CGPA: 0.0
+Allowance: $0.0
 
 Student History Details:
 Last Program: UNDERGRADUATE
 CGPA: 1.0
-Majors: math
+Majors: 4
