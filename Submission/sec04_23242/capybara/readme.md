@@ -5,9 +5,9 @@
 ![alt text](/images/campingGif.gif "Logo Title Text 1")
 
 ## Table of Contents  
-[What it does?](#-what-it-does)
-[Flow Chart](#-flow-chart)
-[Work Distribution](#-work-distribution)                      
+[What it does?](#-what-it-does)           
+[Flow Chart](#-flow-chart)            
+[Work Distribution](#-work-distribution  )                      
 [Technical Implementation](#%EF%B8%8F-technical-implementation)
 
 ## 🚀 What it does?
@@ -25,9 +25,11 @@
 | Kugan | Item & Food      |  Aggregation & Inheritance |
 | Ainn | Location & Campground      |    Polymorphism (Abstract) & Composition|
 
-## 🌊 Flow Chart
+## 🌊 UML Diagram
 <img width="7648" alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/assets/77981155/48acb731-da8e-44a4-9896-f37f5d3a868a">
 
+## 🏄🏽‍♀️ Flow Chart 
+![unnamed](https://github.com/jjn7702/SECJ2154-OOP/assets/77981155/c11afd48-3b95-4c23-95ee-d982cfae21ff)
 
 ## 🛠️ Technical Implementation
 
