@@ -2,7 +2,8 @@ public class Report {
     private Users user;
     private double exchangeRate; // change currency rate
 
-    public Report( double exchangeRate) {
+    public Report(Users user ,double exchangeRate) {
+        this.user = user;
         this.exchangeRate = exchangeRate;
     }
 
@@ -34,7 +35,7 @@ public class Report {
             System.out.println("Account Information:");
             System.out.println("ID: " + account.getId());
             System.out.println("Name: " + account.getName());
-            System.out.println("Balance: " + account.getBalance() * exchangeRate);
+            System.out.println("Balance: RM" + account.getBalance() * exchangeRate);
             System.out.println();
 
             System.out.println("Budget Information:");
@@ -43,10 +44,10 @@ public class Report {
 
             System.out.println("Saving Information:");
             for (Saving saving : account.getSavings()) {
-                System.out.println("ID: " + saving.getId());
+                System.out.println("ID: " + (saving.getId()+1));
                 System.out.println("Name: " + saving.getName());
-                System.out.println("Target Amount: " + saving.getTargetAmount());
-                System.out.println("Current Amount: " + saving.getCurrentAmount());
+                System.out.println("Target Amount: RM" + saving.getTargetAmount());
+                System.out.println("Current Amount: RM" + saving.getCurrentAmount());
                 System.out.println("Target Date: " + saving.getTargetDate());
                 System.out.println();
             }

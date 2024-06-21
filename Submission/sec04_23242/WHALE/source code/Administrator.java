@@ -13,12 +13,12 @@ public class Administrator extends User {
     public Administrator(){}
     
     public Administrator(String fn, String ln, int a, String em, Address add, String username, String position,
-            ArrayList<Student> stud, Scholarship scholar, Apply application) {
+            ArrayList<Student> stud,Scholarship sc, Apply application) {
         super(fn, ln, a, em, add);
         this.username = username;
         this.position = position;
         stud = new ArrayList<>();
-        this.scholar = scholar;
+        this.scholar = sc ;
         this.application = application;
     }
 
@@ -28,6 +28,10 @@ public class Administrator extends User {
 
     public void setJob(String j) {
         position = j;
+    }
+    
+    public void setScholarshipAdmin(Scholarship sd){
+        scholar = sd ;
     }
 
     public String getusername() {
@@ -46,6 +50,10 @@ public class Administrator extends User {
 
         else
             return false ;
+    }
+
+    public ArrayList<Student> getStudent(){
+        return stud ;
     }
 
     public Student getStudent(int i){

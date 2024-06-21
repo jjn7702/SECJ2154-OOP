@@ -1,5 +1,3 @@
-import java.util.Locale.Category;
-
 public class Budget {
     private double limit;
     private double currentExpense;
@@ -36,7 +34,7 @@ public class Budget {
     }
 
     public void display() {
-        System.out.println("Budget for " + category.getName() + ":>");
+        System.out.println("Budget for " + category.getCategoryType() + ":>");
         System.out.println("Budget used : " + currentExpense + "/ " + limit);
     }
 }

@@ -1,4 +1,6 @@
 import java.util.*;
+import java.sql.Date;
+
 
 class Account {
     private int id;
@@ -9,8 +11,10 @@ class Account {
     private Vector<Transaction> transactions;
     private Vector<Budget> budgets;
     private Vector<Saving> savings;
+    Scanner scanner = new Scanner(System.in);
 
-    public Account(int id, String name, double balance, Bank bank) {
+
+    public Account(int id, String name, double balance) {
         this.id = id;
         this.name = name;
         this.balance = balance;
@@ -69,8 +73,9 @@ class Account {
     }
 
     public void addTransaction(int id, String name, double balance, Date date, Category category) {
-        transactions.add(new Transaction(id, name, balance, date));
-        transactions.setCategory(category);
+        Transaction obj = new Transaction(id, name, balance, date, category);
+        transactions.add(obj);
+        obj.setCategory(category);    
     }
 
     public void addBudget(double limit, Category category) {
@@ -81,8 +86,8 @@ class Account {
         budgets.remove(budget);
     }
 
-    public void addSaving(int id, String name, double targetAmount, Date targetDate) {
-        savings.add(new Saving(id, name, targetAmount, targetDate));
+    public void addSaving(Saving s) {
+        savings.add(s);
     }
 
     public Budget getBudgetByCategory(Category category) {
@@ -97,7 +102,7 @@ class Account {
     public String getTransactionDetails() {
         double bal = balance * rate;
         StringBuilder details = new StringBuilder(
-                "Account ID: " + id + ", Name: " + name + ", Balance: " + bal + "\n");
+                "Account ID: " + id + ", Name: " + name + ", Balance: RM" + bal + "\n");
         for (Transaction transaction : transactions) {
             details.append(transaction.getDetails(rate)).append("\n");
         }

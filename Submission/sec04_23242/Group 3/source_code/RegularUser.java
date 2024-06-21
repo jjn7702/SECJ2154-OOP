@@ -1,68 +1,78 @@
 package GroupProject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class RegularUser extends User {
-    private ArrayList<Meal> meals;
+    private int age;
+    private String gender;
+    private double weight;
+    private double height;
+    private NutritionTracker nutritionTracker;
 
-    public RegularUser(String username, String password) {
+    public RegularUser(String username, String password, int age, String gender, double weight, double height) {
         super(username, password);
-        this.meals = new ArrayList<>();
+        this.age = age;
+        this.gender = gender;
+        this.weight = weight;
+        this.height = height;
+        this.nutritionTracker = new NutritionTracker();
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public double calculateBMI() {
+        return weight / ((height / 100) * (height / 100));
     }
 
     public void addMeal(Meal meal) {
-        meals.add(meal);
+        nutritionTracker.addMeal(meal);
     }
 
     public void viewMeals() {
-        if (meals.isEmpty()) {
-            System.out.println("No meals found for user: " + this.getUsername());
-        } else {
-            // Group meals by date
-            Map<String, ArrayList<Meal>> mealsByDate = new HashMap<>();
-            for (Meal meal : meals) {
-                mealsByDate.computeIfAbsent(meal.getDate(), k -> new ArrayList<>()).add(meal);
-            }
-
-            // Display meals by date
-            for (String date : mealsByDate.keySet()) {
-                System.out.println("Date: " + date + "\n");
-                for (Meal meal : mealsByDate.get(date)) {
-                    System.out.println("Meal: " + meal.getType());
-                    for (FoodItem item : meal.getFoodItems()) {
-                        System.out.println(" - " + item.getName() + ": " + item.getCalories() + " calories");
-                    }
-                    System.out.println(); // Add a newline for better readability
-                }
-            }
-        }
-    }
-
-    public ArrayList<Meal> getMealsByDate(String date) {
-        return meals.stream()
-                .filter(meal -> meal.getDate().equals(date))
-                .collect(Collectors.toCollection(ArrayList::new));
+        nutritionTracker.viewMeals(this);
     }
 
     public void editMeal(String date, String mealType, Meal newMeal) {
-        for (int i = 0; i < meals.size(); i++) {
-            if (meals.get(i).getDate().equals(date) && meals.get(i).getType().equals(mealType)) {
-                meals.set(i, newMeal);
-                return;
-            }
-        }
+        nutritionTracker.editMeal(date, mealType, newMeal);
+    }
+
+    public ArrayList<Meal> getMealsByDate(String date) {
+        return nutritionTracker.getMealsByDate(date);
     }
 
     public ArrayList<Meal> getMeals() {
-        return meals;
+        return nutritionTracker.getMeals();
     }
 
     public void displayOptions() {
         System.out.println("1. Add Meal");
         System.out.println("2. View Meals");
         System.out.println("3. Edit Meal");
+    }
+    
+    public double calculateRecommendedCalories() {
+        // Harris-Benedict Equation to calculate Basal Metabolic Rate (BMR)
+        double bmr;
+        if (gender.equalsIgnoreCase("male")) {
+            bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+        } else {
+            bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+        }
+        // Assuming a sedentary activity level (BMR * 1.2)
+        return bmr * 1.2;
     }
 }

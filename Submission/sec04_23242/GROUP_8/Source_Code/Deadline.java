@@ -1,4 +1,4 @@
-class Deadline {
+public class Deadline {
     private String dueDate;
 
     public Deadline(String dueDate) {
@@ -11,9 +11,5 @@ class Deadline {
 
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
-    }
-
-    public String toString() {
-        return "Due Date: " + dueDate;
     }
 }

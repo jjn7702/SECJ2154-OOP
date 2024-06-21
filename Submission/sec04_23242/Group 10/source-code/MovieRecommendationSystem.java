@@ -2,12 +2,13 @@
  * Name: Vennise Ngoh Yan Leng
  * Matric ID: B23CS8032
  */
-
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import java.util.Vector;
 
 public class MovieRecommendationSystem {
     public static void main(String[] args) {
-        //Generate Data
+        // ----------------- GENERATE DATA -----------------------
         Vector<MovieType> mT = new Vector<MovieType>();
         Vector<Director> dr = new Vector<Director>();
         Vector<Movie> mv = new Vector<Movie>();
@@ -15,69 +16,336 @@ public class MovieRecommendationSystem {
         String[] mTString = { "Action", "Adventure", "Comedy", "Drama", "Horror", "Sci-Fi", "Fantasy", "Romance",
                 "Thriller", "Mystery", "Crime", "Western", "Musical", "Animation", "Documentary", "Biographical",
                 "Family", "War", "Historical", "Sport" };
-        String[] drString = { "Steven Spielberg", "Martin Scorsese", "Christopher Nolan", "Quentin Tarentino",
-                "Kathryn Bigelow" };
-        int[] drInt = { 53, 57, 26, 32, 43 };
+        String[] drString = { "Steven Spielberg", "Martin Scorsese" };
+        int[] drInt = { 53, 57 };
         String[][] mvString = {
                 { "Jaws", "E.T. the Extra-Terrestrial", "Jyrassuc Park", "Schundler's List", "Saving Private Ryan" },
-                { "Taxi Driver", "Raging Bull", "Goodfellas", "The Departed", "The Irishman" },
-                { "Momento", "The Dark Knight", "Inception", "Interstellar", "Dunkirk" },
-                { "Reservoir Dogs", "Pulp Fiction", "Kill Bill:Volume 1", "Inglourious Basterds",
-                        "Once Upon a Time in Hollywood" },
-                { "Near Dark", "Point Break", "The Hurt Locker", "Zero Dark Thirty", "Detroit" } };
+                { "Taxi Driver", "Raging Bull", "Goodfellas", "The Departed", "The Irishman" } };
         for (String m : mTString) {
             mT.add(new MovieType(m));
         }
         for (int i = 0; i < drString.length; i++) {
             dr.add(new Director(drString[i], drInt[i]));
         }
-        for (int i = 0; i < mvString.length; i++) {
-            for (int j = 0; j < mvString[i].length; j++) {
-                Vector<MovieType> mvt = new Vector<MovieType>();
-                mvt.add(mT.get((int) (Math.random() * (20))));
-                mvt.add(mT.get((int) (Math.random() * (20))));
-                mvt.add(mT.get((int) (Math.random() * (20))));
-                mvt.add(mT.get((int) (Math.random() * (20))));
-                mvt.add(mT.get((int) (Math.random() * (20))));
-                mvt.add(mT.get((int) (Math.random() * (20))));
-                mv.add(new Movie("M" + i + j, mvString[i][j], dr.get(i), mvt));
-            }
-        }
+
+        Vector<MovieType> mvt = new Vector<MovieType>();
+
+        mvt.add(mT.get(1));
+        mvt.add(mT.get(2));
+        mvt.add(mT.get(3));
+        mv.add(new Movie("M001", mvString[0][0], dr.get(0), mvt));
+
+        mvt.clear();
+        mvt.add(mT.get(2));
+        mvt.add(mT.get(3));
+        mvt.add(mT.get(4));
+        mv.add(new Movie("M002", mvString[0][1], dr.get(0), mvt));
+
+        mvt.clear();
+        mvt.add(mT.get(1));
+        mvt.add(mT.get(5));
+        mv.add(new Movie("M003", mvString[0][2], dr.get(0), mvt));
+
+        mvt.clear();
+        mvt.add(mT.get(5));
+        mvt.add(mT.get(2));
+        mvt.add(mT.get(1));
+        mv.add(new Movie("M004", mvString[0][3], dr.get(0), mvt));
+
+        mvt.clear();
+        mvt.add(mT.get(4));
+        mvt.add(mT.get(11));
+        mvt.add(mT.get(12));
+        mvt.add(mT.get(2));
+        mvt.add(mT.get(14));
+        mvt.add(mT.get(15));
+        mv.add(new Movie("M005", mvString[0][4], dr.get(0), mvt));
+
+        mvt.clear();
+        mvt.add(mT.get(2));
+        mvt.add(mT.get(12));
+        mvt.add(mT.get(1));
+        mvt.add(mT.get(14));
+        mvt.add(mT.get(15));
+        mvt.add(mT.get(16));
+        mv.add(new Movie("M101", mvString[1][0], dr.get(1), mvt));
+
+        mvt.clear();
+        mvt.add(mT.get(4));
+        mvt.add(mT.get(12));
+        mvt.add(mT.get(15));
+        mvt.add(mT.get(14));
+        mvt.add(mT.get(18));
+        mv.add(new Movie("M102", mvString[1][1], dr.get(1), mvt));
+
+        mvt.clear();
+        mvt.add(mT.get(12));
+        mvt.add(mT.get(16));
+        mvt.add(mT.get(13));
+        mvt.add(mT.get(14));
+        mvt.add(mT.get(15));
+        mvt.add(mT.get(19));
+        mv.add(new Movie("M103", mvString[1][2], dr.get(1), mvt));
+
+        mvt.clear();
+        mvt.add(mT.get(11));
+        mvt.add(mT.get(14));
+        mvt.add(mT.get(13));
+        mvt.add(mT.get(19));
+        mvt.add(mT.get(5));
+        mvt.add(mT.get(4));
+        mv.add(new Movie("M104", mvString[1][3], dr.get(1), mvt));
+
+        mvt.clear();
+        mvt.add(mT.get(2));
+        mvt.add(mT.get(3));
+        mvt.add(mT.get(1));
+        mvt.add(mT.get(5));
+        mvt.add(mT.get(19));
+        mvt.add(mT.get(16));
+        mv.add(new Movie("M105", mvString[1][4], dr.get(1), mvt));
 
         User u1 = new PremiumUser("U01", "Vennise", 17.50);
         u1.watched(mv.get(0));
         u1.watched(mv.get(1));
         u1.watched(mv.get(1));
-        u1.watched(mv.get(2));
-        u1.watched(mv.get(2));
-        u1.watched(mv.get(2));
-        u1.watched(mv.get(7));
-        u1.watched(mv.get(8));
-        u1.watched(mv.get(11));
-        u1.watched(mv.get(12));
-        u1.watched(mv.get(11));
-        u1.watched(mv.get(13));
-        u1.watched(mv.get(14));
-        u1.watched(mv.get(15));
-        u1.watched(mv.get(15));
-        u1.watched(mv.get(20));
 
-        u1.addRating("Regular Rating", mv.get(0), 4, "Good");
-        u1.addRating("RegularRating", mv.get(1), 3, "Good");
-        u1.addRating("AnonymousRating", mv.get(2), 1, "Good");
-        u1.addRating("AnonymousRating", mv.get(7), 3, "Good");
-        u1.addRating("AnonymousRating", mv.get(8), 2, "Good");
-        u1.addRating("RegularRating", mv.get(12), 4, "Good");
-        u1.addRating("RegularRating", mv.get(11), 4, "Good");
-        u1.addRating("AnonymousRating", mv.get(14), 1, "Good");
-        u1.addRating("AnonymousRating", mv.get(15), 3, "Good");
-        u1.addRating("AnonymousRating", mv.get(15), 2, "Good");
-        u1.addRating("RegularRating", mv.get(8), 4, "Good");
-        u1.addRating("RegularRating", mv.get(11), 4, "Good");
+        u1.addRating("Regular Rating", mv.get(0), 4, "First time comment");
+        u1.addRating("RegularRating", mv.get(1), 3, "Good can be better");
+        u1.addRating("RegularRating", mv.get(1), 4, "Good");
 
-        RecommendationEngine re1 = new RecommendationEngine(u1);
-        u1.displayInfo();
-        re1.displayRecByFavDirect();
-        re1.displayMostRatedMovies();
+        User u2 = new RegularUser("U02", "Farah");
+        u2.watched(mv.get(6));
+        u2.watched(mv.get(8));
+        u2.watched(mv.get(9));
+
+        u2.addRating("Regular Rating", mv.get(6), 2, "Ok");
+        u2.addRating("Regular Rating", mv.get(8), 3, "Moderate only");
+        u2.addRating("Regular Rating", mv.get(9), 4, "Very goood");
+
+        Input input = new Input();
+        Scanner in = new Scanner(System.in);
+
+        // ----------------- OUTPUT START -----------------------
+        System.out.println("\nWELCOME FOR USING OUR MOVIE RECOMMANDATION SYSTEM");
+        String systemLoop = "Y";
+        while (systemLoop.equals("Y")) {
+            // Select User
+            User user = new User("", "");
+            System.out.println("");
+            System.out.println("Here is the user info:");
+            u1.displayInfo();
+            u2.displayInfo();
+            System.out.print("Which user you wanted to test?(1 or 2):");            
+            boolean validInput = false;
+            int userInt=0;
+            while (!validInput) {
+                try {
+                    userInt = in.nextInt();
+                    if (userInt == 1 || userInt == 2) {
+                        validInput = true;
+                    } else {
+                        System.out.println("Invalid input. Please enter a number between 1 and 2.");
+                        System.out.print("Which user you wanted to test?(1 or 2):");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a number between 1 and 2.");
+                    System.out.print("Which user you wanted to test?(1 or 2):");
+                    in.next(); // Clear the invalid input
+                }
+            }
+            if (userInt == 1) {
+                user = u1;
+            } else {
+                user = u2;
+            }
+
+            int c = 0;
+            while (c != 4) {  // Continue the loop until the user chooses to exit
+            // Choose action
+            System.out.println("");
+            System.out.println("Enter 1 to rate movie");
+            System.out.println("Enter 2 to add watched movie");
+            System.out.println("Enter 3 to show most rated movies");
+            System.out.println("Enter 4 to exit");
+            System.out.print("Choose your action for user " + user.getName() + ": ");
+
+            validInput = false;
+            while (!validInput) {
+                try {
+                    c = in.nextInt();
+                    if (c >= 1 && c <= 4) {
+                        validInput = true;
+                    } else {
+                        System.out.println("Invalid input. Please enter a number between 1 and 4.");
+                        System.out.print("Choose your action for user " + user.getName() + ": ");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a number between 1 and 4.");
+                    System.out.print("Choose your action for user " + user.getName() + ": ");
+                    in.next(); // Clear the invalid input
+                }
+            }
+                // Make Action
+                switch (c) {
+                    case 1:
+                        input.addRating(user, mv);
+                        break;
+                    case 2:
+                        input.addWatched(user, mv);
+                        break;
+                    case 3:
+                        user.displayInfo();
+                        RecommendationEngine re = new RecommendationEngine(user);
+                        re.displayMostRatedMovies();
+                        re.displayRecByFavDirect();
+                        break;
+                    case 4:
+                        System.out.println("Exit update mode.");
+                        break;
+                }
+            }
+            systemLoop = input.loopSystem();
+        }
+        System.out.println("\nThankyou for using Movie Recommandation System");
+        in.close();
+    }
+
+}
+
+class Input {
+
+    public String loopSystem() {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Continue using this system? (Y/N):");
+        String select = in.next().toUpperCase();
+
+        while (!(select.equals("Y") || select.equals("N"))) {
+            System.out.println("Invalid input.");
+            System.out.print("Continue using this system? (Y/N):");
+            select = in.next().toUpperCase();
+        }
+        
+        return select;
+    }
+
+    public void addRating(User user, Vector<Movie> movie) {
+        Scanner in = new Scanner(System.in);
+        // input rating with Anonymous
+        System.out.print("Enter movie index :");
+        boolean validInput = false;
+        int movieIndex=0;
+            while (!validInput) {
+                try {
+                     movieIndex = in.nextInt();
+                    if (movieIndex >= 1 && movieIndex <= 10) {
+                        validInput = true;
+                    } else {
+                        System.out.println("Invalid input. Please enter a number between 1 and 10.");
+                        System.out.print("Enter movie index :");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a number between 1 and 10.");
+                    System.out.print("Enter movie index :");
+                    in.next(); // Clear the invalid input
+                }
+            }
+
+        System.out.print("Rate the movie from 0-4 :");
+        validInput = false;
+        int rate=0;
+            while (!validInput) {
+                try {
+                    rate = in.nextInt();
+                    if (rate >= 0 && rate <= 4) {
+                        validInput = true;
+                    } else {
+                        System.out.println("Invalid input. Please enter a number between 0 and 4.");
+                        System.out.print("Rate the movie from 0-4 :");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a number between 0 and 4.");
+                    System.out.print("Rate the movie from 0-4 :");
+                    in.next(); // Clear the invalid input
+                }
+            }
+
+        System.out.print("Comment :");
+        String comment = in.next();
+
+        System.out.print("Do you want to hide your name?(Y/N):");
+        String select = in.next().toUpperCase();
+        while (!(select.equals("Y") || select.equals("N"))) {
+            System.out.println("Invalid input");
+            System.out.print("Do you want to hide your name?(Y/N):");
+            select = in.next().toUpperCase();
+        }
+        if (select.equals("Y")) {
+            user.addRating("AnonymousRating", movie.get(movieIndex), rate, comment);
+            System.out.println("Vennise has added a rating:");
+            user.getRating().lastElement().displayInfo();
+        } else {
+            user.addRating("RegularRating", movie.get(movieIndex), rate, comment);
+            System.out.println("Vennise has added a rating:");
+            user.getRating().lastElement().displayInfo();
+        }
+
+    }
+
+    public void addWatched(User user, Vector<Movie> movie) {
+        Scanner in = new Scanner(System.in);
+        System.out.println(user.getName() + " has watched a movie.");
+        this.listMovie(movie);
+        System.out.print("Enter new watched movie index (example:1):");
+        int movieIndex = in.nextInt();
+        System.out.print("Do you want to rate the movie? (Y/N):");
+        String select = in.next().toUpperCase();
+
+        while (!(select.equals("Y") || select.equals("N"))) {
+            System.out.println("Invalid input");
+            System.out.print("Do you want to rate the movie? (Y/N):");
+            select = in.next().toUpperCase();
+        }
+
+        user.watched(movie.get(movieIndex));
+        if (select.equals("Y")) {
+            this.addRating(user, movie, movieIndex);
+        }
+
+    }
+
+    public void listMovie(Vector<Movie> movie) {
+        System.out.println("List of Movie: ");
+        for (int i = 0; i < movie.size(); i++) {
+            System.out.println(i + ". " + movie.get(i).getTitle());
+        }
+        System.out.println("");
+    }
+
+    public void addRating(User user, Vector<Movie> movie, int index) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Rating for movie index: " + index);
+        System.out.print("Rate the movie from 0-4 :");
+        int rate = in.nextInt();
+        System.out.print("Comment :");
+        String comment = in.next();
+        System.out.print("Do you want to hide your name?(Y/N):");
+        String select = in.next().toUpperCase();
+
+        while (!(select.equals("Y") || select.equals("N"))) {
+            System.out.println("Invalid input");
+            System.out.print("Do you want to hide your name?(Y/N):");
+            select = in.next().toUpperCase();
+        }
+        if (select.equals("Y")) {
+            user.addRating("AnonymousRating", movie.get(index), rate, comment);
+            System.out.println("Vennise has added a rating:");
+            user.getRating().lastElement().displayInfo();
+        } else {
+            user.addRating("RegularRating", movie.get(index), rate, comment);
+            System.out.println("Vennise has added a rating:");
+            user.getRating().lastElement().displayInfo();
+        }
+
     }
 }

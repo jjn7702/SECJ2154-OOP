@@ -3,7 +3,7 @@ import java.util.Vector;
 
 public enum Pelancongan_Package {
 
-        Package_1(new Vector<>(List.of("Turki", "Istanbul")), "Ahmad Kamarul", 2500.00,
+        PACKAGE_1(new Vector<>(List.of("Turki", "Istanbul")), "Ahmad Kamarul", 2500.00,
                         new Vector<>(List.of(new Flight("Q32","19/7/2024","19/7/2024","0915","1315","King Abdul Aziz Airport","Istanbul International Airport"),
                                              new Flight("D23", "26/7/2024", "26/7/2024", "0500", "1300","Istanbul International Airport", "KLIA"))),
                         new Vector<>(List.of(new Hotel("Hotel Istana", "Dizambug,Turki", 200)))),
@@ -43,17 +43,19 @@ public enum Pelancongan_Package {
                 this.hotel_Pelancongan = hotel_Pelancongan;
         }
 
-        public void display_Pelancongan_info() {
+        public void display_Pelancongan_info(int counterFlight) {
+
+                for (Flight flight : flight_Pelancongan) {
+                        System.out.println("========================= Flight " + counterFlight + " =========================");
+                        flight.display_Flight_Info();
+                        counterFlight++;
+                }
+                
                 System.out.println("========= HOTEL INFO ==========");
                 System.out.println("Package: " + this.name());
                 System.out.println("Tour Guide: " + this.tour_Guide);
-                System.out.printf("Price: RM %.2f", this.price_Pelancongan);
+                System.out.printf("Price: RM %.2f\n", this.price_Pelancongan);
                 System.out.println("Places: " + this.places);
-
-                System.out.println("\nFlights:");
-                for (Flight flight : this.flight_Pelancongan) {
-                        flight.display_Flight_Info();
-                }
 
                 System.out.println("\nHotels:");
                 for (Hotel hotel : this.hotel_Pelancongan) {
@@ -62,6 +64,7 @@ public enum Pelancongan_Package {
 
                 System.out.println("===============================");
         }
+        
 
         public void add_Hotel_Pelancongan(Hotel h) {
                 this.hotel_Pelancongan.add(h);

@@ -18,7 +18,7 @@ public class Main {
             System.out.println("4. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine();  // consume newline
+            scanner.nextLine(); // consume newline
 
             if (choice == 1) {
                 adminLogin(dbManager, scanner);
@@ -85,20 +85,28 @@ public class Main {
         String confirmPassword = scanner.nextLine();
         System.out.print("Enter age: ");
         int age = scanner.nextInt();
-        scanner.nextLine();  // consume newline
+        scanner.nextLine(); // consume newline
         System.out.print("Enter gender (male/female): ");
         String gender = scanner.nextLine();
         System.out.print("Enter weight (kg): ");
         double weight = scanner.nextDouble();
-        scanner.nextLine();  // consume newline
+        scanner.nextLine(); // consume newline
         System.out.print("Enter height (cm): ");
         double height = scanner.nextDouble();
-        scanner.nextLine();  // consume newline
+        scanner.nextLine(); // consume newline
 
         if (!password.equals(confirmPassword)) {
             System.out.println("Passwords do not match!");
             pauseForUserInput();
             return;
+        }
+
+        for (RegularUser r : dbManager.getRegularUsers()) {
+            if (r.getUsername().equals(username)) {
+                System.out.println("Username exists! Pls try again!");
+                pauseForUserInput();
+                return;
+            }
         }
 
         RegularUser newUser = new RegularUser(username, password, age, gender, weight, height);
@@ -161,7 +169,7 @@ public class Main {
                     System.out.println("4. Snack");
                     System.out.print("Choose an option (1-4): ");
                     int mealTypeChoice = scanner.nextInt();
-                    scanner.nextLine();  // consume newline
+                    scanner.nextLine(); // consume newline
 
                     switch (mealTypeChoice) {
                         case 1:
@@ -187,7 +195,7 @@ public class Main {
                 System.out.print("Enter meal date (yyyy-mm-dd): ");
                 String mealDate = scanner.nextLine();
                 Meal meal = new Meal(mealType, mealDate);
-                
+
                 // Loop to enter multiple food items
                 while (true) {
                     System.out.print("Enter food item name (or type 'done' to finish): ");
@@ -195,17 +203,17 @@ public class Main {
                     if (foodName.equalsIgnoreCase("done")) {
                         break;
                     }
-                    
+
                     Integer calories = FoodItemEnum.getCaloriesByName(foodName);
                     if (calories == null) {
                         System.out.print("Calories not found for " + foodName + ". Please enter calories: ");
                         calories = scanner.nextInt();
                         scanner.nextLine(); // consume newline
                     }
-                    
+
                     meal.addFoodItem(new FoodItem(foodName, calories));
                 }
-                
+
                 user.addMeal(meal);
                 dbManager.saveMeals();
                 System.out.println("Meal added successfully!");
@@ -247,7 +255,7 @@ public class Main {
                             System.out.println("4. Snack");
                             System.out.print("Choose an option (1-4): ");
                             int newMealTypeChoice = scanner.nextInt();
-                            scanner.nextLine();  // consume newline
+                            scanner.nextLine(); // consume newline
 
                             switch (newMealTypeChoice) {
                                 case 1:
@@ -273,7 +281,7 @@ public class Main {
                         System.out.print("Enter new meal date: ");
                         String newMealDate = scanner.nextLine();
                         Meal newMeal = new Meal(newMealType, newMealDate);
-                        
+
                         // Loop to enter multiple food items
                         while (true) {
                             System.out.print("Enter food item name (or type 'done' to finish): ");
@@ -281,17 +289,17 @@ public class Main {
                             if (foodName.equalsIgnoreCase("done")) {
                                 break;
                             }
-                            
+
                             Integer calories = FoodItemEnum.getCaloriesByName(foodName);
                             if (calories == null) {
                                 System.out.print("Calories not found for " + foodName + ". Please enter calories: ");
                                 calories = scanner.nextInt();
                                 scanner.nextLine(); // consume newline
                             }
-                            
+
                             newMeal.addFoodItem(new FoodItem(foodName, calories));
                         }
-                        
+
                         user.editMeal(mealDateToEdit, mealTypeToEdit, newMeal);
                         dbManager.saveMeals();
                         System.out.println("Meal edited successfully!");

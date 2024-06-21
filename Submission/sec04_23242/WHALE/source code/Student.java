@@ -9,6 +9,10 @@ public class Student extends User {
     private double threshold;
 
     // constructor
+
+    public Student(){
+        
+    }
     public Student(String fn, String ln, int a, String em, Address add, String matricsNumber/*
                                                                                              * String major, double
                                                                                              * CGPA,
@@ -20,7 +24,7 @@ public class Student extends User {
         this.matricsNumber = matricsNumber;
         // this.major = major;
         // this.CGPA = CGPA;
-        // this.scholarship = scholarship;
+        // this.scholarhsip = scholarship 
         // this.prog = prog;
         // this.studhist = studhist;
     }

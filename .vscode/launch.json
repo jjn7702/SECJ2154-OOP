@@ -1,55 +1,76 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "java",
-            "name": "HajiUmrahApp",
-            "request": "launch",
-            "mainClass": "HajiUmrahApp",
-            "projectName": "SECJ2154-OOP_d72b86a9"
-        },
-        {
-            "type": "java",
-            "name": "GroupProjectManager3",
-            "request": "launch",
-            "mainClass": "GroupProjectManager3",
-            "projectName": "SECJ2154-OOP_cbede3f0"
-        },
-        {
-            "type": "java",
-            "name": "GroupProjectManager3",
-            "request": "launch",
-            "mainClass": "GroupProjectManager3",
-            "projectName": "SECJ2154-OOP_96ec5f4c"
-        },
-        {
-            "type": "java",
-            "name": "GroupProjectManager",
-            "request": "launch",
-            "mainClass": "GroupProjectManager",
-            "projectName": "SECJ2154-OOP_96ec5f4c"
-        },
-        {
-            "type": "java",
-            "name": "ScholarshipApp",
-            "request": "launch",
-            "mainClass": "ScholarshipApp",
-            "projectName": "SECJ2154-OOP_dfa52200"
-        },
-        {
-            "type": "java",
-            "name": "ScholarshipApp",
-            "request": "launch",
-            "mainClass": "ScholarshipApp",
-            "projectName": "SECJ2154-OOP_9825a15c"
-        },
-        {
-            "type": "jdk",
-            "request": "launch",
-            "name": "Launch Java App"
-        }
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "ScholarshipApp",
+      "request": "launch",
+      "mainClass": "ScholarshipApp",
+      "projectName": "SECJ2154-OOP_4bafcf19"
+    },
+    {
+      "type": "java",
+      "name": "ScholarshipApp",
+      "request": "launch",
+      "mainClass": "ScholarshipApp",
+      "projectName": "SECJ2154-OOP_368e2ad5"
+    },
+    {
+      "type": "java",
+      "name": "ScholarshipApp",
+      "request": "launch",
+      "mainClass": "ScholarshipApp",
+      "projectName": "SECJ2154-OOP_e5fd2e29"
+    },
+    {
+      "type": "java",
+      "name": "HajiUmrahApp",
+      "request": "launch",
+      "mainClass": "HajiUmrahApp",
+      "projectName": "SECJ2154-OOP_d72b86a9"
+    },
+    {
+      "type": "java",
+      "name": "GroupProjectManager3",
+      "request": "launch",
+      "mainClass": "GroupProjectManager3",
+      "projectName": "SECJ2154-OOP_cbede3f0"
+    },
+    {
+      "type": "java",
+      "name": "GroupProjectManager3",
+      "request": "launch",
+      "mainClass": "GroupProjectManager3",
+      "projectName": "SECJ2154-OOP_96ec5f4c"
+    },
+    {
+      "type": "java",
+      "name": "GroupProjectManager",
+      "request": "launch",
+      "mainClass": "GroupProjectManager",
+      "projectName": "SECJ2154-OOP_96ec5f4c"
+    },
+    {
+      "type": "java",
+      "name": "ScholarshipApp",
+      "request": "launch",
+      "mainClass": "ScholarshipApp",
+      "projectName": "SECJ2154-OOP_dfa52200"
+    },
+    {
+      "type": "java",
+      "name": "ScholarshipApp",
+      "request": "launch",
+      "mainClass": "ScholarshipApp",
+      "projectName": "SECJ2154-OOP_9825a15c"
+    },
+    {
+      "type": "jdk",
+      "request": "launch",
+      "name": "Launch Java App"
+    }
+  ]
 }
