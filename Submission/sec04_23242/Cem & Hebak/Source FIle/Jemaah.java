@@ -248,6 +248,8 @@ public class Jemaah extends User implements userDisplay {
     }
 
     public void chooseUmrahPackage() {
+        int choiceUmrah = 0;
+        String Umrah = "";
         System.out.println("\n========================================"); //()
         System.out.printf("%27s\n", "Ibadah Packages"); // ()
         System.out.println("========================================"); // ()
@@ -255,18 +257,40 @@ public class Jemaah extends User implements userDisplay {
         System.out.println("[1] IFRAD = Perform Hajj first Umrah later");
         System.out.println("[2] QIRAN = Perform Hajj and Umrah simultaneously");
         System.out.println("[3] TAMATTUK = Perform Umrah first Haji later");
-        System.out.println("[4] HAJI Sahaja = Only Perform Hajj");
+        System.out.println("[4] HAJI = Only Perform Hajj");
         System.out.println("[5] UMRAH = Only Perform Umrah");
-        System.out.println("\nPlease type [ IFRAD, QIRAN, TAMATTUK, HAJI, UMRAH ] to choose your ibadah package");
+        System.out.println("\n[ 1-5 ] Please Enter the number to choose your ibadah package");
         System.out.println("Package: ");
-        pakejIbadah = Haji_Umrah_Package.valueOf(inp.nextLine().toUpperCase());
+        choiceUmrah=inp.nextInt();
+        switch (choiceUmrah) {
+            case 1:
+                Umrah = "IFRAD";
+                break;
+            case 2:
+                Umrah = "QIRAN";
+                break;
+            case 3:
+                Umrah = "TAMATTUK";
+                break;
+            case 4:
+                Umrah = "HAJI";
+                break;
+            case 5:
+                Umrah = "UMRAH";
+                break;
+            
+            default:
+                System.out.println("Error!");
+                break;
+        }
+        pakejIbadah = Haji_Umrah_Package.valueOf(Umrah);
         pakejIbadah.Display_Pakej_Info();
     }
 
     public void add_Pelancongan_Package() {
 
         int choicePelancongan = 0;
-        String vacation;
+        String vacation = "";
         System.out.println("==================== Tour Packages ====================");
         System.out.println("Please choose your Vacation Package");
         System.out.printf("%-35s: %20s%n","[1] Turki, Istanbul (RM)","2500.00");
@@ -296,7 +320,6 @@ public class Jemaah extends User implements userDisplay {
                 vacation = "PACKAGE_5";
                 break;
             default:
-                vacation = "";
                 System.out.println("Error!");
                 break;
         }

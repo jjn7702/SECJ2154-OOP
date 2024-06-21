@@ -115,9 +115,9 @@ public class Cart {
 
     public void displayCart() {
         int n = 0;
-        System.out.printf("%-5s%-15s%-10s%-6s\n", "No.", "Item", "Category", "Amount");
+        System.out.printf("%-5s%-15s%-15s%-6s\n", "No.", "Item", "Category", "Amount");
         for (Product x : cart) {
-            System.out.printf("%d%-4s%-15s%-10s%-6d\n", (n + 1), ")", x.getName(), x.getCategory(), amount.get(n));
+            System.out.printf("%d%-4s%-15s%-15s%-6d\n", (n + 1), ")", x.getName(), x.getCategory(), amount.get(n));
             n++;
         }
     }
@@ -126,12 +126,11 @@ public class Cart {
         int n = 0;
         String[] gz = new String[sellers.size()];
 
-        System.out.printf("%-5s%-15s%-10s%-10s%s\n", "No.", "Item", "Category", "Amount", "Recomended Shop");
+        System.out.printf("%-5s%-15s%-15s%-10s%s\n", "No.", "Item", "Category", "Amount", "Recomended Shop");
         for (Product x : cart) {
             System.out.println(
                     "------------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("%d%-4s%-15s%-10s%-10d", (n + 1), ")", capitalizeFirstLetter(x.getName()),
-                    x.getCategory(), amount.get(n));
+            System.out.printf("%d%-4s%-15s%-15s%-10d", (n + 1), ")", capitalizeFirstLetter(x.getName()),x.getCategory(), amount.get(n));
             int num = 0;
             for (User s : sellers) {
                 for (int q = 0; q < s.getStore().getProducts().size(); q++)
@@ -147,7 +146,7 @@ public class Cart {
                         if (i == 0) {
                             System.out.print(gz[i]);
                         } else {
-                            System.out.printf("\n%40s%-1s", " ", gz[i]);
+                            System.out.printf("\n%45s%-1s", " ", gz[i]);
                         }
                     }
                 }

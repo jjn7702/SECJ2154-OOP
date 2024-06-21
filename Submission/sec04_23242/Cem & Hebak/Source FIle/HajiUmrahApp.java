@@ -274,6 +274,8 @@ public class HajiUmrahApp {
                                                                                                         // jemaahwithDoctor
                                                                                                         jemaahWithDoctor.add(
                                                                                                                         jemaah.get(j));
+                                                                                                }else{
+                                                                                                        break;
                                                                                                 }
 
                                                                                         }
