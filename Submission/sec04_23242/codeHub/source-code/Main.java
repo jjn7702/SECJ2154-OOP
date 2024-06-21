@@ -151,7 +151,7 @@ public class Main {
                 case 4:
                     screen.ClearScreen();
                     report.displayAccountBalancesAndTransactions();
-                    screen.pauseScreen(scanner);
+                    //screen.pauseScreen(scanner);
                     break;
                 case 5:
                     screen.ClearScreen();
@@ -171,7 +171,7 @@ public class Main {
                 case 8:
                     screen.ClearScreen();
                     report.displayAllInfo();
-                    screen.pauseScreen(scanner);
+                    //screen.pauseScreen(scanner);
                     break;
                 case 9:
                     System.out.printf("%37s","Exiting...");
