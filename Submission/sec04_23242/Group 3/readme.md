@@ -7,7 +7,7 @@
 <img align= "center"  width=80% src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp">
 
 
-# 🥗 Features
+### 🥗 Features
 
 📊 Daily Tracking: Log your daily meals and snacks.
 
@@ -24,7 +24,37 @@
 🔒 Secure Login: Both admin and regular users can securely log in to access their personalized features.
 
 
-## 🥗 OOP concepts
+### 🥗 OOP concepts
+Encapsulation and data hiding
+~~~
+public class RegularUser extends User {
+    private int age;
+    private String gender;
+    private double weight;
+    private double height;
+    private NutritionTracker nutritionTracker;
 
-## 🥗 FlowChart
-## 🥗 Class Diagram
+    public RegularUser(String username, String password, int age, String gender, double weight, double height) {
+        super(username, password);
+        this.age = age;
+        this.gender = gender;
+        this.weight = weight;
+        this.height = height;
+        this.nutritionTracker = new NutritionTracker();
+    }
+
+    public int getAge() {
+        return age;
+    }
+~~~
+Above code shows the RegularUser class has implemented encapsulation by providing accessors such as getAge() for other objects to indirectly access data. 
+Association
+Composition
+Inheritance
+Abstract class and polymorphism
+Exception handling
+
+
+### 🥗 FlowChart
+
+### 🥗 Class Diagram
