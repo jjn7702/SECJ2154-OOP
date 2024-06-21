@@ -28,7 +28,9 @@
 ## 🌊 UML Diagram
 <img width="7648" alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/assets/77981155/48acb731-da8e-44a4-9896-f37f5d3a868a">
 
-## 🏄🏽‍♀️ Flow Chart
+## 🏄🏽‍♀️ Flow Chart 
+![unnamed](https://github.com/jjn7702/SECJ2154-OOP/assets/77981155/c11afd48-3b95-4c23-95ee-d982cfae21ff)
+
 ## 🛠️ Technical Implementation
 
 ### 🗃️ Encapsulation and Data Hiding
