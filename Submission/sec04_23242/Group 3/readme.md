@@ -185,6 +185,6 @@ abcd
 ## 🥗 Class Diagram
 abcd
 
-<img align="right" src="https://www.clipartmax.com/png/middle/0-1219_food-clipart-png-02-healthy-food-clipart-transparent.png">
+<img align="right" width=30% src="https://img.freepik.com/premium-vector/eat-healthy-food-cartoon-hand-drawn-doodle-self-care-awareness-drawing-clip-art-icon-illustration_66976-559.jpg">
 
 
