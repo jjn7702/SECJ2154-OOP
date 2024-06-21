@@ -25,6 +25,7 @@
 🔒 Secure Login: Both admin and regular users can securely log in to access their personalized features.
 
 
+
 ## 🥗 OOP concepts
 ### 🔐Encapsulation and data hiding 
 ~~~
@@ -179,7 +180,11 @@ private static void adminLogin(DatabaseManager dbManager, Scanner scanner) {
 One of the exception handling we had in our developed system. The exception we try to handle is the user entering an invalid input of username and password. If the user entered the username and password which is not matched with the database, an error message “Invalid admin credentials” will be displayed to the user to indicates their invalid inputs.
 
 
-
 ## 🥗 FlowChart
-
+abcd
 ## 🥗 Class Diagram
+abcd
+
+<img align= "right" src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp](https://www.clipartmax.com/png/middle/0-1219_food-clipart-png-02-healthy-food-clipart-transparent.png">
+
+
