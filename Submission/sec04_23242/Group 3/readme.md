@@ -185,6 +185,6 @@ abcd
 ## 🥗 Class Diagram
 abcd
 
-<img align= "right" src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp](https://www.clipartmax.com/png/middle/0-1219_food-clipart-png-02-healthy-food-clipart-transparent.png">
+<img align="right" src="https://www.clipartmax.com/png/middle/0-1219_food-clipart-png-02-healthy-food-clipart-transparent.png">
 
 
