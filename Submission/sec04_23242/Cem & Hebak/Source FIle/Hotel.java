@@ -41,7 +41,11 @@ public class Hotel {
         this.totalRoom = totalRoom;
     }
 
-    public double chooseRoomSize() {
+    public double getPrice() {
+        return price;
+    }
+
+    public void chooseRoomSize() {
         Object[][] jenisBilik = { { "Single Room", 200.00 },
                 { "Double Room", 135.00 },
                 { "Twin Room", 135.0 },
@@ -64,8 +68,6 @@ public class Hotel {
 
         roomSize = (String) jenisBilik[choice][0];
         price += (double) jenisBilik[choice][1];
-        return price;
-
     }
 
     public void display_Hotel_Ibadah_Info() {
@@ -86,6 +88,7 @@ public class Hotel {
         System.out.printf("%-35s: %20s%n", "Hotel", hotelName);
         System.out.printf("%-35s: %20s%n", "Address", address);
         System.out.printf("%-35s: %20s%n", "Room Size", roomSize);
+        System.out.printf("%-35s: %20s%n", "Room Price", price);
         System.out.println("Standard check-in and check-out times:");
         System.out.printf("%-35s: %20s%n", "Check-in time", checkInTime);
         System.out.printf("%-35s: %20s%n", "Check-out time", checkOutTime);

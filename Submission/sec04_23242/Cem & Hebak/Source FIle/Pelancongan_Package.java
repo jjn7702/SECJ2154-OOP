@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Scanner;
 import java.util.Vector;
 
 public enum Pelancongan_Package {
@@ -48,6 +49,7 @@ public enum Pelancongan_Package {
         private double price_Pelancongan;
         private Vector<Flight> flight_Pelancongan;
         private Vector<Hotel> hotel_Pelancongan;
+        Scanner inp = new Scanner(System.in);
 
         private Pelancongan_Package(Vector<String> places, String tour_Guide, double price_Pelancongan,
                         Vector<Flight> flight_Pelancongan, Vector<Hotel> hotel_Pelancongan) {
@@ -59,7 +61,14 @@ public enum Pelancongan_Package {
         }
 
         public void display_Pelancongan_info() {
-                int counterFlight = 1, counterHotel = 1;
+                int counterFlight = 2;
+                int  counterHotel = 1;
+                for (Flight flight : flight_Pelancongan) {
+                        System.out.println("========================= Flight " + counterFlight
+                                        + " =========================");
+                        flight.display_Flight_Info();
+                        counterFlight++;
+                }
                 System.out.println("==================== Tour Packages Info ====================");
                 System.out.println("Package: " + this.name());
                 System.out.println("Tour Guide: " + this.tour_Guide);
@@ -70,12 +79,14 @@ public enum Pelancongan_Package {
                         System.out.println(i + 1 + ") " + places.get(i));
                 }
 
+
                 for (Flight flight : flight_Pelancongan) {
                         System.out.println("========================= Flight " + counterFlight
                                         + " =========================");
                         flight.display_Flight_Info();
                         counterFlight++;
                 }
+
 
                 System.out.println("\nHotels:");
                 System.out.println("========================= Hotel " + counterHotel
@@ -93,8 +104,9 @@ public enum Pelancongan_Package {
                 for (Hotel hotel : hotel_Pelancongan) {
                         System.out.println("========================= Hotel " + counterHotel
                                         + " =========================");
-                        hotel.display_Hotel_Info();
+                        hotel.chooseRoomSize();
                         // price_Pelancongan += hotel.chooseRoomSize();
+                        price_Pelancongan += hotel.getPrice();
                         counterHotel++;
 
                 }

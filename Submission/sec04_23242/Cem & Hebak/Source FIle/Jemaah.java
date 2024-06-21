@@ -241,7 +241,7 @@ public class Jemaah extends User implements userDisplay {
         setEmail(inp.nextLine());
     }
 
-    public void chooseUmrahPackage() {
+    public void chooseIbadahPackage() {
 
         System.out.println("Please choose your ibadah package: ");
         System.out.println("1) IFRAD = Perform Hajj first Umrah later");
@@ -289,6 +289,7 @@ public class Jemaah extends User implements userDisplay {
                 break;
         }
         plgPkg = Pelancongan_Package.valueOf(vacation);
+        plgPkg.choose_Hotel_Room();
         plgPkg.display_Pelancongan_info();
 
         if (pakejIbadah.getFlight().size() != 0) {

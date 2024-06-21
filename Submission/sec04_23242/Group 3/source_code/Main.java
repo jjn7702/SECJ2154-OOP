@@ -12,6 +12,10 @@ public class Main {
 
         while (true) {
             clearConsole();
+            System.out.println("Welcome to Nutrition Tracker System !\n");
+            System.out.println("+----------------------+----------+");
+            System.out.println("|        M A I N   P A G E        |");
+            System.out.println("+----------------------+----------+\n");
             System.out.println("1. Admin Login");
             System.out.println("2. Regular User Login");
             System.out.println("3. Register");
@@ -39,6 +43,9 @@ public class Main {
 
     private static void adminLogin(DatabaseManager dbManager, Scanner scanner) {
         clearConsole();
+            System.out.println("+----------------------+----------+");
+            System.out.println("|      A D M I N   L O G I N      |");
+            System.out.println("+----------------------+----------+\n");
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
         System.out.print("Enter password: ");
@@ -46,18 +53,21 @@ public class Main {
 
         for (Admin admin : dbManager.getAdmins()) {
             if (admin.getUsername().equals(username) && admin.getPassword().equals(password)) {
-                System.out.println("Admin login successful!");
+                System.out.println("\n------Admin login successful!------\n");
                 pauseForUserInput();
                 adminOptions(admin, dbManager, scanner);
                 return;
             }
         }
-        System.out.println("Invalid admin credentials!");
+        System.out.println("\nCAUTION : !!! Invalid admin credentials !!!\n");
         pauseForUserInput();
     }
 
     private static void userLogin(DatabaseManager dbManager, Scanner scanner) {
         clearConsole();
+        System.out.println("+----------------------+----------+");
+        System.out.println("|      U S E R     L O G I N      |");
+        System.out.println("+----------------------+----------+\n");
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
         System.out.print("Enter password: ");
@@ -65,18 +75,21 @@ public class Main {
 
         for (RegularUser user : dbManager.getRegularUsers()) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                System.out.println("User login successful!");
+                System.out.println("\n------User login successful!------\n");
                 pauseForUserInput();
                 userOptions(user, dbManager, scanner);
                 return;
             }
         }
-        System.out.println("Invalid user credentials!");
+        System.out.println("\nCAUTION : !!! Invalid user credentials !!!\n");
         pauseForUserInput();
     }
 
     private static void userRegister(DatabaseManager dbManager, Scanner scanner) {
         clearConsole();
+        System.out.println("+----------------------+----------+");
+        System.out.println("|         R E G I S T E R         |");
+        System.out.println("+----------------------+----------+\n");
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
         System.out.print("Enter password: ");
@@ -96,14 +109,14 @@ public class Main {
         scanner.nextLine(); // consume newline
 
         if (!password.equals(confirmPassword)) {
-            System.out.println("Passwords do not match!");
+            System.out.println("\n CAUTION : !!! Passwords do not match !!!");
             pauseForUserInput();
             return;
         }
 
         for (RegularUser r : dbManager.getRegularUsers()) {
             if (r.getUsername().equals(username)) {
-                System.out.println("Username exists! Pls try again!");
+                System.out.println("\nUsername exists! Pls try again!");
                 pauseForUserInput();
                 return;
             }
@@ -112,7 +125,7 @@ public class Main {
         RegularUser newUser = new RegularUser(username, password, age, gender, weight, height);
         dbManager.addRegularUser(newUser);
         dbManager.saveRegularUsers(); // Save the new user to the file
-        System.out.println("User registration successful!");
+        System.out.println("\n------User registration successful!------");
         pauseForUserInput();
     }
 
@@ -150,6 +163,8 @@ public class Main {
     private static void userOptions(RegularUser user, DatabaseManager dbManager, Scanner scanner) {
         while (true) {
             clearConsole();
+            System.out.println("         U S E R   M E N U   ");
+            System.out.println("+----------------------+----------+\n");
             System.out.println("1. Enter Meal");
             System.out.println("2. View Meals");
             System.out.println("3. Edit Meal");
@@ -162,11 +177,11 @@ public class Main {
                 clearConsole();
                 String mealType = "";
                 while (true) {
-                    System.out.println("Select meal type:");
+                    System.out.println("Select meal type:\n");
                     System.out.println("1. Breakfast");
                     System.out.println("2. Lunch");
                     System.out.println("3. Dinner");
-                    System.out.println("4. Snack");
+                    System.out.println("4. Snack\n");
                     System.out.print("Choose an option (1-4): ");
                     int mealTypeChoice = scanner.nextInt();
                     scanner.nextLine(); // consume newline
@@ -186,7 +201,7 @@ public class Main {
                             break;
                         default:
                             clearConsole();
-                            System.out.println("Invalid choice! Please choose a number between 1 and 4.");
+                            System.out.println("\nInvalid choice! Please choose a number between 1 and 4.");
                             continue;
                     }
                     break;
@@ -206,7 +221,7 @@ public class Main {
 
                     Integer calories = FoodItemEnum.getCaloriesByName(foodName);
                     if (calories == null) {
-                        System.out.print("Calories not found for " + foodName + ". Please enter calories: ");
+                        System.out.print("\nCalories not found for " + foodName + ". Please enter calories: ");
                         calories = scanner.nextInt();
                         scanner.nextLine(); // consume newline
                     }
@@ -216,7 +231,7 @@ public class Main {
 
                 user.addMeal(meal);
                 dbManager.saveMeals();
-                System.out.println("Meal added successfully!");
+                System.out.println("\n------Meal added successfully!------");
                 pauseForUserInput();
             } else if (choice == 2) {
                 clearConsole();
@@ -229,13 +244,13 @@ public class Main {
                 ArrayList<Meal> mealsOnDate = user.getMealsByDate(mealDateToEdit);
 
                 if (mealsOnDate.isEmpty()) {
-                    System.out.println("No meals found for the specified date.");
+                    System.out.println("\nNo meals found for the specified date.");
                 } else {
-                    System.out.println("Meals on " + mealDateToEdit + ":");
+                    System.out.println("\nMeals on " + mealDateToEdit + ":");
                     for (Meal meal : mealsOnDate) {
                         meal.displayMealDetails();
                     }
-                    System.out.print("Enter the meal type to edit: ");
+                    System.out.print("\nEnter the meal type to edit: ");
                     String mealTypeToEdit = scanner.nextLine();
                     Meal mealToEdit = mealsOnDate.stream()
                             .filter(meal -> meal.getType().equals(mealTypeToEdit))
@@ -243,16 +258,16 @@ public class Main {
                             .orElse(null);
 
                     if (mealToEdit == null) {
-                        System.out.println("No meal found with the specified type.");
+                        System.out.println("\nNo meal found with the specified type.");
                     } else {
                         clearConsole();
                         String newMealType = "";
                         while (true) {
-                            System.out.println("Select new meal type:");
+                            System.out.println("Select new meal type:\n");
                             System.out.println("1. Breakfast");
                             System.out.println("2. Lunch");
                             System.out.println("3. Dinner");
-                            System.out.println("4. Snack");
+                            System.out.println("4. Snack\n");
                             System.out.print("Choose an option (1-4): ");
                             int newMealTypeChoice = scanner.nextInt();
                             scanner.nextLine(); // consume newline
@@ -284,7 +299,7 @@ public class Main {
 
                         // Loop to enter multiple food items
                         while (true) {
-                            System.out.print("Enter food item name (or type 'done' to finish): ");
+                            System.out.print("\nEnter food item name (or type 'done' to finish): ");
                             String foodName = scanner.nextLine();
                             if (foodName.equalsIgnoreCase("done")) {
                                 break;
@@ -292,7 +307,7 @@ public class Main {
 
                             Integer calories = FoodItemEnum.getCaloriesByName(foodName);
                             if (calories == null) {
-                                System.out.print("Calories not found for " + foodName + ". Please enter calories: ");
+                                System.out.print("\nCalories not found for " + foodName + ". Please enter calories: ");
                                 calories = scanner.nextInt();
                                 scanner.nextLine(); // consume newline
                             }
@@ -302,14 +317,14 @@ public class Main {
 
                         user.editMeal(mealDateToEdit, mealTypeToEdit, newMeal);
                         dbManager.saveMeals();
-                        System.out.println("Meal edited successfully!");
+                        System.out.println("\n------Meal edited successfully!------");
                     }
                 }
                 pauseForUserInput();
             } else if (choice == 4) {
                 break;
             } else {
-                System.out.println("Invalid choice!");
+                System.out.println("\n--Invalid choice!--");
                 pauseForUserInput();
             }
         }

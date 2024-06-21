@@ -1,6 +1,10 @@
 class meritBased extends Scholarship{
     private double allowance ;
 
+    public meritBased(){
+
+    }
+
     public meritBased(double all, String st, double cg){
         super(st, cg) ;
         allowance = all ;
@@ -22,6 +26,6 @@ class meritBased extends Scholarship{
         System.out.println("Scholarship Details:");
         System.out.println("Type: " + type);
         System.out.println("CGPA: " + getCgp());
-        System.out.println("Allowance: $" + allowance);
+        System.out.println("Allowance: RM" + allowance);
     }
 }

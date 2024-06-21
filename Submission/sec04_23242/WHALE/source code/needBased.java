@@ -2,6 +2,10 @@ class needBased extends Scholarship{
     private double allowance ;
     private double threshold ;
 
+    public needBased(){
+        
+    }
+
     public needBased(double all, String st, double cg, double th){
         super(st, cg) ;
         allowance = all ;

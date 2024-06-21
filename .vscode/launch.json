@@ -9,6 +9,13 @@
       "name": "ScholarshipApp",
       "request": "launch",
       "mainClass": "ScholarshipApp",
+      "projectName": "SECJ2154-OOP_1b948572"
+    },
+    {
+      "type": "java",
+      "name": "ScholarshipApp",
+      "request": "launch",
+      "mainClass": "ScholarshipApp",
       "projectName": "SECJ2154-OOP_4bafcf19"
     },
     {
