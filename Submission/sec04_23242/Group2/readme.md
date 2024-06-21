@@ -39,6 +39,6 @@ Develop an option to suggest stores where buyers can purchase the product, based
 ## Flowchart 
 ![](Submission/sec04_23242/Group2/Image/WorkflowOOP.png)
 
-##  Class Diagram
+## 🌊 Class Diagram
 ![](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Images/OOP%20UML%20Diagram.jpg)
 
