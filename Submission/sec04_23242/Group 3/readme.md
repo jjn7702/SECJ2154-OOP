@@ -7,7 +7,7 @@
 
 <img align= "center"  width=80% src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp">
 
-
+🍏🥦🥑
 ## 🥗 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 🥗
 <img align="right" width=30% src="https://img.freepik.com/premium-vector/eat-healthy-food-cartoon-hand-drawn-doodle-self-care-awareness-drawing-clip-art-icon-illustration_66976-559.jpg">
 
@@ -25,7 +25,7 @@
 
 🔒 **Secure Login**: Both admin and regular users can securely log in to access their personalized features.
 
---
+🍏🥦🥑
 
 ## 🥗 𝐎𝐎𝐏 𝐂𝐨𝐧𝐜𝐞𝐩𝐭𝐬 🥗
 ### 🔐Encapsulation and data hiding 
@@ -51,6 +51,7 @@ public class RegularUser extends User {
     }
 ~~~
 Above code shows the RegularUser class has implemented encapsulation by providing accessors such as getAge() for other objects to indirectly access data. 
+🍏🥦🥑
 ### 🖇️Association
 ~~~
 public class NutritionTracker {
@@ -81,7 +82,7 @@ public class Meal {
     }
 ~~~
 The above code show the unidirectional association between the Meal class and NutritionTracker class. This can be proven by the instance variables of Meal datatype objects as well as methods to add Meal objects in NutritionTracker. However, in the Meal class, there is none of the instance variables or methods about the NutritionTracker class. Also, the NutritionTracker class is an enclosing class whereas the Meal class is an enclosed class. The enclosing class exclusively owns enclosed classes. That means the existence of objects are independent where when a NutritionTracker object is destroyed, the Meal objects owned by this NutritionTracker object will not be destroyed together.
-
+🍏🥦🥑
 ### 📦Composition
 ~~~
 public class DatabaseManager {
@@ -100,7 +101,7 @@ public class DatabaseManager {
     }
 ~~~
 The above code shows the composition between the DatabaseManager class with Admin class and the RegularUser class. In this case, the DatabaseManager class is an enclosing class whereas the Admin class and RegularUser class are enclosed classes. The enclosed classes are the parts of the enclosed class. That means the existence of objects is dependent where when a DatabaseManager object is destroyed, the Admin objects and RegularUsers objects owned by this DatabaseManager object will be destroyed too. 
-
+🍏🥦🥑
 ### 🗂️Inheritance
 ~~~
 public class RegularUser extends User {
@@ -120,7 +121,7 @@ public class RegularUser extends User {
     }
 ~~~
 The above code shows the inheritance relationship between RegularUser and User where RegularUser is a child class, User is a parent class. A child class will own all the attributes and methods declared in the parent class and add on their specific attribute and methods. The username and password attributes shown above are the attributes inherited from the parent class, User. To initialize them, we need to invoke the parent class constructor by super() method. The instance variables and methods are declared in the RegularUser class making it a specialized form of the User class.
-
+🍏🥦🥑
 ### 🫧Abstract class and polymorphism
 ~~~
 public abstract class User {
@@ -153,7 +154,7 @@ The above code shows the abstract class in our system. As you see, there is one 
 ~~~
 the overridden method in the RegularUser class where it is the child class of the User class. To override the method, we should have exactly the same function name, parameter lists and return datatype. If a User datatype variable reference to a RegularUser, the polymorphism is implemented as the implementation of displayOptions() will be used either in User class or RegularUser class will be determined during run time.
 
-
+🍏🥦🥑
 ### 📥Exception handling
 ~~~
 private static void adminLogin(DatabaseManager dbManager, Scanner scanner) {
@@ -180,9 +181,10 @@ private static void adminLogin(DatabaseManager dbManager, Scanner scanner) {
 ~~~
 One of the exception handling we had in our developed system. The exception we try to handle is the user entering an invalid input of username and password. If the user entered the username and password which is not matched with the database, an error message “Invalid admin credentials” will be displayed to the user to indicates their invalid inputs.
 
-
+🍏🥦🥑
 ## 🥗 𝐅𝐥𝐨𝐰𝐂𝐡𝐚𝐫𝐭 🥗
 abcd
+🍏🥦🥑
 ## 🥗 𝐂𝐥𝐚𝐬𝐬 𝐃𝐢𝐚𝐠𝐫𝐚𝐦 🥗
 abcd
 
