@@ -143,27 +143,16 @@ public class Jemaah extends User implements userDisplay {
             }
         }
         if (pakejIbadah != null) {
-            pakejIbadah.Display_Pakej_Info();
-            // pakejIbadah.display_FlightHajiUmrah();
+            pakejIbadah.Display_Pakej_Info();// display ibadah package
         }
-        if (plgPkg != null){
-            if(pakejIbadah != null){
-                plgPkg.display_Pelancongan_info(2);
-            }
-            else{
-                plgPkg.display_Pelancongan_info(1);
-            }
-            // plgPkg.display_Pelancongan_info();
+        if (plgPkg != null) {
+            plgPkg.display_Pelancongan_info();
+            // display pelancongan package//
         }
-
-        
-        
-        
 
         doctor.displayRingkas();
         embassy.displayRingkas();
-        // dulu ada display embassy info & Doctor info, tapi guna polymorphism boleh
-        // panggil terus di main
+
         System.out.println();
     }
 
@@ -223,7 +212,7 @@ public class Jemaah extends User implements userDisplay {
         } else {
 
             for (int i = 0; i < penyakit.size(); i++) {
-                System.out.println((i + 1) + ")" + penyakit.get(i));
+                System.out.println((i + 1) + ") " + penyakit.get(i));
             }
         }
 
@@ -233,7 +222,7 @@ public class Jemaah extends User implements userDisplay {
         } else {
 
             for (int i = 0; i < ubat.size(); i++) {
-                System.out.println((i + 1) + ")" + ubat.get(i));
+                System.out.println((i + 1) + ") " + ubat.get(i));
             }
         }
 
@@ -264,8 +253,9 @@ public class Jemaah extends User implements userDisplay {
         pakejIbadah = Haji_Umrah_Package.valueOf(inp.nextLine().toUpperCase());
         pakejIbadah.Display_Pakej_Info();
     }
+
     public void add_Pelancongan_Package() {
-       
+
         int choicePelancongan = 0;
         String vacation;
         System.out.println("Please choose your Vacation Package");
@@ -295,18 +285,19 @@ public class Jemaah extends User implements userDisplay {
                 break;
             default:
                 vacation = "";
-            System.out.println("Error!");
+                System.out.println("Error!");
                 break;
         }
         plgPkg = Pelancongan_Package.valueOf(vacation);
-        plgPkg.display_Pelancongan_info(1);
-        
-        if(pakejIbadah.getFlight().size() != 0){
+        plgPkg.choose_Hotel_Room();
+        plgPkg.display_Pelancongan_info();
+
+        if (pakejIbadah.getFlight().size() != 0) {
             pakejIbadah.getFlight().remove(1);
         }
-        //Tanya Faiz Boleh ke add pelancongan tanpa pergi HajiUmrah
-        
-        
-}
+
+        // Tanya Faiz Boleh ke add pelancongan tanpa pergi HajiUmrah
+
+    }
 
 }
