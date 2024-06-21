@@ -17,7 +17,17 @@ public class Report {
         Scanner e = new Scanner(System.in);
         PauseScreen s = new PauseScreen();
         for (Account account : user.getAccounts()) {
+            System.out.printf("%53s\n", ".___________________.");
+            System.out.printf("%53s\n", "|Account Information|");
+            System.out.printf("%30s%s\n", "<",
+                    "=======================================================>");
+
+            System.out.printf("%30s%-15s%-20s%-20s|\n", "|", "Account ID", "Account Name", "Account Balance");
+            System.out.printf("%30s%-15d%-20s%-20.2f|\n", "|", account.getId(), account.getName(),
+                    account.getBalance());
+            System.out.printf("%30s%s\n\n", "<", "========================================================>");
             //account.displayBudget();
+            
             account.getTransactionDetails();
             s.pauseScreen(e);
         }
