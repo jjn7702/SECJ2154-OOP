@@ -93,7 +93,7 @@ public enum Pelancongan_Package {
                 for (Hotel hotel : hotel_Pelancongan) {
                         System.out.println("========================= Hotel " + counterHotel
                                         + " =========================");
-                        hotel.display_Hotel_Info();
+                        hotel.chooseRoomSize();
                         // price_Pelancongan += hotel.chooseRoomSize();
                         counterHotel++;
 
