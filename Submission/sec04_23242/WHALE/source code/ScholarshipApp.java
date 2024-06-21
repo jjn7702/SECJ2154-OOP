@@ -11,6 +11,8 @@ public class ScholarshipApp {
     static Scanner inp = new Scanner(System.in);
     static Administrator ad = null;
     static Student stu = null;
+    static int countAd = 0;
+    static int countStu = 0;
 
     public static void main(String[] args) throws IOException {
         int sID = 0000;
@@ -30,6 +32,7 @@ public class ScholarshipApp {
 
                 if (rs == 'Y') {
                     registerStudent();
+                    countStu++;
 
                 } else if (rs == 'N') {
                     stu = signInStudent(StudList); // Ni function untuk tngok status je
@@ -87,6 +90,7 @@ public class ScholarshipApp {
 
                 if (rs == 'Y') {
                     registerAdministrator();
+                    countAd++;
                 } else if (rs == 'N') {
                     ad = signInAdministrator();
 
@@ -145,7 +149,7 @@ public class ScholarshipApp {
                 }
             }
 
-        } while (ad != null || StudList.size() > 0);
+        } while (ad != null || !StudList.isEmpty());
 
         inp.close();
     }
