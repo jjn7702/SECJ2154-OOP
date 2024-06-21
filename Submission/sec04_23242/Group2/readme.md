@@ -1,14 +1,17 @@
 # 🛒 Grocery Shopping Assistant
+> Grocery List Made Easier
+
+<img alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Images/3PJuT8.gif">
 
 ## Table of Contents
-[Synopsis](#-Synopsis)           
-[Objectives](#-Objectives)            
-[Scope](#-Scope)                      
-[Flow Chart](#flowchart)
-[Class Diagram](#-class-diagram)
+[Synopsis](#synopsis)           
+[Objectives](#objectives)            
+[Scope](#scope)  
+[OO Concepts](#oo-concepts)  
+[Flow Chart](#flowchart)    
+[Class Diagram](#class-diagram)    
 
-
-##  Synopsis 📝
+## 📝Synopsis 
 The grocery shopping assistant system is designed for two types of users: buyers and sellers. The system provides three main options: creating a grocery list (for buyers), managing the store (for sellers), and exiting the system. Both buyers and sellers must log in or register; new users can sign up while existing users can log in with their usernames. Once logged in, buyers have six options: adding an item, editing the quantity, deleting an item, viewing the cart, changing the address, and exiting the system. Sellers, on the other hand, have five options: adding an item, deleting an item, viewing items, editing the address, and exiting the system. Additionally, if a buyer's address matches the seller's address, the system will recommend nearby shops. The primary distinction between buyers and sellers in this system is that buyers can edit item quantities, while sellers can edit addresses.
 
 
@@ -26,10 +29,16 @@ Allow the sellers to arrange products for sale in their stores and let them add 
 4.  **Location-Based Store Recommendations:**
 Develop an option to suggest stores where buyers can purchase the product, based on the provided address that will indicate the stores around the designated area.
 
+## OO Concepts
+- [x] Encapsulation and Data Hiding  
+- [x] Association: Composition and Aggregation
+- [x] Inheritance and Polymorphism
+- [x] Exception Handling
+
 
 ## Flowchart 
 ![](Submission/sec04_23242/Group2/Image/WorkflowOOP.png)
 
-##  Class Diagram
+## Class Diagram
 ![](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Images/OOP%20UML%20Diagram.jpg)
 

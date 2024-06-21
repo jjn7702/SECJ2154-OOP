@@ -39,27 +39,40 @@ public class Doctor extends User implements userDisplay {
     // Polymorphism
     public void display() {
         System.out.println("\n========================================");
-        System.out.printf("%29s\n", "DOCTOR CREDENTIALS"); 
+        System.out.printf("%29s\n", "DOCTOR CREDENTIALS");
         System.out.println("========================================");
-        System.out.println("Name : " + getName());
-        System.out.println("Contact :" + getContact());
-        System.out.println("Identification Card : " + getIdentification_Card());
-        System.out.println("Email: " + getEmail());
-        System.out.println("Hospital: " + hospital);
-        System.out.println("Position: " + position);
-        System.out.println("Doctor Number: " + doctor_Number);
+        // System.out.println("Name : " + getName());
+        // System.out.println("Contact :" + getContact());
+        // System.out.println("Identification Card : " + getIdentification_Card());
+        // System.out.println("Email: " + getEmail());
+        // System.out.println("Hospital: " + hospital);
+        // System.out.println("Position: " + position);
+        // System.out.println("Doctor Number: " + doctor_Number);
+
+        System.out.printf("%-21s: %-10s%n", "Name", getName());
+        System.out.printf("%-21s: %-10s%n", "Contact", getContact());
+        System.out.printf("%-21s: %-10s%n", "Identification Card", getIdentification_Card());
+        System.out.printf("%-21s: %-10s%n", "Email", getEmail());
+        System.out.printf("%-21s: %-10s%n", "Hospital", hospital);
+        System.out.printf("%-21s: %-10s%n", "Position", position);
+        System.out.printf("%-21s: %-10s%n", "Doctor Number", doctor_Number);
         System.out.println();
     }
 
     public void displayRingkas() {
         System.out.println("\n========================================");
-        System.out.printf("%29s\n", "DOCTOR CREDENTIALS"); 
+        System.out.printf("%29s\n", "DOCTOR CREDENTIALS");
         System.out.println("========================================");
-        System.out.println("Name : " + getName());
-        System.out.println("Contact :" + getContact());
-        System.out.println("Email: " + getEmail());
-        System.out.println("Hospital: " + hospital);
-        System.out.println("Position: " + position);
+        // System.out.println("Name : " + getName());
+        // System.out.println("Contact :" + getContact());
+        // System.out.println("Email: " + getEmail());
+        // System.out.println("Hospital: " + hospital);
+        // System.out.println("Position: " + position);
+        System.out.printf("%-21s: %-10s%n", "Name", getName());
+        System.out.printf("%-21s: %-10s%n", "Contact", getContact());
+        System.out.printf("%-21s: %-10s%n", "Email", getEmail());
+        System.out.printf("%-21s: %-10s%n", "Hospital", hospital);
+        System.out.printf("%-21s: %-10s%n", "Position", position);
         System.out.println();
     }
 
