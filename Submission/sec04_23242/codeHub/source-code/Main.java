@@ -241,7 +241,7 @@ public class Main {
         System.out.printf("%59s%n","6. Add Saving");
         System.out.printf("%64s%n","7. Add Transaction");
         System.out.printf("%72s%n","8. Display All Information");
-        System.out.printf("%54s%n","9. Exit");
+        System.out.printf("%53s%n","9. Exit");
         System.out.printf("%90s%n%n","-------------------------------------------");
         System.out.printf("%46s","Enter your choice: ");
     }
