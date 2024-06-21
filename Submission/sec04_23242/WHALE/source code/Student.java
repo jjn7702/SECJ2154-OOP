@@ -14,23 +14,49 @@ public class Student extends User {
 
     }
 
-    public Student(String fn, String ln, int a, String em, Address add, String matricsNumber, String major, double CGPA, Scholarship scholarship, Programs prog, StudentHistory studhist) {
+    public Student(String fn, String ln, int a, String em, Address add, String matricsNumber, String major, double CGPA,
+            Programs prog, StudentHistory studhist) {
         super(fn, ln, a, em, add);
         this.matricsNumber = matricsNumber;
         this.major = major;
         this.CGPA = CGPA;
-        this.scholarship = scholarship;
+        scholarship = new meritBased();
         this.prog = prog;
         this.studhist = studhist;
     }
 
     // getters and setters
+
     public void setMajor(String major) {
         this.major = major;
     }
 
+    public void setMatricsNumber(String matricsNumber) {
+        this.matricsNumber = matricsNumber;
+    }
+
+    public void setScholarship(Scholarship scholarship) {
+        this.scholarship = scholarship;
+    }
+
+    public void setProg(Programs prog) {
+        this.prog = prog;
+    }
+
+    public void setStudhist(StudentHistory studhist) {
+        this.studhist = studhist;
+    }
+
+    public void setThreshold(double threshold) {
+        this.threshold = threshold;
+    }
+
     public void setCgpa(double CGPA) {
         this.CGPA = CGPA;
+    }
+
+    public void RegisterScholarship(Scholarship sc) {
+        scholarship = sc;
     }
 
     public Scholarship getScholarship() {
@@ -59,6 +85,7 @@ public class Student extends User {
                 + " Scholarship: " + scholarship + " Program: " + prog + " Student History: " + studhist;
     }
 
+    @Override
     public void display() {
         System.out.println("Full Name: " + super.fName + " " + super.lName);
         System.out.println("Age: " + super.getAge());

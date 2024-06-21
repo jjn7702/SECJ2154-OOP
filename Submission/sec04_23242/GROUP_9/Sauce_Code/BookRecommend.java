@@ -10,7 +10,7 @@ class Undergraduate implements User{
     this.matricID = matricID;
   }
 
-  public String getMatricID(）{
+  public String getMatricID(){
     return matricID;
   }
   
@@ -22,7 +22,7 @@ class Postgraduate implements User{
   }
 
   public String getMatricID(){
-    this.matricID = matricID;
+     return matricID;
   }
 }
   
@@ -224,12 +224,251 @@ public PG(String MatricID){
     }
 }
 
+  
+class BookRecommendationSystem {
+    private Admin admin;
+    private Library library;
+    private RecommendationEngine recommendationEngine;
+    private Scanner scanner;
 
-class others {
+    public BookRecommendationSystem() {
+        this.admin = new Admin();
+        this.library = new Library();
+        this.recommendationEngine = new RecommendationEngine(library.getBooks());
+        this.scanner = new Scanner(System.in);
+    }
 
-}
+    public void start() {
+        while (true) {
+            try {
+                System.out.println("Welcome to the Main Menu of the Book Recommended System\n");
+                System.out.println("Please enter a corresponding number based on the options below to navigate the menu:\n");
+                System.out.println("1. Undergraduate");
+                System.out.println("2. Postgraduate");
+                System.out.println("3. Others (limited access)");
+                System.out.println("4. Admin");
+                System.out.println("5. Exit");
+                System.out.print("\nChoose your option: ");
+                int option = scanner.nextInt();
+                scanner.nextLine();  // Consume newline
 
-public class BookRecommend{
+                switch (option) {
+                    case 1:
+                    case 2:
+                        handleStudent(option == 1);
+                        break;
+                    case 3:
+                        handleOthers();
+                        break;
+                    case 4:
+                        handleAdmin();
+                        break;
+                    case 5:
+                        System.out.println("Exiting system...");
+                        return;
+                    default:
+                        System.out.println("Invalid option. Try again.");
+                }
+            } catch (Exception e) {
+                // Exception handling: catching any unexpected exceptions to prevent crash
+                System.out.println("An error occurred: " + e.getMessage());
+                scanner.next(); // Clear invalid input
+            }
+        }
+    }
+
+    private void handleStudent(boolean isUG) {
+        System.out.print("Enter your Matric No: ");
+        String matricNo = scanner.nextLine();
+        User student = isUG ? new UG(matricNo) : new PG(matricNo); // Polymorphism: Using interface type to refer to objects
+        recommendBooks(student);
+    }
+
+    private void handleOthers() {
+        recommendBooks(null);
+    }
+
+    private void handleAdmin() {
+        System.out.print("Enter admin credentials: ");
+        String credentials = scanner.nextLine();
+        // Validate credentials (assume always valid for simplicity)
+        adminMenu();
+    }
+
+    private void adminMenu() {
+        while (true) {
+            try {
+                System.out.println("Admin Menu:");
+                System.out.println("1. Add Book");
+                System.out.println("2. Remove Book");
+                System.out.println("3. Back to Main Menu");
+                System.out.print("Choose your option: ");
+                int option = scanner.nextInt();
+                scanner.nextLine();  // Consume newline
+
+                switch (option) {
+                    case 1:
+                        addBook();
+                        break;
+                    case 2:
+                        removeBook();
+                        break;
+                    case 3:
+                        return;
+                    default:
+                        System.out.println("Invalid option. Try again.");
+                }
+            } catch (Exception e) {
+                // Exception handling: catching any unexpected exceptions to prevent crash
+                System.out.println("An error occurred: " + e.getMessage());
+                scanner.next(); // Clear invalid input
+            }
+        }
+    }
+
+    private void addBook() {
+        try {
+            System.out.print("Enter genre: ");
+            String genre = scanner.nextLine();
+            System.out.print("Enter ref: ");
+            String ref = scanner.nextLine();
+            System.out.print("Enter pages: ");
+            double pages = scanner.nextDouble();
+            scanner.nextLine();  // Consume newline
+            System.out.print("Enter publisher: ");
+            String publisher = scanner.nextLine();
+            System.out.print("Enter author: ");
+            String author = scanner.nextLine();
+            System.out.print("Enter title: ");
+            String title = scanner.nextLine();
+
+            Book book = new Book(genre, ref, pages, publisher, author, title);
+            admin.addBook(book);
+            library.addBook(book);
+            System.out.println("Book added successfully.");
+        } catch (Exception e) {
+            // Exception handling: catching any unexpected exceptions to prevent crash
+            System.out.println("An error occurred while adding the book: " + e.getMessage());
+            scanner.next(); // Clear invalid input
+        }
+    }
+
+    private void removeBook() {
+        try {
+            System.out.print("Enter title of the book to remove: ");
+            String title = scanner.nextLine();
+            Book bookToRemove = library.findBookByTitle(title);
+            if (bookToRemove != null) {
+                admin.removeBook(bookToRemove);
+                library.removeBook(bookToRemove);
+                System.out.println("Book removed successfully.");
+            } else {
+                System.out.println("Book not found.");
+            }
+        } catch (Exception e) {
+            // Exception handling: catching any unexpected exceptions to prevent crash
+            System.out.println("An error occurred while removing the book: " + e.getMessage());
+            scanner.next(); // Clear invalid input
+        }
+    }
+
+    private void recommendBooks(User user) {
+        while (true) {
+            try {
+                System.out.println("Book Recommendation Menu:");
+                System.out.println("1. Recommend by Genres");
+                System.out.println("2. Recommend by Journals/Articles/References");
+                System.out.println("3. Recommend by Pages");
+                System.out.println("4. Recommend by Publisher");
+                System.out.println("5. Recommend by Authors");
+                System.out.println("6. Recommend by Title");
+                System.out.print("Choose your option: ");
+                int option = scanner.nextInt();
+                scanner.nextLine();  // Consume newline
+
+                switch (option) {
+                    case 1:
+                        recommendByGenre();
+                        break;
+                    case 2:
+                        recommendByRef();
+                        break;
+                    case 3:
+                        recommendByPages();
+                        break;
+                    case 4:
+                        recommendByPublisher();
+                        break;
+                    case 5:
+                        recommendByAuthor();
+                        break;
+                    case 6:
+                        recommendByTitle();
+                        break;
+                    default:
+                        System.out.println("Invalid option. Try again.");
+                }
+
+                // Ask user if they want to go back to the recommendation menu or exit
+                System.out.println("Would you like to:");
+                System.out.println("1. Go back to the Recommendation Menu");
+                System.out.println("2. Exit");
+                System.out.print("Choose your option: ");
+                int nextOption = scanner.nextInt();
+                scanner.nextLine();  // Consume newline
+
+                if (nextOption == 2) {
+                    System.out.println("Exiting the recommendation system...");
+                    return;
+                }
+
+            } catch (Exception e) {
+                // Exception handling: catching any unexpected exceptions to prevent crash
+                System.out.println("An error occurred: " + e.getMessage());
+                scanner.next(); // Clear invalid input
+            }
+        }
+    }
+
+    private void recommendByGenre() {
+        System.out.print("Enter genre: ");
+        String genre = scanner.nextLine();
+        recommendationEngine.recommendByGenre(genre);
+    }
+
+    private void recommendByRef() {
+        System.out.print("Enter reference type: ");
+        String ref = scanner.nextLine();
+        recommendationEngine.recommendByRef(ref);
+    }
+
+    private void recommendByPages() {
+        System.out.print("Enter max pages: ");
+        double pages = scanner.nextDouble();
+        scanner.nextLine();  // Consume newline
+        recommendationEngine.recommendByPages(pages);
+    }
+
+    private void recommendByPublisher() {
+        System.out.print("Enter publisher: ");
+        String publisher = scanner.nextLine();
+        recommendationEngine.recommendByPublisher(publisher);
+    }
+
+    private void recommendByAuthor() {
+        System.out.print("Enter author: ");
+        String author = scanner.nextLine();
+        recommendationEngine.recommendByAuthor(author);
+    }
+
+    private void recommendByTitle() {
+        System.out.print("Enter title: ");
+        String title = scanner.nextLine();
+        recommendationEngine.recommendByTitle(title);
+    }
+
     public static void main(String[] args) {
+        BookRecommendationSystem system = new BookRecommendationSystem();
+        system.start();
     }
 }

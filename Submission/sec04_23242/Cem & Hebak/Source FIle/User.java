@@ -1,5 +1,4 @@
 import java.util.*;
-
 public abstract class User { // using abstarct
     private String name, contact, identification_Card, email;
     protected Scanner inp = new Scanner(System.in);
@@ -42,11 +41,6 @@ public abstract class User { // using abstarct
     public void setEmail(String email) {
         this.email = email;
     }
-
-    // Interface
-    public void display() {
-
-    }  //iman : ni tulis apa
 
     public abstract void updateUserInfo();
 

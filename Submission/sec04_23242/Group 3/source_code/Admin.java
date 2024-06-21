@@ -30,13 +30,15 @@ public class Admin extends User {
     }
 
     public void displayUserList(DatabaseManager dbManager) {
-        System.out.println("List of existing users:");
+        System.out.println("---- List of existing users ----\n");
         for (RegularUser user : dbManager.getRegularUsers()) {
             System.out.println("- " + user.getUsername());
         }
     }
 
     public void displayOptions() {
+        System.out.println("       A D M I N   M E N U   ");
+        System.out.println("+----------------------+----------+\n");
         System.out.println("1. View Food Items");
         System.out.println("2. View User List");
         System.out.println("3. Delete Regular User");
