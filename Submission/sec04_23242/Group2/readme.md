@@ -4,8 +4,9 @@
 ## Table of Contents
 [Synopsis](#synopsis-📝)           
 [Objectives](#objectives)            
-[Scope](#scope)                      
-[Flow Chart](#flowchart)  
+[Scope](#scope)  
+[OO Concepts](#oo-concepts)
+[Flow Chart](#flowchart)    
 [Class Diagram](#class-diagram)    
 
 ##  Synopsis 📝
@@ -25,6 +26,12 @@ Allow the buyers to make, modify, and control their grocery lists in a way that 
 Allow the sellers to arrange products for sale in their stores and let them add new products, remove products, display all products, and edit features such as the business address.
 4.  **Location-Based Store Recommendations:**
 Develop an option to suggest stores where buyers can purchase the product, based on the provided address that will indicate the stores around the designated area.
+
+## OO Concepts
+- [x] Encapsulation and Data Hiding  
+- [x] Association: Composition and Aggregation
+- [x] Inheritance and Polymorphism
+- [x] Exception Handling
 
 
 ## Flowchart 
