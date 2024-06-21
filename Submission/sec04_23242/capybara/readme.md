@@ -25,10 +25,10 @@
 | Kugan | Item & Food      |  Aggregation & Inheritance |
 | Ainn | Location & Campground      |    Polymorphism (Abstract) & Composition|
 
-## 🌊 Flow Chart
+## 🌊 UML Diagram
 <img width="7648" alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/assets/77981155/48acb731-da8e-44a4-9896-f37f5d3a868a">
 
-
+## 🏄🏽‍♀️ Flow Chart
 ## 🛠️ Technical Implementation
 
 ### 🗃️ Encapsulation and Data Hiding
