@@ -5,7 +5,8 @@
 ![alt text](/images/campingGif.gif "Logo Title Text 1")
 
 ## Table of Contents  
-[What it does?](#-what-it-does)  
+[What it does?](#-what-it-does)
+[Flow Chart](#-flow-chart)
 [Work Distribution](#-work-distribution)                      
 [Technical Implementation](#%EF%B8%8F-technical-implementation)
 
