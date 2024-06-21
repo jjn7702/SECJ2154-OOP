@@ -2,7 +2,7 @@
 > Grocery List Made Easier
 
 ## Table of Contents
-[Synopsis](#synopsis-📝)           
+[Synopsis](#synopsis)           
 [Objectives](#objectives)            
 [Scope](#scope)  
 [OO Concepts](#oo-concepts)  
