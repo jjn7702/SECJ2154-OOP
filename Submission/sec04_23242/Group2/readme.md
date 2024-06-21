@@ -5,7 +5,7 @@
 [Synopsis](#synopsis-📝)           
 [Objectives](#objectives)            
 [Scope](#scope)  
-[OO Concepts](#oo-concepts)
+[OO Concepts](#oo-concepts)  
 [Flow Chart](#flowchart)    
 [Class Diagram](#class-diagram)    
 
