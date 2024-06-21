@@ -8,8 +8,6 @@ class meritBased extends Scholarship{
 
     public boolean isEligible(Student st){
         if (st.getCgpa() >= ScholarshipRequirement.minCGPA){
-            id++ ;
-            scholarsID = String.valueOf(id) ;
             return true ;
         }
         else
@@ -22,7 +20,6 @@ class meritBased extends Scholarship{
 
     public void display() {
         System.out.println("Scholarship Details:");
-        System.out.println("Scholarship ID: " + scholarsID);
         System.out.println("Type: " + type);
         System.out.println("CGPA: " + getCgp());
         System.out.println("Allowance: $" + allowance);
