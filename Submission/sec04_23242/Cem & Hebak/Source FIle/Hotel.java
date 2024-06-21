@@ -86,6 +86,7 @@ public class Hotel {
         System.out.printf("%-35s: %20s%n", "Hotel", hotelName);
         System.out.printf("%-35s: %20s%n", "Address", address);
         System.out.printf("%-35s: %20s%n", "Room Size", roomSize);
+        System.out.printf("%-35s: %20s%n", "Room Price", price);
         System.out.println("Standard check-in and check-out times:");
         System.out.printf("%-35s: %20s%n", "Check-in time", checkInTime);
         System.out.printf("%-35s: %20s%n", "Check-out time", checkOutTime);
