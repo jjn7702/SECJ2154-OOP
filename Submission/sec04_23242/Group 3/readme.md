@@ -2,9 +2,9 @@
 
 𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓷𝓾𝓽𝓻𝓲𝓽𝓲𝓸𝓷 𝓽𝓻𝓪𝓬𝓴𝓮𝓻 𝓼𝔂𝓼𝓽𝓮𝓶 ! 
 
-> This application helps you keep track of your daily food intake, monitor your nutritional goals, and maintain a balanced diet.
+> This system helps you keep track of your daily food intake, monitor your nutritional goals, and maintain a balanced diet.
 
-<p align= "left"> <img src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp">
+<img align= "center" width=100%  src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp">
 
 # 🥗 Features
 
