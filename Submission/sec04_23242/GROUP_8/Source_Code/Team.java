@@ -9,16 +9,20 @@ class Team {
         members = new Vector<>();
     }
 
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String tN) {
+        teamName = tN;
+    }
+
     public void addMember(Student s) {
         members.add(s);
     }
 
     public void removeMember(Student s) {
         members.remove(s);
-    }
-
-    public String getTeamName() {
-        return teamName;
     }
 
     public Vector<Student> getMembers() {

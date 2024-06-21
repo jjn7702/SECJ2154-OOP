@@ -2,12 +2,13 @@ class Student extends User {
     private String matricsNumber, role;
     private Team team;
 
-    public Student( String mat_No,String name, String email) {
+    public Student(String mat_No ,String name, String email, String r) {
         super(name, email);
         matricsNumber = mat_No;
-       
+        role = r;
     }
 
+    //Basic Getter
     public String getMatricsNum() {
         return matricsNumber;
     }
@@ -15,10 +16,17 @@ class Student extends User {
     public String getRole() {
         return role;
     }
+    //------------
 
-    public void setRole(String role) {
-        this.role = role;
+    //Basic Setter
+    public void setMatricsNum(String mN) {
+        matricsNumber = mN;
     }
+
+    public void setRole(String r) {
+        role = r;
+    }
+    //-------------
 
     public Team getTeam() {
         return team;
@@ -44,9 +52,5 @@ class Student extends User {
         System.out.printf("\n║  %-10s: %-28s  ║", "Matrics No", matricsNumber);     
         System.out.printf("\n║  %-10s: %-28s  ║", "Role", role);     
         System.out.printf("\n╚═%-40s═╝", "══════════════════════════════════════════");
-        // System.out.println("Name    : " + getName().toUpperCase());
-        // System.out.println("Email   : " + getEmail());
-        // System.out.println("Matrics No: " + matricsNumber);
-        // System.out.println("Role: " + role);
     }
 }

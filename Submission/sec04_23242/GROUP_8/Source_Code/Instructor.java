@@ -10,6 +10,9 @@ class Instructor extends User {
         return empNumber;
     }
 
+    public void setEmpNum(String eN) {
+        empNumber = eN;
+    }
     
     public void display() {
         System.out.printf("\n╔═%-40s═╗", "══════════════════════════════════════════");
@@ -17,11 +20,7 @@ class Instructor extends User {
         System.out.printf("\n╠═%-40s═╣", "══════════════════════════════════════════");
         System.out.printf("\n║  %-11s: %-27s  ║", "Name", getName());       
         System.out.printf("\n║  %-11s: %-27s  ║", "Email", getEmail());     
-        System.out.printf("\n║  %-11s: %-27s  ║", "Employee No", empNumber);     
+        System.out.printf("\n║  %-11s: %-27s  ║", "Instructor ID", empNumber);     
         System.out.printf("\n╚═%-40s═╝", "══════════════════════════════════════════");
-
-        // System.out.println("Name: " + getName());
-        // System.out.println("Email: " + getEmail());
-        // System.out.println("Instructor Employee No: " + empNumber);
     }
 }

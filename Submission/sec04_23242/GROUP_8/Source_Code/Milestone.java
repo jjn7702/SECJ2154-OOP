@@ -1,31 +1,48 @@
 import java.util.*;
 
 public class Milestone {
-    private String id;
-    private String name;
-    private String description;
+    private String milestoneID;
+    private String milestoneName;
+    private String milestoneDescription;
+
     private Deadline deadline;
     private ArrayList<Task> task;
 
-    public Milestone(String id, String name, String description, Deadline deadline) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+    public Milestone(String milestoneID, String milestoneName, String milestoneDescription, Deadline deadline) {
+        this.milestoneID = milestoneID;
+        this.milestoneName = milestoneName;
+        this.milestoneDescription = milestoneDescription;
         this.deadline = deadline;
         this.task = new ArrayList<>();
     }
 
-    public String getId() {
-        return id;
+    //Basic Getter
+    public String getMilestoneID() {
+        return milestoneID;
     }
 
-    public String getName() {
-        return name;
+    public String getMilestoneName() {
+        return milestoneName;
     }
 
-    public String getDescription() {
-        return description;
+    public String getMilestoneDescription() {
+        return milestoneDescription;
     }
+    //------------
+
+    //Basic Setter
+    public void setMilestoneID(String sID) {
+        milestoneID = sID;
+    }
+
+    public void setMilestoneName(String n) {
+        milestoneName = n;
+    }
+
+    public void setMilestoneDescription(String d) {
+        milestoneDescription = d;
+    }
+    //-------------
 
     public Deadline getDeadline() {
         return deadline;
