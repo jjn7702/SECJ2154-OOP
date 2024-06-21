@@ -13,11 +13,8 @@ public class ScholarshipApp {
     static Scanner inp = new Scanner(System.in);
     static Administrator ad = null;
     static Student stu = null;
-    static int countAd = 0;
-    static int countStu = 0;
 
     public static void main(String[] args) throws IOException {
-        int sID = 0000;
         Vector<Student> StudList = new Vector<Student>(); // Insert the student that have been registered for
                                                           // scholarship
 
@@ -95,8 +92,8 @@ public class ScholarshipApp {
 
                 if (rs == 'Y') {
                     registerAdministrator();
-                    countAd++;
-                } else if (rs == 'N') {
+                } 
+                else if (rs == 'N') {
                     ad = signInAdministrator();
 
                     // ad.getusername() ;
@@ -467,7 +464,7 @@ public class ScholarshipApp {
                     double all = Double.parseDouble(fileScanner.nextLine().trim());
                     Merits.add(new meritBased(all, type, cgp, 0));
                 }
-                
+
                 fileScanner.close();
 
                 System.out.println("Merit-Based Scholarships Available:");
@@ -601,7 +598,7 @@ public class ScholarshipApp {
     }
 
     private static void writeFile(Vector<Student> s){
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("ApprovedStudent.txt"))) {
+        try (PrintWriter writer = new PrintWriter(new PrintWriter("ApprovedStudent.txt"))) {
             for(Student o: s){
                 writer.write("Student Details:\n");
                 writer.write("Full Name: " + o.getfName() + " " + o.getlName()) ;
@@ -614,14 +611,14 @@ public class ScholarshipApp {
                 writer.write("Program: " + o.getPrograms() + "\n");
                 
                 writer.write("\nScholarship Details:\n");
-                writer.write("  Type: " + o.getScholarship().getType() + "\n");
-                writer.write("  CGPA: " + o.getScholarship().getCgp() + "\n");
-                writer.write("  Allowance: $" + o.getScholarship().getAllowance() + "\n");
+                writer.write("Type: " + o.getScholarship().getType() + "\n");
+                writer.write("CGPA: " + o.getScholarship().getCgp() + "\n");
+                writer.write("Allowance: $" + o.getScholarship().getAllowance() + "\n");
                 
                 writer.write("\nStudent History Details:\n");
-                writer.write("  Last Program: " + o.getStudentHistory().lastProgram() + "\n");
-                writer.write("  CGPA: " + o.getStudentHistory().getCgpa() + "\n");
-                writer.write("  Majors: " + o.getStudentHistory().getMajors() + "\n") ;
+                writer.write("Last Program: " + o.getStudentHistory().lastProgram() + "\n");
+                writer.write("CGPA: " + o.getStudentHistory().getCgpa() + "\n");
+                writer.write("Majors: " + o.getStudentHistory().getMajors() + "\n") ;
             }
         } 
         catch (IOException e) {
