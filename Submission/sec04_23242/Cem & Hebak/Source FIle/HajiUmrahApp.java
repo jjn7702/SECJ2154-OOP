@@ -360,7 +360,7 @@ public class HajiUmrahApp {
                                                                                         doktor.get(i).updateUserInfo();
                                                                                 }
 
-                                                                        } while (choice3 != 3);
+                                                                        } while (choice3 != 3 && choice3 != 4);
                                                                 }
 
                                                         }
