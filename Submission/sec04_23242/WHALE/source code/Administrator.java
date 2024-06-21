@@ -67,6 +67,7 @@ public class Administrator extends User {
         return super.toString() + " Admin username: " + username + "\nPosition: " + position;
     }
 
+    @Override
     public void display() {
         System.out.println("Full Name: " + super.fName + " " + super.lName);
         System.out.println("Position: " + position);

@@ -85,6 +85,7 @@ public class Student extends User {
                 + " Scholarship: " + scholarship + " Program: " + prog + " Student History: " + studhist;
     }
 
+    @Override
     public void display() {
         System.out.println("Full Name: " + super.fName + " " + super.lName);
         System.out.println("Age: " + super.getAge());

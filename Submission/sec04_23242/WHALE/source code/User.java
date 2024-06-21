@@ -39,8 +39,9 @@ public class User {
     }
 
     // public methods
+    @Override
     public String toString() {
-        return "";// fName + " " + lName + " " + age + " " + email + " " + add;
+        return fName + " " + lName + " " + age + " " + email + " " + add;
     }
 
     public Address getAdd() {
