@@ -74,7 +74,9 @@ public class Jemaah extends User implements userDisplay {
 
     // Interface
     public void display() {
-        System.out.println("========== JEMAAH CREDENTIALS ==========");
+        System.out.println("\n========================================");
+        System.out.printf("%29s\n", "JEMAAH CREDENTIALS");
+        System.out.println("========================================");
         System.out.println("Name : " + getName());
         System.out.println("Contact :" + getContact());
         System.out.println("Identification Card : " + getIdentification_Card());
@@ -157,7 +159,9 @@ public class Jemaah extends User implements userDisplay {
     }
 
     public void displayRingkas() {
-        System.out.println("========== JEMAAH CREDENTIALS ==========");
+        System.out.println("\n========================================");
+        System.out.printf("%29s\n", "JEMAAH CREDENTIALS");
+        System.out.println("========================================");
         System.out.println("Name : " + getName());
         System.out.println("Contact :" + getContact());
         System.out.println("Identification Card : " + getIdentification_Card());
@@ -230,7 +234,9 @@ public class Jemaah extends User implements userDisplay {
     }
 
     public void updateUserInfo() {
-        System.out.println("========== UPDATE CREDENTIALS ==========");
+        System.out.println("\n========================================");
+        System.out.printf("%29s\n", "UPDATE CREDENTIALS");
+        System.out.println("========================================");
         System.out.print("Please enter your credentials: \nName: ");
         setName(inp.nextLine());
         System.out.print("Contact :");
@@ -241,15 +247,18 @@ public class Jemaah extends User implements userDisplay {
         setEmail(inp.nextLine());
     }
 
-    public void chooseIbadahPackage() {
-
+    public void chooseUmrahPackage() {
+        System.out.println("\n========================================"); //()
+        System.out.printf("%27s\n", "Ibadah Packages"); // ()
+        System.out.println("========================================"); // ()
         System.out.println("Please choose your ibadah package: ");
-        System.out.println("1) IFRAD = Perform Hajj first Umrah later");
-        System.out.println("2) QIRAN = Perform Hajj and Umrah simultaneously");
-        System.out.println("3) TAMATTUK = Perform Umrah first Haji later");
-        System.out.println("4) HAJI Sahaja = Only Perform Hajj");
-        System.out.println("5) UMRAH = Only Perform Umrah");
-        System.out.println("Please type [ IFRAD, QIRAN, TAMATTUK, HAJI, UMRAH ] to choose your ibadah package");
+        System.out.println("[1] IFRAD = Perform Hajj first Umrah later");
+        System.out.println("[2] QIRAN = Perform Hajj and Umrah simultaneously");
+        System.out.println("[3] TAMATTUK = Perform Umrah first Haji later");
+        System.out.println("[4] HAJI Sahaja = Only Perform Hajj");
+        System.out.println("[5] UMRAH = Only Perform Umrah");
+        System.out.println("\nPlease type [ IFRAD, QIRAN, TAMATTUK, HAJI, UMRAH ] to choose your ibadah package");
+        System.out.println("Package: ");
         pakejIbadah = Haji_Umrah_Package.valueOf(inp.nextLine().toUpperCase());
         pakejIbadah.Display_Pakej_Info();
     }
@@ -258,14 +267,17 @@ public class Jemaah extends User implements userDisplay {
 
         int choicePelancongan = 0;
         String vacation;
+        System.out.println("==================== Tour Packages ====================");
         System.out.println("Please choose your Vacation Package");
-        System.out.println("[1] Turki, Istanbul");
-        System.out.println("[2] Riyadh, Damma,");
-        System.out.println("[3] Doha, Dubai");
-        System.out.println("[4] Abu Dhabi, Sharjah");
-        System.out.println("[5] Kuwait City, Manama");
+        System.out.printf("%-35s: %20s%n","[1] Turki, Istanbul (RM)","2500.00");
+        System.out.printf("%-35s: %20s%n","[2] Riyadh, Damma (RM)","3000.00");
+        System.out.printf("%-35s: %20s%n","[3] Doha, Dubai (RM)","3500.00");
+        System.out.printf("%-35s: %20s%n","[4] Abu Dhabi, Sharjah (RM)","2800.00");
+        System.out.printf("%-35s: %20s%n","[5] Kuwait City, Manama (RM)","4000.00");
+        System.out.println("=========================================================");
         System.out.println("[1 - 5] Please Enter the number of package you interested");
         choicePelancongan = inp.nextInt();
+        System.out.println("Package: ");
         inp.nextLine();
         switch (choicePelancongan) {
             case 1:

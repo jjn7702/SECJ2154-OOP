@@ -38,7 +38,9 @@ public class Embassy extends User implements userDisplay {
 
     // Interface
     public void display() {
-        System.out.println("========== EMBASSY CREDENTIALS ==========");
+        System.out.println("\n========================================");
+        System.out.printf("%29s\n", "EMBASSY CREDENTIALS"); 
+        System.out.println("========================================");
         System.out.println("Name : " + getName());
         System.out.println("Contact :" + getContact());
         System.out.println("Identification Card : " + getIdentification_Card());
@@ -50,7 +52,9 @@ public class Embassy extends User implements userDisplay {
     }
 
     public void displayRingkas() {
-        System.out.println("========== EMBASSY CREDENTIALS ==========");
+        System.out.println("\n========================================");
+        System.out.printf("%29s\n", "EMBASSY CREDENTIALS"); 
+        System.out.println("========================================");
         System.out.println("Name : " + getName());
         System.out.println("Contact :" + getContact());
         System.out.println("Email: " + getEmail());
@@ -61,7 +65,9 @@ public class Embassy extends User implements userDisplay {
 
     public void updateUserInfo() {
 
-        System.out.println("========== UPDATE CREDENTIALS ==========");
+        System.out.println("\n========================================");
+        System.out.printf("%29s\n", "UPDATE CREDENTIALS");
+        System.out.println("========================================");
         System.out.print("Please enter your credentials: \nName: ");
         setName(inp.nextLine());
         System.out.print("Contact :");
