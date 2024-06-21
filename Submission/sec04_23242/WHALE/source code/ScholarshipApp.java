@@ -59,20 +59,20 @@ public class ScholarshipApp {
 
                     switch (ap) {
                         case 0:
-                            if (ad == null){
-                                System.out.println("There is no administrator signed in. Please wait") ;
+                            if (ad == null) {
+                                System.out.println("There is no administrator signed in. Please wait");
                             }
 
                             else if (ad.getStudent(i).getScholarship() == null) {
                                 System.out.println("Your application is not approved yet. Check again later");
-                            } 
-                            else {
+                            } else {
                                 System.out.println("Your application has approved. We will display the information");
                                 StudList.get(i).displayAllDetails();
                             }
                             break;
-                        case 1: applyFromDisplayScholarship(stu) ;
-                                break ;
+                        case 1:
+                            applyFromDisplayScholarship(stu);
+                            break;
                         default:
                             System.out.println("Invalid choice. Please enter 0 or 1");
                             break;
@@ -97,17 +97,23 @@ public class ScholarshipApp {
                     System.out.println("Invalid choice. Please enter Y or N.");
                 }
 
-                System.out.println("Do you want to evaluate student?(Y/N)") ;
+                System.out.println("Do you want to evaluate student?(Y/N)");
                 rs = inp.next().toUpperCase().charAt(0);
 
-                if (rs == 'Y'){
+                if (rs == 'Y') {
                     if (StudList.size() > 0) {
                         for (int i = 0; i < StudList.size(); i++) {
                             StudList.get(i).displayAllDetails();
-                            boolean evs = ad.evaluateStudent(StudList.get(i), StudList.get(i).getScholarship());
-
+                            System.out.println("Do you want to Approve this student?(Y/N)");
+                            rs = inp.next().toUpperCase().charAt(0);
+                            boolean evs = false;
+                            if (rs == 'Y') {
+                                evs = ad.evaluateStudent(StudList.get(i), StudList.get(i).getScholarship());
+                            } else if (rs == 'N') {
+                                evs = false;
+                            }
                             if (evs) {
-                                StudList.remove(i) ;
+                                StudList.remove(i);
                                 ad.application.incrementStudent();
                             }
 
@@ -116,29 +122,28 @@ public class ScholarshipApp {
                         }
                     }
 
-                    for ( Student l : ad.getStudent()){
+                    for (Student l : ad.getStudent()) {
                         l.displayAllDetails();
                     }
 
-                if (StudList.isEmpty()) {
-                    System.out.println("There is no student applying the scholarship");
+                    if (StudList.isEmpty()) {
+                        System.out.println("There is no student applying the scholarship");
+                    }
+
+                    else {
+                        displayStudList(StudList);
+                    }
+
+                    System.out.println("do you want to logout? (Y/N)");
+                    char y = inp.next().toUpperCase().charAt(0);
+
+                    if (y == 'Y') {
+                        ad = null;
+                    } else if (y == 'N') {
+                    }
+
                 }
-
-                else{
-                    displayStudList(StudList) ;
-                }
-
-                System.out.println("do you want to logout? (Y/N)");
-                char y = inp.next().toUpperCase().charAt(0);
-
-                if (y == 'Y') {
-                    ad = null;
-                } 
-                else if (y == 'N') {
-                }
-
             }
-        }
 
         } while (ad != null || StudList.size() > 0);
 
@@ -352,40 +357,38 @@ public class ScholarshipApp {
 
                 fileScanner.close();
 
-                System.out.println("Have you applied for scholarship?(Y/N)") ;
+                System.out.println("Have you applied for scholarship?(Y/N)");
                 char rs = inp.next().toUpperCase().charAt(0);
 
-                if(rs == 'Y'){
-                    for(Student u : so){
-                        if(u.getEmail().equals(email)){
-                            return u ;
+                if (rs == 'Y') {
+                    for (Student u : so) {
+                        if (u.getEmail().equals(email)) {
+                            return u;
                         }
 
-                        else{
+                        else {
 
                         }
                     }
                 }
 
-                else if (rs == 'N'){
+                else if (rs == 'N') {
                     System.out.println("Choose your current program:");
                     System.out.println("[1] PREGRADUATE");
                     System.out.println("[2] UNDERGRADUATE");
                     System.out.println("[3] POSTGRADUATE");
                     int ch = inp.nextInt();
-    
+
                     System.out.println("Enter the CGPA: ");
                     double cgpa = inp.nextDouble();
                     inp.nextLine(); // consume the newline character
-    
+
                     // Get majors
                     System.out.println("Enter the majors: ");
                     String majors = inp.nextLine();
-    
-    
-    
+
                     Programs p = Programs.UNDERGRADUATE;
-    
+
                     switch (ch) {
                         case 1:
                             p = Programs.PREGRADUATE;
@@ -396,14 +399,14 @@ public class ScholarshipApp {
                         case 3:
                             p = Programs.POSTGRADUATE;
                     }
-    
-                    //Scholarship o = applyFromDisplayScholarship(stu, age);
+
+                    // Scholarship o = applyFromDisplayScholarship(stu, age);
                     StudentHistory st = insertStudentHistory();
-    
+
                     Student stu = new Student(fname, lname, age, email, new Address(street, cityAndPostalCode, state),
                             matricsNu, majors, cgpa, p, st);
 
-                    return stu ;
+                    return stu;
                 }
 
             } else {
@@ -470,10 +473,10 @@ public class ScholarshipApp {
                 }
 
                 System.out.println("You have selected: " + Merits.get(scholarshipChoice).type);
-                System.out.println("Do you want to apply for this scholarship? (Y/N)") ;
-                char response = inp.next().toUpperCase().charAt(0) ;
+                System.out.println("Do you want to apply for this scholarship? (Y/N)");
+                char response = inp.next().toUpperCase().charAt(0);
                 if (response == 'Y') {
-                    student.RegisterScholarship(Merits.get(scholarshipChoice)) ;
+                    student.RegisterScholarship(Merits.get(scholarshipChoice));
 
                     // ad.setScholarshipAdmin(Merits.get(scholarshipChoice)) ;
                     // applyScholarship(student, sid);
