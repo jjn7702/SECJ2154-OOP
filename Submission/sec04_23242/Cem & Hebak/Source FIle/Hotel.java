@@ -41,7 +41,11 @@ public class Hotel {
         this.totalRoom = totalRoom;
     }
 
-    public double chooseRoomSize() {
+    public double getPrice() {
+        return price;
+    }
+
+    public void chooseRoomSize() {
         Object[][] jenisBilik = { { "Single Room", 200.00 },
                 { "Double Room", 135.00 },
                 { "Twin Room", 135.0 },
@@ -64,8 +68,6 @@ public class Hotel {
 
         roomSize = (String) jenisBilik[choice][0];
         price += (double) jenisBilik[choice][1];
-        return price;
-
     }
 
     public void display_Hotel_Ibadah_Info() {
