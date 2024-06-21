@@ -30,6 +30,20 @@
 
 🍏🥦🥑
 ## 🥗 𝐒𝐲𝐬𝐭𝐞𝐦 𝐏𝐫𝐞𝐯𝐢𝐞𝐰 🥗
+Main Page
+~~~
+Welcome to Nutrition Tracker System !
+
++----------------------+----------+
+|        M A I N   P A G E        |
++----------------------+----------+
+
+1. Admin Login
+2. Regular User Login
+3. Register
+4. Exit
+Choose an option:
+~~~
 🍏🥦🥑
 
 ## 🥗 𝐎𝐎𝐏 𝐂𝐨𝐧𝐜𝐞𝐩𝐭𝐬 🥗
