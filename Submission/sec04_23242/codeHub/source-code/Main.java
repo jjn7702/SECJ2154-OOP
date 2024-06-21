@@ -145,13 +145,11 @@ public class Main {
                 case 3:
                     screen.ClearScreen();
                     withdrawMoney(scanner, user1);
-                    scanner.nextLine();
                     screen.pauseScreen(scanner);
                     break;
                 case 4:
                     screen.ClearScreen();
                     report.displayAccountBalancesAndTransactions();
-                    scanner.nextLine();
                     screen.pauseScreen(scanner);
                     break;
                 case 5:
@@ -319,7 +317,7 @@ public class Main {
                 account.addTransaction(accountId,Food, amount, d,s );
             }
             else if(cater == 3){
-                System.out.println("\nEnter other name: ");
+                System.out.print("\nEnter other name: ");
                 String Other = scanner.nextLine();
                 OtherCategory s = new OtherCategory(accountId);
                 account.addTransaction(accountId, Other, amount, d, s);

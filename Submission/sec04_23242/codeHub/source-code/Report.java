@@ -12,7 +12,7 @@ public class Report {
 
     public void displayAccountBalancesAndTransactions() {
         for (Account account : user.getAccounts()) {
-            account.displayBudget();
+            //account.displayBudget();
             System.out.println(account.getTransactionDetails());
         }
     }
