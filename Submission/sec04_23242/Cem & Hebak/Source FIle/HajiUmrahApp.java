@@ -420,7 +420,7 @@ public class HajiUmrahApp {
                                                                                         default:
                                                                                                 break;
                                                                                 }
-                                                                        } while (choice3 != 3);
+                                                                        } while (choice3 != 3 && choice3 != 4);
                                                                 }
                                                         }
                                                         if (!found) {
