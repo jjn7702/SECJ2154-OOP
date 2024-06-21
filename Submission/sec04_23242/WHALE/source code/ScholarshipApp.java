@@ -13,6 +13,7 @@ public class ScholarshipApp {
     static Student stu = null;
 
     public static void main(String[] args) throws IOException {
+        int sID = 0000;
         Vector<Student> StudList = new Vector<Student>(); // Insert the student that have been registered for
                                                           // scholarship
 
@@ -28,10 +29,9 @@ public class ScholarshipApp {
                 char rs = inp.next().toUpperCase().charAt(0);
 
                 if (rs == 'Y') {
-                    stu = registerStudent();
-                    StudList.add(stu) ;
-                } 
-                else if (rs == 'N') {
+                    registerStudent();
+
+                } else if (rs == 'N') {
                     stu = signInStudent(StudList); // Ni function untuk tngok status je
                     int i = 0;
 
@@ -101,11 +101,7 @@ public class ScholarshipApp {
                 rs = inp.next().toUpperCase().charAt(0);
 
                 if (rs == 'Y'){
-                    if (StudList.isEmpty()) {
-                        System.out.println("There is no student applying the scholarship");
-                    }
-
-                    else if (StudList.size() > 0) {
+                    if (StudList.size() > 0) {
                         for (int i = 0; i < StudList.size(); i++) {
                             StudList.get(i).displayAllDetails();
                             boolean evs = ad.evaluateStudent(StudList.get(i), StudList.get(i).getScholarship());
@@ -116,27 +112,33 @@ public class ScholarshipApp {
                             }
 
                             else {
-
                             }
                         }
                     }
 
-                    for (Student l : ad.getStudent()){
-                        l.displayAllDetails() ;
+                    for ( Student l : ad.getStudent()){
+                        l.displayAllDetails();
                     }
-                }
-                else if(rs == 'N'){
 
+                if (StudList.isEmpty()) {
+                    System.out.println("There is no student applying the scholarship");
+                }
+
+                else{
+                    displayStudList(StudList) ;
                 }
 
                 System.out.println("do you want to logout? (Y/N)");
                 char y = inp.next().toUpperCase().charAt(0);
+                
                 if (y == 'Y') {
                     ad = null;
-                } else if (y == 'N') {
+                } 
+                else if (y == 'N') {
                 }
 
             }
+        }
 
         } while (ad != null || StudList.size() > 0);
 
@@ -255,7 +257,7 @@ public class ScholarshipApp {
         return null;
     }
 
-    private static Student registerStudent() {
+    private static void registerStudent() {
         try {
             String fname = "", lname = "", email = "", address = "", street = "",
                     cityAndPostalCode = "", state = "", matricsNu = "";
@@ -298,49 +300,12 @@ public class ScholarshipApp {
             outFile.close();
             System.out.println("Student information saved successfully.");
 
-            System.out.println("Choose your current program:");
-            System.out.println("[1] PREGRADUATE");
-            System.out.println("[2] UNDERGRADUATE");
-            System.out.println("[3] POSTGRADUATE");
-            int ch = inp.nextInt();
-
-            System.out.println("Enter the CGPA: ");
-            double cgpa = inp.nextDouble();
-            inp.nextLine(); // consume the newline character
-
-            // Get majors
-            System.out.println("Enter the majors: ");
-            String majors = inp.nextLine();
-
-
-
-            Programs p = Programs.UNDERGRADUATE;
-
-            switch (ch) {
-                case 1:
-                    p = Programs.PREGRADUATE;
-                    break;
-                case 2:
-                    p = Programs.UNDERGRADUATE;
-                    break;
-                case 3:
-                    p = Programs.POSTGRADUATE;
-            }
-
-            //Scholarship o = applyFromDisplayScholarship(stu, age);
-            StudentHistory sth = insertStudentHistory();
-            Student stu = new Student(fname, lname, age, email, new Address(street, cityAndPostalCode, state),
-                                      matricsNu, majors, cgpa, p, sth);
-
-            return stu ;
         }
 
         catch (FileNotFoundException e) {
             System.err.println("Error: Unable to create or write to the file.");
             e.printStackTrace();
         }
-
-        return null ;
     }
 
     private static Student signInStudent(Vector<Student> so) {
@@ -387,9 +352,60 @@ public class ScholarshipApp {
 
                 fileScanner.close();
 
-                Student p = new Student() ;
+                System.out.println("Have you applied for scholarship?(Y/N)") ;
+                char rs = inp.next().toUpperCase().charAt(0);
 
-                return p ;
+                if(rs == 'Y'){
+                    for(Student u : so){
+                        if(u.getEmail() == email){
+                            return u ;
+                        }
+
+                        else{
+
+                        }
+                    }
+                }
+
+                else if (rs == 'N'){
+                    System.out.println("Choose your current program:");
+                    System.out.println("[1] PREGRADUATE");
+                    System.out.println("[2] UNDERGRADUATE");
+                    System.out.println("[3] POSTGRADUATE");
+                    int ch = inp.nextInt();
+    
+                    System.out.println("Enter the CGPA: ");
+                    double cgpa = inp.nextDouble();
+                    inp.nextLine(); // consume the newline character
+    
+                    // Get majors
+                    System.out.println("Enter the majors: ");
+                    String majors = inp.nextLine();
+    
+    
+    
+                    Programs p = Programs.UNDERGRADUATE;
+    
+                    switch (ch) {
+                        case 1:
+                            p = Programs.PREGRADUATE;
+                            break;
+                        case 2:
+                            p = Programs.UNDERGRADUATE;
+                            break;
+                        case 3:
+                            p = Programs.POSTGRADUATE;
+                    }
+    
+                    //Scholarship o = applyFromDisplayScholarship(stu, age);
+                    StudentHistory st = insertStudentHistory();
+    
+                    Student stu = new Student(fname, lname, age, email, new Address(street, cityAndPostalCode, state),
+                            matricsNu, majors, cgpa, p, st);
+
+                    return stu ;
+                }
+
             } else {
                 System.out.println("Invalid username or password.");
             }
