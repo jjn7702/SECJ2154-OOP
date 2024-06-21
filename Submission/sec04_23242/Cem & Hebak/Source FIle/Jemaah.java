@@ -241,7 +241,7 @@ public class Jemaah extends User implements userDisplay {
         setEmail(inp.nextLine());
     }
 
-    public void chooseUmrahPackage() {
+    public void chooseIbadahPackage() {
 
         System.out.println("Please choose your ibadah package: ");
         System.out.println("1) IFRAD = Perform Hajj first Umrah later");

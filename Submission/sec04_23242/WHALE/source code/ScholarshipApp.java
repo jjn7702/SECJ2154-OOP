@@ -13,6 +13,8 @@ public class ScholarshipApp {
     static Scanner inp = new Scanner(System.in);
     static Administrator ad = null;
     static Student stu = null;
+    static int countAd = 0;
+    static int countStu = 0;
 
     public static void main(String[] args) throws IOException {
         int sID = 0000;
@@ -41,6 +43,10 @@ public class ScholarshipApp {
                         StudList.add(stu);
                     }
 
+                    if (!StudList.contains(stu)) {
+                        StudList.add(stu);
+                    }
+
                     for (Student st : StudList) {
                         if (st.equals(stu))
                             break;
@@ -65,8 +71,8 @@ public class ScholarshipApp {
                                 System.out.println("There is no administrator signed in. Please wait");
                             }
 
-                            else if (ad.getStudent(i).getScholarship() == null) {
-                                System.out.println("Your application is not approved yet. Check again later");
+                            else if (StudList.contains(stu)) {
+                                System.out.println("Your application is not approved.");
                             } else {
                                 System.out.println("Your application has approved. We will display the information");
                                 StudList.get(i).displayAllDetails();
@@ -89,6 +95,7 @@ public class ScholarshipApp {
 
                 if (rs == 'Y') {
                     registerAdministrator();
+                    countAd++;
                 } else if (rs == 'N') {
                     ad = signInAdministrator();
 
@@ -149,7 +156,7 @@ public class ScholarshipApp {
                 }
             }
 
-        } while (ad != null || StudList.size() > 0);
+        } while (ad != null || !StudList.isEmpty());
 
         inp.close();
     }

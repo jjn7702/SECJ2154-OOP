@@ -24,16 +24,28 @@ public class Report {
         return content;
     }
 
+    public void setReportID(String rID) {
+        reportID = rID;
+    }
+
+    public void setTitle(String t) {
+        title = t;
+    }
+
+    public void setContent(String c) {
+        content = c;
+    }
+
+    public Review getReview() {
+        return review;
+    }
+
+    public void setReview(Review r) {
+        review = r;
+    }
+
     public String getSubmissionDate() {
         return submissionDate;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public void setSubmissionDate(String submissionDate) {

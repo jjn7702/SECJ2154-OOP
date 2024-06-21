@@ -3,7 +3,7 @@ public class Review {
     private String comments;
     private int rating; // Rating out of 5
 
-    public Review(String reviewID, String comments, int rating, Report report) {
+    public Review(String reviewID, String comments, int rating) {
         this.reviewID = reviewID;
         this.comments = comments;
         this.rating = rating;
@@ -21,11 +21,15 @@ public class Review {
         return rating;
     }
 
-    public void setComment(String comments) {
-        this.comments = comments;
+    public void setReviewID(String rID) {
+        reviewID = rID;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setComment(String c) {
+        comments = c;
+    }
+
+    public void setRating(int r) {
+        rating = r;
     }
 }

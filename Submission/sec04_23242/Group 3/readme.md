@@ -1,31 +1,181 @@
-# 🍏Nutrition Tracker System
+# 🍏🥦🥑 Nutrition Tracker System 🍏🥦🥑
 
 Ⓦⓔⓛⓒⓞⓜⓔ ⓣⓞ ⓝⓤⓣⓡⓘⓣⓘⓞⓝ ⓣⓡⓐⓒⓚⓔⓡ ⓢⓨⓢⓣⓔⓜ !!
 
 
-> This system helps you keep track of your daily food intake, monitor your nutritional goals, and maintain a balanced diet.
+> This system helps you keep track of your daily food intake, monitor your nutritional goals, and maintain a balanced diet. 🫐
 
 <img align= "center"  width=80% src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp">
 
-
-## 🥗 Features
-
-📊 Daily Tracking: Log your daily meals and snacks.
-
-⚖️ BMI Calculation: Calculate your Body Mass Index (BMI) to monitor your health and fitness progress.
-
-📝 Meal Recording: Users can log their meals, including meal type, date, and food items.
-
-✏️ Meal Editing: Easily edit your logged meals to ensure accurate tracking.
-
-📈 Meal Reports: View your meals over date with visual reports.
-
-👥 User Management: Admins can view food items, manage users, and delete user accounts.
-
-🔒 Secure Login: Both admin and regular users can securely log in to access their personalized features.
+## Anywhere Door
+🚪- [Features](#Features)
+🚪- [System Preview](#System-Preview)
+🚪- [OOP Concepts](#Oop-concepts)
+🚪- [FlowChart](#Flowchart)
+🚪- [Class Diagram](#class-diagram)
 
 
-## 🥗 OOP concepts
+##  🥗 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 🥗
+<img align="right" width=30% src="https://img.freepik.com/premium-vector/eat-healthy-food-cartoon-hand-drawn-doodle-self-care-awareness-drawing-clip-art-icon-illustration_66976-559.jpg">
+
+📊 **Daily Tracking**: Log your daily meals and snacks.
+
+⚖️ **BMI Calculation**: Calculate your Body Mass Index (BMI) to monitor your health and fitness progress.
+
+📝 **Meal Recording**: Users can log their meals, including meal type, date, and food items.
+
+✏️ **Meal Editing**: Easily edit your logged meals to ensure accurate tracking.
+
+📈 **Meal Reports**: View your meals over date with visual reports.
+
+👥 **User Management**: Admins can view food items, manage users, and delete user accounts.
+
+🔒 **Secure Login**: Both admin and regular users can securely log in to access their personalized features.
+
+
+🍏🥦🥑
+## 🥗 𝐒𝐲𝐬𝐭𝐞𝐦 𝐏𝐫𝐞𝐯𝐢𝐞𝐰 🥗
+### ------**Main Page**------
+~~~
+Welcome to Nutrition Tracker System !
+
++----------------------+----------+
+|        M A I N   P A G E        |
++----------------------+----------+
+
+1. Admin Login
+2. Regular User Login
+3. Register
+4. Exit
+Choose an option:
+~~~
+### ------**Admin Login & Menu**------
+~~~
++----------------------+----------+
+|      A D M I N   L O G I N      |
++----------------------+----------+
+
+Enter username: Chan
+Enter password: 0040
+
+------Admin login successful!------
+~~~
+~~~
+       A D M I N   M E N U
++----------------------+----------+
+
+1. View Food Items
+2. View User List
+3. Delete Regular User
+4. Logout
+Choose an option:
+~~~
+### ------**User Login & Menu**------
+~~~
++----------------------+----------+
+|      U S E R     L O G I N      |
++----------------------+----------+
+
+Enter username: Sini
+Enter password: 0810
+
+------User login successful!------
+~~~
+~~~
+         U S E R   M E N U
++----------------------+----------+
+
+1. Enter Meal
+2. View Meals
+3. Edit Meal
+4. Logout
+Choose an option:
+~~~
+### ------**BMI calculation &  Meal Analysis**------
+~~~
++-------------------+
+| User Info         |
++-------------------+
+| Name: Sini        |
+| Age : 22          |
+| BMI : 19.10       |
++-------------------+
+
++------------+------------+----------------------+----------+
+| Date       | Meal Type  | Food Item            | Calories |
++------------+------------+----------------------+----------+
+| 2024-06-11 | Breakfast  | Apple                | 52       |
+|            |            | Toast                | 75       |
+|            | Lunch      | Sandwich             | 250      |
+|            |            | Soup                 | 150      |
+|            | Dinner     | Pizza                | 285      |
+|            |            | GrilledChicken       | 335      |
+|            | Snack      | GranolaBar           | 150      |
++------------+------------+----------------------+----------+
+| 2024-06-11 | Total      |                      | 1297     |
+| 2024-06-11 | Recommend  |                      | 1613     |
+| 2024-06-11 | Status     |                      | Under    |
++------------+------------+----------------------+----------+
+| 2024-06-12 | Breakfast  | NasiLemak            | 280      |
+|            |            | Yogurt               | 100      |
+|            | Lunch      | Sushi                | 200      |
+|            |            | Salad                | 150      |
+|            | Dinner     | Pasta                | 300      |
+|            |            | Steak                | 679      |
+|            | Snack      | ChocolateBar         | 210      |
++------------+------------+----------------------+----------+
+| 2024-06-12 | Total      |                      | 1919     |
+| 2024-06-12 | Recommend  |                      | 1613     |
+| 2024-06-12 | Status     |                      | Exceeded |
++------------+------------+----------------------+----------+
+~~~
+### ------**Meal overview & Edit**------
+~~~
+Enter the date of the meal you want to edit (yyyy-mm-dd): 2024-06-13
+
+Meals on 2024-06-13:
+
+Meal: Breakfast
+Date: 2024-06-13
+ - Banana: 89 calories
+ - Oatmeal: 150 calories
+
+Meal: Lunch
+Date: 2024-06-13
+ - Burger: 500 calories
+ - Noodles: 200 calories
+
+Meal: Dinner
+Date: 2024-06-13
+ - Lasagna: 350 calories
+ - StirFry: 400 calories
+
+Meal: Snack
+Date: 2024-06-13
+ - FruitSalad: 120 calories
+ - Nuts: 175 calories
+
+Enter the meal type to edit:
+~~~
+### ------**User Registration**------
+~~~
++----------------------+----------+
+|         R E G I S T E R         |
++----------------------+----------+
+
+Enter username: Mickey
+Enter password: mouse123
+Confirm password: mouse123
+Enter age: 23
+Enter gender (male/female): male
+Enter weight (kg): 67
+Enter height (cm): 189
+
+------User registration successful!------
+~~~
+🍏🥦🥑
+
+## 🥗 𝐎𝐎𝐏 𝐂𝐨𝐧𝐜𝐞𝐩𝐭𝐬 🥗
 ### 🔐Encapsulation and data hiding 
 ~~~
 public class RegularUser extends User {
@@ -49,6 +199,9 @@ public class RegularUser extends User {
     }
 ~~~
 Above code shows the RegularUser class has implemented encapsulation by providing accessors such as getAge() for other objects to indirectly access data. 
+
+🥦🥦🥦
+
 ### 🖇️Association
 ~~~
 public class NutritionTracker {
@@ -80,6 +233,8 @@ public class Meal {
 ~~~
 The above code show the unidirectional association between the Meal class and NutritionTracker class. This can be proven by the instance variables of Meal datatype objects as well as methods to add Meal objects in NutritionTracker. However, in the Meal class, there is none of the instance variables or methods about the NutritionTracker class. Also, the NutritionTracker class is an enclosing class whereas the Meal class is an enclosed class. The enclosing class exclusively owns enclosed classes. That means the existence of objects are independent where when a NutritionTracker object is destroyed, the Meal objects owned by this NutritionTracker object will not be destroyed together.
 
+🥦🥦🥦
+
 ### 📦Composition
 ~~~
 public class DatabaseManager {
@@ -98,6 +253,8 @@ public class DatabaseManager {
     }
 ~~~
 The above code shows the composition between the DatabaseManager class with Admin class and the RegularUser class. In this case, the DatabaseManager class is an enclosing class whereas the Admin class and RegularUser class are enclosed classes. The enclosed classes are the parts of the enclosed class. That means the existence of objects is dependent where when a DatabaseManager object is destroyed, the Admin objects and RegularUsers objects owned by this DatabaseManager object will be destroyed too. 
+
+🥦🥦🥦
 
 ### 🗂️Inheritance
 ~~~
@@ -118,6 +275,8 @@ public class RegularUser extends User {
     }
 ~~~
 The above code shows the inheritance relationship between RegularUser and User where RegularUser is a child class, User is a parent class. A child class will own all the attributes and methods declared in the parent class and add on their specific attribute and methods. The username and password attributes shown above are the attributes inherited from the parent class, User. To initialize them, we need to invoke the parent class constructor by super() method. The instance variables and methods are declared in the RegularUser class making it a specialized form of the User class.
+
+🥦🥦🥦
 
 ### 🫧Abstract class and polymorphism
 ~~~
@@ -151,6 +310,7 @@ The above code shows the abstract class in our system. As you see, there is one 
 ~~~
 the overridden method in the RegularUser class where it is the child class of the User class. To override the method, we should have exactly the same function name, parameter lists and return datatype. If a User datatype variable reference to a RegularUser, the polymorphism is implemented as the implementation of displayOptions() will be used either in User class or RegularUser class will be determined during run time.
 
+🥦🥦🥦
 
 ### 📥Exception handling
 ~~~
@@ -178,8 +338,16 @@ private static void adminLogin(DatabaseManager dbManager, Scanner scanner) {
 ~~~
 One of the exception handling we had in our developed system. The exception we try to handle is the user entering an invalid input of username and password. If the user entered the username and password which is not matched with the database, an error message “Invalid admin credentials” will be displayed to the user to indicates their invalid inputs.
 
+🍏🥦🥑
+
+## 🥗 𝐅𝐥𝐨𝐰𝐂𝐡𝐚𝐫𝐭 🥗
+abcd
+
+🍏🥦🥑
 
 
-## 🥗 FlowChart
+## 🥗 𝐂𝐥𝐚𝐬𝐬 𝐃𝐢𝐚𝐠𝐫𝐚𝐦 🥗
+abcd
 
-## 🥗 Class Diagram
+
+
