@@ -25,26 +25,26 @@ public class ScholarshipApp {
             System.out.print("[0]\tStudent\n[1]\tAdministrator\n");
             int choice = inp.nextInt();
 
-            if (choice == 0) {
+            if (choice == 0) { // Student Menu
                 System.out.println("Register? (Y/N)");
                 char rs = inp.next().toUpperCase().charAt(0);
 
                 if (rs == 'Y') {
-                    registerStudent();
+                    registerStudent(); // Student Registration function
 
                 } else if (rs == 'N') {
-                    stu = signInStudent(StudList); // Ni function untuk tngok status je
+                    stu = signInStudent(StudList); // Student sign in function. Will check with the current list
                     int i = 0;
 
-                    if (StudList.size() == 0) {
+                    if (StudList.size() == 0) { // If there is no student in the list, will add into it
                         StudList.add(stu);
                     }
 
-                    if (!StudList.contains(stu)) {
+                    if (!StudList.contains(stu)) { // Compare the list of students with the newly created
                         StudList.add(stu);
                     }
 
-                    for (Student st : StudList) {
+                    for (Student st : StudList) { // Return the index of the ubject student
                         if (st.equals(stu))
                             break;
                         else
@@ -64,7 +64,7 @@ public class ScholarshipApp {
 
                     switch (ap) {
                         case 0:
-                            if (ad == null) {
+                            if (ad == null) { 
                                 System.out.println("There is no administrator signed in. Please wait");
                             }
 
@@ -76,7 +76,7 @@ public class ScholarshipApp {
                             }
                             break;
                         case 1:
-                            applyFromDisplayScholarship(stu);
+                            applyFromDisplayScholarship(stu); // Student will apply the scholarship from this function
                             break;
                         default:
                             System.out.println("Invalid choice. Please enter 0 or 1");
@@ -86,24 +86,25 @@ public class ScholarshipApp {
                     System.out.println("Invalid choice. Please enter Y or N.");
                 }
             }
-            if (choice == 1) {
+            if (choice == 1) {// Administrator menu
                 System.out.println("Register? (Y/N)");
                 char rs = inp.next().toUpperCase().charAt(0);
 
                 if (rs == 'Y') {
-                    registerAdministrator();
+                    registerAdministrator(); //Administrator will register 
                 } 
                 else if (rs == 'N') {
-                    ad = signInAdministrator();
+                    ad = signInAdministrator(); // Sign in administrator
 
-                    // ad.getusername() ;
-                    if (ad == null)
+                    /*if (ad == null)
                         break;
-                } else {
+                    */
+                } 
+                else {
                     System.out.println("Invalid choice. Please enter Y or N.");
                 }
 
-                System.out.println("Do you want to evaluate student?(Y/N)");
+                System.out.println("Do you want to evaluate student?(Y/N)"); // Student evaluation process
                 rs = inp.next().toUpperCase().charAt(0);
 
                 if (rs == 'Y') {
@@ -114,24 +115,19 @@ public class ScholarshipApp {
                             rs = inp.next().toUpperCase().charAt(0);
                             boolean evs = false;
                             if (rs == 'Y') {
-                                evs = ad.evaluateStudent(StudList.get(i), StudList.get(i).getScholarship());
+                                evs = ad.evaluateStudent(StudList.get(i), StudList.get(i).getScholarship()); // Call Both student and scholarship
                             } else if (rs == 'N') {
                                 evs = false;
                             }
                             if (evs) {
                                 StudList.remove(i);
-                                ad.application.incrementStudent();
+                                ad.application.incrementStudent(); // Add the number of student into the class
                             }
 
                             else {
                             }
                         }
                     }
-
-                    for (Student l : ad.getStudent()) {
-                        l.displayAllDetails();
-                    }
-
                     if (StudList.isEmpty()) {
                         System.out.println("There is no student applying the scholarship");
                     }
@@ -140,7 +136,12 @@ public class ScholarshipApp {
                         displayStudList(StudList);
                     }
 
-                    writeFile(StudList) ;
+                    for (Student l : ad.getStudent()) { // Will display the list of the student that have been approved
+                        l.displayAllDetails();
+                    }
+
+
+                    writeFile(ad.getStudent()) ; // Write the approved student into output file
 
                     System.out.println("do you want to logout? (Y/N)");
                     char y = inp.next().toUpperCase().charAt(0);
@@ -153,7 +154,7 @@ public class ScholarshipApp {
                 }
             }
 
-        } while (ad != null || !StudList.isEmpty());
+        } while (ad != null || !StudList.isEmpty()); //If there is a student in the list or the administrator in not logged out, the system will keep going 
 
         inp.close();
     }
@@ -181,8 +182,6 @@ public class ScholarshipApp {
             }
             System.out.print("EMAIL:\t");
             String email = inp.nextLine();
-            System.out.print("POSITION:\t");
-            String posi = inp.nextLine();
 
             System.out.println("---------- Address Information ----------");
             System.out.print("STREET:\t");
@@ -222,8 +221,6 @@ public class ScholarshipApp {
                 cityAndPostalCode = "", state = "";
         int age = 0;
 
-        boolean authenticated = false;
-
         File file = new File("Admin" + us + ".txt");
 
         try {
@@ -258,7 +255,7 @@ public class ScholarshipApp {
                 fileScanner.close();
             }
             return new Administrator(fname, lname, age, email, new Address(street, cityAndPostalCode, state),
-                    fileUsername, state);
+                    fileUsername);
 
         } catch (FileNotFoundException e) {
             System.out.println("There is no information about you");
@@ -272,8 +269,7 @@ public class ScholarshipApp {
 
     private static void registerStudent() {
         try {
-            String fname = "", lname = "", email = "", address = "", street = "",
-                    cityAndPostalCode = "", state = "", matricsNu = "";
+            String fname, lname, email, s, ci, st, matricsNu ;
             int age = 0;
 
             System.out.println("---------- Personal Information ----------");
@@ -289,11 +285,11 @@ public class ScholarshipApp {
 
             System.out.println("---------- Address Information ----------");
             System.out.print("STREET:\t");
-            String s = inp.nextLine();
+            s = inp.nextLine();
             System.out.print("CITY:\t");
-            String ci = inp.nextLine();
+            ci = inp.nextLine();
             System.out.print("STATE:\t");
-            String st = inp.nextLine();
+            st = inp.nextLine();
 
             System.out.println("---------- Student Information ----------");
             System.out.print("USERNAME:\t");
@@ -330,7 +326,6 @@ public class ScholarshipApp {
         String fileUsername = "", filePassword = "", fname = "", lname = "", email = "", address = "", street = "",
                 cityAndPostalCode = "", state = "", matricsNu = "";
         int age = 0;
-        boolean authenticated = false;
 
         File file = new File("Student" + us + ".txt");
 
@@ -585,6 +580,7 @@ public class ScholarshipApp {
         StudentHistory newHistory = new StudentHistory(lp, cgpa, majors);
         System.out.println("Student history inserted successfully.");
 
+        scanner.close() ;
         return newHistory;
 
     }
@@ -597,7 +593,7 @@ public class ScholarshipApp {
         }
     }
 
-    private static void writeFile(Vector<Student> s){
+    private static void writeFile(ArrayList<Student> s){
         try (PrintWriter writer = new PrintWriter(new PrintWriter("ApprovedStudent.txt"))) {
             for(Student o: s){
                 writer.write("Student Details:\n");
