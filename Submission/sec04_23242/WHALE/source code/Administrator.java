@@ -5,24 +5,23 @@ public class Administrator extends User {
     public String username;
     private String position;
     private ArrayList<Student> stud;
-    private Scholarship scholar;
+    //private Scholarship scholar;
     public Apply application;
 
     // Public constructor
 
     public Administrator(){}
     
-    public Administrator(String fn, String ln, int a, String em, Address add, String username, String position,
-            ArrayList<Student> stud,Scholarship sc, Apply application) {
+    public Administrator(String fn, String ln, int a, String em, Address add, String username, String position) {
         super(fn, ln, a, em, add);
         this.username = username;
         this.position = position;
         stud = new ArrayList<>();
-        this.scholar = sc ;
-        this.application = application;
+        //this.scholar = sc ;
+        this.application = new Apply();
     }
 
-    public void setAdminId(String aid) {
+    public void setUsername(String aid) {
         username = aid;
     }
 
@@ -30,9 +29,9 @@ public class Administrator extends User {
         position = j;
     }
     
-    public void setScholarshipAdmin(Scholarship sd){
-        scholar = sd ;
-    }
+    /*public void setScholarshipAdmin(Scholarship sd){
+        //scholar = sd ;
+    }*/
 
     public String getusername() {
         return username;
@@ -42,7 +41,7 @@ public class Administrator extends User {
         return position;
     }
 
-    public boolean evaluateStudent(Student st) {
+    public boolean evaluateStudent(Student st, Scholarship scholar) {
         if(scholar.isEligible(st) == true){
             stud.add(st);
             return true ;
