@@ -86,7 +86,7 @@ Enter password: 0810
 4. Logout
 Choose an option:
 ~~~
-------**User Meal Analysis**------
+------**BMI calculation &  Meal Analysis**------
 ~~~
 +-------------------+
 | User Info         |
@@ -123,6 +123,22 @@ Choose an option:
 | 2024-06-12 | Recommend  |                      | 1613     |
 | 2024-06-12 | Status     |                      | Exceeded |
 +------------+------------+----------------------+----------+
+~~~
+------**User Registration**------
+~~~
++----------------------+----------+
+|         R E G I S T E R         |
++----------------------+----------+
+
+Enter username: Mickey
+Enter password: mouse123
+Confirm password: mouse123
+Enter age: 23
+Enter gender (male/female): male
+Enter weight (kg): 67
+Enter height (cm): 189
+
+------User registration successful!------
 ~~~
 🍏🥦🥑
 
