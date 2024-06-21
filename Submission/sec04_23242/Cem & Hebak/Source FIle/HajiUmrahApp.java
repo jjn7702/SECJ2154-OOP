@@ -133,7 +133,7 @@ public class HajiUmrahApp {
                                                                                                 if (choice4 == 1) {
                                                                                                         jemaah.get(i).display();
                                                                                                 } else if (choice4 == 2) {
-                                                                                                        jemaah.get(i).chooseUmrahPackage();
+                                                                                                        jemaah.get(i).chooseIbadahPackage();
                                                                                                         System.out.print(
                                                                                                                         "[1] Add pelancongan package\n[2] Exit\nYour choice: ");
                                                                                                         choice5 = inp.nextInt();

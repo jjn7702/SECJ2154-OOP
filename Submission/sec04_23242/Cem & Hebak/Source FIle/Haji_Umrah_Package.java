@@ -90,7 +90,6 @@ public enum Haji_Umrah_Package {
         private Vector<Flight> flight_Ibadah;
         // private Hotel h1;
         private Vector<Hotel> hotel_Ibadah;
-        protected String RoomSize, HotelPrice;
         // private Kursus kursus;
         private Kursus kursus_Ibadah;
 
@@ -129,21 +128,6 @@ public enum Haji_Umrah_Package {
                         flight.display_Flight_Info();
                         counterFlight++;
                 }
-        }
-
-        public void display_FlightHajiUmrah() {
-                int counterFlight = 1;
-                if (flight_Ibadah.size() == 0) {
-                        counterFlight = 0;
-                } else {
-                        for (Flight flight : flight_Ibadah) {
-                                System.out.println("========================= Flight " + counterFlight
-                                                + " =========================");
-                                flight.display_Flight_Info();
-                                counterFlight++;
-                        }
-                }
-
         }
 
         public Vector<Flight> getFlight() {
