@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Report {
     private Users user;
 
@@ -10,43 +12,63 @@ public class Report {
     }
 
 
+
     public void displayAccountBalancesAndTransactions() {
+        Scanner e = new Scanner(System.in);
+        PauseScreen s = new PauseScreen();
         for (Account account : user.getAccounts()) {
             //account.displayBudget();
-            System.out.println(account.getTransactionDetails());
+            account.getTransactionDetails();
+            s.pauseScreen(e);
         }
     }
 
     public void displayAllInfo() {
-        System.out.println("\nUser Information:");
-        System.out.println("ID: " + user.getId());
-        System.out.println("Name: " + user.getName());
+        Scanner e = new Scanner(System.in);
+        PauseScreen s = new PauseScreen();
+        System.out.printf("%50s\n",".________________.");
+        System.out.printf("%50s\n","|User Information|");
+        System.out.printf("%30s%s\n", "<",
+                "===================================>");
+        System.out.printf("%30s%-15s%-20s|\n","|", "User ID", "User Name");
+        System.out.printf("%30s%-15s%-20s|\n","|", user.getId(), user.getName());
+        System.out.printf("%30s%s\n", "<",
+                "====================================>");
+        
         System.out.println();
 
         for (Account account : user.getAccounts()) {
-            System.out.println("Account Information:");
-            System.out.println("ID: " + account.getId());
-            System.out.println("Name: " + account.getName());
-            System.out.println("Balance: RM" + account.getBalance());
-            System.out.println();
+            System.out.printf("%53s\n",".___________________.");
+            System.out.printf("%53s\n","|Account Information|");
+            System.out.printf("%30s%s\n", "<",
+                    "=======================================================>");
 
-            System.out.println("Budget Information:");
+            System.out.printf("%30s%-15s%-20s%-20s|\n","|", "Account ID", "Account Name", "Account Balance");
+            System.out.printf("%30s%-15d%-20s%-20.2f|\n","|", account.getId(), account.getName(), account.getBalance());
+            System.out.printf("%30s%s\n\n", "<", "========================================================>");
+            
+            System.out.printf("%52s\n",".__________________.");
+            System.out.printf("%52s\n","|Budget Information|");
             account.displayBudget();
             System.out.println();
-
-            System.out.println("Saving Information:");
+            System.out.printf("%52s\n",".__________________.");
+            System.out.printf("%52s\n","|Saving Information|");
+            System.out.printf("%30s%s\n","<", "======================================================================================>");
+            System.out.printf("%30s%-15s%-20s%-20s%-20s%-11s|\n", "|","Saving ID", "Saving Name", "Target Amount",
+                    "Current Amount", "Target Date");
             for (Saving saving : account.getSavings()) {
-                System.out.println("ID: " + (saving.getId()+1));
-                System.out.println("Name: " + saving.getName());
-                System.out.println("Target Amount: RM" + saving.getTargetAmount());
-                System.out.println("Current Amount: RM" + saving.getCurrentAmount());
-                System.out.println("Target Date: " + saving.getTargetDate());
-                System.out.println();
+                System.out.printf("%30s%-15d%-20s%-20.2f%-20.2f%-11s|\n", "|", saving.getId(), saving.getName(),
+                        saving.getTargetAmount(), saving.getCurrentAmount(), saving.getTargetDate());
             }
+            System.out.printf("%30s%s\n\n", "<",
+                    "======================================================================================>");
 
-            System.out.println("Transaction Information:");
-            System.out.println(account.getTransactionDetails());
-            System.out.println();
+            System.out.printf("%57s\n",      "._______________________.");
+            System.out.printf("%33s%s\n", "|","Transaction Information|");
+            account.getTransactionDetails();
+            System.out.println("\n");
+            s.pauseScreen(e);
+
         }
     }
 }
