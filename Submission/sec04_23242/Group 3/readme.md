@@ -6,6 +6,7 @@
 
 <img align= "left"  width=60% src= "https://i.giphy.com/j6SbdhHBWfz8SttRAJ.webp">
 
+
 # 🥗 Features
 
 📊 Daily Tracking: Log your daily meals and snacks.
