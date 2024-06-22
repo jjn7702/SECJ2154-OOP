@@ -291,4 +291,68 @@ public class SportsTeamManagement {
                                                 System.out.println("The Straining session is Succesfully Added.");
                                     }
                                     break;
+                                    case 4: 
+                                    at.displayTraining();
+                                    int ch5 = sc.nextInt();
+                                    at.cancelTraining(at.getSession(--ch5));
+                                    System.out.print("Your Choice of Training Session to be Removed.");
+                                    break;
+                                case 5:
+                                    //at.displayEvents();
+                                    System.out.println("\n*** List of Events ***");
+                                    for(int i = 0; i < events.size(); i++) {
+                                        System.out.println( (i+1) + ") " +events.get(i).toString());
+                                    }
+                                    System.out.print("Do you wish to add an existing event or add a new event? \n[1] Add an Existing Event\n[2] Add a New Event\n\nYour Choice: ");
+                                    int ch10 = sc.nextInt();
+                                    while (ch10 != 1 && ch10 != 2) {
+                                        System.out.print("Do you wish to add an existing event or add a new event? \n[1] Add an Existing Event\n[2] Add a New Event\n\nYour Choice: ");
+                                        ch10 = sc.nextInt();
+                                    }
+                                    if (ch10 == 1) {
+                                        System.out.print("Your Choice of Sports Event to be Added: ");
+                                        int ch6 = sc.nextInt();
+                                        while(!(ch6 > 0 && ch6 < (events.size()+1))) {
+                                            System.out.print("Your Choice of Sports Event to be Added: ");
+                                            ch6 = sc.nextInt();
+                                        }
+                                        Event e = events.get(--ch6);
+                                        at.addEvent(e);
+                                        System.out.println("The Sports Event is Succesfully Added.");
+                                    }
+                                    else {
+                                        System.out.print("Enter the event's name: ");
+                                        String evName = sc.nextLine();
+                                        System.out.print("Enter the event's venue: ");
+                                        String evVenue = sc.nextLine();
+                                        System.out.print("Enter the date that the event takes place (DD-MM-YYYY): ");
+                                        String evDate = sc.nextLine();
+                                        System.out.print("Enter the time that the event begins in military time format  (HH.MM): ");
+                                        double evTime = sc.nextDouble();
+                                        System.out.println("Enter Event's Sport Name: ");
+                                        String esName = sc.nextLine();
+                                        System.out.println("Enter Event's Sport Category: ");
+                                        String esCat = sc.nextLine();
+                                        Event e = new Event(evName, evVenue, evDate, evTime, esName, esCat);
+                                        at.addEvent(e);
+                                        System.out.println("The Sports Event is Succesfully Added.");
+                                    }
+                                    break;
+                                case 6:
+                                    //at.displayEvents();
+                                    System.out.print("Your Choice of Sports Event to be Removed: ");
+                                    int ch7 = sc.nextInt();
+                                    Event ev = events.get(--ch7);
+                                    at.cancelEvent(ev);
+                                    System.out.println("The Sports Event is Succesfully Removed.");
+                                    break;
+                                case 7:
+                                    System.out.println(at.getInfo());
+                                    break;
+                                case 8:
+                                    break;
+                                default:
+                                    break;
+                            }
+                        } while (ch4 < 8);
                                     
