@@ -167,7 +167,7 @@ public class MovieRecommendationSystem {
             System.out.println("Enter 1 to rate movie");
             System.out.println("Enter 2 to add watched movie");
             System.out.println("Enter 3 to show most rated movies");
-            System.out.println("Enter 4 to exit");
+            System.out.println("Enter 4 to exit\n");
             System.out.print("Choose your action for user " + user.getName() + ": ");
 
             validInput = false;
