@@ -79,9 +79,8 @@ Object
 ![3](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/JAVACADAVRA/838D59E7-0BB1-4E88-9C25-64554A12219E_1_201_a.jpeg)
 - Figure above illustrates the flow of team management option flow, after each option is executed the program will return to the team menu display via loop. Similar to athlete management flow, the options offered for team management menu are recruitment and removal of the athlete from a team, joining and canceling a training session, joining and canceling a sport event and displaying team details. The program also offers an option to exit the program.
 #### Class Diagram
-![1]()
-
-
+![1](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/JAVACADAVRA/Untitled%20Diagram-Page-1.drawio.png)
+- Lastly, the figure above illustrates the class diagram of the sports team management program. It consists of multiple classes such as Person, Coach, Manager, Athlete, Team, TrainingSession, Sport, Event and SportsTeamManagement. This program employs multiple relationships such as association, aggregation and composition. Each class also employs various private attributes and public methods and constructors.
 
 ## User Manual/Guide <a name="usermanual"></a> 📝
 
