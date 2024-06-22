@@ -69,7 +69,8 @@ Object
 
 ## Design <a name="design"></a> 🎨
 #### Flowchart
-![1]()
+![1](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/JAVACADAVRA/838D59E7-0BB1-4E88-9C25-64554A12219E_1_201_a.jpeg)
+- The figure above illustrates the overview flow of the flowchart which incorporates multiple layers of data handling, loop, conditional statements and others.
 #### Class Diagram
 ![1]()
 
