@@ -177,6 +177,8 @@ public class HajiUmrahApp {
                                                                                                         }
                                                                                                 } else if (choice4 == 3) {
                                                                                                         jemaah.get(i).updateUserInfo();
+                                                                                                } else {
+                                                                                                        System.out.println("Invalid choice, please enter a number within the range.");
                                                                                                 }
                                                                                         } while (choice4 != 3
                                                                                                         && choice4 != 4);
@@ -358,6 +360,8 @@ public class HajiUmrahApp {
 
                                                                                 } else if(choice3 == 3){
                                                                                         doktor.get(i).updateUserInfo();
+                                                                                } else{
+                                                                                        System.out.println("Invalid choice, please enter a number within the range.");
                                                                                 }
 
                                                                         } while (choice3 != 3 && choice3 != 4);
@@ -465,6 +469,7 @@ public class HajiUmrahApp {
                                                                                                 pegawai.get(k).updateUserInfo();
                                                                                                 break;
                                                                                         default:
+                                                                                                System.out.println("Invalid choice, please enter a number within the range.");
                                                                                                 break;
                                                                                 }
                                                                         } while (choice3 != 3 && choice3 != 4);
