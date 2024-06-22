@@ -42,3 +42,6 @@ Develop an option to suggest stores where buyers can purchase the product, based
 ## Class Diagram
 ![](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Images/OOP%20UML%20Diagram.jpg)
 
+## 📂 Finding
+- ![Source code](https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/Group2/Source_Code)
+- ![Report]()
