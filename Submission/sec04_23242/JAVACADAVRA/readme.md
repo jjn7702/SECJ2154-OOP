@@ -63,7 +63,9 @@ Object
 - ‘getInfo()’ method can lead to different behaviors depending on which it is invoked. As an example, if it is called by object ‘Coach’, it will return name, gender, age, experience and expertise. Meanwhile, if it is called by object ‘Manager’, it will return name, gender, age and office.
 
 #### 9. Exception Handling
-- 
+- For exception handling, we decided to use a do…while loop.
+- The user will be ask to enter choice 1-3 (Manage Athlete(s), Manage Team(s) and Exit) only, if the user enter any other number, the system will keep looping until the correct input is entered.
+
 
 ## Design <a name="design"></a> 🎨
 #### Flowchart
