@@ -167,7 +167,7 @@ public class MovieRecommendationSystem {
             System.out.println("Enter 1 to rate movie");
             System.out.println("Enter 2 to add watched movie");
             System.out.println("Enter 3 to show most rated movies");
-            System.out.println("Enter 4 to exit");
+            System.out.println("Enter 4 to exit\n");
             System.out.print("Choose your action for user " + user.getName() + ": ");
 
             validInput = false;
@@ -232,20 +232,21 @@ class Input {
     public void addRating(User user, Vector<Movie> movie) {
         Scanner in = new Scanner(System.in);
         // input rating with Anonymous
+        this.listMovie(movie);
         System.out.print("Enter movie index :");
         boolean validInput = false;
         int movieIndex=0;
             while (!validInput) {
                 try {
                      movieIndex = in.nextInt();
-                    if (movieIndex >= 1 && movieIndex <= 10) {
+                    if (movieIndex >= 0 && movieIndex <= 9) {
                         validInput = true;
                     } else {
-                        System.out.println("Invalid input. Please enter a number between 1 and 10.");
+                        System.out.println("Invalid input. Please enter a number between 0 and 9.");
                         System.out.print("Enter movie index :");
                     }
                 } catch (InputMismatchException e) {
-                    System.out.println("Invalid input. Please enter a number between 1 and 10.");
+                    System.out.println("Invalid input. Please enter a number between 0 and 9.");
                     System.out.print("Enter movie index :");
                     in.next(); // Clear the invalid input
                 }
@@ -297,7 +298,23 @@ class Input {
         System.out.println(user.getName() + " has watched a movie.");
         this.listMovie(movie);
         System.out.print("Enter new watched movie index (example:1):");
-        int movieIndex = in.nextInt();
+        int movieIndex=0;
+        boolean validInput=false;
+            while (!validInput) {
+                try {
+                     movieIndex = in.nextInt();
+                    if (movieIndex >= 0 && movieIndex <= 9) {
+                        validInput = true;
+                    } else {
+                        System.out.println("Invalid input. Please enter a number between 0 and 9.");
+                        System.out.print("Enter movie index :");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a number between 0 and 9.");
+                    System.out.print("Enter movie index :");
+                    in.next(); // Clear the invalid input
+                }
+            }
         System.out.print("Do you want to rate the movie? (Y/N):");
         String select = in.next().toUpperCase();
 
@@ -326,7 +343,23 @@ class Input {
         Scanner in = new Scanner(System.in);
         System.out.println("Rating for movie index: " + index);
         System.out.print("Rate the movie from 0-4 :");
-        int rate = in.nextInt();
+        int rate = 0;
+        boolean validInput = false;
+            while (!validInput) {
+                try {
+                    rate = in.nextInt();
+                    if (rate >= 0 && rate <= 4) {
+                        validInput = true;
+                    } else {
+                        System.out.println("Invalid input. Please enter a number between 0 and 4.");
+                        System.out.print("Rate the movie from 0-4 :");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a number between 0 and 4.");
+                    System.out.print("Rate the movie from 0-4 :");
+                    in.next(); // Clear the invalid input
+                }
+            }
         System.out.print("Comment :");
         String comment = in.next();
         System.out.print("Do you want to hide your name?(Y/N):");
