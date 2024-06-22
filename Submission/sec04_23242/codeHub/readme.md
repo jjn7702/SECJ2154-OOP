@@ -5,20 +5,17 @@
 ## Appendix :red_circle:
 
 - [Overview of The Project](#description)
-- [Synopsis](#synopsis)
-- [Objective](#objective)
 - [Analysis and Design](#analysis)
-- [UML Diagram](#uml)
-- [Concept](#concept)
+- [OO Concept](#concept)
 - [User Manual/Guide](#usermanual)
 - [Similarity report](#report)
 - [Findings](#findings)
 
 # Project Description <a name="description"></a> :hash:
-## Synopsis <a name="synopsis"></a> :book:
+## Synopsis :book:
 Our project, the Finance Manager Project, aimed to assist users in efficiently managing their personal accounts. The system has features for tracking transactions, savings, bank accounts, budgeting, and report generation. Multiple accounts can be created and managed, spending can be tracked, budget limitations can be set, and savings targets can be kept an eye on. The method facilitates the division of transactions into distinct categories, such as groceries and shopping, which enables thorough financial analysis. The system's design makes it easy for users to navigate between its various functionalities, making it user-friendly.
 
-## Objective <a name="objective"></a> 📝
+## Objective 📝
 * Manage multiple bank accounts simultaneously
 * Track and categorize transactions
 * Setting and monitoring budget
@@ -27,10 +24,13 @@ Our project, the Finance Manager Project, aimed to assist users in efficiently m
 * Protected user accounts data
 
 # Analysis and Design <a name="analysis"></a> :clipboard:
-### UML Diagram <a name="uml"></a> 📚
+### Work Flow 🔂 
+<img src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/images/Work%20Flow.png">
+
+### UML Diagram 📚
 <img width="7648" alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/images/class_diagram.png">
 
-## OOP Concept <a name="concept"></a>
+# OO Concept <a name="concept"></a> :heavy_exclamation_mark:
 ### Encapsulation:
 - The Account class encapsulates account details like name, id and balance and provides public methods like getBalance(), deposit() and withdraw().
 ### Inheritance:
@@ -49,7 +49,6 @@ Our project, the Finance Manager Project, aimed to assist users in efficiently m
 ## Findings <a name="findings"></a>📊
 
 - [Source Code](https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/codeHub/source-code)
-- [Input File]()
 - [Project Report]()
 - [Similarity Report]()
 - [Presentation Slide]()
