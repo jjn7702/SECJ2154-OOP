@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 
 public class GroupProjectManager {
@@ -7,7 +8,7 @@ public class GroupProjectManager {
 
     public static void main(String[] args) {
         System.out.println("\tWELCOME TO GROUP MANAGEMENT SYSTEM");
-        
+
         System.out.println("╔═════════════════════════════════════════════╗");
         System.out.println("║       Group Project Management System       ║");
         System.out.println("╚═════════════════════════════════════════════╝");
@@ -27,30 +28,39 @@ public class GroupProjectManager {
             System.out.println("║  5) Exit                          ║");
             System.out.println("╚═══════════════════════════════════╝");
             System.out.println("Select your choice: ");
-            int choice = inp.nextInt();
-            inp.nextLine(); // Consume newline
+            
+            try {
+                int choice = inp.nextInt();
+                inp.nextLine(); // Consume newline
 
-            switch (choice) {
-                case 1:
-                    viewProjectList(inp);
-                    break;
-                case 2:
-                    addNewProject(inp);
-                    break;
-                case 3:
-                    editProject(inp);
-                    break;
-                case 4:
-                    deleteProject(inp);
-                    break;
-                case 5:
-                    System.out.println("Exiting...");
-                    return;
-                default:
-                    System.out.println("Invalid choice, please try again.");
+                switch (choice) {
+                    case 1:
+                        viewProjectList(inp);
+                        break;
+                    case 2:
+                        addNewProject(inp);
+                        break;
+                    case 3:
+                        editProject(inp);
+                        break;
+                    case 4:
+                        deleteProject(inp);
+                        break;
+                    case 5:
+                        System.out.println("Exiting.");
+                        return;
+                    default:
+                        System.out.println("Invalid choice, please try again.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                inp.nextLine(); // Clear the invalid input
+            } catch (Exception e) {
+                System.out.println("An unexpected error occurred: " + e.getMessage());
             }
         }
     }
+
 
     private static void viewProjectList(Scanner inp) {
         System.out.println();
@@ -62,287 +72,302 @@ public class GroupProjectManager {
             return;
         }
 
-        System.out.println("╔════════════════════════════════════╗");
-        System.out.printf("║    %7s%s%-8s    ║\n", "", "Project Lists", "");
-        System.out.println("╠════════════════════════════════════╣");
-        
-        for (int i = 0; i < projects.size(); i++) {
-            System.out.printf("║  %d) %-30s ║\n", i + 1, projects.get(i).getTitle());
-        }
-        System.out.println("╚════════════════════════════════════╝");
+        try {
+            System.out.println("╔════════════════════════════════════╗");
+            System.out.printf("║    %7s%s%-8s    ║\n", "", "Project Lists", "");
+            System.out.println("╠════════════════════════════════════╣");
+            
+            for (int i = 0; i < projects.size(); i++) {
+                System.out.printf("║  %d) %-30s ║\n", i + 1, projects.get(i).getTitle());
+            }
+            System.out.println("╚════════════════════════════════════╝");
 
-        System.out.println("Select a project to view details (enter number): ");
-        int projectIndex = inp.nextInt() - 1;
-        inp.nextLine(); // Consume newline
+            System.out.println("Select a project to view details (enter number): ");
+            int projectIndex = inp.nextInt() - 1;
+            inp.nextLine(); // Consume newline
 
-        if (projectIndex >= 0 && projectIndex < projects.size()) {
-            projects.get(projectIndex).printProjectDetails();
-        } else {
-            System.out.println("Invalid project selection.");
+            if (projectIndex >= 0 && projectIndex < projects.size()) {
+                projects.get(projectIndex).printProjectDetails();
+            } else {
+                System.out.println("Invalid project selection.");
+            }
+        } catch (Exception e) {
+            System.out.println("An error occured while viewing the project list: " + e.getMessage());
         }
     }
 
     //ADD FUNCTION FIXED
     private static void addNewProject(Scanner inp) {
-        //Project Info
-        System.out.println("\n╔═════════════════════════╗");
-        System.out.println("║     Add New Project     ║");
-        System.out.println("╚═════════════════════════╝");
 
-        System.out.println("Enter project ID: ");
-        String projectId = inp.nextLine();
-
-        System.out.println("\nEnter project name: ");
-        String projectName = inp.nextLine();
-
-        System.out.println("\nEnter project description: ");
-        String projectDescription = inp.nextLine();
-
-        //Instructor Info
-        System.out.println("\nEnter instructor name: ");
-        String instructorName = inp.nextLine();
-
-        System.out.println("\nEnter instructor email: ");
-        String instructorEmail = inp.nextLine();
-
-        System.out.println("\nEnter instructor employee number: ");
-        String instructorNumber = inp.nextLine();
-
-        Instructor instructor = new Instructor(instructorName, instructorEmail, instructorNumber);
-
-        System.out.println("\n\n╔══════════════════════════╗");
-        System.out.println("║     Team Information     ║");
-        System.out.println("╚══════════════════════════╝");
-
-        //Team Info
-        System.out.println("Enter team name: ");
-        String teamName = inp.nextLine();
-        
-        Team team = new Team(teamName);
-
-        //Project data insert
-        Report report = null; // Placeholder, could be added with more details
-        Project project = new Project(projectId, projectName, projectDescription, report, team, instructor);
-
-        System.out.println("\nEnter number of team members: ");
-        int numMembers = inp.nextInt();
-        inp.nextLine(); // Consume newline
-
-        for (int i = 0; i < numMembers; i++) {
-
+        try {
+            //Project Info
             System.out.println("\n╔═════════════════════════╗");
-            System.out.printf("║        Member #%-1d        ║", (i + 1));
-            System.out.println("\n╚═════════════════════════╝");
+            System.out.println("║     Add New Project     ║");
+            System.out.println("╚═════════════════════════╝");
 
-            System.out.println("Enter student name: ");
-            String studentName = inp.nextLine();
+            System.out.println("Enter project ID: ");
+            String projectId = inp.nextLine();
 
-            System.out.println("\nEnter student matric number: ");
-            String matricNumber = inp.nextLine();
+            System.out.println("\nEnter project name: ");
+            String projectName = inp.nextLine();
 
-            System.out.println("\nEnter student email: ");
-            String studentEmail = inp.nextLine();
+            System.out.println("\nEnter project description: ");
+            String projectDescription = inp.nextLine();
 
-            System.out.println("\nEnter student role: ");
-            String studentRole = inp.nextLine();
+            //Instructor Info
+            System.out.println("\nEnter instructor name: ");
+            String instructorName = inp.nextLine();
 
-            Student student = new Student(matricNumber, studentName, studentEmail, studentRole);
-            team.addMember(student);
-        }
+            System.out.println("\nEnter instructor email: ");
+            String instructorEmail = inp.nextLine();
 
-        System.out.println("\n╔═══════════════════════════╗");
-        System.out.println("║   Milestone Information   ║");
-        System.out.println("╚═══════════════════════════╝");
+            System.out.println("\nEnter instructor employee number: ");
+            String instructorNumber = inp.nextLine();
 
-        //Milestone Info
-        System.out.println("Enter number of milestones: ");
-        int numMilestones = inp.nextInt();
-        inp.nextLine(); // Consume newline
+            Instructor instructor = new Instructor(instructorName, instructorEmail, instructorNumber);
 
-        //Declaration to use addMilestone() method
-        // Project project = new Project();
+            System.out.println("\n\n╔══════════════════════════╗");
+            System.out.println("║     Team Information     ║");
+            System.out.println("╚══════════════════════════╝");
 
-        for (int i = 0; i < numMilestones; i++) {
+            //Team Info
+            System.out.println("Enter team name: ");
+            String teamName = inp.nextLine();
             
-            System.out.println("\n╔════════════════════════╗");
-            System.out.printf("║      Milestone #%-1d      ║", (i + 1));
-            System.out.println("\n╚════════════════════════╝");
+            Team team = new Team(teamName);
 
-            System.out.println("Enter milestone ID: ");
-            String milestoneID = inp.nextLine();
+            //Project data insert
+            Report report = null; // Placeholder, could be added with more details
+            Project project = new Project(projectId, projectName, projectDescription, report, team, instructor);
 
-            System.out.println("\nEnter milestone name: ");
-            String milestoneName = inp.nextLine();
-
-            System.out.println("\nEnter milestone description: ");
-            String milestoneDescription = inp.nextLine();
-
-            System.out.println("\nEnter milestone deadline (dd/mm/yyyy): ");
-            String milestoneDeadline = inp.nextLine();
-
-            Deadline deadlineMilestone = new Deadline(milestoneDeadline);
-            Milestone milestone = new Milestone(milestoneID, milestoneName, milestoneDescription, deadlineMilestone);
-
-            System.out.println("\nEnter number of tasks: ");
-            int numTasks = inp.nextInt();
+            System.out.println("\nEnter number of team members: ");
+            int numMembers = inp.nextInt();
             inp.nextLine(); // Consume newline
 
-            for (int j = 0; j < numTasks; j++) {
-                System.out.println("\n╔════════════════════════╗");
-                System.out.printf("║        Task #%-1d         ║", (j + 1));
-                System.out.println("\n╚════════════════════════╝");
+            for (int i = 0; i < numMembers; i++) {
 
-                System.out.println("Enter task name: ");
-                String taskName = inp.nextLine();
+                System.out.println("\n╔═════════════════════════╗");
+                System.out.printf("║        Member #%-1d        ║", (i + 1));
+                System.out.println("\n╚═════════════════════════╝");
 
-                System.out.println("\nEnter task deadline (dd/mm/yyyy): ");
-                String taskDeadline = inp.nextLine();
+                System.out.println("Enter student name: ");
+                String studentName = inp.nextLine();
 
-                Deadline deadlineTask = new Deadline(taskDeadline);
-                Task task = new Task(taskName, deadlineTask);
-                milestone.addTask(task);
+                System.out.println("\nEnter student matric number: ");
+                String matricNumber = inp.nextLine();
+
+                System.out.println("\nEnter student email: ");
+                String studentEmail = inp.nextLine();
+
+                System.out.println("\nEnter student role: ");
+                String studentRole = inp.nextLine();
+
+                Student student = new Student(matricNumber, studentName, studentEmail, studentRole);
+                team.addMember(student);
             }
 
-            project.addMilestone(milestone);
+            System.out.println("\n╔═══════════════════════════╗");
+            System.out.println("║   Milestone Information   ║");
+            System.out.println("╚═══════════════════════════╝");
+
+            //Milestone Info
+            System.out.println("Enter number of milestones: ");
+            int numMilestones = inp.nextInt();
+            inp.nextLine(); // Consume newline
+
+            //Declaration to use addMilestone() method
+            // Project project = new Project();
+
+            for (int i = 0; i < numMilestones; i++) {
+                
+                System.out.println("\n╔════════════════════════╗");
+                System.out.printf("║      Milestone #%-1d      ║", (i + 1));
+                System.out.println("\n╚════════════════════════╝");
+
+                System.out.println("Enter milestone ID: ");
+                String milestoneID = inp.nextLine();
+
+                System.out.println("\nEnter milestone name: ");
+                String milestoneName = inp.nextLine();
+
+                System.out.println("\nEnter milestone description: ");
+                String milestoneDescription = inp.nextLine();
+
+                System.out.println("\nEnter milestone deadline (dd/mm/yyyy): ");
+                String milestoneDeadline = inp.nextLine();
+
+                Deadline deadlineMilestone = new Deadline(milestoneDeadline);
+                Milestone milestone = new Milestone(milestoneID, milestoneName, milestoneDescription, deadlineMilestone);
+
+                System.out.println("\nEnter number of tasks: ");
+                int numTasks = inp.nextInt();
+                inp.nextLine(); // Consume newline
+
+                for (int j = 0; j < numTasks; j++) {
+                    System.out.println("\n╔════════════════════════╗");
+                    System.out.printf("║        Task #%-1d         ║", (j + 1));
+                    System.out.println("\n╚════════════════════════╝");
+
+                    System.out.println("Enter task name: ");
+                    String taskName = inp.nextLine();
+
+                    System.out.println("\nEnter task deadline (dd/mm/yyyy): ");
+                    String taskDeadline = inp.nextLine();
+
+                    Deadline deadlineTask = new Deadline(taskDeadline);
+                    Task task = new Task(taskName, deadlineTask);
+                    milestone.addTask(task);
+                }
+
+                project.addMilestone(milestone);
+            }
+
+            projects.add(project);
+
+            System.out.println("\n╔═══════════════════════════════╗");
+            System.out.println("║  Project added successfully!  ║");
+            System.out.println("╚═══════════════════════════════╝");
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Try again");
+        } catch (Exception e) {
+            System.out.println("An error occurred while adding a new project: " + e.getMessage());
         }
-
-        projects.add(project);
-
-        System.out.println("\n╔═══════════════════════════════╗");
-        System.out.println("║  Project added successfully!  ║");
-        System.out.println("╚═══════════════════════════════╝");
     }
 
     private static void editProject(Scanner inp) {
-        System.out.println("╔═════════════════════════════════════╗");
-        System.out.println("║             Edit Project            ║");
-        System.out.println("╚═════════════════════════════════════╝");
-    
-        // Project List
-        System.out.println("╔════════════════════════════════════╗");
-        System.out.println("║            Project List            ║");
-        System.out.println("╠════════════════════════════════════╣");
-    
-        for (int i = 0; i < projects.size(); i++) {
-            System.out.printf("║  %d) %-30s ║\n", i + 1, projects.get(i).getTitle());
-        }
-        System.out.println("╚════════════════════════════════════╝");
-    
-        System.out.print("Enter the number of the project to edit: ");
-        int projectIndex = inp.nextInt() - 1;
-        inp.nextLine(); // Consume newline
-    
-        if (projectIndex >= 0 && projectIndex < projects.size()) {
-            Project project = projects.get(projectIndex);
-    
-            System.out.println("\n╔══════════════════════════════════════════════════════════╗");
-            System.out.printf("║    %-50s    ║\n", "Managing Project: " + project.getTitle());
-            System.out.println("╚══════════════════════════════════════════════════════════╝");
-    
-            boolean keepEditing = true;
-    
-            while (keepEditing) {
-                System.out.println("╔═══════════════════════════════════╗");
-                System.out.println("║          List Of Actions          ║");
-                System.out.println("╠═══════════════════════════════════╣");
-                System.out.println("║  1) Project ID                    ║");
-                System.out.println("║  2) Project Name                  ║");
-                System.out.println("║  3) Project Description           ║");
-                System.out.println("║  4) Instructor Info               ║");
-                System.out.println("║  5) Team Info                     ║");
-                System.out.println("║  6) Milestones                    ║");
-                System.out.println("║  7) Report                        ║");
-                System.out.println("║  0) Finish Editing                ║");
-                System.out.println("╚═══════════════════════════════════╝");
-
-                System.out.print("Enter your choice: ");
-                int choice = inp.nextInt();
-                inp.nextLine(); // Consume newline
-    
-                switch (choice) {
-                    case 1:
-                        System.out.println("\nCurrent project ID: " + project.getProjectID());
-                        System.out.print("Enter new project ID (or press 'Enter' to keep the current name): ");
-                        String projectID = inp.nextLine();
-                        if (!projectID.isEmpty()) {
-                            project.setProjectID(projectID);                   
-                            
-                            System.out.println("\n╔═══════════════════════════════════════════╗");
-                            System.out.println("║      Project ID edited successfully!      ║");
-                            System.out.println("╚═══════════════════════════════════════════╝\n");    
-                        }
-                        break;
-
-                    case 2:
-                        System.out.println("\nCurrent project name: " + project.getTitle());
-                        System.out.print("Enter new project name (or press 'Enter' to keep the current name): ");
-                        String projectName = inp.nextLine();
-                        if (!projectName.isEmpty()) {
-                            project.setTitle(projectName);
-                            
-                            System.out.println("\n╔════════════════════════════════════════════╗");
-                            System.out.println("║      Project name edited successfully!     ║");
-                            System.out.println("╚════════════════════════════════════════════╝\n");
-                        }
-                        break;
-    
-                    case 3:
-                        System.out.println("\nCurrent project description: " + project.getDescription());
-                        System.out.print("Enter new project description (or press 'Enter' to keep the current description): ");
-                        String projectDescription = inp.nextLine();
-                        if (!projectDescription.isEmpty()) {
-                            project.setDescription(projectDescription);
-
-                            System.out.println("\n╔════════════════════════════════════════════╗");
-                            System.out.println("║  Project description edited successfully!  ║");
-                            System.out.println("╚════════════════════════════════════════════╝\n");
-                        }
-                        break;
-    
-                    case 4:
-                        editInstructorInfo(inp, project.getInstructor());
-                        break;
-    
-                    case 5:
-                        editTeamInfo(inp, project.getTeam());
-                        break;
-    
-                    case 6:
-                        editMilestones(inp, project);
-                        break;
-    
-                    case 7:
-                        editReport(inp, project);
-                        break;
-    
-                    case 0:
-                        keepEditing = false;
-                        break;
-    
-                    default:
-                        System.out.println("\n╔═══════════════════════════════════════════╗");
-                        System.out.println("║         Invalid choice. Try again         ║");
-                        System.out.println("╚═══════════════════════════════════════════╝\n");
-                }
+        try {
+            System.out.println("╔═════════════════════════════════════╗");
+            System.out.println("║             Edit Project            ║");
+            System.out.println("╚═════════════════════════════════════╝");
+        
+            // Project List
+            System.out.println("╔════════════════════════════════════╗");
+            System.out.println("║            Project List            ║");
+            System.out.println("╠════════════════════════════════════╣");
+        
+            for (int i = 0; i < projects.size(); i++) {
+                System.out.printf("║  %d) %-30s ║\n", i + 1, projects.get(i).getTitle());
             }
-        } else {
-            System.out.println("Invalid project number.");
-            System.out.println("\n╔═══════════════════════════════════════════╗");
-            System.out.println("║          Invalid project number.          ║");
-            System.out.println("╚═══════════════════════════════════════════╝\n");
+            System.out.println("╚════════════════════════════════════╝");
+        
+            System.out.print("Enter the number of the project to edit: ");
+            int projectIndex = inp.nextInt() - 1;
+            inp.nextLine(); // Consume newline
+        
+            if (projectIndex >= 0 && projectIndex < projects.size()) {
+                Project project = projects.get(projectIndex);
+        
+                System.out.println("\n╔══════════════════════════════════════════════════════════╗");
+                System.out.printf("║    %-50s    ║\n", "Managing Project: " + project.getTitle());
+                System.out.println("╚══════════════════════════════════════════════════════════╝");
+        
+                boolean keepEditing = true;
+        
+                while (keepEditing) {
+                    System.out.println("╔═══════════════════════════════════╗");
+                    System.out.println("║          List Of Actions          ║");
+                    System.out.println("╠═══════════════════════════════════╣");
+                    System.out.println("║  1) Project ID                    ║");
+                    System.out.println("║  2) Project Name                  ║");
+                    System.out.println("║  3) Project Description           ║");
+                    System.out.println("║  4) Instructor Info               ║");
+                    System.out.println("║  5) Team Info                     ║");
+                    System.out.println("║  6) Milestones                    ║");
+                    System.out.println("║  7) Report                        ║");
+                    System.out.println("║  0) Finish Editing                ║");
+                    System.out.println("╚═══════════════════════════════════╝");
+
+                    System.out.print("Enter your choice: ");
+                    int choice = inp.nextInt();
+                    inp.nextLine(); // Consume newline
+        
+                    switch (choice) {
+                        case 1:
+                            System.out.println("\nCurrent project ID: " + project.getProjectID());
+                            System.out.print("Enter new project ID (or press 'Enter' to keep the current name): ");
+                            String projectID = inp.nextLine();
+                            if (!projectID.isEmpty()) {
+                                project.setProjectID(projectID);                   
+                                
+                                System.out.println("\n╔═══════════════════════════════════════════╗");
+                                System.out.println("║      Project ID edited successfully!      ║");
+                                System.out.println("╚═══════════════════════════════════════════╝\n");    
+                            }
+                            break;
+
+                        case 2:
+                            System.out.println("\nCurrent project name: " + project.getTitle());
+                            System.out.print("Enter new project name (or press 'Enter' to keep the current name): ");
+                            String projectName = inp.nextLine();
+                            if (!projectName.isEmpty()) {
+                                project.setTitle(projectName);
+                                
+                                System.out.println("\n╔════════════════════════════════════════════╗");
+                                System.out.println("║      Project name edited successfully!     ║");
+                                System.out.println("╚════════════════════════════════════════════╝\n");
+                            }
+                            break;
+        
+                        case 3:
+                            System.out.println("\nCurrent project description: " + project.getDescription());
+                            System.out.print("Enter new project description (or press 'Enter' to keep the current description): ");
+                            String projectDescription = inp.nextLine();
+                            if (!projectDescription.isEmpty()) {
+                                project.setDescription(projectDescription);
+
+                                System.out.println("\n╔════════════════════════════════════════════╗");
+                                System.out.println("║  Project description edited successfully!  ║");
+                                System.out.println("╚════════════════════════════════════════════╝\n");
+                            }
+                            break;
+        
+                        case 4:
+                            editInstructorInfo(inp, project.getInstructor());
+                            break;
+        
+                        case 5:
+                            editTeamInfo(inp, project.getTeam());
+                            break;
+        
+                        case 6:
+                            editMilestones(inp, project);
+                            break;
+        
+                        case 7:
+                            editReport(inp, project);
+                            break;
+        
+                        case 0:
+                            keepEditing = false;
+                            break;
+        
+                        default:
+                            System.out.println("\n╔═══════════════════════════════════════════╗");
+                            System.out.println("║         Invalid choice. Try again         ║");
+                            System.out.println("╚═══════════════════════════════════════════╝\n");
+                    }
+                }
+            } else {
+                System.out.println("\n╔═══════════════════════════════════════════╗");
+                System.out.println("║          Invalid project number.          ║");
+                System.out.println("╚═══════════════════════════════════════════╝\n");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input type.");
+            inp.nextLine();
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Project selection out of range.");
+        } catch (Exception e) {
+            System.out.println("An error occurred: ");
         }
     }
     
     private static void editInstructorInfo(Scanner inp, Instructor instructor) {
-        boolean edited = false;
-
         System.out.println("\nCurrent instructor name: " + instructor.getName());
         System.out.print("Enter new instructor name (or press 'Enter' to keep the current name): ");
         String instructorName = inp.nextLine();
         if (!instructorName.isEmpty()) {
             instructor.setName(instructorName);
-
-            edited = true;
         }
     
         System.out.println("\nCurrent instructor email: " + instructor.getEmail());
@@ -350,8 +375,6 @@ public class GroupProjectManager {
         String instructorEmail = inp.nextLine();
         if (!instructorEmail.isEmpty()) {
             instructor.setEmail(instructorEmail);
-
-            edited = true;
         }
     
         System.out.println("\nCurrent instructor employee number: " + instructor.getEmpNum());
@@ -359,17 +382,12 @@ public class GroupProjectManager {
         String instructorNumber = inp.nextLine();
         if (!instructorNumber.isEmpty()) {
             instructor.setEmpNum(instructorNumber);
-            
-            edited = true;
         }
 
-        if(edited = true) {
-            System.out.println("\n╔═══════════════════════════════════════════╗");
-            System.out.println("║      Instructor edited successfully!      ║");
-            System.out.println("╚═══════════════════════════════════════════╝\n");
-        }
-        else 
-            System.out.println();
+        System.out.println("\n╔═══════════════════════════════════════════╗");
+        System.out.println("║      Instructor edited successfully!      ║");
+        System.out.println("╚═══════════════════════════════════════════╝\n");
+        
     }
     
     private static void editTeamInfo(Scanner inp, Team team) {
