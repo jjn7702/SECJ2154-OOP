@@ -3,6 +3,7 @@
 ## Overview of The Project <a name="overview"></a> :heavy_check_mark:
 
 ## Synopsis <a name="synopsis"></a> ✨
+The Sports Team Manager allows users to store data about sports management including the athletes, coach, manager, training session, sports, and events in a more organized way. For instance, we can view, add and remove the athlete’s details, teams, team’s member and the events of the sport and also their training. First of all, the system will prompt the user to insert the number that is provided in the system (1-3) which will manage the athlete, manage the team, and exit the system. The system will prompt the user to either want to use the existing athlete/team data or want to add a new athlete/team. Next the user will be given 8 options to manage the athlete and team which are to recruit an athlete into the team, remove an athlete from the team, add a training session, remove a training session, add a sports event, cancel a sports event, display team details and exit the athlete/team management menu. All of the options have two options inside them which are either want to use the existing data or add new data except for canceling a sports event, remove an athlete from the team, remove a training session and exit option. 
 
 
 ## Objective and Scope <a name="objective"></a> 🧠
