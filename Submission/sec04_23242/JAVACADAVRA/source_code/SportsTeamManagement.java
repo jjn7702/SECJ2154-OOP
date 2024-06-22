@@ -129,3 +129,10 @@ public class SportsTeamManagement {
                 displayMenu();
                 ch1 = sc.nextInt();
             }
+
+            switch (ch1) {
+                case 1:
+                    displayAtheletes(athletes);
+                    System.out.print(
+                            "Do you wish to manage an existing athlete or add a new athlete?: \n[1] Manage an Existing Athlete\n[2] Add a New Athlete\n\nYour Choice: ");
+                    int ch2 = sc.nextInt();
