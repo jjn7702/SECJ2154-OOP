@@ -47,7 +47,7 @@ Our project, the Finance Manager Project, aimed to assist users in efficiently m
 
 ## Findings <a name="findings"></a>📊
 
-- [Source Code]()
+- [Source Code](https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/codeHub/source-code)
 - [Input File]()
 - [Project Report]()
 - [Similarity Report]()
