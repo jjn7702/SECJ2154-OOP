@@ -71,6 +71,12 @@ Object
 #### Flowchart
 ![1]([https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/JAVACADAVRA/838D59E7-0BB1-4E88-9C25-64554A12219E_1_201_a.jpeg](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/JAVACADAVRA/Untitled%20Diagram-Page-2.jpg))
 - The figure above illustrates the overview flow of the flowchart which incorporates multiple layers of data handling, loop, conditional statements and others.
+
+![2](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/JAVACADAVRA/Screenshot%202024-06-22%20at%2022.43.26.png)
+- Figure above illustrates the flow of athlete management option flow, after each option is executed the program will return to the athlete menu display via loop. The options offered for athlete management menu are recruitment and removal of the athlete from a team, joining and canceling a training session, joining and canceling a sport event and displaying athletes details.
+
+![3](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/JAVACADAVRA/838D59E7-0BB1-4E88-9C25-64554A12219E_1_201_a.jpeg)
+- Figure above illustrates the flow of team management option flow, after each option is executed the program will return to the team menu display via loop. Similar to athlete management flow, the options offered for team management menu are recruitment and removal of the athlete from a team, joining and canceling a training session, joining and canceling a sport event and displaying team details. The program also offers an option to exit the program.
 #### Class Diagram
 ![1]()
 
