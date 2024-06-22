@@ -1,4 +1,4 @@
-# Volunteer Opportunity System
+<h1 align="center"># Volunteer Opportunity System</h1>
 
 ## Project Overview
 
