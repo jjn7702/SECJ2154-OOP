@@ -1,7 +1,7 @@
-# 🕋 Hajj and Umrah Booking System 🕌
+![image](https://github.com/jjn7702/SECJ2154-OOP/assets/147373045/72542a2b-6ef3-4812-b16e-c21a66a03b9b)# 🕋 Hajj and Umrah Booking System 🕌
 > Perform ibadah have never been easier
 
-<img alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Images/3PJuT8.gif">
+<img alt="Section 1" src="[https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Images/3PJuT8.gif](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Cem%20%26%20Hebak/Mantap.gif)">
 
 ## Table of Contents
 [Synopsis](#synopsis)           
@@ -12,22 +12,23 @@
 [Class Diagram](#class-diagram)    
 
 ## 📝Synopsis 
-The grocery shopping assistant system is designed for two types of users: buyers and sellers. The system provides three main options: creating a grocery list (for buyers), managing the store (for sellers), and exiting the system. Both buyers and sellers must log in or register; new users can sign up while existing users can log in with their usernames. Once logged in, buyers have six options: adding an item, editing the quantity, deleting an item, viewing the cart, changing the address, and exiting the system. Sellers, on the other hand, have five options: adding an item, deleting an item, viewing items, editing the address, and exiting the system. Additionally, if a buyer's address matches the seller's address, the system will recommend nearby shops. The primary distinction between buyers and sellers in this system is that buyers can edit item quantities, while sellers can edit addresses.
+We offer a project that will oversee the hajj and umrah system to make it run more smoothly and flawlessly. Our system offers a wide range of options, including those concerning pilgrims' health, visa approval, tour package selection, Hajj and Umrah package selection, and room size. In order to facilitate users' ability to perform prayer during the later Hajj and Umrah seasons, all of these alternatives are available. We also supply pilgrims who want to see fascinating historical sites travel packages at reasonable, dependable rates. This method intends to provide the public with the most convenient Umrah and Hajj worship packages while also making it easier for administrators to oversee pilgrims in terms of tourism, embassy relations, and health care.
 
 
 ## 🎯Objectives 
-The objective is to develop an interface that makes the grocery shopping experience as smooth as possible by enabling users to build and organize their grocery lists without difficulties. The system also helps in-store management since it will facilitate easy creation of stores for the sellers, store modification, and even the ability to delete a product or change certain aspects of their store. It is intended to improve the user experience by creating an efficient registration and login process for the customers and the sellers and incorporating security into the process. Also, it will intelligently recommend information through the creation of a recommendation system, where buyers will be provided with relevant local stores to visit on their location and the items in their cart. Cart features will be comprehensive including adding items to the cart, updating quantities, removing items, viewing the cart, and updating the address on the cart list.
+The purpose of the Umrah Hajj system is to make the physical package purchase procedure easier. Users of this system are limited to selecting the desired package online, along with a few supplementary features that encourage them to use the system. The following are the objectives of the proposed system.
+1) allowing any individual to complete the Hajj and Umrah, while also raising the congregation's degree of faith and making sure participants are aware of both the practical and spiritual aspects of these pilgrimages.
+2) providing pilgrims with aid in organizing their Hajj and Umrah, including help with travel, lodging, health, required documentation, and creating a clear schedule to ensure a hassle-free, well-planned experience.
+3) providing pilgrims with assistance regarding the Hajj and Umrah procedures through seminars designed to meet their religious and emotional needs.
+4) allowing the audience to experience learning about and getting to know the local culture while also highlighting the significance of the Hajj and Umrah to deepen their understanding of this act of worship.
 
 
 ## 🔍Scope 
-1. **User registration and Login:**
-Users need to be able to register or sign up for the page and then have the ability to log into an account while ensuring proper input of their data.
-2.  **Grocery List Management:**
-Allow the buyers to make, modify, and control their grocery lists in a way that lets them add products by categories, modify quantities of added products, and delete products from their cart.
-3. **Store Inventory Management:**
-Allow the sellers to arrange products for sale in their stores and let them add new products, remove products, display all products, and edit features such as the business address.
-4.  **Location-Based Store Recommendations:**
-Develop an option to suggest stores where buyers can purchase the product, based on the provided address that will indicate the stores around the designated area.
+1) Users can choose the Hajj/Umrah packages to choose from, update their personal information, and decide whether or not to travel.
+2) This approach assigns a doctor to each congregation, enables the administrator to determine what ailment the pilgrims are facing, what medication is required, and if the pilgrims may resume worship or not.
+3) Inform the congregation if their visa has been approved or denied, advising them to reapply to avoid any issues during immigration.
+4) This program shows five different worship sites based on the date that has been established, along with an alluring tour package that can be chosen once the congregation has concluded their time in worship.
+5) allowing the congregation to select the kind of accommodation that best suits their needs at a fair price
 
 ## ♨️OO Concepts
 - [x] Encapsulation and Data Hiding  
@@ -43,6 +44,6 @@ Develop an option to suggest stores where buyers can purchase the product, based
 ![](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Images/OOP%20UML%20Diagram.jpg)
 
 ## 📂 Finding
-- ![Source code](https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/Group2/Source_Code)
+- ![Source code]([https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/Group2/Source_Code](https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/Cem%20%26%20Hebak/Source%20FIle))
 - ![Report](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Project%20Report%20-%20Group2%20(Section%2004).pdf)
 - ![Slide](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Slide%20OOP%20Project.pdf)
