@@ -3,27 +3,30 @@ public String getMatricID();
 
 }
 
-class Undergraduate implements User{
-  private String matricID;
+class UG implements User{ 
 
-  public Undergraduate(String matricID){
-    this.matricID = matricID;
-  }
+private String MatricID;
 
-  public String getMatricID(){
-    return matricID;
-  }
-  
-class Postgraduate implements User{
-  private String matricID;
+public UG(String MatricID){
+    this.MatricID = MatricID;
+}
 
-  public Postgraduate(String matricID){
-    this.matricID = matricID;
-  }
+    public String getMatricID(){
+        return MatricID;
+    }
+}
 
-  public String getMatricID(){
-     return matricID;
-  }
+
+class PG implements User{
+
+private String MatricID;
+
+public PG(String MatricID){
+    this.MatricID = MatricID;
+}
+    public String getMatricID(){
+        return MatricID;
+    }
 }
   
 class Book{ // stores or get book data 
@@ -189,40 +192,7 @@ class RecommendationEngine{
 
 //class BookRecommendationSystem here aka public void static main here
 
-class faculty extends Book{ // contains specific books
 
-    public faculty(String genre, String ref, double pages, String publisher , String author, String title){
-        super(genre, ref, pages, publisher, author, title);
-        
-    }
-}
-
-
-class UG implements User{ 
-
-private String MatricID;
-
-public UG(String MatricID){
-    this.MatricID = MatricID;
-}
-
-    public String getMatricID(){
-        return MatricID;
-    }
-}
-
-
-class PG implements User{
-
-private String MatricID;
-
-public PG(String MatricID){
-    this.MatricID = MatricID;
-}
-    public String getMatricID(){
-        return MatricID;
-    }
-}
 
   
 class BookRecommendationSystem {
