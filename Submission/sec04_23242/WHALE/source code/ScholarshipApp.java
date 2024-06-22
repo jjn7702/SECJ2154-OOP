@@ -75,12 +75,13 @@ public class ScholarshipApp {
                                 System.out.println("There is no administrator signed in. Please wait");
                             }
 
-                            else if (ad.getStudentRej().contains(stu)) {
+                            else if (openFileRej(stu.getfName())) {
                                 System.out.println("Your application is not approved.");
 
-                            } else if (ad.getStudentApro().contains(stu)) {
-                                System.out.println("Your application has approved. We will display the information");
+                            } else if (openFileApro(stu.getfName())) {
+                                System.out.println("Your application has approved.");
                                 StudList.get(i).displayAllDetails();
+
                             } else {
                                 System.out.println("Your application is being approved.");
                             }
@@ -382,15 +383,27 @@ public class ScholarshipApp {
                 char rs = inp.next().toUpperCase().charAt(0);
 
                 if (rs == 'Y') {
-                    for (Student u : so) {
-                        if (u.getEmail().equals(email)) {
-                            return u;
-                        }
 
-                        else {
-
+                    /*for (int i = 0; i < so.size(); i++) {
+                        if (so.get(i).getEmail().equals(email)) {
+                            return so.get(i);
+                        } else {
+                            i--;
                         }
-                    }
+                    }*/
+
+                    return new Student(fname, lname, age, email, null, matricsNu, matricsNu, rs, null, null) ;
+                    /*
+                     * for (Student u : so) {
+                     * if (u.getEmail().equals(email)) {
+                     * return u;
+                     * }
+                     * 
+                     * else {
+                     * 
+                     * }
+                     * }
+                     */
                 }
 
                 else if (rs == 'N') {
@@ -443,7 +456,7 @@ public class ScholarshipApp {
         return null;
     }
 
-    private static Scholarship applyFromDisplayScholarship(Student student) {
+    private static void applyFromDisplayScholarship(Student student) {
         ArrayList<meritBased> Merits = new ArrayList<>();
         ArrayList<needBased> Needs = new ArrayList<>();
 
@@ -506,10 +519,10 @@ public class ScholarshipApp {
                     // ad.setScholarshipAdmin(Merits.get(scholarshipChoice)) ;
                     // applyScholarship(student, sid);
                     System.out.println("Application successful.");
-                    return Merits.get(scholarshipChoice);
+                    //return Merits.get(scholarshipChoice);
                 } else {
                     System.out.println("Application cancelled.");
-                    return null;
+                    //return null;
                 }
             } else if (choice == 2) {
                 File file = new File("Submission\\sec04_23242\\WHALE\\source code\\needScholarshp.txt");
@@ -550,13 +563,13 @@ public class ScholarshipApp {
                 if (response == 'Y') {
                     student.RegisterScholarship(Needs.get(scholarshipChoice));
                     System.out.println("Application successful.");
-                    return Needs.get(scholarshipChoice);
+                    //return Needs.get(scholarshipChoice);
                 } else {
                     System.out.println("Application cancelled.");
                 }
             } else {
                 System.out.println("Invalid choice.");
-                return null;
+                //return null;
             }
 
         } catch (FileNotFoundException e) {
@@ -564,7 +577,7 @@ public class ScholarshipApp {
         } catch (NumberFormatException e) {
             System.out.println("Invalid format in scholarship file.");
         }
-        return null;
+        //return null;
     }
 
     public static StudentHistory insertStudentHistory() {
@@ -619,7 +632,7 @@ public class ScholarshipApp {
         try (PrintWriter writer = new PrintWriter(new PrintWriter("ApprovedStudent.txt"))) {
             for (Student o : s) {
                 writer.write("Student Details:\n");
-                writer.write("Full Name: " + o.getfName() + " " + o.getlName());
+                writer.write("Full Name: " + o.getfName() + " " + o.getlName() + "\n");
                 writer.write("Age: " + o.getAge() + "\n");
                 writer.write("Email: " + o.getEmail() + "\n");
                 writer.write("Address: " + o.getAdd().toString() + "\n");
@@ -648,7 +661,7 @@ public class ScholarshipApp {
         try (PrintWriter writer = new PrintWriter(new PrintWriter("RejectedStudent.txt"))) {
             for (Student o : s) {
                 writer.write("Student Details:\n");
-                writer.write("Full Name: " + o.getfName() + " " + o.getlName());
+                writer.write("Full Name: " + o.getfName() + " " + o.getlName() + "\n");
                 writer.write("Age: " + o.getAge() + "\n");
                 writer.write("Email: " + o.getEmail() + "\n");
                 writer.write("Address: " + o.getAdd().toString() + "\n");
@@ -671,5 +684,55 @@ public class ScholarshipApp {
             System.err.println("Error writing to file: " + e.getMessage());
         }
 
+    }
+
+    private static boolean openFileApro(String fy){
+        try {
+            Scanner sc = new Scanner(new File("ApprovedStudent.txt")) ;
+            while(sc.hasNextLine()){
+                String op = sc.nextLine() ;
+
+                if (op.contains(fy)){
+                    return true ;
+                }
+
+                else{
+
+                }
+            }
+        }
+        catch(FileNotFoundException e) {
+            System.out.println("There is no information about you");
+            // If file is not found, continue to next authentication attempt
+            System.err.println("Error: Unable to create or write to the file.");
+            e.printStackTrace() ;
+        }
+
+        return false ;
+    }
+
+    private static boolean openFileRej(String fy){
+        try {
+            Scanner sc = new Scanner(new File("RejectedStudent.txt")) ;
+            while(sc.hasNextLine()){
+                String op = sc.nextLine() ;
+
+                if (op.contains(fy)){
+                    return true ;
+                }
+
+                else{
+
+                }
+            }
+        }
+        catch(FileNotFoundException e) {
+            System.out.println("There is no information about you");
+            // If file is not found, continue to next authentication attempt
+            System.err.println("Error: Unable to create or write to the file.");
+            e.printStackTrace() ;
+        }
+
+        return false ;
     }
 }

@@ -77,12 +77,12 @@ public class Jemaah extends User implements userDisplay {
         System.out.println("\n========================================");
         System.out.printf("%29s\n", "JEMAAH CREDENTIALS");
         System.out.println("========================================");
-        System.out.println("Name : " + getName());
-        System.out.println("Contact :" + getContact());
-        System.out.println("Identification Card : " + getIdentification_Card());
-        System.out.println("Email: " + getEmail());
-        System.out.println("Jemaah ID: " + jemaahID);
-        System.out.println("Age: " + age);
+        System.out.printf("%-21s: %-10s%n", "Name", getName());
+        System.out.printf("%-21s: %-10s%n", "Contact", getContact());
+        System.out.printf("%-21s: %-10s%n", "Identification Card", getIdentification_Card());
+        System.out.printf("%-21s: %-10s%n", "Email", getEmail());
+        System.out.printf("%-21s: %-10s%n", "Jemaah ID", jemaahID);
+        System.out.printf("%-21s: %-10s%n", "Age", age);
         String Health = "pending", Visa = "pending", Approval = "pending";
 
         switch (approval_from_doctor) {
@@ -120,28 +120,25 @@ public class Jemaah extends User implements userDisplay {
         } else {
             Approval = "Failed";
         }
-
-        System.out.println("Health: " + Health);
-        System.out.println("Visa: " + Visa);
-        System.out.println(Approval + " to perform ibadah");
-
-        System.out.printf("\n%10sDisease List\n\n", "");
+        System.out.printf("%-21s: %-10s%n", "Health", Health);
+        System.out.printf("%-21s: %-10s%n", "Visa", Visa);
+        System.out.printf("%-21s: %-10s%n", "Perform Ibadah", Approval);
+        System.out.println("Disease List\n");
         if (penyakit.isEmpty()) {
             System.out.println("None");
         } else {
 
             for (int i = 0; i < penyakit.size(); i++) {
-                System.out.println((i + 1) + ")" + penyakit.get(i));
+                System.out.println((i + 1) + ") " + penyakit.get(i));
             }
         }
-
-        System.out.printf("%10sPrescription List\n\n", "");
+        System.out.println("\n\nPrescription List\n");
         if (ubat.isEmpty()) {
             System.out.println("None");
         } else {
 
             for (int i = 0; i < ubat.size(); i++) {
-                System.out.println((i + 1) + ")" + ubat.get(i));
+                System.out.println((i + 1) + ") " + ubat.get(i));
             }
         }
         if (pakejIbadah != null) {
@@ -162,12 +159,12 @@ public class Jemaah extends User implements userDisplay {
         System.out.println("\n========================================");
         System.out.printf("%29s\n", "JEMAAH CREDENTIALS");
         System.out.println("========================================");
-        System.out.println("Name : " + getName());
-        System.out.println("Contact :" + getContact());
-        System.out.println("Identification Card : " + getIdentification_Card());
-        System.out.println("Email: " + getEmail());
-        System.out.println("Jemaah ID: " + jemaahID);
-        System.out.println("Age: " + age);
+        System.out.printf("%-21s: %-10s%n", "Name", getName());
+        System.out.printf("%-21s: %-10s%n", "Contact", getContact());
+        System.out.printf("%-21s: %-10s%n", "Identification Card", getIdentification_Card());
+        System.out.printf("%-21s: %-10s%n", "Email", getEmail());
+        System.out.printf("%-21s: %-10s%n", "Jemaah ID", jemaahID);
+        System.out.printf("%-21s: %-10s%n", "Age", age);
         String Health = "pending", Visa = "pending", Approval = "pending";
 
         switch (approval_from_doctor) {
@@ -206,11 +203,10 @@ public class Jemaah extends User implements userDisplay {
             Approval = "Failed";
         }
 
-        System.out.println("Health: " + Health);
-        System.out.println("Visa: " + Visa);
-        System.out.println(Approval + " to perform ibadah");
-
-        System.out.printf("\n%10sDisease List\n\n", "");
+        System.out.printf("%-21s: %-10s%n", "Health", Health);
+        System.out.printf("%-21s: %-10s%n", "Visa", Visa);
+        System.out.printf("%-21s: %-10s%n", "Perform Ibadah", Approval);
+        System.out.println("Disease List\n");
         if (penyakit.isEmpty()) {
             System.out.println("None");
         } else {
@@ -219,8 +215,7 @@ public class Jemaah extends User implements userDisplay {
                 System.out.println((i + 1) + ") " + penyakit.get(i));
             }
         }
-
-        System.out.printf("%10sPrescription List\n\n", "");
+        System.out.println("\n\nPrescription List\n");
         if (ubat.isEmpty()) {
             System.out.println("None");
         } else {
@@ -245,12 +240,15 @@ public class Jemaah extends User implements userDisplay {
         setIdentification_Card(inp.nextLine());
         System.out.print("Email: ");
         setEmail(inp.nextLine());
+        System.out.print("Age: ");
+        setAge(inp.nextInt());
+        displayRingkas();
     }
 
     public void chooseUmrahPackage() {
         int choiceUmrah = 0;
         String Umrah = "";
-        System.out.println("\n========================================"); //()
+        System.out.println("\n========================================"); // ()
         System.out.printf("%27s\n", "Ibadah Packages"); // ()
         System.out.println("========================================"); // ()
         System.out.println("Please choose your ibadah package: ");
@@ -261,7 +259,7 @@ public class Jemaah extends User implements userDisplay {
         System.out.println("[5] UMRAH = Only Perform Umrah");
         System.out.println("\n[ 1-5 ] Please Enter the number to choose your ibadah package");
         System.out.println("Package: ");
-        choiceUmrah=inp.nextInt();
+        choiceUmrah = inp.nextInt();
         switch (choiceUmrah) {
             case 1:
                 Umrah = "IFRAD";
@@ -278,7 +276,7 @@ public class Jemaah extends User implements userDisplay {
             case 5:
                 Umrah = "UMRAH";
                 break;
-            
+
             default:
                 System.out.println("Error!");
                 break;
@@ -293,11 +291,11 @@ public class Jemaah extends User implements userDisplay {
         String vacation = "";
         System.out.println("==================== Tour Packages ====================");
         System.out.println("Please choose your Vacation Package");
-        System.out.printf("%-35s: %20s%n","[1] Turki, Istanbul (RM)","2500.00");
-        System.out.printf("%-35s: %20s%n","[2] Riyadh, Damma (RM)","3000.00");
-        System.out.printf("%-35s: %20s%n","[3] Doha, Dubai (RM)","3500.00");
-        System.out.printf("%-35s: %20s%n","[4] Abu Dhabi, Sharjah (RM)","2800.00");
-        System.out.printf("%-35s: %20s%n","[5] Kuwait City, Manama (RM)","4000.00");
+        System.out.printf("%-35s: %20s%n", "[1] Turki, Istanbul (RM)", "2500.00");
+        System.out.printf("%-35s: %20s%n", "[2] Riyadh, Damma (RM)", "3000.00");
+        System.out.printf("%-35s: %20s%n", "[3] Doha, Dubai (RM)", "3500.00");
+        System.out.printf("%-35s: %20s%n", "[4] Abu Dhabi, Sharjah (RM)", "2800.00");
+        System.out.printf("%-35s: %20s%n", "[5] Kuwait City, Manama (RM)", "4000.00");
         System.out.println("=========================================================");
         System.out.println("[1 - 5] Please Enter the number of package you interested");
         choicePelancongan = inp.nextInt();
@@ -330,8 +328,6 @@ public class Jemaah extends User implements userDisplay {
         if (pakejIbadah.getFlight().size() != 0) {
             pakejIbadah.getFlight().remove(1);
         }
-
-        // Tanya Faiz Boleh ke add pelancongan tanpa pergi HajiUmrah
 
     }
 

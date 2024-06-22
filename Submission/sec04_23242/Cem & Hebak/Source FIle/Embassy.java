@@ -39,27 +39,27 @@ public class Embassy extends User implements userDisplay {
     // Interface
     public void display() {
         System.out.println("\n========================================");
-        System.out.printf("%29s\n", "EMBASSY CREDENTIALS"); 
+        System.out.printf("%29s\n", "EMBASSY CREDENTIALS");
         System.out.println("========================================");
-        System.out.println("Name : " + getName());
-        System.out.println("Contact :" + getContact());
-        System.out.println("Identification Card : " + getIdentification_Card());
-        System.out.println("Email: " + getEmail());
-        System.out.println("Location: " + location);
-        System.out.println("Position: " + position);
-        System.out.println("Embassy Number: " + embassy_number);
+        System.out.printf("%-21s: %-10s%n", "Name", getName());
+        System.out.printf("%-21s: %-10s%n", "Contact", getContact());
+        System.out.printf("%-21s: %-10s%n", "Identification Card", getIdentification_Card());
+        System.out.printf("%-21s: %-10s%n", "Email", getEmail());
+        System.out.printf("%-21s: %-10s%n", "Location", location);
+        System.out.printf("%-21s: %-10s%n", "Position", position);
+        System.out.printf("%-21s: %-10s%n", "Embassy Number", embassy_number);
         System.out.println();
     }
 
     public void displayRingkas() {
         System.out.println("\n========================================");
-        System.out.printf("%29s\n", "EMBASSY CREDENTIALS"); 
+        System.out.printf("%29s\n", "EMBASSY CREDENTIALS");
         System.out.println("========================================");
-        System.out.println("Name : " + getName());
-        System.out.println("Contact :" + getContact());
-        System.out.println("Email: " + getEmail());
-        System.out.println("Location: " + location);
-        System.out.println("Position: " + position);
+        System.out.printf("%-21s: %-10s%n", "Name", getName());
+        System.out.printf("%-21s: %-10s%n", "Contact", getContact());
+        System.out.printf("%-21s: %-10s%n", "Email", getEmail());
+        System.out.printf("%-21s: %-10s%n", "Location", location);
+        System.out.printf("%-21s: %-10s%n", "Position", position);
         System.out.println();
     }
 
@@ -76,15 +76,10 @@ public class Embassy extends User implements userDisplay {
         setIdentification_Card(inp.nextLine());
         System.out.print("Email: ");
         setEmail(inp.nextLine());
-
         System.out.print("Location: ");
         location = inp.nextLine();
         System.out.print("Position: ");
         position = inp.nextLine();
-        System.out.print("Embassy Number: ");
-        embassy_number = inp.nextLine();
-
-        // new credentialsdsadasdasdas
         display();
     }
 
@@ -97,7 +92,7 @@ public class Embassy extends User implements userDisplay {
             System.out.println("[2] Visa Application Approval");
             System.out.print("[3] Exit\nYour Choice: ");
             choice = inp.nextInt();
-
+            inp.nextLine();
             if (choice == 1) {
                 Umat.displayRingkas(); // JemaahInfo
             } else if (choice == 2) {
@@ -107,6 +102,7 @@ public class Embassy extends User implements userDisplay {
                 Umat.displayRingkas(); // JemaahInfo
                 System.out.print("[1] Approve\n[2] Failed\nYour Choice: ");
                 choice2 = inp.nextInt();
+                // inp.nextLine();
                 Umat.setApproval_from_embassy(choice2);
             }
         } while (choice != 3);

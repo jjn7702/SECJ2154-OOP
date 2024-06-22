@@ -39,27 +39,40 @@ public class Doctor extends User implements userDisplay {
     // Polymorphism
     public void display() {
         System.out.println("\n========================================");
-        System.out.printf("%29s\n", "DOCTOR CREDENTIALS"); 
+        System.out.printf("%29s\n", "DOCTOR CREDENTIALS");
         System.out.println("========================================");
-        System.out.println("Name : " + getName());
-        System.out.println("Contact :" + getContact());
-        System.out.println("Identification Card : " + getIdentification_Card());
-        System.out.println("Email: " + getEmail());
-        System.out.println("Hospital: " + hospital);
-        System.out.println("Position: " + position);
-        System.out.println("Doctor Number: " + doctor_Number);
+        // System.out.println("Name : " + getName());
+        // System.out.println("Contact :" + getContact());
+        // System.out.println("Identification Card : " + getIdentification_Card());
+        // System.out.println("Email: " + getEmail());
+        // System.out.println("Hospital: " + hospital);
+        // System.out.println("Position: " + position);
+        // System.out.println("Doctor Number: " + doctor_Number);
+
+        System.out.printf("%-21s: %-10s%n", "Name", getName());
+        System.out.printf("%-21s: %-10s%n", "Contact", getContact());
+        System.out.printf("%-21s: %-10s%n", "Identification Card", getIdentification_Card());
+        System.out.printf("%-21s: %-10s%n", "Email", getEmail());
+        System.out.printf("%-21s: %-10s%n", "Hospital", hospital);
+        System.out.printf("%-21s: %-10s%n", "Position", position);
+        System.out.printf("%-21s: %-10s%n", "Doctor Number", doctor_Number);
         System.out.println();
     }
 
     public void displayRingkas() {
         System.out.println("\n========================================");
-        System.out.printf("%29s\n", "DOCTOR CREDENTIALS"); 
+        System.out.printf("%29s\n", "DOCTOR CREDENTIALS");
         System.out.println("========================================");
-        System.out.println("Name : " + getName());
-        System.out.println("Contact :" + getContact());
-        System.out.println("Email: " + getEmail());
-        System.out.println("Hospital: " + hospital);
-        System.out.println("Position: " + position);
+        // System.out.println("Name : " + getName());
+        // System.out.println("Contact :" + getContact());
+        // System.out.println("Email: " + getEmail());
+        // System.out.println("Hospital: " + hospital);
+        // System.out.println("Position: " + position);
+        System.out.printf("%-21s: %-10s%n", "Name", getName());
+        System.out.printf("%-21s: %-10s%n", "Contact", getContact());
+        System.out.printf("%-21s: %-10s%n", "Email", getEmail());
+        System.out.printf("%-21s: %-10s%n", "Hospital", hospital);
+        System.out.printf("%-21s: %-10s%n", "Position", position);
         System.out.println();
     }
 
@@ -69,9 +82,10 @@ public class Doctor extends User implements userDisplay {
         System.out.printf("%29s\n", "UPDATE CREDENTIALS");
         System.out.println("========================================");
         System.out.print("Please enter your credentials: \nName: ");
+        // inp.nextLine();
 
         setName(inp.nextLine());
-        System.out.print("Contact :");
+        System.out.print("Contact : ");
         setContact(inp.nextLine());
         System.out.print("Identification Card : ");
         setIdentification_Card(inp.nextLine());
@@ -82,8 +96,6 @@ public class Doctor extends User implements userDisplay {
         hospital = inp.nextLine();
         System.out.print("Position: ");
         position = inp.nextLine();
-        System.out.print("Doctor Number: ");
-        doctor_Number = inp.nextLine();
         // updated info
         display();
 
@@ -94,10 +106,13 @@ public class Doctor extends User implements userDisplay {
         int choice, choice2;
 
         do {
-            System.out.println("=========== MEDICAL APPLICATION " + umat.getName().toUpperCase() + " ===========");
+            System.out.println("\n=============================================");
+            System.out.printf("%s %10s\n", "MEDICAL APPLICATION", umat.getName().toUpperCase());
+            System.out.println("=============================================");
             System.out.print(
                     "[1] Check Medical Application\n[2] Medical Application Approval\n[3] State Disease\n[4] Prescribe Medication\n[5] Exit\nYour Choice: ");
             choice = inp.nextInt();
+
             switch (choice) {
                 case 1:
                     // display jemaah info
@@ -137,7 +152,7 @@ public class Doctor extends User implements userDisplay {
                     inp.nextLine();
                     do {
 
-                        System.out.print("Please State the Jemaah Medicine:");
+                        System.out.print("Please State the Jemaah Medicine: ");
                         String input_Medicine = inp.nextLine();
                         umat.setUbat(input_Medicine);
                         System.out.print("[1] to continue\n[2] to exit\nYour Choice: ");
@@ -148,8 +163,8 @@ public class Doctor extends User implements userDisplay {
                     break;
 
             }
-
         } while (choice != 5);
+        inp.nextLine();
 
     }
 }

@@ -39,14 +39,6 @@ public class Student extends User {
         this.scholarship = scholarship;
     }
 
-    public void setProg(Programs prog) {
-        this.prog = prog;
-    }
-
-    public void setStudhist(StudentHistory studhist) {
-        this.studhist = studhist;
-    }
-
     public void setThreshold(double threshold) {
         this.threshold = threshold;
     }

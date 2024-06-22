@@ -98,33 +98,39 @@ public class HajiUmrahApp {
                                 System.out.print("[1] Log In\n[2] Exit\nYour Choice: ");
                                 choice1 = inp.nextInt();
                                 if (choice1 == 1) {
-                                        
-                                        System.out.println("\n========================================"); 
-                                        System.out.printf("%27s\n", "Who are you ?"); 
+
+                                        System.out.println("\n========================================");
+                                        System.out.printf("%27s\n", "Who are you ?");
                                         System.out.println("========================================");
                                         System.out.print("[1] Jemaah\n[2] Doctor\n[3] Embassy\nYour choice: ");
                                         choice2 = inp.nextInt();
                                         inp.nextLine(); // clear buffer
                                         switch (choice2) {
                                                 case 1: {
-                                                        System.out.println("\n========================================");
+                                                        System.out.println(
+                                                                        "\n========================================");
                                                         System.out.printf("%25s\n", "Jemaah Menu");
-                                                        System.out.println("========================================"); 
-                                                        System.out.println("[1] Log in as Jemaah\n[2] Register New Jemaah");
+                                                        System.out.println("========================================");
+                                                        System.out.println(
+                                                                        "[1] Log in as Jemaah\n[2] Register New Jemaah");
                                                         System.out.print("Your choice: ");
                                                         choice3 = inp.nextInt();
                                                         inp.nextLine();// clear buffer
                                                         switch (choice3) {
                                                                 case 1: {
-                                                                        System.out.println("\n========================================");
+                                                                        System.out.println(
+                                                                                        "\n========================================");
                                                                         System.out.printf("%25s\n", "Jemaah Login");
-                                                                        System.out.println("========================================");
+                                                                        System.out.println(
+                                                                                        "========================================");
                                                                         System.out.println("Enter your credentials");
-                                                                        System.out.print("Identification Card Number: ");
+                                                                        System.out.print(
+                                                                                        "Identification Card Number: ");
                                                                         IC = inp.nextLine();
                                                                         System.out.print("Jemaah ID: ");
                                                                         ID = inp.nextLine();
-                                                                        boolean found = false; // Exception handling purpose
+                                                                        boolean found = false; // Exception handling
+                                                                                               // purpose
                                                                         for (int i = 0; i < jemaah.size(); i++) {
                                                                                 if (IC.equals(jemaah.get(i)
                                                                                                 .getIdentification_Card())
@@ -133,32 +139,50 @@ public class HajiUmrahApp {
                                                                                                                 .getJemaahID())) {
                                                                                         found = true;
                                                                                         do {
-                                                                                                System.out.println("========================================"); //()
-                                                                                                System.out.printf("%25s\n", "Jemaah Menu"); // ()
-                                                                                                System.out.println("========================================");
-                                                                                                System.out.println("Assalamualaikum " +jemaah.get(i).getName());
-                                                                                                System.out.print("\n[1] Show Jemaah Info\n[2] Haji and Umrah package\n[3] Update Jemaah Info\n[4] Exit\nYour choice: ");
+                                                                                                System.out.println(
+                                                                                                                "========================================"); // ()
+                                                                                                System.out.printf(
+                                                                                                                "%25s\n",
+                                                                                                                "Jemaah Menu"); // ()
+                                                                                                System.out.println(
+                                                                                                                "========================================");
+                                                                                                System.out.println(
+                                                                                                                "Assalamualaikum "
+                                                                                                                                + jemaah.get(i).getName());
+                                                                                                System.out.print(
+                                                                                                                "\n[1] Show Jemaah Info\n[2] Haji and Umrah package\n[3] Update Jemaah Info\n[4] Exit\nYour choice: ");
                                                                                                 choice4 = inp.nextInt();
+                                                                                                inp.nextLine();
                                                                                                 if (choice4 == 1) {
                                                                                                         jemaah.get(i).display();
                                                                                                 } else if (choice4 == 2) {
                                                                                                         jemaah.get(i).chooseUmrahPackage();
-                                                                                                        System.out.println("\n========================================");
-                                                                                                        System.out.printf("%30s\n", "Pelancongan Package");
-                                                                                                        System.out.println("========================================");
-                                                                                                        System.out.print("[1] Add pelancongan package\n[2] Exit\nYour choice: ");
+                                                                                                        System.out.println(
+                                                                                                                        "\n========================================");
+                                                                                                        System.out.printf(
+                                                                                                                        "%30s\n",
+                                                                                                                        "Pelancongan Package");
+                                                                                                        System.out.println(
+                                                                                                                        "========================================");
+                                                                                                        System.out.print(
+                                                                                                                        "[1] Add pelancongan package\n[2] Exit\nYour choice: ");
                                                                                                         choice5 = inp.nextInt();
-                                                                                                        inp.nextLine(); // clear buffer
+                                                                                                        inp.nextLine(); // clear
+                                                                                                                        // buffer
                                                                                                         if (choice5 == 1) {
                                                                                                                 jemaah.get(i).add_Pelancongan_Package();
 
                                                                                                         } else {
                                                                                                                 break;
                                                                                                         }
-                                                                                                } else if (choice4 == 3){
+                                                                                                } else if (choice4 == 3) {
                                                                                                         jemaah.get(i).updateUserInfo();
+                                                                                                } else {
+                                                                                                        System.out.println(
+                                                                                                                        "Invalid choice, please enter a number within the range.");
                                                                                                 }
-                                                                                        } while (choice4 != 3 && choice4 != 4);
+                                                                                        } while (choice4 != 3
+                                                                                                        && choice4 != 4);
 
                                                                                 }
                                                                         }
@@ -223,7 +247,8 @@ public class HajiUmrahApp {
                                                         break;
                                                 }
                                                 case 2: {
-                                                        System.out.println("\n========================================");
+                                                        System.out.println(
+                                                                        "\n========================================");
                                                         System.out.printf("%25s\n", "Doctor Login");
                                                         System.out.println("========================================");
                                                         System.out.println("Enter your credentials");
@@ -244,13 +269,20 @@ public class HajiUmrahApp {
                                                                         // tak
                                                                         found = true;
                                                                         do {
-                                                                                System.out.println("\n========================================"); //()
-                                                                                System.out.printf("%25s\n", "Doctor Menu"); // ()
-                                                                                System.out.println("========================================");                
-                                                                                System.out.println("Hi Dr. " + doktor.get(i).getName());
-                                                                                
-                                                                                System.out.println("\n[1] Show Dr. " + doktor.get(i).getName() + " info");
-                                                                                System.out.print("[2] Medical Application Business\n[3] Exit\nYour choice: ");
+                                                                                System.out.println(
+                                                                                                "\n========================================"); // ()
+                                                                                System.out.printf("%25s\n",
+                                                                                                "Doctor Menu"); // ()
+                                                                                System.out.println(
+                                                                                                "========================================");
+                                                                                System.out.println("Hi Dr. " + doktor
+                                                                                                .get(i).getName());
+
+                                                                                System.out.println("\n[1] Show Dr. "
+                                                                                                + doktor.get(i).getName()
+                                                                                                + " info");
+                                                                                System.out.print(
+                                                                                                "[2] Medical Application Business\n[3] Update Doctor Information\n[4] Exit\nYour choice: ");
                                                                                 choice3 = inp.nextInt();
 
                                                                                 if (choice3 == 1) {
@@ -274,14 +306,15 @@ public class HajiUmrahApp {
                                                                                                         // jemaahwithDoctor
                                                                                                         jemaahWithDoctor.add(
                                                                                                                         jemaah.get(j));
-                                                                                                }else{
-                                                                                                        break;
                                                                                                 }
 
                                                                                         }
-                                                                                        System.out.println("\n========================================");
-                                                                                        System.out.printf("%27s\n", "List Of Jemaah");
-                                                                                        System.out.println("========================================");
+                                                                                        System.out.println(
+                                                                                                        "\n========================================");
+                                                                                        System.out.printf("%27s\n",
+                                                                                                        "List Of Jemaah");
+                                                                                        System.out.println(
+                                                                                                        "========================================");
                                                                                         for (int n = 0; n < jemaahWithDoctor
                                                                                                         .size(); n++) { // Jemaah
                                                                                                                         // or
@@ -310,7 +343,8 @@ public class HajiUmrahApp {
                                                                                                         "[0] Exit\n[1 -" + (jemaahWithDoctor
                                                                                                                         .size())
                                                                                                                         + "] Pick jemaah \n");
-                                                                                        System.out.print("Jemaah Number: ");
+                                                                                        System.out.print(
+                                                                                                        "Jemaah Number: ");
                                                                                         choice5 = inp.nextInt();
                                                                                         try {
                                                                                                 if (choice5 == 0) {
@@ -325,9 +359,14 @@ public class HajiUmrahApp {
                                                                                                                 "Invalid choice, please enter a number within the range.\n");
                                                                                         }
 
+                                                                                } else if (choice3 == 3) {
+                                                                                        doktor.get(i).updateUserInfo();
+                                                                                } else {
+                                                                                        System.out.println(
+                                                                                                        "Invalid choice, please enter a number within the range.");
                                                                                 }
 
-                                                                        } while (choice3 != 3);
+                                                                        } while (choice3 != 3 && choice3 != 4);
                                                                 }
 
                                                         }
@@ -338,7 +377,8 @@ public class HajiUmrahApp {
                                                         break;
                                                 }
                                                 case 3: {
-                                                        System.out.println("\n========================================");
+                                                        System.out.println(
+                                                                        "\n========================================");
                                                         System.out.printf("%25s\n", "Embassy Login");
                                                         System.out.println("========================================");
                                                         System.out.println("Enter your credentials");
@@ -355,16 +395,21 @@ public class HajiUmrahApp {
                                                                                                                 .getEmbassy_numberr())) {
                                                                         found = true;
                                                                         do {
-                                                                                System.out.println("\n========================================"); //()
-                                                                                System.out.printf("%25s\n", "Embassy Menu"); // ()
-                                                                                System.out.println("========================================");
-                                                                                System.out.println("Hi Mr. " + pegawai.get(k).getName());
+                                                                                System.out.println(
+                                                                                                "\n========================================"); // ()
+                                                                                System.out.printf("%25s\n",
+                                                                                                "Embassy Menu"); // ()
+                                                                                System.out.println(
+                                                                                                "========================================");
+                                                                                System.out.println("Hi Mr. " + pegawai
+                                                                                                .get(k).getName());
                                                                                 System.out.println("\n[1] Show Embassy "
                                                                                                 + pegawai.get(k).getName()
                                                                                                 + " info");
                                                                                 System.out.print(
-                                                                                                "[2] Visa Application Business\n[3] Exit\nYour choice: ");
+                                                                                                "[2] Visa Application Business\n[3] Update Embassy Information\n[4] Exit\nYour choice: ");
                                                                                 choice3 = inp.nextInt();
+                                                                                inp.nextLine();
                                                                                 switch (choice3) {
                                                                                         case 1:
                                                                                                 pegawai.get(k).display();
@@ -380,9 +425,13 @@ public class HajiUmrahApp {
                                                                                                                                 .add(jemaah.get(j));
                                                                                                         }
                                                                                                 }
-                                                                                                System.out.println("\n========================================");
-                                                                                                System.out.printf("%27s\n", "List Of Jemaah");
-                                                                                                System.out.println("========================================");
+                                                                                                System.out.println(
+                                                                                                                "\n========================================");
+                                                                                                System.out.printf(
+                                                                                                                "%27s\n",
+                                                                                                                "List Of Jemaah");
+                                                                                                System.out.println(
+                                                                                                                "========================================");
                                                                                                 for (int j = 0; j < JemaahWithEmbassy
                                                                                                                 .size(); j++) {
                                                                                                         System.out.println(
@@ -395,11 +444,12 @@ public class HajiUmrahApp {
                                                                                                 }
                                                                                                 System.out.println();
                                                                                                 System.out.print(
-                                                                                                                "[a] Press 0 for Exit \n[b] Press number of jemaah [1 - "
+                                                                                                                "[0] Exit \n[1 - "
                                                                                                                                 + JemaahWithEmbassy
                                                                                                                                                 .size()
-                                                                                                                                + "]\n");
-                                                                                                System.out.print("Jemaah Number: ");
+                                                                                                                                + "] Pick jemaah\n");
+                                                                                                System.out.print(
+                                                                                                                "Jemaah Number: ");
                                                                                                 choice5 = inp.nextInt();
                                                                                                 try {
                                                                                                         switch (choice5) {
@@ -417,7 +467,12 @@ public class HajiUmrahApp {
                                                                                                                         "Invalid choice, please enter a number within the range.\n");
                                                                                                 }
                                                                                                 break;
+                                                                                        case 3:
+                                                                                                pegawai.get(k).updateUserInfo();
+                                                                                                break;
                                                                                         default:
+                                                                                                System.out.println(
+                                                                                                                "Invalid choice, please enter a number within the range.");
                                                                                                 break;
                                                                                 }
                                                                         } while (choice3 != 3 && choice3 != 4);
@@ -435,7 +490,7 @@ public class HajiUmrahApp {
                                                                         "Invalid choice. Please enter a number within the range.\n");
                                                         break;
                                         }
-                                        
+
                                 }
 
                                 else if (choice1 != 2) {
