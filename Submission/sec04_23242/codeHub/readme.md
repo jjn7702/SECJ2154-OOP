@@ -27,7 +27,7 @@ Our project, the Finance Manager Project, aimed to assist users in efficiently m
 <img src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/images/Work%20Flow.png">
 
 ### UML Diagram 📚
-<img width="7648" alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/images/class_diagram.png">
+<img width="7648" alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/images/classUML.png">
 
 # OO Concept <a name="concept"></a> :heavy_exclamation_mark:
 #### Encapsulation:
