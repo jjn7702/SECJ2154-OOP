@@ -399,4 +399,234 @@ public class SportsTeamManagement {
                                 Person p9 = new Person(mgName, mgGender, mgAge);
                                 mChoice = new Manager(mgName, mgGender, mgAge);
                             }
+                            Person p9 = new Person(mgName, mgGender, mgAge);
+                                mChoice = new Manager(mgName, mgGender, mgAge);
+                            }
+                        } else
+                            mChoice = null;
+                        sc.nextLine();
+                        System.out.print("Enter Athlete's Sport: ");
+                        String athSport = sc.nextLine();
+                        System.out.print("Enter Athlete's Sport Category: ");
+                        String athCategory = sc.nextLine();
+                        athletes.add(new Athlete(athName, athGender, athAge, athSport, athCategory, mChoice));
+                        System.out.println("Your Athlete is Successfully Added.\n");
+                        displayAtheletes(athletes);
+                    }
+                    break;
+
+                case 2:
+                    displayTeams(teams);
+                    // buat loop until dapat jawapan tc1 = 1 or 2
+                    System.out.print("Choose a Team to Manage: ");
+                    System.out.print(
+                            "Do you wish to manage an existing team or add a new team?: \n[1] Manage an Existing Team\n[2] Add a New Team\n\nYour Choice: ");
+                    int tc1 = sc.nextInt();
+                    sc.nextLine();
+
+                    if (tc1 == 1) {
+                        System.out.print("Enter the Team's name: ");
+                        String s = sc.nextLine();
+                        int chosenTeamInd = -1;
+                        for (int i = 0; i < teams.size(); i++) {
+                            if (teams.get(i).getName().equals(s)) {
+                                chosenTeamInd = i;
+                                break;
+                            }
+                        }
+                        int tc2 = 0;
+                        do {
+                            teamMenu();
+                            tc2 = sc.nextInt();
+                            sc.nextLine();
+
+                            switch (tc2) {
+                                case 1: // recruit athlete into team
+                                    System.out.print(
+                                            "\nDo you wish to recruit an existing athlete or recruit a new athlete?: \n[1] Existing Athlete\n[2] New Athlete\n\nYour Choice: ");
+                                    int r1 = sc.nextInt();
+                                    sc.nextLine();
+
+                                    if (r1 == 1) {
+                                        System.out.println("\n*** Athletes List ***");
+                                        for (int i = 0; i < athletes.size(); i++) {
+                                            System.out.println((i + 1) + ") " + athletes.get(i).getName());
+                                        }
+                                        System.out.print("Your Choice of Athlete to be Added: ");
+                                        int r2 = sc.nextInt();
+                                        teams.get(chosenTeamInd).newMember2(athletes.get(r2 - 1));
+                                        System.out.println("Your Athlete is Successfully Added.\n");
+
+                                    } else {
+                                        // user prompt new athlete
+                                        System.out.print("Enter Athlete's Name:");
+                                        String athName = sc.nextLine();
+
+                                        System.out.print("Enter Athlete's Gender:");
+                                        String athGender = sc.nextLine();
+
+                                        System.out.print("Enter Athlete's Age:");
+                                        int athAge = sc.nextInt();
+                                        sc.nextLine(); // Consume newline character left by nextInt()
+
+                                        System.out.print("Enter Athlete's Sport:");
+                                        String athSport = sc.nextLine();
+
+                                        System.out.print("Enter Athlete's Sport Category:");
+                                        String athCategory = sc.nextLine();
+
+                                        Athlete recruitAth = new Athlete(athName, athGender, athAge, athSport,
+                                                athCategory,
+                                                null); // masuk new athlete from user
+                                        teams.get(chosenTeamInd).newMember2(recruitAth);
+                                        athletes.add(recruitAth);
+                                        System.out.println("Your Athlete is Successfully Added.\n");
+                                    }
+                                    break;
+
+                                case 2: // remove athlete from team
+                                    teams.get(chosenTeamInd).displayDetails();
+                                    System.out.print("Your Choice of Athlete to be Removed: ");
+                                    int r3 = sc.nextInt();
+                                    teams.get(chosenTeamInd).removeMember2(athletes.get(r3 - 1));
+                                    System.out.println("Your Athlete is Successfully Removed.\n");
+                                    break;
+
+                                case 3: // add training
+                                    System.out.print(
+                                            "Do you wish to add an existing training session or add a new training session?: \n[1] Existing Session\n[2] New Session\n\nYour Choice: ");
+                                    int tc3 = sc.nextInt();
+                                    sc.nextLine();
+
+                                    if (tc3 == 1) {
+                                        System.out.println("\n*** Traning Session's List ***");
+                                        for (int i = 0; i < training.size(); i++) {
+                                            System.out.println((i + 1) + ") " + training.get(i).displayDetails());
+                                            System.out.println();
+                                        }
+                                        System.out.print("Your Choice of Training to be Added: ");
+                                        int tc4 = sc.nextInt();
+                                        sc.nextLine();
+                                        teams.get(chosenTeamInd).addTraining(training.get(tc4 - 1));
+                                        for (int i = 0; i < teams.get(chosenTeamInd).getAthletes().size(); i++) {
+                                            teams.get(chosenTeamInd).getAthletes().get(i)
+                                                    .addTraining(training.get(tc4 - 1));
+                                        }
+                                    } else {
+                                        // user prompt for training
+                                        System.out.print("Enter Training Session Date:");
+                                        String sessionDate = sc.nextLine();
+
+                                        System.out.print("Enter Training Session Time in Hour:");
+                                        int sessionHour = sc.nextInt();
+
+                                        System.out.print("Enter Training Session Time in Minutes:");
+                                        int sessionMinutes = sc.nextInt();
+
+                                        System.out.print("Enter Training Session Duration Time:");
+                                        double sessionDuration = sc.nextDouble();
+                                        sc.nextLine(); // Consume newline character left by nextDouble()
+
+                                        System.out.println("Enter Training Session Description:");
+                                        String sessionDesc = sc.nextLine();
+
+                                        System.out.println("Enter Training Session Venue:");
+                                        String sessionVenue = sc.nextLine();
+
+                                        TrainingSession tTrain = new TrainingSession(sessionDate, sessionHour,
+                                                sessionMinutes, sessionDuration, sessionDesc, sessionVenue);
+                                        teams.get(chosenTeamInd).addTraining(tTrain);
+                                        for (int i = 0; i < teams.get(chosenTeamInd).getAthletes().size(); i++) {
+                                            teams.get(chosenTeamInd).getAthletes().get(i).addTraining(tTrain);
+                                        }
+                                        training.add(tTrain);
+                                    }
+                                    System.out.println("The Training Session is Succesfully Added.");
+                                    System.out.println("\n*** Training Session's List ***");
+                                    for (int i = 0; i < teams.get(chosenTeamInd).getTrain().size(); i++) {
+                                        System.out.println((i + 1) + ") "
+                                                + teams.get(chosenTeamInd).getTrain().get(i).displayDetails());
+                                        System.out.println();
+                                    }
+                                    break;
+                                case 4: // remove training
+                                    System.out.println("\n*** Training Session's List ***");
+                                    for (int i = 0; i < teams.get(chosenTeamInd).getTrain().size(); i++) {
+                                        System.out.println((i + 1) + ") "
+                                                + teams.get(chosenTeamInd).getTrain().get(i).displayDetails());
+                                        System.out.println();
+                                    }
+                                    System.out.print("Enter the index of training: ");
+                                    int trainInd = sc.nextInt();
+                                    sc.nextLine();
+                                    teams.get(chosenTeamInd)
+                                            .cancelTraining(teams.get(chosenTeamInd).getSession(trainInd - 1));
+                                    System.out.print("Your Choice of Training Session to be Removed.");
+                                    break;
+                                case 5: // add sport event
+                                    System.out.print(
+                                            "Do you wish to add an existing event or add a new event?: \n[1] Existing Event\n[2] New Event\n\nYour Choice: ");
+                                    int tc5 = sc.nextInt();
+                                    sc.nextLine();
+
+                                    if (tc5 == 1) {
+                                        System.out.println("\n*** Event Session's List ***");
+                                        for (int i = 0; i < events.size(); i++) {
+                                            System.out.println((i + 1) + ") " + events.get(i).toString());
+                                            System.out.println();
+                                        }
+                                        System.out.print("Your Choice of Event to be Added: ");
+                                        int tc6 = sc.nextInt();
+                                        sc.nextLine();
+                                        teams.get(chosenTeamInd).addEvent(events.get(tc6 - 1));
+                                    } else {
+                                        // user prompt for training
+                                        System.out.print("Enter Event Name: ");
+                                        String eName = sc.nextLine();
+
+                                        System.out.print("Enter Event Venue: ");
+                                        String eVenue = sc.nextLine();
+
+                                        System.out.print("Enter Event Date (DD-MM-YY): ");
+                                        String eDate = sc.nextLine();
+
+                                        System.out.print("Enter Event Time (HH.MM): ");
+                                        double eTime = sc.nextDouble();
+                                        sc.nextLine();
+
+                                        System.out.println("Enter Event's Sport Name: ");
+                                        String esName = sc.nextLine();
+
+                                        System.out.println("Enter Event's Sport Category: ");
+                                        String esCat = sc.nextLine();
+
+                                        Event newEv = new Event(eName, eVenue, eDate, eTime, esName, esCat);
+                                        teams.get(chosenTeamInd).addEvent(newEv);
+                                        events.add(newEv);
+                                    }
+                                    System.out.println("The Event is Succesfully Added.");
+                                    System.out.println("\n*** Event's List ***");
+                                    System.out.println(teams.get(chosenTeamInd).getEvent());
+                                    System.out.println();
+                                    break;
+                                case 6: // cancel sport event
+                                    System.out.println("\n*** Event's List ***");
+                                    System.out.println(teams.get(chosenTeamInd).getEvent());
+                                        System.out.println();
+                                    System.out.print("Your Choice of Event to be Removed: ");
+                                    int eInd = sc.nextInt();
+                                    sc.nextLine();
+                                    teams.get(chosenTeamInd)
+                                            .cancelEvent(teams.get(chosenTeamInd).getEvent().get(eInd - 1));
+                                    System.out.println("The Event is Succesfully Removed.");
+                                    break;
+                                case 7: // display details
+                                    teams.get(chosenTeamInd).displayDetails();
+                                    break;
+                                case 8:
+                                    break;
+                                default:
+                                    break;
+                            }
+                        } while (tc2 < 8);
                                     
