@@ -177,7 +177,7 @@ public class GroupProjectManager {
             System.out.println("\nEnter milestone description: ");
             String milestoneDescription = inp.nextLine();
 
-            System.out.println("\nEnter milestone deadline: ");
+            System.out.println("\nEnter milestone deadline (dd/mm/yyyy): ");
             String milestoneDeadline = inp.nextLine();
 
             Deadline deadlineMilestone = new Deadline(milestoneDeadline);
@@ -195,7 +195,7 @@ public class GroupProjectManager {
                 System.out.println("Enter task name: ");
                 String taskName = inp.nextLine();
 
-                System.out.println("\nEnter milestone deadline: ");
+                System.out.println("\nEnter task deadline (dd/mm/yyyy): ");
                 String taskDeadline = inp.nextLine();
 
                 Deadline deadlineTask = new Deadline(taskDeadline);
