@@ -242,11 +242,11 @@ class Input {
                     if (movieIndex >= 0 && movieIndex <= 9) {
                         validInput = true;
                     } else {
-                        System.out.println("Invalid input. Please enter a number between 1 and 10.");
+                        System.out.println("Invalid input. Please enter a number between 0 and 9.");
                         System.out.print("Enter movie index :");
                     }
                 } catch (InputMismatchException e) {
-                    System.out.println("Invalid input. Please enter a number between 1 and 10.");
+                    System.out.println("Invalid input. Please enter a number between 0 and 9.");
                     System.out.print("Enter movie index :");
                     in.next(); // Clear the invalid input
                 }
@@ -298,7 +298,23 @@ class Input {
         System.out.println(user.getName() + " has watched a movie.");
         this.listMovie(movie);
         System.out.print("Enter new watched movie index (example:1):");
-        int movieIndex = in.nextInt();
+        int movieIndex=0;
+        boolean validInput=false;
+            while (!validInput) {
+                try {
+                     movieIndex = in.nextInt();
+                    if (movieIndex >= 0 && movieIndex <= 9) {
+                        validInput = true;
+                    } else {
+                        System.out.println("Invalid input. Please enter a number between 0 and 9.");
+                        System.out.print("Enter movie index :");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a number between 0 and 9.");
+                    System.out.print("Enter movie index :");
+                    in.next(); // Clear the invalid input
+                }
+            }
         System.out.print("Do you want to rate the movie? (Y/N):");
         String select = in.next().toUpperCase();
 
