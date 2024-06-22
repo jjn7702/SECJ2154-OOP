@@ -355,4 +355,48 @@ public class SportsTeamManagement {
                                     break;
                             }
                         } while (ch4 < 8);
+                         } else {
+                        sc.nextLine();
+                        System.out.print("Enter Athlete's Name: "); 
+                        String athName = sc.nextLine();
+
+                        System.out.print("Enter Athlete's Gender: ");
+                        String athGender = sc.nextLine();
+
+                        System.out.print("Enter Athlete's Age: ");
+                        int athAge = sc.nextInt();
+
+                        Person p8 = new Person(athName, athGender, athAge);
+                        System.out.print("Does the athlete have a manager? (Y/N): ");
+                        String opt = sc.next();
+                        while (!opt.equals("Y") && !opt.equals("N")) {
+                            System.out.print("Does the athlete have a manager? (Y/N): ");
+                            opt = sc.next();
+                        }
+                        if (opt.equals("Y")) {
+                            System.out.println("\n** Managers List **");
+                            for (int i = 0; i < managers.size(); i++) {
+                                System.out.println((i + 1) + ") " + managers.get(i).getInfo());
+                                System.out.println();
+                            }
+                            System.out.print(
+                                    "Do you wish to add an existing manager or add a new manager?: \n[1] Add an Existing Manager\n[2] Add a New Manager\n\nYour Choice: ");
+                            int ch8 = sc.nextInt();
+                            if (ch8 == 1) {
+                                System.out.print("Your Choice of Manager to be Added: ");
+                                int ch9 = sc.nextInt();
+                                mChoice = managers.get(--ch9);
+                            } else {
+                                System.out.print("Enter Manager's Name: ");
+                                String mgName = sc.nextLine();
+
+                                System.out.print("Enter Manager's Gender: ");
+                                String mgGender = sc.nextLine();
+
+                                System.out.print("Enter Manager's Age: ");
+                                int mgAge = sc.nextInt();
+
+                                Person p9 = new Person(mgName, mgGender, mgAge);
+                                mChoice = new Manager(mgName, mgGender, mgAge);
+                            }
                                     
