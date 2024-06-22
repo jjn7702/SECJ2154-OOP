@@ -44,4 +44,5 @@ Develop an option to suggest stores where buyers can purchase the product, based
 
 ## 📂 Finding
 - ![Source code](https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/Group2/Source_Code)
-- ![Report]()
+- ![Report](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Project%20Report%20-%20Group2%20(Section%2004).pdf)
+- ![Slide](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Slide%20OOP%20Project.pdf)
