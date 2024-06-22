@@ -136,3 +136,159 @@ public class SportsTeamManagement {
                     System.out.print(
                             "Do you wish to manage an existing athlete or add a new athlete?: \n[1] Manage an Existing Athlete\n[2] Add a New Athlete\n\nYour Choice: ");
                     int ch2 = sc.nextInt();
+                    while (!(ch2 == 1 || ch2 == 2)) {
+                        System.out.print(
+                                "Do you wish to manage an existing athlete or add a new athlete?: \n [1] Manage an Existing Athlete\n[2] Add a New Athlete\n\nYour Choice: ");
+                        ch2 = sc.nextInt();
+                    }
+                    if (ch2 == 1) {
+                        System.out.print("Choose an Athlete to Manage: ");
+                        int ch3 = sc.nextInt();
+                        while (!(ch3 > 0 && ch3 < (athletes.size()))) {
+                            System.out.print("Choose an Athlete to Manage: ");
+                            ch3 = sc.nextInt();
+                        }
+                        Athlete at = athletes.get(--ch3);
+                        System.out.println(at.getInfo());
+                        int ch4 = 0;
+                        do {
+                            at.athleteMenu();
+                            ch4 = sc.nextInt();
+
+                            while (!(ch4 > 0 && ch4 < 9)) {
+                                System.out.println(at.getInfo());
+                                at.athleteMenu();
+                                ch4 = sc.nextInt();
+                            }
+                            switch (ch4) {
+                                case 1:
+                                    Manager m3 = null;
+                                    for (int i = 0; i < teams.size(); i++) {
+                                        teams.get(i).displayDetails();
+                                    }
+                                    System.out.print(
+                                            "Do you wish to add an existing team or add a new Team?\n[1] Add an Existing Team\n[2] Add a New Team\n\nYour Choice: ");
+                                    int ch11 = sc.nextInt();
+                                    while (!(ch11 == 1 || ch11 == 2)) {
+                                        System.out.print(
+                                                "Do you wish to add an existing team or add a new Team?\n[1] Add an Existing Team\n[2] Add a New Team\n\nYour Choice: ");
+                                        ch11 = sc.nextInt();
+                                    }
+                                    if (ch11 == 1) {
+                                        System.out.print("Your Choice of Team to be Added: ");
+                                        int ch12 = sc.nextInt();
+                                        while (!(ch12 > 0 && ch12 < teams.size())) {
+                                            System.out.print("Your Choice of Team to be Added: ");
+                                            ch12 = sc.nextInt();
+                                        }
+                                        at.joinTeam(teams.get(--ch12));
+                                    } else {
+                                        sc.nextLine();
+                                        System.out.print("Enter team's name: ");
+                                        String tName = sc.nextLine();
+                                        at.displaySports();
+                                        System.out.print("Which sport is this team under? ");
+                                        int ch15 = sc.nextInt();
+                                        while (!(ch15 > 0 && ch15 < at.getSportsNum())) {
+                                            System.out.print("Which sport is this team under? ");
+                                            ch15 = sc.nextInt();
+                                        }
+                                        Sport sp = at.getSport(--ch15);
+                                        System.out.println("Does the team have a manager? (Y/N): ");
+                                        String ans = sc.nextLine();
+                                        while (!(ans.equals("Y") || ans.equals("N"))) {
+                                            System.out.println("Does the team have a manager? (Y/N): ");
+                                            ans = sc.nextLine();
+                                        }
+                                        if (ans.equals("Y")) {
+                                            for (int i = 0; i < managers.size(); i++)
+                                                System.out.println((i + 1) + ") " + managers.get(i).getInfo());
+                                            System.out.print(
+                                                    "Do you wish to add an manager or add a new manager?\n[1] Add an Existing Manager\n[2] Add a New Manager\n\nYour Choice: ");
+                                            int ch13 = sc.nextInt();
+                                            while (ch13 != 1 || ch13 != 2) {
+                                                System.out.print(
+                                                        "Do you wish to add an manager or add a new manager?\n[1] Add an Existing Manager\n[2] Add a New Manager\n\nYour Choice: ");
+                                                ch13 = sc.nextInt();
+                                            }
+                                            if (ch13 == 1) {
+                                                System.out.print("Your Choice of Manager to be Added: ");
+                                                int ch14 = sc.nextInt();
+                                                while (!(ch14 > 0 && ch14 < managers.size())) {
+                                                    System.out.print("Your Choice of Manager to be Added: ");
+                                                    ch14 = sc.nextInt();
+                                                }
+                                                m3 = managers.get(--ch14);
+                                            } else {
+                                                System.out.print("Enter team's manager name: ");
+                                                String tMName = sc.nextLine();
+                                                System.out.print("Enter team's manager age: ");
+                                                int tMAge = sc.nextInt();
+                                                System.out.print("Enter team's manager gender: ");
+                                                String tMGender = sc.nextLine();
+                                                m3 = new Manager(tMName, tMGender, tMAge);
+                                            }
+                                        } else {
+                                            m3 = null;
+                                        }
+                                        managers.add(m3);
+                                        at.joinTeam(new Team(tName, sp.getSportName(), sp.getCategory(), m3));
+
+                                    }
+                                    System.out.println("The Team is Succesfully Assigned.");
+                                    break;
+                                case 2: 
+                                    at.removeTeam1();
+                                    System.out.println("The Team is Succesfully Removed.");
+                                    break;
+                                case 3: 
+                                    //at.displayEvents();
+                                    System.out.println("\n*** List of Training Sessions ***");
+                                    for(int i = 0; i < training.size(); i++) {
+                                        System.out.println( (i+1) + ") " + training.get(i).displayDetails());
+                                    }
+                                    System.out.print("Do you wish to add an existing training session or add a new training session? \n[1] Add an Existing Training Session\n[2] Add a New Training Session\n\nYour Choice: ");
+                                    int ch20 = sc.nextInt();
+                                    while (ch20!= 1 && ch20 != 2) {
+                                        System.out.print("Do you wish to add an existing training session or add a new training session? \n[1] Add an Existing training session\n[2] Add a New  training session\n\nYour Choice: ");
+                                        ch20 = sc.nextInt();
+                                    }
+                                    if (ch20 == 1) {
+                                        System.out.print("Your Choice of training session to be Added: ");
+                                        int ch21 = sc.nextInt();
+                                        while(!(ch21 > 0 && ch21 < (training.size()+1))) {
+                                            System.out.print("Your Choice of training session to be Added: ");
+                                            ch21= sc.nextInt();
+                                        }
+                                        TrainingSession t = training.get(--ch21);
+                                        at.addTraining(t);
+                                        System.out.println("The training session is Succesfully Added.");
+                                    }
+                                    else {
+                                        sc.nextLine();
+                                        System.out.print("Enter Training Session Date:");
+                                                String sessionDate = sc.nextLine();
+
+                                                System.out.print("Enter Training Session Time in Hour:");
+                                                int sessionHour = sc.nextInt();
+
+                                                System.out.print("Enter Training Session Time in Minutes:");
+                                                int sessionMinutes = sc.nextInt();
+
+                                                System.out.print("Enter Training Session Duration Time:");
+                                                double sessionDuration = sc.nextDouble();
+                                                sc.nextLine(); // Consume newline character left by nextDouble()
+
+                                                System.out.println("Enter Training Session Description:");
+                                                String sessionDesc = sc.nextLine();
+
+                                                System.out.println("Enter Training Session Venue:");
+                                                String sessionVenue = sc.nextLine();
+
+                                                TrainingSession tTrain = new TrainingSession(sessionDate, sessionHour,
+                                                        sessionMinutes, sessionDuration, sessionDesc, sessionVenue);
+                                                at.addTraining(tTrain);
+                                                System.out.println("The Straining session is Succesfully Added.");
+                                    }
+                                    break;
+                                    
