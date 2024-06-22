@@ -245,7 +245,7 @@ Character count:
 
 ## Findings <a name="findings"></a>📊
 
-- [Source Code]()
+- [Source Code](https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/JAVACADAVRA/source_code)
 - [Project Report]()
 - [Similarity Report]()
 - [Presentation Slide]()
