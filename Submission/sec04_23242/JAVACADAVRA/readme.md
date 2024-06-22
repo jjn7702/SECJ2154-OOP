@@ -84,6 +84,152 @@ Object
 
 ## User Manual/Guide <a name="usermanual"></a> 📝
 
+### Main Menu (3 Options)
+#### 1. Manage Athlete(s)
+  
+  	-----Main Menu-----
+   	Welcome to Our Sports Team Management System
+	[1] Manage Athlete(s)
+	[2] Manage Team(s)   
+	[3] Exit
+
+	Your Choice:  1
+
+#### 2. Manage Team(s)
+	Welcome to Our Sports Team Management System
+  
+  	-----Main Menu-----  
+	[1] Manage Athlete(s)
+	[2] Manage Team(s)   
+	[3] Exit
+
+	Your Choice:  2
+
+
+#### 3. Exit
+	Welcome to Our Sports Team Management System
+	
+	-----Main Menu-----  
+	[1] Manage Athlete(s)
+	[2] Manage Team(s)   
+	[3] Exit
+	Your Choice:  3
+
+
+### Main Prompt (2 Options)
+#### 1. Manage an Existing Athlete
+	Do you wish to manage an existing athlete or add a new athlete?:
+	[1] Manage an Existing Athlete
+	[2] Add a New Athlete
+	
+	Your Choice: 1
+	Choose an Athlete to Manage: 1
+
+#### 2. Add a New Athlete
+	Do you wish to manage an existing athlete or add a new athlete?:
+	[1] Manage an Existing Athlete
+	[2] Add a New Athlete
+	
+	Your Choice: 2
+	
+	Output: It will ask user to input for athlete’s details
+
+### Athlete Management Options
+#### 1. Recruit Athlete into a Team
+	Do you wish to add an existing team or add a new Team?
+	[1] Add an Existing Team
+	[2] Add a New Team
+	
+	1.  Add an Existing Team
+		- Insert index of team from existing team list to be assigned to the athlete
+		
+	2. Add a New Team
+		- Insert new team’s details in user prompts
+
+#### 2. Remove Athlete from an Assigned Team
+	- Remove the selected athlete from assigned team
+
+#### 3. Add a Training Session
+	Do you wish to add an existing training session or add a new training session?
+	[1] Add an Existing Training Session
+	[2] Add a New Training Session
+	
+	1,  Add an Existing Training Session
+		- Insert index of training session from existing training session list to be assigned to the athlete
+   
+	2. Add a New Training Session
+		- Insert new training session’s details in user prompts
+
+#### 4. Remove a Training Session
+	- Remove the selected training session from the athlete
+
+#### 5. Add a  Sports Event
+	Do you wish to add an existing Event or add a new Event?
+	[1] Add an Existing Event
+	[2] Add a New Event
+	
+	1. Add an Existing Event
+		- Insert index of event from existing event list to be assigned to the athlete
+		
+	2. Add a New Event
+		- Insert new event’s details in user prompts
+
+#### 6. Cancel a Sports Event
+	- Remove the selected event from the athlete
+
+#### 7. Display Athlete Details
+	- Display all details of the athlete
+
+#### 8. Return to Main Menu
+   
+### Team Management Options
+#### 1. Recruit an Athlete into the Team
+	Do you wish to add an existing Athelete or add a new Athlete?
+	[1] Add an Existing Athlete
+	[2] Add a New Athlete
+
+	1.  Add an Existing Athlete
+    		- Insert index of athlete from existing team list to be assigned to the team
+	
+	2. Add a New Athlete
+		- Insert new athlete’s details in user prompts
+
+#### 2. Remove Athlete from an the Team
+	- Remove the selected athlete from assigned team
+
+#### 3. Add a Training Session
+	Do you wish to add an existing training session or add a new training session?
+	[1] Add an Existing Training Session
+	[2] Add a New Training Session
+	
+	1.  Add an Existing Training Session
+		- Insert index of training session from existing training session list to be assigned to the team
+		
+	2. Add a New Training Session
+		- Insert new training session’s details in user prompts
+
+#### 4. Remove a Training Session
+	- Remove the selected training session from the team
+
+#### 5. Add a  Sports Event
+	Do you wish to add an existing Event or add a new Event?
+	[1] Add an Existing Event
+	[2] Add a New Event
+	
+	1.  Add an Existing Event
+		- Insert index of event from existing event list to be assigned to the team
+		
+	2. Add a New Event
+		- Insert new event’s details in user prompts
+#### 6. Cancel a Sports Event
+	- Remove the selected event from the team
+
+#### 7. Display Team Details
+	- Display all details of the team
+
+#### 8. Return to Main Menu
+
+
 ## Similarity Report <a name="report"></a> 🔔
 Submission date: 
 
