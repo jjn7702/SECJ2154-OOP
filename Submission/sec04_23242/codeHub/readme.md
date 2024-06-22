@@ -31,17 +31,17 @@ Our project, the Finance Manager Project, aimed to assist users in efficiently m
 <img width="7648" alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/images/class_diagram.png">
 
 # OO Concept <a name="concept"></a> :heavy_exclamation_mark:
-### Encapsulation:
+#### Encapsulation:
 - The Account class encapsulates account details like name, id and balance and provides public methods like getBalance(), deposit() and withdraw().
-### Inheritance:
+#### Inheritance:
 - The ShoppingCategory and FoodCategory class is derived from the Category class.
-### Association:
+#### Association:
 - The Account class has zero-to-many relationship with the class Budget.
-### Aggregation:
+#### Aggregation:
 - The Bank class has an aggregation relationship with class Account, as there is an Account object inside the Bank class.
-### Composition
+#### Composition
 - The Account class has a composition relationship with class Transaction, as there is a Transaction method inside the Account class.
-### Polymorphism
+#### Polymorphism
 - The ShoppingCategory, FoodCategory, Deposit and OtherCategory class override the method getCategoryType() from the Category class to behave differently in respective classes.
 
 
