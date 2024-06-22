@@ -69,3 +69,63 @@ public class SportsTeamManagement {
         Person p7 = new Person("En. Abduallah Samad", "Man", 45);
         Manager m1 = new Manager(p7.getName(), p7.getGender(), p7.getAge());
         Manager mChoice;
+
+        managers.add(m1);
+        Athlete a1 = new Athlete(p1.getName(), p1.getGender(), p1.getAge(), "Football", "U23", m1);
+        Athlete a2 = new Athlete(p2.getName(), p2.getGender(), p2.getAge(), "Football", "U23", m1);
+        Athlete a3 = new Athlete(p3.getName(), p3.getGender(), p3.getAge(), "Netball", "U18", null);
+        Athlete a4 = new Athlete(p4.getName(), p4.getGender(), p4.getAge(), "Netball", "U18", null);
+
+        athletes.add(a1);
+        athletes.add(a2);
+        athletes.add(a3);
+        athletes.add(a4);
+
+        // Sport
+        Sport s1 = new Sport("Football", "U23");
+        Sport s2 = new Sport("Netball", "U21");
+        Sport s3 = new Sport("Half-Marathon", "OPEN");
+
+        sports.add(s1);
+        sports.add(s2);
+        sports.add(s3);
+
+        // Event
+        Event e1 = new Event("SUKIPT", "Stadium Azman Hashim", "12-07-2024", 8.00, s1.getSportName(), s1.getCategory());
+        Event e2 = new Event("INTER-NETBALL", "Sports Hall 2", "15-08-2024", 10.00, s2.getSportName(),
+                s2.getCategory());
+        Event e3 = new Event("Run For Unity", "Stadium Azman Hashim", "10-08-2024", 8.00, s3.getSportName(),
+                s3.getCategory());
+
+        events.add(e1);
+        events.add(e2);
+        events.add(e3);
+
+        a1.addEvent(e1);
+        a2.addEvent(e1);
+        a3.addEvent(e2);
+        a4.addEvent(e2);
+
+        // Team
+        Team t1 = new Team("Team A", "Football", "U23", m1);
+        Team t2 = new Team("Team B", "Netball", "U18", null);
+        teams.add(t1);
+        teams.add(t2);
+
+        // Training Sessions
+        TrainingSession ts1 = new TrainingSession("28-06-2024", 10, 0, 90.0, "Morning Training", "Padang Kilat UTM");
+        TrainingSession ts2 = new TrainingSession("29-06-2024", 16, 30, 120.0, "Afternoon Training", "Padang Ragbi UTM");
+        training.add(ts1);
+        training.add(ts2);
+
+        System.out.println("Welcome to Our Sports Team Management System");
+        int ch1;
+        do {
+            displayMenu();
+            ch1 = sc.nextInt();
+
+            while (ch1 < 1 || ch1 > 3) {
+                System.out.println("Invalid choice. Please select an option between 1 and 3.");
+                displayMenu();
+                ch1 = sc.nextInt();
+            }
