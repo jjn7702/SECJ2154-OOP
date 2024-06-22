@@ -1,31 +1,38 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 interface User{
 public String getMatricID();
 
 }
 
+// UG class uses inheritance to implement User interface
+
 class UG implements User{ 
 
-private String MatricID;
+private String matricID;
 
-public UG(String MatricID){
-    this.MatricID = MatricID;
+public UG(String matricID){
+    this.matricID = matricID;
 }
 
     public String getMatricID(){
-        return MatricID;
+        return matricID;
     }
 }
 
+// PG class uses inheritance to implement User interface
 
 class PG implements User{
 
-private String MatricID;
+private String matricID;
 
-public PG(String MatricID){
-    this.MatricID = MatricID;
+public PG(String matricID){
+    this.matricID = matricID;
 }
     public String getMatricID(){
-        return MatricID;
+        return matricID;
     }
 }
   
@@ -192,9 +199,6 @@ class RecommendationEngine{
 
 //class BookRecommendationSystem here aka public void static main here
 
-
-
-  
 class BookRecommendationSystem {
     private Admin admin;
     private Library library;
