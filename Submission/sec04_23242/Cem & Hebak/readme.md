@@ -47,5 +47,5 @@ The purpose of the Umrah Hajj system is to make the physical package purchase pr
 
 ## 📂 Finding
 - ![Source code]([https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/Group2/Source_Code](https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/Cem%20%26%20Hebak/Source%20FIle))
-- ![Report](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Project%20Report%20-%20Group2%20(Section%2004).pdf)
-- ![Slide](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Slide%20OOP%20Project.pdf)
+- ![Report](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Cem%20%26%20Hebak/Object%20Oriented%20Programming%20Group%20Cem%20%26%20Hebak.pdf)
+- ![Slide](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Cem%20%26%20Hebak/Slide%20OOP%20Cem%20%26%20Hebak.pdf)
