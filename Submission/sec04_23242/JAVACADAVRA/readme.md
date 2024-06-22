@@ -267,6 +267,6 @@ Character count:
 - [Source Code](https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/JAVACADAVRA/source_code)
 - [Project Report]()
 - [Similarity Report]()
-- [Presentation Slide]()
+- [Presentation Slide](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/JAVACADAVRA/Sport%20Management%20System%20-%20Javadavra.pptx)
 
 
