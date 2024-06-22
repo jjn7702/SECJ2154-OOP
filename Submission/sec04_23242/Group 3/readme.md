@@ -126,6 +126,62 @@ Choose an option:
 
 🍏🥦🥑
 
+## 🥗 𝐎𝐎𝐏 𝐂𝐨𝐧𝐜𝐞𝐩𝐭 🥗
+
+### 🖇️Association
+~~~
+public class NutritionTracker {
+    private ArrayList<Meal> meals;
+
+    public NutritionTracker() {
+        this.meals = new ArrayList<>();
+    }
+
+    public void addMeal(Meal meal) {
+        meals.add(meal);
+    }
+~~~
+~~~
+public class Meal {
+    private String type;
+    private String date;
+    private ArrayList<FoodItem> foodItems;
+
+    public Meal(String type, String date) {
+        this.type = type;
+        this.date = date;
+        this.foodItems = new ArrayList<>();
+    }
+
+    public void addFoodItem(FoodItem item) {
+        foodItems.add(item);
+    }
+~~~
+The above code show the unidirectional association between the Meal class and NutritionTracker class. This can be proven by the instance variables of Meal datatype objects as well as methods to add Meal objects in NutritionTracker. However, in the Meal class, there is none of the instance variables or methods about the NutritionTracker class. Also, the NutritionTracker class is an enclosing class whereas the Meal class is an enclosed class. The enclosing class exclusively owns enclosed classes. That means the existence of objects are independent where when a NutritionTracker object is destroyed, the Meal objects owned by this NutritionTracker object will not be destroyed together.
+
+🥦🥦🥦
+
+### 📦Composition
+~~~
+public class DatabaseManager {
+    private ArrayList<Admin> admins;
+    private ArrayList<RegularUser> regularUsers;
+    private static final String ADMIN_FILE = "C:\\Users\\kaixu\\Desktop\\source_code\\admins.txt";
+    private static final String REGULAR_USER_FILE = "C:\\Users\\kaixu\\Desktop\\source_code\\regular_users.txt";
+    private static final String MEAL_FILE = "C:\\Users\\kaixu\\Desktop\\source_code\\meals.txt";
+
+    public DatabaseManager() throws IOException {
+        this.admins = new ArrayList<>();
+        this.regularUsers = new ArrayList<>();
+        loadAdmins();
+        loadRegularUsers();
+        loadMeals();
+    }
+~~~
+The above code shows the composition between the DatabaseManager class with Admin class and the RegularUser class. In this case, the DatabaseManager class is an enclosing class whereas the Admin class and RegularUser class are enclosed classes. The enclosed classes are the parts of the enclosed class. That means the existence of objects is dependent where when a DatabaseManager object is destroyed, the Admin objects and RegularUsers objects owned by this DatabaseManager object will be destroyed too. 
+
+🥦🥦🥦
+
 ## 🥗 𝐅𝐥𝐨𝐰𝐂𝐡𝐚𝐫𝐭 🥗
 <img src="image/flow_pg1.jpg"/>
 <img src="image/OOP%20Project-Page-3_page-0001.jpg"/>
