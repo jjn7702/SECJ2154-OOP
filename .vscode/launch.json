@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ScholarshipApp",
+      "request": "launch",
+      "mainClass": "ScholarshipApp",
+      "projectName": "SECJ2154-OOP_f3b3061c"
+    },
+    {
+      "type": "java",
+      "name": "cuba",
+      "request": "launch",
+      "mainClass": "cuba",
+      "projectName": "SECJ2154-OOP_f3b3061c"
+    },
+    {
+      "type": "java",
       "name": "cuba",
       "request": "launch",
       "mainClass": "cuba",
