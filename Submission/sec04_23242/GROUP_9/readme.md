@@ -2,7 +2,8 @@
 
 Hello,Welcome to BOOKBYTES ! A trusted book recommendation system.
 
-![Logo](https://github.com/jjn7702/SECJ2154-OOP/assets/172096938/bf5bec5d-86fd-475e-8470-c73f19cc31b5)
+![Logo](https://github.com/jjn7702/SECJ2154-OOP/assets/172096938/5405eaf4-01a8-431e-9da7-e559dd03e1fe)
+
 BOOKBYTES is your trusted book recommendation system that enhances your reading journey. Our platform is designed to provide personalized book recommendations tailored to your unique preferences, helping you discover books you'll love and increasing your engagement and satisfaction.
 
 ![Picture1](https://github.com/jjn7702/SECJ2154-OOP/assets/172096938/81ed4bb3-c51a-48f0-b642-0dc1e7c582f6)
