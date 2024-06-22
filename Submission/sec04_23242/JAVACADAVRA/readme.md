@@ -256,7 +256,7 @@ Object
 
 - [Source Code](https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/JAVACADAVRA/source_code)
 - [Project Report](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/JAVACADAVRA/Sports%20Team%20Management%20System%20(javacadavra).pdf)
-- [Similarity Report]()
+- [Similarity Report](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/JAVACADAVRA/receipt_Sports%20Team%20Management%20System%20(javacadavra).pdf.pdf)
 - [Presentation Slide](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/JAVACADAVRA/Sport%20Management%20System%20-%20Javadavra.pptx)
 
 
