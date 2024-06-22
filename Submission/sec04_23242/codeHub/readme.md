@@ -6,6 +6,10 @@
 💸 Personal Finance Manager 💸
 </h1>
 
+<p align="center">
+  <img src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/images/CodeHubLogo.png" alt="Code Hub Logo"/>
+</p>
+
 # Appendix :red_circle:
 - [Overview of The Project](#description)
 - [Analysis and Design](#analysis)
