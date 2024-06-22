@@ -18,10 +18,6 @@ public class User {
         this.add = add;
     }
 
-    public void setAdd(Address add) {
-        this.add = add;
-    }
-
     public void setfName(String fName) {
         this.fName = fName;
     }

@@ -31,12 +31,6 @@ public class Administrator extends User {
         position = j;
     }
 
-    /*
-     * public void setScholarshipAdmin(Scholarship sd){
-     * //scholar = sd ;
-     * }
-     */
-
     public String getusername() {
         return username;
     }
@@ -62,10 +56,6 @@ public class Administrator extends User {
     }
     public ArrayList<Student> getStudentRej() {
         return studrej;
-    }
-
-    public Student getStudent(int i) {
-        return stud.get(i);
     }
 
     @Override

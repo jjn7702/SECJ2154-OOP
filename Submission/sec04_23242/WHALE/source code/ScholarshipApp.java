@@ -456,7 +456,7 @@ public class ScholarshipApp {
         return null;
     }
 
-    private static Scholarship applyFromDisplayScholarship(Student student) {
+    private static void applyFromDisplayScholarship(Student student) {
         ArrayList<meritBased> Merits = new ArrayList<>();
         ArrayList<needBased> Needs = new ArrayList<>();
 
@@ -519,10 +519,10 @@ public class ScholarshipApp {
                     // ad.setScholarshipAdmin(Merits.get(scholarshipChoice)) ;
                     // applyScholarship(student, sid);
                     System.out.println("Application successful.");
-                    return Merits.get(scholarshipChoice);
+                    //return Merits.get(scholarshipChoice);
                 } else {
                     System.out.println("Application cancelled.");
-                    return null;
+                    //return null;
                 }
             } else if (choice == 2) {
                 File file = new File("Submission\\sec04_23242\\WHALE\\source code\\needScholarshp.txt");
@@ -563,13 +563,13 @@ public class ScholarshipApp {
                 if (response == 'Y') {
                     student.RegisterScholarship(Needs.get(scholarshipChoice));
                     System.out.println("Application successful.");
-                    return Needs.get(scholarshipChoice);
+                    //return Needs.get(scholarshipChoice);
                 } else {
                     System.out.println("Application cancelled.");
                 }
             } else {
                 System.out.println("Invalid choice.");
-                return null;
+                //return null;
             }
 
         } catch (FileNotFoundException e) {
@@ -577,7 +577,7 @@ public class ScholarshipApp {
         } catch (NumberFormatException e) {
             System.out.println("Invalid format in scholarship file.");
         }
-        return null;
+        //return null;
     }
 
     public static StudentHistory insertStudentHistory() {
