@@ -69,8 +69,6 @@ Object
 #### Class Diagram
 ![1]()
 
-## Design Description <a name="designdescription"></a> 💹
-
 
 
 ## User Manual/Guide <a name="usermanual"></a> 📝
