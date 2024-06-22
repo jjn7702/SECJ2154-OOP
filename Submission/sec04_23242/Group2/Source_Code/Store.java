@@ -49,7 +49,7 @@ public class Store {
 
     public void displayStore() {
         int n = 0;
-        System.out.printf("%-5s%-15s%-10s\n", "No.", "Item", "Category");
+        System.out.printf("\n%-5s%-15s%-10s\n", "No.", "Item", "Category");
         for (Product p : products) {
             System.out.printf("%-5d%-15s%-10s\n", (n + 1), p.getName(), p.getCategory());
             n++;
