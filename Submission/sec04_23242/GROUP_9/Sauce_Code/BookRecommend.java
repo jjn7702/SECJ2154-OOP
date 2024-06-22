@@ -215,7 +215,7 @@ class BookRecommendationSystem {
     public void start() {
         while (true) {
             try {
-                System.out.println("Welcome to the Main Menu of the BookBytes Book Recommended System\n");
+                System.out.println("Welcome to the Main Menu of the BOOKBYTES Book Recommended System\n");
                 System.out.println("Please enter a corresponding number based on the options below to navigate the menu:\n");
                 System.out.println("1. Undergraduate");
                 System.out.println("2. Postgraduate");
