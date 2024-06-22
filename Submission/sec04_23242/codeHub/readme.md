@@ -5,8 +5,8 @@
 ## Appendix :red_circle:
 
 - [Overview of The Project](#description)
-- [Objective](#objective)
 - [Synopsis](#synopsis)
+- [Objective](#objective)
 - [Problem Analysis](#problemanalysis)
 - [Design](#design)
 - [Concept](#concept)
@@ -14,7 +14,8 @@
 - [Similarity report](#report)
 - [Findings](#findings)
 
-## Description <a name="description"></a> 📝
+# Project Description <a name="description"></a> :hash:
+## Synopsis <a name="synopsis"></a> :book:
 Our project, the Finance Manager Project, aimed to assist users in efficiently managing their personal accounts. The system has features for tracking transactions, savings, bank accounts, budgeting, and report generation. Multiple accounts can be created and managed, spending can be tracked, budget limitations can be set, and savings targets can be kept an eye on. The method facilitates the division of transactions into distinct categories, such as groceries and shopping, which enables thorough financial analysis. The system's design makes it easy for users to navigate between its various functionalities, making it user-friendly.
 
 ## Objective <a name="objective"></a> 📝
