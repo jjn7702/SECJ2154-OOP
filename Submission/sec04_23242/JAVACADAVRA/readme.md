@@ -115,7 +115,7 @@ Object
 	[3] Exit
 	Your Choice:  3
 
-
+### Athlete Management 
 ### Main Prompt (2 Options)
 #### 1. Manage an Existing Athlete
 	Do you wish to manage an existing athlete or add a new athlete?:
@@ -133,8 +133,8 @@ Object
 	Your Choice: 2
 	
 	Output: It will ask user to input for athlete’s details
-
-### Athlete Management Options
+ 
+### Athlete Options
 #### 1. Recruit Athlete into a Team
 	Do you wish to add an existing team or add a new Team?
 	[1] Add an Existing Team
@@ -182,7 +182,26 @@ Object
 
 #### 8. Return to Main Menu
    
-### Team Management Options
+### Team Management
+### Main Prompt (2 Options)
+#### 1. Manage an Existing Team
+	Do you wish to manage an existing team or add a new team?:
+	[1] Manage an Existing Team
+	[2] Add a New Team
+	
+	Your Choice: 1
+	Choose a Team to Manage: 1
+
+#### 2. Add a New Team
+	Do you wish to manage an existing team or add a new team?:
+	[1] Manage an Existing Team
+	[2] Add a New Team
+	
+	Your Choice: 2
+	
+	Output: It will ask user to input for athlete’s details
+ 
+### Team Options
 #### 1. Recruit an Athlete into the Team
 	Do you wish to add an existing Athelete or add a new Athlete?
 	[1] Add an Existing Athlete
