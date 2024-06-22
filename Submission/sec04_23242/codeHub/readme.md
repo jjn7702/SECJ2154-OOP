@@ -2,6 +2,10 @@
 💸 Personal Finance Manager 💸
 </h1>
 
+![Project Status](https://img.shields.io/badge/status-completed-brightgreen)
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FSECJ2154-OOP%2FSubmission%2Fsec04_23242%2FcodeHub&labelColor=%23697689&countColor=%23555555&style=plastic)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2FSECJ2154-OOP%2FSubmission%2Fsec04_23242%2FcodeHub)
+![](https://hit.yhype.me/github/profile?user_id=81284918&path=https%3A%2F%2Fgithub.com%2FSECJ2154-OOP%2FSubmission%2Fsec04_23242%2FcodeHub)
+
 # Appendix :red_circle:
 - [Overview of The Project](#description)
 - [Analysis and Design](#analysis)
@@ -61,8 +65,3 @@ Click the link here to view the full version:
 - [Source Code](https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/codeHub/source-code)
 - [Project Report](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/files/CodeHub_-_Project_Report_.pdf)
 - [Presentation Slide]()
-
-
-
-[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FSECJ2154-OOP%2FSubmission%2Fsec04_23242%2FcodeHub&labelColor=%23697689&countColor=%23555555&style=plastic)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2FSECJ2154-OOP%2FSubmission%2Fsec04_23242%2FcodeHub)
-![](https://hit.yhype.me/github/profile?user_id=81284918&path=https%3A%2F%2Fgithub.com%2FSECJ2154-OOP%2FSubmission%2Fsec04_23242%2FcodeHub)
