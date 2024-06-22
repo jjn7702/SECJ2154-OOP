@@ -78,9 +78,10 @@ public class ScholarshipApp {
                             else if (openFileRej(stu.getfName())) {
                                 System.out.println("Your application is not approved.");
 
-                            } else if (openFileRej(stu.getfName())) {
-                                System.out.println("Your application has approved. We will display the information");
+                            } else if (openFileApro(stu.getfName())) {
+                                System.out.println("Your application has approved.");
                                 StudList.get(i).displayAllDetails();
+
                             } else {
                                 System.out.println("Your application is being approved.");
                             }
@@ -383,14 +384,15 @@ public class ScholarshipApp {
 
                 if (rs == 'Y') {
 
-                    for (int i = 0; i < so.size(); i++) {
+                    /*for (int i = 0; i < so.size(); i++) {
                         if (so.get(i).getEmail().equals(email)) {
                             return so.get(i);
                         } else {
                             i--;
                         }
-                    }
+                    }*/
 
+                    return new Student(fname, lname, age, email, null, matricsNu, matricsNu, rs, null, null) ;
                     /*
                      * for (Student u : so) {
                      * if (u.getEmail().equals(email)) {
@@ -711,7 +713,7 @@ public class ScholarshipApp {
 
     private static boolean openFileRej(String fy){
         try {
-            Scanner sc = new Scanner(new File("ApprovedStudent.txt")) ;
+            Scanner sc = new Scanner(new File("RejectedStudent.txt")) ;
             while(sc.hasNextLine()){
                 String op = sc.nextLine() ;
 
