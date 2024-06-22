@@ -1,5 +1,7 @@
-![image](https://github.com/jjn7702/SECJ2154-OOP/assets/147373045/e0d2d7bf-f139-4d4c-8686-921b2bda2484)🕋 Hajj and Umrah Booking System 🕌
-> Perform ibadah have never been easier
+🕋 Hajj and Umrah Booking System 🕌
+> “Sesungguhnya diterima amal perbuatan itu bergantung pada niatnya, dan sesungguhnya bagi setiap orang akan mendapat apa yang diniatkannya. Sesiapa yang berhijrah kerana Allah dan Rasul-Nya, dia akan sampai kepada Allah dan Rasul-Nya. Sesiapa yang berhijrah menuju dunia yang akan diperolehnya atau menuju wanita yang hendak dinikahinya, dia akan mendapatkan apa yang diniatkannya.”
+
+(Riwayat al-Bukhari no. 1, Muslim no. 1907)
 
 <img alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Cem%20%26%20Hebak/Mantap.gif">
 
