@@ -1,7 +1,7 @@
-![image](https://github.com/jjn7702/SECJ2154-OOP/assets/147373045/72542a2b-6ef3-4812-b16e-c21a66a03b9b)# 🕋 Hajj and Umrah Booking System 🕌
+![image](https://github.com/jjn7702/SECJ2154-OOP/assets/147373045/e0d2d7bf-f139-4d4c-8686-921b2bda2484)🕋 Hajj and Umrah Booking System 🕌
 > Perform ibadah have never been easier
 
-<img alt="Section 1" src="[https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Images/3PJuT8.gif](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Cem%20%26%20Hebak/Mantap.gif)">
+<img alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Cem%20%26%20Hebak/Mantap.gif">
 
 ## Table of Contents
 [Synopsis](#synopsis)           
@@ -37,11 +37,11 @@ The purpose of the Umrah Hajj system is to make the physical package purchase pr
 - [x] Exception Handling
 
 
-## Flowchart 
-![](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Images/WorkflowOOP.png)
+## Flowchart Main Only
+![](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Cem%20%26%20Hebak/Class%20Diagram-FlowChart%20Main.drawio.png)
 
 ## Class Diagram
-![](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Images/OOP%20UML%20Diagram.jpg)
+![](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Cem%20%26%20Hebak/Class%20Diagram-V2.drawio.png)
 
 ## 📂 Finding
 - ![Source code]([https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/Group2/Source_Code](https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/Cem%20%26%20Hebak/Source%20FIle))
