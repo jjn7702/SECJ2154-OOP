@@ -82,7 +82,7 @@ public class Doctor extends User implements userDisplay {
         System.out.printf("%29s\n", "UPDATE CREDENTIALS");
         System.out.println("========================================");
         System.out.print("Please enter your credentials: \nName: ");
-        inp.nextLine();
+        // inp.nextLine();
 
         setName(inp.nextLine());
         System.out.print("Contact : ");
@@ -96,8 +96,6 @@ public class Doctor extends User implements userDisplay {
         hospital = inp.nextLine();
         System.out.print("Position: ");
         position = inp.nextLine();
-        System.out.print("Doctor Number: ");
-        doctor_Number = inp.nextLine();
         // updated info
         display();
 
@@ -109,11 +107,12 @@ public class Doctor extends User implements userDisplay {
 
         do {
             System.out.println("\n=============================================");
-            System.out.printf("%s %10s\n", "MEDICAL APPLICATION" ,umat.getName().toUpperCase());
+            System.out.printf("%s %10s\n", "MEDICAL APPLICATION", umat.getName().toUpperCase());
             System.out.println("=============================================");
             System.out.print(
                     "[1] Check Medical Application\n[2] Medical Application Approval\n[3] State Disease\n[4] Prescribe Medication\n[5] Exit\nYour Choice: ");
             choice = inp.nextInt();
+
             switch (choice) {
                 case 1:
                     // display jemaah info
@@ -164,8 +163,8 @@ public class Doctor extends User implements userDisplay {
                     break;
 
             }
-
         } while (choice != 5);
+        inp.nextLine();
 
     }
 }
