@@ -8,7 +8,6 @@
 - [Analysis and Design](#analysis)
 - [OO Concept](#concept)
 - [User Manual/Guide](#usermanual)
-- [Similarity report](#report)
 - [Findings](#findings)
 
 # Project Description <a name="description"></a> :hash:
