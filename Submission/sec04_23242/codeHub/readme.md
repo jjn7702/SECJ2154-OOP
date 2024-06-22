@@ -43,10 +43,17 @@ Our project, the Finance Manager Project, aimed to assist users in efficiently m
 #### Polymorphism
 - The ShoppingCategory, FoodCategory, Deposit and OtherCategory class override the method getCategoryType() from the Category class to behave differently in respective classes.
 
+# User Manual <a name="usermanual"></a> 
+### View Full User Manual Book Here 🔻
+Click the link here to view the full version:
+[User Manual](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/files/CodeHub%20-%20user%20Manual.pdf)
+
+<img src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/images/CodeHub%20-%20user%20Manual-1-1.png">
+
 # Similarity Report <a name="similarity"></a> :white_check_mark:
 ### View the PDF 🔻
-Click the link here to view the PDF:
-[Open PDF](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/files/CodeHub%20-%20Similarity%20Report_compressed.pdf)
+Click the link here to view the full version:
+[Similarity Report](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/files/CodeHub%20-%20Similarity%20Report_compressed.pdf)
 
 <img src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/images/similarity_AI_report-1.png">
 
