@@ -8,7 +8,7 @@
 - [Synopsis](#synopsis)
 - [Objective](#objective)
 - [Analysis and Design](#analysis)
-- [uml](#design)
+- [UML Diagram](#uml)
 - [Concept](#concept)
 - [User Manual/Guide](#usermanual)
 - [Similarity report](#report)
