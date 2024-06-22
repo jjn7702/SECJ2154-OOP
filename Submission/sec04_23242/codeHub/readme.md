@@ -7,8 +7,8 @@
 - [Overview of The Project](#description)
 - [Synopsis](#synopsis)
 - [Objective](#objective)
-- [Problem Analysis](#problemanalysis)
-- [Design](#design)
+- [Analysis and Design](#analysis)
+- [uml](#design)
 - [Concept](#concept)
 - [User Manual/Guide](#usermanual)
 - [Similarity report](#report)
@@ -24,10 +24,10 @@ Our project, the Finance Manager Project, aimed to assist users in efficiently m
 * Setting and monitoring budget
 * Create savings goals
 * Analyze financial data based on generated reports
-* Protected users accounts data
+* Protected user accounts data
 
-
-## Project design <a name="design"></a>📚
+# Analysis and Design <a name="analysis"></a> :clipboard:
+### UML Diagram <a name="uml"></a> 📚
 <img width="7648" alt="Section 1" src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/images/class_diagram.png">
 
 ## OOP Concept <a name="concept"></a>
