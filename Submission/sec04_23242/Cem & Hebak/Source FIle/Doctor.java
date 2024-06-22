@@ -82,6 +82,7 @@ public class Doctor extends User implements userDisplay {
         System.out.printf("%29s\n", "UPDATE CREDENTIALS");
         System.out.println("========================================");
         System.out.print("Please enter your credentials: \nName: ");
+        inp.nextLine();
 
         setName(inp.nextLine());
         System.out.print("Contact : ");
