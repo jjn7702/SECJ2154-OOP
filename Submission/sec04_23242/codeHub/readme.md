@@ -2,7 +2,7 @@
 💸 Personal Finance Manager 💸
 </h1>
 
-## Appendix :red_circle:
+# Appendix :red_circle:
 
 - [Overview of The Project](#description)
 - [Analysis and Design](#analysis)
