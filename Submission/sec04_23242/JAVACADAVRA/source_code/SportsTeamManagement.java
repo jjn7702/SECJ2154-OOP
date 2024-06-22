@@ -629,4 +629,67 @@ public class SportsTeamManagement {
                                     break;
                             }
                         } while (tc2 < 8);
+                        } else {
+                        // user prompt new Team
+                        System.out.print("Enter Team's Name: ");
+                        String tName = sc.nextLine();
+
+                        System.out.print("Enter Sport's Name: ");
+                        String tsName = sc.nextLine();
+
+                        System.out.print("Enter Sport's Category: ");
+                        String tsCat = sc.nextLine();
+
+                        System.out.print("Does the team have a manager? (Y/N): ");
+                        String t10 = sc.next();
+                        Manager ManagerT = null;
+                        while (!t10.equals("Y") && !t10.equals("N")) {
+                            System.out.print("Does the team have a manager? (Y/N): ");
+                            t10 = sc.next();
+                        }
+                        if (t10.equals("Y")) {
+                            System.out.print(
+                                    "Do you wish to add an existing manager or add a new manager?: \n[1] Add an Existing Manager\n[2] Add a New Manager\n\nYour Choice: ");
+                            int t11 = sc.nextInt();
+                            if (t11 == 1) {
+                                System.out.println("\n*** Managers List ***");
+                                for (int i = 0; i < managers.size(); i++) {
+                                    System.out.println((i + 1) + ") " + managers.get(i).getName());
+                                    System.out.println();
+                                }
+                                System.out.print("Your Choice of Manager to be Added: ");
+                                int t12 = sc.nextInt();
+                                ManagerT = managers.get(--t12);
+                            } else {
+                                sc.nextLine();
+                                System.out.print("Enter Manager's Name: ");
+                                String mgName = sc.nextLine();
+
+                                System.out.print("Enter Manager's Gender: ");
+                                String mgGender = sc.nextLine();
+
+                                System.out.print("Enter Manager's Age: ");
+                                int mgAge = sc.nextInt();
+
+                                Person p10 = new Person(mgName, mgGender, mgAge);
+                                ManagerT = new Manager(mgName, mgGender, mgAge);
+                            }
+                        } else
+                            ManagerT = null;
+                        teams.add(new Team(tName, tsName, tsCat, ManagerT));
+                        System.out.println("Your Team is Successfully Added.\n");
+                        displayTeams(teams);
+
+                    }
+                    break;
+                case 3:
+                    System.out.println("Thank you for using our system!!!");
+                    System.exit(0);
+                    break;
+            }
+        } while ((0 < ch1 || ch1 > 4) || (!sc.hasNextInt()));
+        displayMenu();
+        ch1 = sc.nextInt();
+    }
+}
                                     
