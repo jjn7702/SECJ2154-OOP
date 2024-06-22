@@ -3,7 +3,6 @@
 ![book 2](https://github.com/jjn7702/SECJ2154-OOP/assets/172096938/bdd7c42f-454b-4200-a8ef-024111d8b5ef)
 
 ![Colorful Book Store Education Free Logo](https://github.com/jjn7702/SECJ2154-OOP/assets/172096938/ad630a63-c435-46f9-b4d2-cb99b238a953)
-
 Hello,Welcome to BOOKBYTES ! A trusted book recommendation system.
 
 BOOKBYTES is your trusted book recommendation system that enhances your reading journey. Our platform is designed to provide personalized book recommendations tailored to your unique preferences, helping you discover books you'll love and increasing your engagement and satisfaction.
