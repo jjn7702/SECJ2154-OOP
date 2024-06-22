@@ -76,15 +76,10 @@ public class Embassy extends User implements userDisplay {
         setIdentification_Card(inp.nextLine());
         System.out.print("Email: ");
         setEmail(inp.nextLine());
-
         System.out.print("Location: ");
         location = inp.nextLine();
         System.out.print("Position: ");
         position = inp.nextLine();
-        System.out.print("Embassy Number: ");
-        embassy_number = inp.nextLine();
-
-        // new credentialsdsadasdasdas
         display();
     }
 

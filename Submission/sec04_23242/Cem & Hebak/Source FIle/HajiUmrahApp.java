@@ -178,7 +178,8 @@ public class HajiUmrahApp {
                                                                                                 } else if (choice4 == 3) {
                                                                                                         jemaah.get(i).updateUserInfo();
                                                                                                 } else {
-                                                                                                        System.out.println("Invalid choice, please enter a number within the range.");
+                                                                                                        System.out.println(
+                                                                                                                        "Invalid choice, please enter a number within the range.");
                                                                                                 }
                                                                                         } while (choice4 != 3
                                                                                                         && choice4 != 4);
@@ -358,10 +359,11 @@ public class HajiUmrahApp {
                                                                                                                 "Invalid choice, please enter a number within the range.\n");
                                                                                         }
 
-                                                                                } else if(choice3 == 3){
+                                                                                } else if (choice3 == 3) {
                                                                                         doktor.get(i).updateUserInfo();
-                                                                                } else{
-                                                                                        System.out.println("Invalid choice, please enter a number within the range.");
+                                                                                } else {
+                                                                                        System.out.println(
+                                                                                                        "Invalid choice, please enter a number within the range.");
                                                                                 }
 
                                                                         } while (choice3 != 3 && choice3 != 4);
@@ -442,10 +444,10 @@ public class HajiUmrahApp {
                                                                                                 }
                                                                                                 System.out.println();
                                                                                                 System.out.print(
-                                                                                                                "[a] Press 0 for Exit \n[b] Press number of jemaah [1 - "
+                                                                                                                "[0] Exit \n[1 - "
                                                                                                                                 + JemaahWithEmbassy
                                                                                                                                                 .size()
-                                                                                                                                + "]\n");
+                                                                                                                                + "] Pick jemaah\n");
                                                                                                 System.out.print(
                                                                                                                 "Jemaah Number: ");
                                                                                                 choice5 = inp.nextInt();
@@ -465,11 +467,12 @@ public class HajiUmrahApp {
                                                                                                                         "Invalid choice, please enter a number within the range.\n");
                                                                                                 }
                                                                                                 break;
-                                                                                        case 3: 
+                                                                                        case 3:
                                                                                                 pegawai.get(k).updateUserInfo();
                                                                                                 break;
                                                                                         default:
-                                                                                                System.out.println("Invalid choice, please enter a number within the range.");
+                                                                                                System.out.println(
+                                                                                                                "Invalid choice, please enter a number within the range.");
                                                                                                 break;
                                                                                 }
                                                                         } while (choice3 != 3 && choice3 != 4);
