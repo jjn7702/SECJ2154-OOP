@@ -15,7 +15,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 | No | Name | Project |
 | --- | --- | :---: |
-| 1 | [Group 2](Submission/sec04_23242/Group2) | <a href="../sec04_23242/Group2/readme.md"><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
+| 1 | [Group 2](Submission/sec04_23242/Group2) | <a href="../sec04_23242/Group2/readme.md"><img src="[/./images/clipboard.png](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/Group2/Images/istockphoto-1441007185-640x640.jpg)" width="24px" height="24px" ></a> |
 | 2 | [capybara](../sec04_23242/capybara/readme.md) | <a href="../sec04_23242/capybara/readme.md" ><img src="/./images/capybaraLogo.png" width="32px" height="32px" ></a> |
 | 3 | [Group 3](Group%203/readme.md) | <a href="Group%203/readme.md" ><img src="Group%203/image/g3_icon.png" width="32px" height="32px"></a> |
 | 4 | [Group 4](../sec04_23242/Group4/readme.md) | <a href="../sec04_23242/Group4/readme.md" ><img src="/./images/clipboard.png" width="24px" height="24px" ></a> |
