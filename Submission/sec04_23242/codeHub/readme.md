@@ -6,6 +6,10 @@
 💸 Personal Finance Manager 💸
 </h1>
 
+<p align="center">
+  <img src="https://github.com/jjn7702/SECJ2154-OOP/blob/main/images/CodeHubLogo.png" alt="Code Hub Logo"/>
+</p>
+
 # Appendix :red_circle:
 - [Overview of The Project](#description)
 - [Analysis and Design](#analysis)
@@ -64,4 +68,4 @@ Click the link here to view the full version:
 ## Findings <a name="findings"></a>📊
 - [Source Code](https://github.com/jjn7702/SECJ2154-OOP/tree/main/Submission/sec04_23242/codeHub/source-code)
 - [Project Report](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/files/CodeHub_-_Project_Report_.pdf)
-- [Presentation Slide]()
+- [Presentation Slide](https://github.com/jjn7702/SECJ2154-OOP/blob/main/Submission/sec04_23242/codeHub/files/OOP%20Slide%20Presentation.pdf)

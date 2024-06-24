@@ -161,8 +161,8 @@ class Buyer extends User implements interfaceBuyer {
                 int num = 0;
                 for (User s : sellers) {
                     for (int q = 0; q < s.getStore().getProducts().size(); q++)
-                        if (s.getStore().getAdd().getTown().equals(add.getTown())
-                                && (s.getStore().getProducts().get(q).contains(x))) {
+                        if (s.getStore().getAdd().getState().toLowerCase().equals(add.getState().toLowerCase())
+                            && (s.getStore().getProducts().get(q).contains(x))) {
                             gz[num] = s.getStore().toString();
                             num++;
                         }

@@ -213,7 +213,7 @@ public class GrocerySystem {
                     check = true;
                 else
                     return atm;
-            } while (!check);
+            } while (check);
         } else {
             System.out.print("Please enter your email: ");
             String e = inp.nextLine().toLowerCase();
