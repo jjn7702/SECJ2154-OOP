@@ -47,8 +47,3 @@ public class Task {
         }
     }
 }
-
-//     public void setStatus(String s) {
-//         status = s;
-//     }
-// }

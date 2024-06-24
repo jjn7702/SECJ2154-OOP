@@ -24,6 +24,10 @@ public class Report {
         return content;
     }
 
+    public String getSubmissionDate() {
+        return submissionDate;
+    }
+
     public void setReportID(String rID) {
         reportID = rID;
     }
@@ -36,19 +40,15 @@ public class Report {
         content = c;
     }
 
+    public void setSubmissionDate(String submissionDate) {
+        this.submissionDate = submissionDate;
+    }
+
     public Review getReview() {
         return review;
     }
 
     public void setReview(Review r) {
         review = r;
-    }
-
-    public String getSubmissionDate() {
-        return submissionDate;
-    }
-
-    public void setSubmissionDate(String submissionDate) {
-        this.submissionDate = submissionDate;
     }
 }

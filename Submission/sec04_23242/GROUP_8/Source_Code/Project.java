@@ -10,10 +10,6 @@ class Project {
     private Team team;
     private Instructor instructor;
 
-    public Project() { 
-        this.milestone = new Vector<>();
-    }
-
     public Project(String projectID, String title, String desc, Report report, Team team, Instructor instructor) {
         this.projectID = projectID;
         this.title = title;

@@ -1,6 +1,5 @@
 class Student extends User {
     private String matricsNumber, role;
-    private Team team;
 
     public Student(String mat_No ,String name, String email, String r) {
         super(name, email);
@@ -27,20 +26,6 @@ class Student extends User {
         role = r;
     }
     //-------------
-
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        if (this.team!= null) {
-            this.team.removeMember(this);
-        }
-        this.team = team;
-        if (team!= null) {
-            team.addMember(this);
-        }
-    }
 
     @Override
     public void display() {
